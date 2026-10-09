@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#6D28D9">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="CatalogoWha">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<title>Catalogo Wha — Catalogue en ligne avec panier et commandes WhatsApp pour votre commerce</title>
+<meta name="description" id="metaDesc" content="Créez gratuitement votre catalogue en ligne : publiez vos produits, partagez un lien unique et recevez des commandes complètes sur WhatsApp. Sans site e-commerce, sans commission.">
+<meta name="keywords" id="metaKw" content="catalogue en ligne WhatsApp, catalogue digital commerçant, commandes via WhatsApp, panier sans site e-commerce, vendre sur WhatsApp">
+<link rel="canonical" id="canon" href="https://TU-DOMINIO-AQUI.com/?lang=fr">
+<link rel="alternate" hreflang="fr" id="hl-fr" href="https://TU-DOMINIO-AQUI.com/?lang=fr">
+<link rel="alternate" hreflang="es" id="hl-es" href="https://TU-DOMINIO-AQUI.com/?lang=es">
+<link rel="alternate" hreflang="ar" id="hl-ar" href="https://TU-DOMINIO-AQUI.com/?lang=ar">
+<link rel="alternate" hreflang="x-default" id="hl-x" href="https://TU-DOMINIO-AQUI.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Catalogo Wha">
+<meta property="og:title" id="ogTitle" content="Catalogo Wha — Catalogue en ligne avec panier et commandes WhatsApp">
+<meta property="og:description" id="ogDesc" content="Publiez vos produits, partagez un lien et recevez des commandes complètes sur WhatsApp. Sans site e-commerce ni commission.">
+<meta property="og:url" id="ogUrl" content="https://TU-DOMINIO-AQUI.com/?lang=fr">
+<meta property="og:image" id="ogImg" content="https://TU-DOMINIO-AQUI.com/og.png">
+<meta property="og:locale" id="ogLocale" content="fr_FR">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="ar_MA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" id="twTitle" content="Catalogo Wha — Catalogue en ligne avec panier et commandes WhatsApp">
+<meta name="twitter:description" id="twDesc" content="Publiez vos produits, partagez un lien et recevez des commandes complètes sur WhatsApp.">
+<meta name="twitter:image" id="twImg" content="https://TU-DOMINIO-AQUI.com/og.png">
+<script type="application/ld+json" id="jsonLd">{}</script>
+<style>
+:root{--violet:#6D28D9;--violet2:#7C3AED;--ink:#221C3A;--muted:#6E6A85;--bg:#F7F5FC;--lav:#EFEBFA;--line:#E9E4F6;--wa:#25D366;--wateal:#128C7E;--wadeep:#075E54;--sun:#FDF3DF;--mint:#E4F6EC;--sky:#E3F1FD;--rose:#FBE4EF;--ok:#16A34A;--err:#DC2626;--r:18px}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:500;background:var(--bg);color:var(--ink);line-height:1.55}
+h1,h2,h3,.bold{font-weight:750}
+[dir="rtl"] body{font-family:"Segoe UI","Tahoma",sans-serif}
+img{max-width:100%}
+.container{max-width:1120px;margin:auto;padding:0 24px}
+section{padding:76px 0}
+h1,h2,h3{line-height:1.15;letter-spacing:-.5px}
+h2{font-size:clamp(28px,4vw,40px)}
+p{color:var(--muted)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:750;letter-spacing:.14em;text-transform:uppercase;color:var(--violet)}
+[dir="rtl"] .eyebrow::before{order:1}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--violet)}
+.center{text-align:center}
+.lead{max-width:640px;margin:14px auto 0}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font:inherit;font-weight:750;border-radius:12px;padding:13px 22px;transition:.2s;text-decoration:none}
+.btn-primary{background:var(--violet);color:#fff;box-shadow:0 10px 24px rgba(109,40,217,.28)}
+.btn-primary:hover{background:#5B21B6;transform:translateY(-1px)}
+.btn-primary:disabled{opacity:.6;cursor:not-allowed}
+.btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn-wa{background:var(--wateal);color:#fff;width:100%;justify-content:center}
+.btn-wa:hover{background:var(--wadeep)}
+.btn-sm{padding:8px 14px;font-size:14px;border-radius:10px}
+.btn-xs{padding:6px 10px;font-size:12px;border-radius:8px}
+.checks{display:flex;gap:22px;flex-wrap:wrap;margin-top:18px;font-size:14px;color:var(--muted)}
+.checks span::before{content:"✓";color:var(--wateal);font-weight:900;margin-right:7px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:0 10px 30px rgba(76,29,149,.06)}
+.ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:21px;margin-bottom:14px}
+.bg-lav{background:var(--lav)}.bg-mint{background:var(--mint)}.bg-sun{background:var(--sun)}.bg-sky{background:var(--sky)}.bg-rose{background:var(--rose)}
+.grid{display:grid;gap:22px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.nav{position:sticky;top:0;z-index:40;background:rgba(247,245,252,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:14px;padding:12px 20px;max-width:1120px;margin:auto;flex-wrap:nowrap}
+.logo{font-weight:750;font-size:19px;display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);white-space:nowrap}
+.logo i{width:28px;height:28px;border-radius:8px;background:var(--violet);color:#fff;display:grid;place-items:center;font-style:normal;font-size:15px;flex:none}
+.nav a.l{color:var(--muted);text-decoration:none;font-weight:750;font-size:13.5px;white-space:nowrap}
+.nav a.l:hover{color:var(--violet)}
+.nav .sp{flex:1}
+.burger{display:none}
+.lang-switch{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:12px;font-weight:750}
+.lang-switch button{border:0;background:none;padding:7px 10px;cursor:pointer;color:var(--muted)}
+.lang-switch button.on{background:var(--violet);color:#fff}
+.user-box{display:inline-flex;align-items:center;gap:8px;background:var(--lav);border-radius:10px;padding:6px 10px;font-size:13px;font-weight:750;color:var(--violet)}
+.hero{padding:70px 0 90px;background:linear-gradient(180deg,#F3EFFC,var(--bg))}
+.hero-in{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(34px,4.6vw,54px);margin:16px 0 18px}
+.hero h1 .wa{color:var(--wateal);display:inline-flex;align-items:center;gap:10px}
+.wa-ic{width:.95em;height:.95em;border-radius:50%;background:var(--wa);display:inline-grid;place-items:center}
+.wa-ic svg{width:62%;height:62%;fill:#fff}
+.hero-visual{position:relative;display:flex;justify-content:center;padding:20px 0}
+.phone{width:262px;border:9px solid #241E3B;border-radius:38px;background:#fff;overflow:hidden;box-shadow:0 30px 60px rgba(34,28,58,.25)}
+.phone::before{content:"";display:block;width:90px;height:18px;background:#241E3B;border-radius:0 0 12px 12px;margin:0 auto}
+.pscreen{padding:10px}
+.phead{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:750;padding:6px 4px}
+.phead i{width:24px;height:24px;border-radius:7px;background:var(--violet);color:#fff;display:grid;place-items:center;font-style:normal;font-size:12px}
+.phead s{margin-left:auto;text-decoration:none}
+[dir="rtl"] .phead s{margin-left:0;margin-right:auto}
+.pbanner{background:linear-gradient(120deg,#EDE7FB,#F6F1FE);border-radius:12px;padding:14px;font-size:13px;font-weight:750;margin-bottom:10px}
+.pbanner small{display:block;font-weight:500;color:var(--muted);margin:4px 0 8px}
+.pbanner b{font-size:15px;font-weight:750}
+.pbtn{background:var(--violet);color:#fff;border:0;border-radius:8px;font-size:10px;font-weight:750;padding:6px 10px;margin-top:8px}
+.pcats{display:flex;gap:6px;margin-bottom:10px}
+.pcats span{font-size:9px;font-weight:750;background:var(--lav);border-radius:20px;padding:4px 9px;color:var(--violet)}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pitem{border:1px solid var(--line);border-radius:10px;padding:8px;font-size:9px;text-align:center}
+.pitem i{font-style:normal;font-size:26px;display:block;margin-bottom:4px}
+.pitem b{display:block;font-size:9px;font-weight:750}
+.pitem s{display:block;text-decoration:none;color:var(--violet);font-weight:750}
+.wa-float{position:absolute;right:-6%;bottom:6%;width:250px;border-radius:14px;overflow:hidden;box-shadow:0 24px 50px rgba(34,28,58,.28)}
+[dir="rtl"] .wa-float{right:auto;left:-6%}
+.wa-head{background:var(--wadeep);color:#fff;padding:10px 12px;font-size:12px;font-weight:750;display:flex;gap:8px;align-items:center}
+.wa-head small{display:block;font-weight:500;opacity:.8;font-size:9px}
+.wa-head .wa-ic{background:var(--wa);width:26px;height:26px;flex:none}
+.wa-body{background:#ECE5DD;padding:10px;display:grid;gap:8px}
+.bub{border-radius:10px;padding:8px 10px;font-size:10px;line-height:1.5;max-width:92%}
+.bub.in{background:#fff}
+.bub.out{background:#D9FDD3;justify-self:end}
+[dir="rtl"] .bub.out{justify-self:start}
+.share-chip{position:absolute;left:-4%;top:12%;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:12px;font-weight:750;color:var(--violet);box-shadow:0 14px 30px rgba(34,28,58,.14)}
+[dir="rtl"] .share-chip{left:auto;right:-4%}
+.cmp-card{border-radius:22px;padding:30px;display:flex;flex-direction:column;align-items:center;gap:20px}
+.cmp-card.bad{background:#F2F0F7}
+.cmp-card.good{background:var(--lav)}
+.cmp-card h3{font-size:16px}
+.cmp-card.good h3{color:var(--violet)}
+.cmp-list{list-style:none;display:grid;gap:10px;font-size:13.5px;color:var(--muted);text-align:left}
+[dir="rtl"] .cmp-list{text-align:right}
+.cmp-list li::before{content:"—";margin-right:8px;color:#B4AFC6}
+[dir="rtl"] .cmp-list li::before{content:"—";margin-right:0;margin-left:8px}
+.cmp-list.ok li::before{content:"✓";color:var(--wateal);font-weight:900}
+.chathead{background:var(--wadeep);color:#fff;font-size:11px;font-weight:750;padding:9px 12px;border-radius:12px 12px 0 0}
+.chatscreen{background:#ECE5DD;padding:10px;display:grid;gap:7px;border-radius:0 0 12px 12px}
+.psum{background:#F4F1FB;border:1px dashed #C9B8F0;border-radius:10px;padding:9px;font-size:9.5px;margin-top:8px}
+.psum div{display:flex;justify-content:space-between;margin:3px 0}
+.psum b{border-top:1px solid #D9CFF0;padding-top:5px;display:flex;justify-content:space-between}
+.step-ill{height:150px;border-radius:14px;display:grid;place-items:center;font-size:44px;margin-bottom:18px}
+.step-n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--lav);color:var(--violet);font-weight:750;font-size:13px;margin-bottom:10px}
+.type{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center;font-weight:750;font-size:13.5px}
+.type .ico{margin:0 auto 10px;width:42px;height:42px;font-size:18px}
+.feat h3{font-size:16px;margin-bottom:8px}
+.feat p{font-size:13.5px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.ul-check{list-style:none;display:grid;gap:12px;margin:22px 0;font-size:15px;color:var(--muted)}
+.ul-check li::before{content:"✓";color:var(--wateal);font-weight:900;margin-right:10px}
+[dir="rtl"] .ul-check li::before{margin-right:0;margin-left:10px}
+.tags{display:flex;gap:10px;flex-wrap:wrap}
+.tag{background:var(--mint);color:#2F7D64;border-radius:8px;padding:7px 12px;font-size:12px;font-weight:750}
+.tag.lav{background:var(--lav);color:var(--violet)}
+.panel-ill{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 24px 50px rgba(34,28,58,.14)}
+.panel-ill .bar{background:var(--lav);height:26px;display:flex;gap:5px;align-items:center;padding:0 10px}
+.panel-ill .bar i{width:8px;height:8px;border-radius:50%;background:#C8BFE4}
+.panel-body{display:grid;grid-template-columns:64px 1fr;min-height:220px}
+.panel-side{background:var(--violet);padding:14px 10px;display:grid;gap:10px;align-content:start}
+.panel-side i{height:8px;border-radius:4px;background:rgba(255,255,255,.5)}
+.panel-main{padding:16px;display:grid;gap:10px;align-content:start}
+.row-ill{display:grid;grid-template-columns:26px 1fr 60px 70px;gap:10px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:8px}
+.row-ill i{height:8px;border-radius:4px;background:#E4DEF4}
+.row-ill .ok{height:16px;border-radius:6px;background:var(--mint)}
+.dark{background:radial-gradient(900px 420px at 15% -10%,#5B2C8F,transparent),#251537;color:#fff}
+.dark p{color:#C9BFE0}
+.dark .eyebrow{color:#C9B4F5}.dark .eyebrow::before{background:#C9B4F5}
+.dark-cols{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);margin:40px 0 30px}
+.dark-cols div{padding:34px 20px;text-align:center;font-weight:750}
+.dark-cols div+div{border-left:1px solid rgba(255,255,255,.14)}
+[dir="rtl"] .dark-cols div+div{border-left:0;border-right:1px solid rgba(255,255,255,.14)}
+.dark-cols b{display:block;font-size:26px;color:#C9B4F5;margin-bottom:8px;font-weight:750}
+.dark-cols div:last-child b{color:var(--wa)}
+.faq-list{max-width:760px;margin:36px auto 0;text-align:left}
+[dir="rtl"] .faq-list{text-align:right}
+.faq-item{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.faq-item summary{cursor:pointer;padding:18px 22px;font-weight:750;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-size:20px;color:var(--violet);font-weight:750;transition:.2s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{padding:0 22px 18px;font-size:14.5px}
+.cat-head{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
+.cat-head-in{display:flex;align-items:center;gap:14px;padding:12px 24px;max-width:1120px;margin:auto;flex-wrap:wrap}
+.cat-head .logo i{background:var(--violet)}
+.search{flex:1;max-width:340px;margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+[dir="rtl"] .search{margin-left:0;margin-right:auto}
+.search input{border:0;background:none;font:inherit;outline:none;width:100%}
+.iconbtn{position:relative;background:var(--lav);border:0;border-radius:10px;width:40px;height:40px;font-size:17px;cursor:pointer}
+.badge{position:absolute;top:-6px;right:-6px;background:var(--violet);color:#fff;font-size:10px;font-weight:750;border-radius:20px;min-width:18px;height:18px;display:grid;place-items:center;padding:0 4px}
+[dir="rtl"] .badge{right:auto;left:-6px}
+.cat-banner{background:linear-gradient(120deg,#EDE7FB,#F8F4FE);border-radius:20px;padding:34px;margin:24px 0}
+.cat-banner .eyebrow{margin-bottom:8px}
+.cat-banner h2{font-size:clamp(22px,3vw,32px)}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 26px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:20px;padding:8px 16px;font:inherit;font-size:13.5px;font-weight:750;cursor:pointer;color:var(--muted);display:inline-flex;align-items:center;gap:7px}
+.chip.on{background:var(--violet);border-color:var(--violet);color:#fff}
+.chip img{width:18px;height:18px;border-radius:50%;object-fit:cover}
+.pgrid-real{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:20px;padding-bottom:70px}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:8px;position:relative}
+.pimg{height:150px;border-radius:12px;background:var(--lav);display:grid;place-items:center;font-size:58px;overflow:hidden}
+.pimg img{width:100%;height:100%;object-fit:cover}
+.promo{position:absolute;top:22px;left:22px;background:#F43F5E;color:#fff;font-size:11px;font-weight:750;border-radius:8px;padding:3px 8px}
+[dir="rtl"] .promo{left:auto;right:22px}
+.pname{font-weight:750;font-size:15px}
+.pdesc{font-size:12.5px;color:var(--muted);flex:1}
+.pprice{font-weight:750;color:var(--violet)}
+.pprice s{color:#B4AFC6;font-weight:500;margin-left:8px;font-size:13px}
+.scrim{position:fixed;inset:0;background:rgba(20,15,40,.45);z-index:55;opacity:0;pointer-events:none;transition:.25s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:#fff;z-index:60;display:flex;flex-direction:column;transform:translateX(105%);transition:.3s;box-shadow:-20px 0 50px rgba(34,28,58,.2)}
+[dir="rtl"] .drawer{right:auto;left:0;transform:translateX(-105%)}
+.drawer.on{transform:none}
+.drawer header{display:flex;align-items:center;gap:10px;padding:18px 20px;border-bottom:1px solid var(--line);font-weight:750}
+.drawer .body{flex:1;overflow:auto;padding:16px 20px;display:grid;gap:14px;align-content:start}
+.drawer footer{padding:18px 20px;border-top:1px solid var(--line)}
+.mm-link{display:block;padding:13px 10px;border-radius:10px;font-weight:750;color:var(--ink);text-decoration:none;font-size:15px}
+.mm-link:hover{background:var(--lav);color:var(--violet)}
+.mm-sep{height:1px;background:var(--line);margin:6px 0}
+.mm-lang{display:grid;gap:8px}
+.mm-lang-btn{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:11px 14px;font:inherit;font-weight:750;font-size:14px;cursor:pointer;color:var(--muted)}
+.mm-lang-btn.on{border-color:var(--violet);color:var(--violet);background:var(--lav)}
+.citem{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px}
+.citem .pimg{height:52px;font-size:26px;border-radius:10px}
+.qty{display:flex;align-items:center;gap:10px}
+.qty button{width:26px;height:26px;border-radius:8px;border:1px solid var(--line);background:#fff;font-weight:750;cursor:pointer}
+.totline{display:flex;justify-content:space-between;font-weight:750;font-size:17px;margin:10px 0 14px}
+.modal{position:fixed;inset:0;z-index:70;display:none;place-items:center;background:rgba(20,15,40,.5);padding:20px}
+.modal.on{display:grid}
+.modal-card{background:#fff;border-radius:20px;width:min(520px,100%);max-height:90vh;overflow:auto;padding:28px}
+.modal-card h3{margin-bottom:6px}
+.field{margin:14px 0}
+.field label{font-size:13px;font-weight:750;display:block;margin-bottom:6px}
+.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 12px;font:inherit;outline:none;background:var(--bg);transition:border-color .2s}
+.field input:focus,.field textarea:focus{border-color:var(--violet)}
+.field input.valid{border-color:var(--ok)}
+.field input.invalid{border-color:var(--err)}
+.field .hint{font-size:12px;margin-top:4px;color:var(--muted)}
+.field .hint.err{color:var(--err)}
+.field .hint.ok{color:var(--ok)}
+.radio-row{display:grid;gap:8px}
+.radio-row label{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-weight:750;font-size:14px;cursor:pointer}
+.radio-row input{accent-color:var(--violet)}
+.sumbox{background:var(--bg);border:1px dashed #C9B8F0;border-radius:12px;padding:14px;font-size:14px;margin:16px 0}
+.sumbox div{display:flex;justify-content:space-between;margin:4px 0}
+.admin-wrap{max-width:1000px;margin:auto;padding:30px 24px 80px}
+.tabs{display:flex;gap:10px;margin:22px 0;flex-wrap:wrap}
+.tab{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 18px;font:inherit;font-weight:750;cursor:pointer;color:var(--muted)}
+.tab.on{background:var(--violet);border-color:var(--violet);color:#fff}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;min-width:600px}
+.tbl th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:10px;font-weight:750}
+[dir="rtl"] .tbl th{text-align:right}
+.tbl td{padding:10px;border-top:1px solid var(--line);vertical-align:middle}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.order-card{border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px;background:#fff}
+.order-card .head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:750}
+.st{border:1px solid var(--line);border-radius:8px;padding:7px 10px;font:inherit;font-weight:750}
+.toast-stack{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);display:grid;gap:8px;z-index:90;pointer-events:none}
+.toast{background:var(--ink);color:#fff;border-radius:12px;padding:12px 20px;font-weight:750;font-size:14px;opacity:0;transform:translateY(20px);transition:.3s;pointer-events:auto;white-space:nowrap}
+.toast.on{opacity:1;transform:translateY(0)}
+footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font-size:14px}
+.empty-state{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted)}
+.empty-state h3{color:var(--ink);margin-bottom:8px}
+.empty-state .ico-big{font-size:54px;display:block;margin-bottom:12px;opacity:.6}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}
+.contact-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;text-align:center}
+.contact-card .ico{margin:0 auto 12px;width:54px;height:54px;background:var(--lav);border-radius:14px;font-size:24px;display:grid;place-items:center}
+.contact-card h3{font-size:15px;margin-bottom:6px}
+.contact-card a{color:var(--violet);text-decoration:none;font-weight:750}
+.biz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-top:30px}
+.biz-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px;cursor:pointer;transition:.2s}
+.biz-card:hover{border-color:var(--violet);transform:translateY(-2px);box-shadow:0 14px 30px rgba(109,40,217,.12)}
+.biz-avatar{width:48px;height:48px;border-radius:12px;background:var(--lav);display:grid;place-items:center;font-size:22px;color:var(--violet);font-weight:750}
+.biz-card h4{font-weight:750;font-size:15px}
+.biz-card .meta{font-size:12px;color:var(--muted)}
+.auth-tabs{display:flex;gap:10px;margin-bottom:18px}
+.auth-tabs button{flex:1;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px;cursor:pointer;font-weight:750;color:var(--muted)}
+.auth-tabs button.on{background:var(--violet);border-color:var(--violet);color:#fff}
+.lib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px;margin-top:16px}
+.lib-item{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;aspect-ratio:1;background:var(--lav)}
+.lib-item img{width:100%;height:100%;object-fit:cover}
+.lib-del{position:absolute;top:6px;right:6px;background:rgba(255,255,255,.92);border:0;border-radius:8px;width:30px;height:30px;cursor:pointer;font-size:14px}
+[dir="rtl"] .lib-del{right:auto;left:6px}
+.lib-item.pick{cursor:pointer}
+.lib-item.pick:hover{outline:3px solid var(--violet)}
+.catimg-row{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:10px;flex-wrap:wrap}
+.catimg-row img{width:38px;height:38px;border-radius:10px;object-fit:cover;background:var(--lav)}
+.catimg-row b{flex:1;font-size:14px}
+.fab{position:fixed;right:22px;bottom:22px;z-index:65;width:58px;height:58px;border-radius:50%;border:0;background:var(--violet);color:#fff;font-size:24px;cursor:pointer;box-shadow:0 16px 36px rgba(109,40,217,.4)}
+[dir="rtl"] .fab{right:auto;left:22px}
+.bot-panel{position:fixed;right:22px;bottom:92px;z-index:66;width:min(360px,calc(100% - 32px));background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 30px 60px rgba(34,28,58,.3);display:flex;flex-direction:column;overflow:hidden}
+[dir="rtl"] .bot-panel{right:auto;left:22px}
+.bot-panel header{display:flex;align-items:center;gap:10px;padding:14px 16px;background:var(--violet);color:#fff;font-weight:750}
+.bot-msgs{padding:14px;display:grid;gap:10px;max-height:300px;overflow:auto;background:var(--bg)}
+.bot-bub{border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.5;max-width:88%}
+.bot-bub.in{background:#fff;border:1px solid var(--line)}
+.bot-bub.out{background:var(--lav);justify-self:end}
+[dir="rtl"] .bot-bub.out{justify-self:start}
+.bot-chips{display:flex;gap:8px;flex-wrap:wrap;padding:10px 12px;border-top:1px solid var(--line);background:#fff}
+.bot-chip{border:1px solid var(--line);background:var(--bg);border-radius:20px;padding:7px 12px;font:inherit;font-size:12px;font-weight:750;cursor:pointer;color:var(--violet)}
+.bot-input{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--line);background:#fff}
+.bot-input input{flex:1;border:1px solid var(--line);border-radius:10px;padding:9px 12px;font:inherit;outline:none}
+.bot-input button{border:0;background:var(--violet);color:#fff;border-radius:10px;width:40px;cursor:pointer;font-size:16px}
+@media(max-width:1100px){#navViewCat{display:none}}
+@media(max-width:960px){
+  .hero-in,.split,.g2,.g3,.g4,.dark-cols,.contact-grid{grid-template-columns:1fr}
+  .wa-float{right:0}.share-chip{left:0}.form-grid{grid-template-columns:1fr}
+  .nav a.l,.nav .lang-switch,#userBox,#ctaNav{display:none}
+  .burger{display:grid}
+}
+@media(max-width:720px){#typesGrid{grid-template-columns:repeat(3,1fr)!important}}
+</style>
+</head>
+<body>
+
+<div id="v-landing" class="view">
+<header class="nav"><div class="nav-in">
+  <button class="iconbtn burger" onclick="openMenu()" aria-label="Menú">☰</button>
+  <a class="logo" href="#/" aria-label="Catalogo Wha"><i>W</i>Catalogo Wha</a>
+  <span class="sp"></span>
+  <a class="l" href="#pasos" data-i18n="nav_how">Fonctionnement</a>
+  <a class="l" href="#funciones" data-i18n="nav_feat">Fonctions</a>
+  <a class="l" href="#negocios" data-i18n="nav_biz">Commerces</a>
+  <a class="l" href="#faq" data-i18n="nav_faq">FAQ</a>
+  <a class="l" href="#contacto" data-i18n="nav_contact">Contact</a>
+  <div class="lang-switch" id="langSwitch">
+    <button data-lang="fr" class="on">🇫🇷</button>
+    <button data-lang="es">🇪🇸</button>
+    <button data-lang="ar">🇲🇦</button>
+  </div>
+  <span id="userBox"></span>
+  <button class="btn btn-ghost btn-sm" id="navViewCat" onclick="viewMyCatalog()" data-i18n="nav_view">Voir catalogue</button>
+  <button class="btn btn-primary btn-sm" id="ctaNav" data-i18n="nav_create">Créer mon catalogue</button>
+</div></header>
+
+<section class="hero"><div class="container hero-in">
+  <div>
+    <span class="eyebrow" data-i18n="hero_eyebrow">Vendez plus sur WhatsApp</span>
+    <h1><span data-i18n="hero_title1">Votre catalogue en ligne avec panier et commande directe sur</span>
+      <span class="wa">WhatsApp <span class="wa-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></span>
+    </h1>
+    <p data-i18n="hero_desc">Publiez vos produits une seule fois, partagez un lien et recevez des commandes complètes : quantités, total et coordonnées du client. Sans site e-commerce, sans commission, sans ventes perdues dans les messages.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:26px">
+      <button class="btn btn-primary" id="ctaHero" data-i18n="hero_cta1">Créer mon catalogue gratuit</button>
+      <button class="btn btn-ghost" onclick="viewMyCatalog()" data-i18n="hero_cta2">Voir un catalogue en direct</button>
+    </div>
+    <div class="checks"><span data-i18n="hero_chk1">Prêt en quelques minutes</span><span data-i18n="hero_chk2">0% de commission par vente</span></div>
+  </div>
+  <div class="hero-visual">
+    <div class="share-chip">🔗 <span style="font-family:monospace">votre-lien.catalogowha</span></div>
+    <div class="phone" aria-hidden="true"><div class="pscreen">
+      <div class="phead"><i>W</i> <span data-i18n="mock_biz">Votre commerce</span> <s>🔍 </s></div>
+      <div class="pbanner"><b data-i18n="mock_banner">Tout votre stock<br>à un geste</b><small>Catalogo Wha</small><button class="pbtn" data-i18n="mock_explore">Voir les produits</button></div>
+      <div class="pcats"><span data-i18n="mock_all">🏷️ Tous</span><span data-i18n="mock_cats">📦 Catégories</span></div>
+      <div class="pgrid">
+        <div class="pitem"><i>🛍️</i><b data-i18n="mock_p1">Produit</b><s>—</s></div>
+        <div class="pitem"><i>🛍️</i><b data-i18n="mock_p2">Produit</b><s>—</s></div>
+      </div>
+    </div></div>
+    <div class="wa-float" aria-hidden="true">
+      <div class="wa-head"><span class="wa-ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="#25D366"/></svg></span><span>Catalogo Wha<small data-i18n="mock_wa_sub">Commande reçue</small></span></div>
+      <div class="wa-body">
+        <div class="bub in" data-i18n="mock_bub1">Bonjour ! Voici ma commande :<br>2 × Article A<br>1 × Article B<br><b>Total prêt</b></div>
+        <div class="bub out" data-i18n="mock_bub2">Parfait ! Je prépare ça ✓</div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="container center">
+  <h2 data-i18n="cmp_title">Vendre par chat, c'est bien.<br>Vendre par chat en désordre, non.</h2>
+  <p class="lead" data-i18n="cmp_lead">Chaque prix répété et chaque quantité relue est du temps perdu. Un catalogue remet de l'ordre sans changer votre façon de vendre.</p>
+  <div class="grid g2" style="margin-top:44px;text-align:left">
+    <div class="cmp-card bad">
+      <h3 data-i18n="cmp_bad_title">Aujourd'hui, message par message</h3>
+      <div class="phone" style="width:230px" aria-hidden="true">
+        <div class="chathead">← <span data-i18n="cmp_client">Client</span></div>
+        <div class="chatscreen">
+          <div class="bub in" data-i18n="cmp_b1">Tu me donnes le prix de… ?</div>
+          <div class="bub out" data-i18n="cmp_b2">📷 photo + prix</div>
+          <div class="bub in" data-i18n="cmp_b3">Et il y a une remise ?</div>
+          <div class="bub out" data-i18n="cmp_b4">💬 encore une explication</div>
+          <div class="bub in" data-i18n="cmp_b5">Ok, note-moi 2 et 1. Ça fait combien ?</div>
+        </div>
+      </div>
+      <ul class="cmp-list">
+        <li data-i18n="cmp_bad1">Vous répondez <b>aux mêmes questions</b> chaque jour.</li>
+        <li data-i18n="cmp_bad2">Vos prix vivent dans <b>d'anciens chats</b>.</li>
+        <li data-i18n="cmp_bad3">Une commande mal lue devient <b>une réclamation</b>.</li>
+      </ul>
+    </div>
+    <div class="cmp-card good">
+      <h3 data-i18n="cmp_good_title">Avec votre lien Catalogo Wha</h3>
+      <div class="phone" style="width:230px" aria-hidden="true"><div class="pscreen">
+        <div class="phead"><i>W</i> <span data-i18n="mock_biz">Votre commerce</span> <s>🛒</s></div>
+        <div class="pgrid">
+          <div class="pitem"><i>🛍️</i><b data-i18n="mock_p1">Produit</b><s>—</s></div>
+          <div class="pitem"><i>🛍️</i><b data-i18n="mock_p2">Produit</b><s>—</s></div>
+        </div>
+        <div class="psum"><div><span>2 × A</span><span>—</span></div><div><span>1 × B</span><span>—</span></div><b><span data-i18n="total">Total</span><span>—</span></b></div>
+        <button class="btn btn-wa btn-sm" style="margin-top:10px" data-i18n="send_wa">Envoyer la commande via WhatsApp</button>
+      </div></div>
+      <ul class="cmp-list ok">
+        <li data-i18n="cmp_good1">Le client <b>voit tout seul</b> : photos, prix et offres.</li>
+        <li data-i18n="cmp_good2">Le panier <b>additionne pour vous</b> quantités et total.</li>
+        <li data-i18n="cmp_good3">Vous recevez un message <b>clair et complet</b> à confirmer.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="pasos" style="background:#fff"><div class="container center">
+  <h2 data-i18n="steps_title">De zéro à la vente<br>en trois mouvements</h2>
+  <p class="lead" data-i18n="steps_lead">Sans installation ni technique : votre catalogue est public dès le premier jour.</p>
+  <div class="grid g3" style="margin-top:44px;text-align:left">
+    <div class="card"><div class="step-ill bg-lav" aria-hidden="true">🏪</div><span class="step-n">1</span><h3 data-i18n="step1_t">Ouvrez votre compte</h3><p style="font-size:14px;margin-top:8px" data-i18n="step1_d">Nom du commerce, votre WhatsApp et un mot de passe : votre espace est créé.</p></div>
+    <div class="card"><div class="step-ill bg-sun" aria-hidden="true">🛍️📦</div><span class="step-n">2</span><h3 data-i18n="step2_t">Publiez votre stock</h3><p style="font-size:14px;margin-top:8px" data-i18n="step2_d">Photos ou emojis, prix, offres et catégories. Modifiable à tout moment.</p></div>
+    <div class="card"><div class="step-ill bg-mint" aria-hidden="true">🔗</div><span class="step-n">3</span><h3 data-i18n="step3_t">Partagez votre lien</h3><p style="font-size:14px;margin-top:8px" data-i18n="step3_d">En story, sur les réseaux ou au comptoir : qui l'ouvre peut commander.</p></div>
+  </div>
+</div></section>
+
+<section><div class="container center">
+  <h2><span data-i18n="ben_title1">Un catalogue qui travaille</span> <span style="color:var(--violet)" data-i18n="ben_title2">même hors ligne</span></h2>
+  <p class="lead" data-i18n="ben_lead">Votre lien montre, additionne et prépare la commande. Vous confirmez et coordonnez sur WhatsApp.</p>
+  <div class="grid g3" style="margin-top:44px;text-align:left">
+    <div class="card"><div class="step-ill bg-lav" style="font-size:30px" aria-hidden="true">🛍️📦🏷️</div><h3 data-i18n="ben1_t">Un lien, tout votre stock</h3><p style="font-size:14px;margin:8px 0 12px" data-i18n="ben1_d">Fini les fichiers envoyés : un lien avec photos, prix et disponibilités.</p><span class="tag lav">🔗 <span data-i18n="ben1_tag">partagez-le partout</span></span></div>
+    <div class="card center"><div class="step-ill bg-sun" style="font-size:34px" aria-hidden="true">💰</div><h3 style="font-size:44px;color:var(--violet)">0%</h3><p style="font-size:14px;margin:6px 0"><b data-i18n="ben2_b">de commission par vente</b><br><span data-i18n="ben2_d">Ce que vous vendez reste à vous : nous ne touchons pas vos gains.</span></p></div>
+    <div class="card"><div class="step-ill bg-mint" style="font-size:30px" aria-hidden="true">💬</div><h3 data-i18n="ben3_t">Conclusion sur WhatsApp, comme toujours</h3><p style="font-size:14px;margin:8px 0 12px" data-i18n="ben3_d">La commande arrive prête ; vous convenez du paiement et de la livraison.</p><span class="tag">✓ <span data-i18n="ben3_tag">sans intermédiaire</span></span></div>
+  </div>
+</div></section>
+
+<section id="funciones" style="background:#fff"><div class="container">
+  <div class="center"><span class="eyebrow" data-i18n="feat_eye">Fonctions</span><h2 data-i18n="feat_title">Tout ce qu'il faut pour vendre,<br>rien de superflu</h2><p class="lead" data-i18n="feat_lead">Des outils pensés pour vendre par chat avec un ordre professionnel.</p></div>
+  <div class="grid g4" style="margin-top:44px">
+    <div class="card feat"><div class="ico bg-lav" aria-hidden="true">🔗</div><h3 data-i18n="f1">Lien de vente unique</h3><p data-i18n="f1d">Une adresse simple qui ouvre tout votre catalogue, sans téléchargement.</p></div>
+    <div class="card feat"><div class="ico bg-sky" aria-hidden="true">🔍</div><h3 data-i18n="f2">Recherche et catégories</h3><p data-i18n="f2d">Le client trouve en quelques secondes ce qu'il veut acheter.</p></div>
+    <div class="card feat"><div class="ico bg-mint" aria-hidden="true">🛒</div><h3 data-i18n="f3">Panier qui compte seul</h3><p data-i18n="f3d">Quantités, sous-total et total calculés sans erreur.</p></div>
+    <div class="card feat"><div class="ico bg-sun" aria-hidden="true">🧾</div><h3 data-i18n="f4">Commande gardée avant le chat</h3><p data-i18n="f4d">Chaque commande est enregistrée dans votre panneau, même sans message.</p></div>
+    <div class="card feat"><div class="ico bg-lav" aria-hidden="true">🚚</div><h3 data-i18n="f5">Retrait ou livraison, à vous de voir</h3><p data-i18n="f5d">Activez la livraison avec coût ou coordonnez par chat.</p></div>
+    <div class="card feat"><div class="ico bg-sky" aria-hidden="true">💳</div><h3 data-i18n="f6">Vos règles de paiement</h3><p data-i18n="f6d">Espèces, virement ou le moyen local que vous utilisez.</p></div>
+    <div class="card feat"><div class="ico bg-mint" aria-hidden="true">💵</div><h3 data-i18n="f7">Prix dans votre monnaie</h3><p data-i18n="f7d">Publiez dans la monnaie de votre pays, sans conversion bizarre.</p></div>
+    <div class="card feat"><div class="ico bg-sun" aria-hidden="true">️</div><h3 data-i18n="f8">Bibliothèque d'images</h3><p data-i18n="f8d">Suba sus fotos, elíjalas por categoría y reutilícelas sin pegar URLs.</p></div>
+  </div>
+</div></section>
+
+<section><div class="container split">
+  <div class="hero-visual" style="padding:0" aria-hidden="true">
+    <div class="phone"><div class="pscreen">
+      <div class="pbanner" style="display:flex;gap:10px;align-items:center"><span style="font-size:22px">🏪</span><span style="flex:1;height:8px;background:#D9CFF0;border-radius:4px"></span></div>
+      <div class="pgrid">
+        <div class="pitem"><i>🛍️</i></div><div class="pitem"><i>📦</i></div>
+        <div class="pitem"><i>🏷️</i></div><div class="pitem"><i>💼</i></div>
+      </div>
+      <button class="pbtn" style="width:100%;margin-top:10px;padding:10px" data-i18n="view_order">🛒 Voir commande</button>
+    </div></div>
+    <div class="wa-float" style="right:-10%;bottom:18%"><div class="wa-head"><span class="wa-ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="#25D366"/></svg></span><span data-i18n="order_sent">Commande envoyée</span></div><div class="wa-body"><div class="bub in" style="max-width:100%" data-i18n="order_conf">✓ Commande confirmée</div></div></div>
+  </div>
+  <div>
+    <span class="eyebrow" data-i18n="exp_eye">Pour votre client</span>
+    <h2 data-i18n="exp_title">Acheter prend moins de temps qu'écrire un message</h2>
+    <ul class="ul-check">
+      <li data-i18n="exp1">Parcourt les catégories sans rien demander.</li><li data-i18n="exp2">Cherche par nom instantanément.</li>
+      <li data-i18n="exp3">Voit les offres et le prix final sans surprise.</li><li data-i18n="exp4">Ajuste les quantités dans le panier.</li>
+      <li data-i18n="exp5">Choisit retrait ou livraison si vous l'offrez.</li><li data-i18n="exp6">Sélectionne son moyen de paiement parmi vos options.</li>
+      <li data-i18n="exp7">Envoie la commande sur votre WhatsApp en un geste.</li>
+    </ul>
+    <div class="tags"><span class="tag" data-i18n="exp_t1">Sans compte ni mot de passe</span><span class="tag" data-i18n="exp_t2">Fonctionne dans tout navigateur</span></div>
+  </div>
+</div></section>
+
+<section style="background:#fff"><div class="container split">
+  <div>
+    <span class="eyebrow" data-i18n="ctrl_eye">Pour vous</span>
+    <h2 data-i18n="ctrl_title">Vous décidez quoi vendre et comment</h2>
+    <ul class="ul-check">
+      <li data-i18n="ctrl1">Publiez, mettez en pause ou retirez en un clic.</li><li data-i18n="ctrl2">Changez prix et offres sans rien réimprimer.</li>
+      <li data-i18n="ctrl3">Réglez livraison et zones à votre façon.</li><li data-i18n="ctrl4">Historique complet des commandes reçues.</li>
+      <li data-i18n="ctrl5">Marquez les états : en attente, confirmé, livré.</li><li data-i18n="ctrl6">Votre lien court, facile à retenir et partager.</li>
+    </ul>
+    <div class="tags"><span class="tag lav" data-i18n="ctrl_t1">Sans engagement</span><span class="tag lav" data-i18n="ctrl_t2">Vos données restent vôtres</span></div>
+  </div>
+  <div class="panel-ill" aria-hidden="true">
+    <div class="bar"><i></i><i></i><i></i></div>
+    <div class="panel-body">
+      <div class="panel-side"><i style="width:70%"></i><i></i><i></i><i></i><i></i><i style="width:60%"></i></div>
+      <div class="panel-main">
+        <div style="height:10px;width:45%;background:#241E3B;border-radius:4px"></div>
+        <div class="row-ill"><span>🛍️</span><i></i><i></i><span class="ok"></span></div>
+        <div class="row-ill"><span>📦</span><i></i><i></i><span class="ok"></span></div>
+        <div class="row-ill"><span>🏷️</span><i></i><i></i><span class="ok"></span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="negocios"><div class="container center">
+  <h2 data-i18n="types_title">Pensé pour les commerces qui vendent chaque jour</h2>
+  <p class="lead" data-i18n="types_lead">Si votre vente se termine dans une conversation WhatsApp, ce catalogue la rend plus rapide et plus claire.</p>
+  <div class="grid" style="grid-template-columns:repeat(5,1fr);margin-top:40px" id="typesGrid"></div>
+  <h2 style="margin-top:70px" data-i18n="dir_title">Commerces qui vendent déjà avec Catalogo Wha</h2>
+  <p class="lead" data-i18n="dir_lead">Catalogues publics créés par la communauté : entrez, regardez, commandez.</p>
+  <div id="dirGrid" class="biz-grid"></div>
+</div></section>
+
+<section class="dark"><div class="container center">
+  <span class="eyebrow" data-i18n="dark_eye">La différence</span>
+  <h2 data-i18n="dark_title">Ce n'est pas une boutique en ligne :<br>c'est votre vente de toujours, en ordre</h2>
+  <p class="lead" data-i18n="dark_lead">Une boutique classique exige passerelles, plugins et maintenance. Vous avez seulement besoin de montrer, recevoir la commande et conclure sur WhatsApp.</p>
+  <div class="dark-cols">
+    <div><b>01</b><span data-i18n="dark1">Vous publiez une fois</span></div>
+    <div><b>02</b><span data-i18n="dark2">Le client commande clair</span></div>
+    <div><b>03</b><span data-i18n="dark3">Vous concluez sur WhatsApp</span></div>
+  </div>
+  <p class="lead" data-i18n="dark_lead2">Moins de friction pour démarrer, moins d'abandon pour votre client.</p>
+</div></section>
+
+<section id="faq" style="background:#fff"><div class="container center">
+  <span class="eyebrow" data-i18n="faq_eye">Questions fréquentes</span>
+  <h2 data-i18n="faq_title">Vos réponses avant de commencer</h2>
+  <div class="faq-list" id="faqList"></div>
+</div></section>
+
+<section class="center"><div class="container">
+  <h2 data-i18n="cta_title">Votre prochaine commande peut arriver en ordre dès aujourd'hui</h2>
+  <p class="lead" data-i18n="cta_lead">Créez votre catalogue, partagez le lien et laissez le panier travailler pour vous.</p>
+  <button class="btn btn-primary" style="margin-top:24px" id="ctaFinal" data-i18n="cta_btn">Créer mon catalogue gratuit</button>
+</div></section>
+
+<section id="contacto" style="background:var(--bg)"><div class="container center">
+  <span class="eyebrow" data-i18n="contact_eye">Contact</span>
+  <h2 data-i18n="contact_title">On parle de votre catalogue ?</h2>
+  <p class="lead" data-i18n="contact_lead">Écrivez-nous et nous vous aidons à lancer votre catalogue.</p>
+  <div class="contact-grid">
+    <div class="contact-card"><div class="ico" aria-hidden="true">🏢</div><h3 data-i18n="contact_name">Entreprise</h3><p style="font-weight:750;color:var(--violet)">Catalogo Wha</p></div>
+    <div class="contact-card"><div class="ico" aria-hidden="true">💬</div><h3 data-i18n="contact_wa">WhatsApp</h3><a href="https://wa.me/212690157092" target="_blank" rel="noopener">+212 6 90 15 70 92</a></div>
+    <div class="contact-card"><div class="ico" aria-hidden="true">✉️</div><h3 data-i18n="contact_email">Email</h3><a href="mailto:contact@clickpubli.com">contact@clickpubli.com</a></div>
+  </div>
+</div></section>
+
+<footer class="site"><div class="container" style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+  <a class="logo" href="#/"><i>W</i>Catalogo Wha</a>
+  <p style="flex:1" data-i18n="foot_desc">Catalogue en ligne et commandes via WhatsApp.</p>
+  <button class="btn btn-ghost btn-sm" id="footInstall" hidden onclick="installApp()">📲 <span data-i18n="install">Installer l'app</span></button>
+  <button class="btn btn-ghost btn-sm" onclick="go('admin')">⚙️ <span data-i18n="foot_panel">Panneau</span></button>
+</div></footer>
+</div>
+
+<div id="v-catalogo" class="view" hidden>
+<header class="cat-head"><div class="cat-head-in">
+  <button class="iconbtn" onclick="go('landing')" aria-label="Retour">‹</button>
+  <a class="logo" href="#/catalogo"><i id="catAvatar">W</i><span id="catName">—</span></a>
+  <div class="search">🔍<input id="searchInput" placeholder="Rechercher…" oninput="F.q=this.value.toLowerCase();renderCatalog()" aria-label="Rechercher"></div>
+  <button class="iconbtn" id="adminBtn2" onclick="go('admin')" aria-label="Panneau">⚙️</button>
+  <button class="iconbtn" onclick="openDrawer()" aria-label="Panier">🛒<span class="badge" id="cartCount">0</span></button>
+</div></header>
+<div class="container">
+  <div class="cat-banner"><span class="eyebrow" id="catEyebrow">—</span><h2 id="catTitle">—</h2>
+    <button class="btn btn-primary btn-sm" style="margin-top:14px" onclick="document.getElementById('gridZone').scrollIntoView({behavior:'smooth'})" data-i18n="mock_explore">Voir les produits</button></div>
+  <div id="gridZone"><div class="chips" id="chips"></div><div class="pgrid-real" id="productsGrid"></div></div>
+</div>
+<footer class="site"><div class="container center"><p><span id="catNameFoot">—</span> · <a href="mailto:contact@clickpubli.com" style="color:var(--violet)">contact@clickpubli.com</a></p></div></footer>
+</div>
+
+<div id="v-admin" class="view" hidden>
+<header class="cat-head"><div class="cat-head-in">
+  <button class="iconbtn" onclick="go('landing')" aria-label="Retour">‹</button>
+  <a class="logo"><i>W</i><span id="adminTitle">—</span></a>
+  <span class="sp" style="flex:1"></span>
+  <button class="btn btn-ghost btn-sm" onclick="logout()">🚪 <span data-i18n="logout">Déconnexion</span></button>
+  <button class="btn btn-primary btn-sm" onclick="viewMyCatalog()" data-i18n="admin_view_cat">Voir mon catalogue</button>
+</div></header>
+<div class="admin-wrap">
+  <div class="tabs">
+    <button class="tab on" id="tabProd" onclick="tab('prod')">📦 <span data-i18n="tab_prod">Produits</span></button>
+    <button class="tab" id="tabOrders" onclick="tab('orders')">🧾 <span data-i18n="tab_orders">Commandes</span> <span id="ordersCount"></span></button>
+    <button class="tab" id="tabMedia" onclick="tab('media')">🖼️ <span data-i18n="tab_media">Bibliothèque</span></button>
+    <button class="tab" id="tabCfg" onclick="tab('cfg')">⚙️ <span data-i18n="tab_cfg">Paramètres</span></button>
+    <button class="tab" id="tabShare" onclick="tab('share')">🔗 <span data-i18n="tab_share">Partager</span></button>
+  </div>
+  <div id="pProd">
+    <div class="card" style="margin-bottom:22px">
+      <h3 id="formTitle" data-i18n="add_prod">Ajouter produit</h3>
+      <input type="hidden" id="fId">
+      <div class="form-grid">
+        <div class="field"><label data-i18n="f_name">Nom *</label><input id="fName"></div>
+        <div class="field"><label data-i18n="f_cat">Catégorie *</label><input id="fCat"></div>
+        <div class="field"><label data-i18n="f_price">Prix *</label><input id="fPrice" type="number" min="0" step="0.01"></div>
+        <div class="field"><label data-i18n="f_promo">Prix promo (facultatif)</label><input id="fPromo" type="number" min="0" step="0.01"></div>
+        <div class="field"><label data-i18n="f_emoji">Emoji (image rapide)</label><input id="fEmoji"></div>
+        <div class="field"><label data-i18n="f_img">Image (URL ou bibliothèque)</label><div style="display:flex;gap:8px"><input id="fImg"><button type="button" class="btn btn-ghost btn-sm" onclick="openPicker('prod')">🖼️</button></div></div>
+      </div>
+      <div class="field"><label data-i18n="f_desc">Description</label><textarea id="fDesc" rows="2"></textarea></div>
+      <div style="display:flex;gap:10px"><button class="btn btn-primary btn-sm" onclick="saveProd()" data-i18n="save">Enregistrer produit</button><button class="btn btn-ghost btn-sm" onclick="clearForm()" data-i18n="clear">Effacer</button></div>
+    </div>
+    <div class="card tbl-wrap"><table class="tbl"><thead><tr><th></th><th data-i18n="th_prod">Produit</th><th data-i18n="th_cat">Catégorie</th><th data-i18n="th_price">Prix</th><th data-i18n="th_status">État</th><th></th></tr></thead><tbody id="prodList"></tbody></table></div>
+  </div>
+  <div id="pOrders" hidden><div id="ordersList"></div></div>
+  <div id="pMedia" hidden>
+    <div class="card">
+      <h3 data-i18n="lib_title">Bibliothèque d'images</h3>
+      <p style="font-size:13.5px;margin:6px 0 14px" data-i18n="lib_desc">Suba sus imágenes (se comprimen solas). Úselas en productos y categorías, o elimínelas cuando quiera.</p>
+      <label class="btn btn-primary btn-sm" style="cursor:pointer">📤 <span data-i18n="lib_upload">Subir imagen</span><input type="file" accept="image/*" multiple hidden onchange="uploadImgs(this.files);this.value=''"></label>
+      <div class="lib-grid" id="libGrid"></div>
+    </div>
+    <div class="card" style="margin-top:22px">
+      <h3 data-i18n="lib_cat_title">Imágenes por categoría</h3>
+      <p style="font-size:13.5px;margin:6px 0 14px" data-i18n="lib_cat_desc">Asigne una imagen de la biblioteca a cada categoría de su catálogo.</p>
+      <div id="catImgList"></div>
+    </div>
+  </div>
+  <div id="pCfg" hidden>
+    <div class="card">
+      <h3 data-i18n="cfg_biz">Données du commerce</h3>
+      <div class="form-grid">
+        <div class="field"><label data-i18n="cfg_name">Nom du commerce</label><input id="cfgName"></div>
+        <div class="field"><label data-i18n="cfg_wa">WhatsApp (indicatif + numéro, chiffres uniquement)</label><input id="cfgWa"></div>
+        <div class="field"><label data-i18n="cfg_email">Email de contact</label><input id="cfgEmail" type="email"></div>
+        <div class="field"><label data-i18n="cfg_cur">Symbole monétaire</label><input id="cfgCur"></div>
+        <div class="field"><label data-i18n="cfg_pay">Moyens de paiement (séparés par virgule)</label><input id="cfgPay"></div>
+        <div class="field"><label data-i18n="cfg_eye">Petit texte de bannière</label><input id="cfgEye"></div>
+      </div>
+      <div class="field"><label data-i18n="cfg_banner">Titre de bannière</label><input id="cfgTitle"></div>
+      <div class="field"><label style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="cfgDeliv" style="width:auto"> <span data-i18n="cfg_deliv">Proposer la livraison</span></label></div>
+      <div class="field" style="max-width:220px"><label data-i18n="cfg_cost">Coût de livraison</label><input id="cfgCost" type="number" min="0" step="0.01"></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-primary btn-sm" onclick="saveCfg()" data-i18n="save_cfg">Enregistrer paramètres</button></div>
+    </div>
+  </div>
+  <div id="pShare" hidden>
+    <div class="card">
+      <h3 data-i18n="share_title">Partagez votre catalogue</h3>
+      <p style="margin:8px 0 16px" data-i18n="share_desc">Envoyez ce lien à vos clients. Ils pourront voir vos produits, remplir leur panier et vous envoyer la commande sur WhatsApp.</p>
+      <div class="field"><label data-i18n="share_link">Votre lien public</label><div style="display:flex;gap:10px"><input id="shareLink" readonly><button class="btn btn-ghost btn-sm" onclick="copyLink()" data-i18n="copy">Copier</button></div></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-wa" id="shareWA" target="_blank" rel="noopener">💬 <span data-i18n="share_wa">Partager sur WhatsApp</span></a></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- MENÚ MÓVIL -->
+<aside class="drawer" id="mmenu" role="dialog" aria-modal="true" aria-label="Menú">
+  <header>☰ <span data-i18n="menu">Menú</span> <span style="flex:1"></span><button class="iconbtn" onclick="closeAll()" aria-label="Cerrar">✕</button></header>
+  <div class="body">
+    <a class="mm-link" href="#pasos" onclick="closeAll()" data-i18n="nav_how">Fonctionnement</a>
+    <a class="mm-link" href="#funciones" onclick="closeAll()" data-i18n="nav_feat">Fonctions</a>
+    <a class="mm-link" href="#negocios" onclick="closeAll()" data-i18n="nav_biz">Commerces</a>
+    <a class="mm-link" href="#faq" onclick="closeAll()" data-i18n="nav_faq">FAQ</a>
+    <a class="mm-link" href="#contacto" onclick="closeAll()" data-i18n="nav_contact">Contact</a>
+    <div class="mm-sep"></div>
+    <div class="mm-lang" id="mmLang"></div>
+    <div class="mm-sep"></div>
+    <div id="mmAuth" style="display:grid;gap:10px"></div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center" id="mmCta">—</button>
+    <button class="btn btn-ghost" style="width:100%;justify-content:center" id="mmInstall" hidden onclick="installApp()">📲 <span data-i18n="install">Installer l'app</span></button>
+  </div>
+</aside>
+
+<div class="scrim" id="scrim" onclick="closeAll()"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true">
+  <header>🛒 <span data-i18n="your_order">Votre commande</span> <span style="flex:1"></span><button class="iconbtn" onclick="closeAll()" aria-label="Fermer">✕</button></header>
+  <div class="body" id="cartItems"></div>
+  <footer><div class="totline"><span data-i18n="total">Total</span><span id="cartTotal">—</span></div>
+  <button class="btn btn-wa" onclick="openCheckout()" data-i18n="continue">Continuer la commande →</button></footer>
+</aside>
+
+<div class="modal" id="modalCheckout" role="dialog" aria-modal="true"><div class="modal-card">
+  <h3 data-i18n="check_title">Finaliser la commande</h3><p style="font-size:14px" data-i18n="check_desc">Sans inscription. Juste le nécessaire pour coordonner.</p>
+  <div class="field"><label data-i18n="check_name">Votre nom *</label><input id="cName" autocomplete="name"></div>
+  <div class="field"><label data-i18n="check_deliv">Livraison</label><div class="radio-row" id="delivWrap"></div></div>
+  <div class="field" id="addrRow" hidden><label data-i18n="check_addr">Adresse de livraison *</label><input id="cAddress" autocomplete="street-address"></div>
+  <div class="field"><label data-i18n="check_pay">Moyen de paiement</label><div class="radio-row" id="payWrap"></div></div>
+  <div class="field"><label data-i18n="check_note">Note (facultatif)</label><textarea id="cNote" rows="2"></textarea></div>
+  <div class="sumbox" id="sumBox"></div>
+  <button class="btn btn-wa" onclick="sendOrder()"><span data-i18n="send_wa">Envoyer la commande via WhatsApp</span></button>
+  <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;margin-top:10px" onclick="closeAll()" data-i18n="cancel">Annuler</button>
+</div></div>
+
+<div class="modal" id="modalAuth" role="dialog" aria-modal="true"><div class="modal-card">
+  <div class="auth-tabs">
+    <button class="on" id="tLogin" onclick="authTab('login')" data-i18n="auth_login">Se connecter</button>
+    <button id="tReg" onclick="authTab('register')" data-i18n="auth_register">S'inscrire</button>
+  </div>
+  <div id="formLogin">
+    <p style="font-size:14px;margin-bottom:14px" data-i18n="login_desc">Accédez à votre panneau d'administration.</p>
+    <div class="field"><label data-i18n="auth_email">Email</label><input id="lEmail" type="email" autocomplete="email"></div>
+    <div class="field"><label data-i18n="auth_pass">Mot de passe</label><input id="lPass" type="password" autocomplete="current-password"></div>
+    <button class="btn btn-primary" id="btnLogin" style="width:100%;justify-content:center" onclick="doLogin()" data-i18n="login_btn">Entrer</button>
+  </div>
+  <div id="formRegister" hidden>
+    <p style="font-size:14px;margin-bottom:14px" data-i18n="reg_desc">Créez votre compte et votre catalogue en moins d'une minute.</p>
+    <div class="field"><label data-i18n="auth_name">Nom de votre activité *</label><input id="rName" oninput="validateField(this,'name')" autocomplete="organization"></div>
+    <div class="field"><label data-i18n="auth_email">Email *</label><input id="rEmail" type="email" oninput="validateField(this,'email')" autocomplete="email"></div>
+    <div class="field"><label data-i18n="auth_pass">Mot de passe *</label><input id="rPass" type="password" oninput="validateField(this,'pass')" autocomplete="new-password"><div class="hint" id="hintPass"></div></div>
+    <div class="field"><label data-i18n="auth_wa">WhatsApp (indicatif + numéro) *</label><input id="rWa" oninput="validateField(this,'wa')" autocomplete="tel"></div>
+    <button class="btn btn-primary" id="btnRegister" style="width:100%;justify-content:center" onclick="doRegister()" data-i18n="reg_btn">Créer mon catalogue gratuit →</button>
+  </div>
+  <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;margin-top:14px" onclick="closeAll()" data-i18n="cancel">Annuler</button>
+</div></div>
+
+<div class="modal" id="modalPicker" role="dialog" aria-modal="true"><div class="modal-card" style="width:min(640px,100%)">
+  <h3 data-i18n="lib_choose">Elegir de la biblioteca</h3>
+  <div class="lib-grid" id="pickGrid"></div>
+  <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;margin-top:14px" onclick="closeAll()" data-i18n="cancel">Annuler</button>
+</div></div>
+
+<button class="fab" id="botFab" onclick="toggleBot()" aria-label="Asistente">💬</button>
+<div class="bot-panel" id="botPanel" hidden role="dialog" aria-label="Asistente">
+  <header>💬 <b data-i18n="bot_title">Asistente Catalogo Wha</b> <span style="flex:1"></span><button class="iconbtn" style="background:rgba(255,255,255,.2);color:#fff" onclick="toggleBot()" aria-label="Cerrar">✕</button></header>
+  <div class="bot-msgs" id="botMsgs"></div>
+  <div class="bot-chips" id="botChips"></div>
+  <div class="bot-input"><input id="botInput" placeholder="…" onkeydown="if(event.key==='Enter')botSend()"><button onclick="botSend()" aria-label="Enviar">➤</button></div>
+</div>
+
+<div class="toast-stack" id="toastStack" aria-live="polite"></div>
+
+<script>
+/* 🔧 DOMINIO: reemplaza en esta única línea */
+const DOMAIN = "https://TU-DOMINIO-AQUI.com";   // ← cambia solo esta línea
+const SUPPORT_WA = "212690157092";
+
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function sha256(text){ const d = new TextEncoder().encode(text); const b = await crypto.subtle.digest("SHA-256", d); return Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2,"0")).join(""); }
+const $ = id => document.getElementById(id);
+
+/* ====== I18N ====== */
+const I18N = {
+fr: {
+  nav_how:"Fonctionnement", nav_feat:"Fonctions", nav_biz:"Commerces", nav_faq:"FAQ", nav_contact:"Contact",
+  nav_view:"Voir catalogue", nav_create:"Créer mon catalogue", menu:"Menu",
+  hero_eyebrow:"Vendez plus sur WhatsApp", hero_title1:"Votre catalogue en ligne avec panier et commande directe sur",
+  hero_desc:"Publiez vos produits une seule fois, partagez un lien et recevez des commandes complètes : quantités, total et coordonnées du client. Sans site e-commerce, sans commission, sans ventes perdues dans les messages.",
+  hero_cta1:"Créer mon catalogue gratuit", hero_cta2:"Voir un catalogue en direct",
+  hero_chk1:"Prêt en quelques minutes", hero_chk2:"0% de commission par vente",
+  mock_biz:"Votre commerce", mock_banner:"Tout votre stock<br>à un geste", mock_explore:"Voir les produits",
+  mock_all:"🏷️ Tous", mock_cats:"📦 Catégories", mock_p1:"Produit", mock_p2:"Produit", mock_wa_sub:"Commande reçue",
+  mock_bub1:"Bonjour ! Voici ma commande :<br>2 × Article A<br>1 × Article B<br><b>Total prêt</b>", mock_bub2:"Parfait ! Je prépare ça ✓",
+  cmp_title:"Vendre par chat, c'est bien.<br>Vendre par chat en désordre, non.",
+  cmp_lead:"Chaque prix répété et chaque quantité relue est du temps perdu. Un catalogue remet de l'ordre sans changer votre façon de vendre.",
+  cmp_bad_title:"Aujourd'hui, message par message", cmp_client:"Client",
+  cmp_b1:"Tu me donnes le prix de… ?", cmp_b2:"📷 photo + prix", cmp_b3:"Et il y a une remise ?", cmp_b4:"💬 encore une explication", cmp_b5:"Ok, note-moi 2 et 1. Ça fait combien ?",
+  cmp_bad1:"Vous répondez <b>aux mêmes questions</b> chaque jour.", cmp_bad2:"Vos prix vivent dans <b>d'anciens chats</b>.", cmp_bad3:"Une commande mal lue devient <b>une réclamation</b>.",
+  cmp_good_title:"Avec votre lien Catalogo Wha",
+  cmp_good1:"Le client <b>voit tout seul</b> : photos, prix et offres.", cmp_good2:"Le panier <b>additionne pour vous</b> quantités et total.", cmp_good3:"Vous recevez un message <b>clair et complet</b> à confirmer.",
+  send_wa:"Envoyer la commande via WhatsApp", total:"Total",
+  steps_title:"De zéro à la vente<br>en trois mouvements", steps_lead:"Sans installation ni technique : votre catalogue est public dès le premier jour.",
+  step1_t:"Ouvrez votre compte", step1_d:"Nom du commerce, votre WhatsApp et un mot de passe : votre espace est créé.",
+  step2_t:"Publiez votre stock", step2_d:"Photos ou emojis, prix, offres et catégories. Modifiable à tout moment.",
+  step3_t:"Partagez votre lien", step3_d:"En story, sur les réseaux ou au comptoir : qui l'ouvre peut commander.",
+  ben_title1:"Un catalogue qui travaille", ben_title2:"même hors ligne",
+  ben_lead:"Votre lien montre, additionne et prépare la commande. Vous confirmez et coordonnez sur WhatsApp.",
+  ben1_t:"Un lien, tout votre stock", ben1_d:"Fini les fichiers envoyés : un lien avec photos, prix et disponibilités.", ben1_tag:"partagez-le partout",
+  ben2_b:"de commission par vente", ben2_d:"Ce que vous vendez reste à vous : nous ne touchons pas vos gains.",
+  ben3_t:"Conclusion sur WhatsApp, comme toujours", ben3_d:"La commande arrive prête ; vous convenez du paiement et de la livraison.", ben3_tag:"sans intermédiaire",
+  feat_eye:"Fonctions", feat_title:"Tout ce qu'il faut pour vendre,<br>rien de superflu", feat_lead:"Des outils pensés pour vendre par chat avec un ordre professionnel.",
+  f1:"Lien de vente unique", f1d:"Une adresse simple qui ouvre tout votre catalogue, sans téléchargement.",
+  f2:"Recherche et catégories", f2d:"Le client trouve en quelques secondes ce qu'il veut acheter.",
+  f3:"Panier qui compte seul", f3d:"Quantités, sous-total et total calculés sans erreur.",
+  f4:"Commande gardée avant le chat", f4d:"Chaque commande est enregistrée dans votre panneau, même sans message.",
+  f5:"Retrait ou livraison, à vous de voir", f5d:"Activez la livraison avec coût ou coordonnez par chat.",
+  f6:"Vos règles de paiement", f6d:"Espèces, virement ou le moyen local que vous utilisez.",
+  f7:"Prix dans votre monnaie", f7d:"Publiez dans la monnaie de votre pays, sans conversion bizarre.",
+  f8:"Bibliothèque d'images", f8d:"Uploadez vos photos, choisissez-les par catégorie, réutilisez-les sans coller d'URL.",
+  view_order:"🛒 Voir commande", order_sent:"Commande envoyée", order_conf:"✓ Commande confirmée",
+  exp_eye:"Pour votre client", exp_title:"Acheter prend moins de temps qu'écrire un message",
+  exp1:"Parcourt les catégories sans rien demander.", exp2:"Cherche par nom instantanément.", exp3:"Voit les offres et le prix final sans surprise.",
+  exp4:"Ajuste les quantités dans le panier.", exp5:"Choisit retrait ou livraison si vous l'offrez.", exp6:"Sélectionne son moyen de paiement parmi vos options.", exp7:"Envoie la commande sur votre WhatsApp en un geste.",
+  exp_t1:"Sans compte ni mot de passe", exp_t2:"Fonctionne dans tout navigateur",
+  ctrl_eye:"Pour vous", ctrl_title:"Vous décidez quoi vendre et comment",
+  ctrl1:"Publiez, mettez en pause ou retirez en un clic.", ctrl2:"Changez prix et offres sans rien réimprimer.", ctrl3:"Réglez livraison et zones à votre façon.",
+  ctrl4:"Historique complet des commandes reçues.", ctrl5:"Marquez les états : en attente, confirmé, livré.", ctrl6:"Votre lien court, facile à retenir et partager.",
+  ctrl_t1:"Sans engagement", ctrl_t2:"Vos données restent vôtres",
+  types_title:"Pensé pour les commerces qui vendent chaque jour", types_lead:"Si votre vente se termine dans une conversation WhatsApp, ce catalogue la rend plus rapide et plus claire.",
+  dir_title:"Commerces qui vendent déjà avec Catalogo Wha", dir_lead:"Catalogues publics créés par la communauté : entrez, regardez, commandez.",
+  dir_empty:"Aucun catalogue public enregistré. Soyez le premier !",
+  dark_eye:"La différence", dark_title:"Ce n'est pas une boutique en ligne :<br>c'est votre vente de toujours, en ordre",
+  dark_lead:"Une boutique classique exige passerelles, plugins et maintenance. Vous avez seulement besoin de montrer, recevoir la commande et conclure sur WhatsApp.",
+  dark1:"Vous publiez une fois", dark2:"Le client commande clair", dark3:"Vous concluez sur WhatsApp",
+  dark_lead2:"Moins de friction pour démarrer, moins d'abandon pour votre client.",
+  faq_eye:"Questions fréquentes", faq_title:"Vos réponses avant de commencer",
+  faq1q:"Faut-il savoir programmer ou avoir un site ?", faq1a:"Non. Vous créez votre compte, publiez vos produits depuis le panneau et partagez votre lien. Zéro code, zéro hébergement propre.",
+  faq2q:"Combien coûte Catalogo Wha ?", faq2a:"Commencer est gratuit et nous ne prenons aucune commission : ce que vous vendez reste à vous.",
+  faq3q:"Mes clients doivent-ils installer une app ?", faq3a:"Non. Ils ouvrent votre lien dans le navigateur du téléphone, choisissent et envoient la commande sur votre WhatsApp.",
+  faq4q:"Puis-je changer prix ou stock ensuite ?", faq4a:"Oui, et c'est visible immédiatement sur votre lien, sans renvoyer de catalogues.",
+  faq5q:"Ça marche dans mon pays et ma monnaie ?", faq5a:"Oui. Vous réglez votre indicatif WhatsApp, votre monnaie et vos moyens de paiement locaux.",
+  faq6q:"Que reçoit mon client à l'envoi ?", faq6a:"Votre chat WhatsApp s'ouvre avec le détail complet : produits, quantités, total, livraison et paiement.",
+  cta_title:"Votre prochaine commande peut arriver en ordre dès aujourd'hui", cta_lead:"Créez votre catalogue, partagez le lien et laissez le panier travailler pour vous.", cta_btn:"Créer mon catalogue gratuit",
+  contact_eye:"Contact", contact_title:"On parle de votre catalogue ?", contact_lead:"Écrivez-nous et nous vous aidons à lancer votre catalogue.",
+  contact_name:"Entreprise", contact_wa:"WhatsApp", contact_email:"Email",
+  foot_desc:"Catalogue en ligne et commandes via WhatsApp.", foot_panel:"Panneau",
+  your_order:"Votre commande", continue:"Continuer la commande →",
+  check_title:"Finaliser la commande", check_desc:"Sans inscription. Juste le nécessaire pour coordonner.",
+  check_name:"Votre nom *", check_deliv:"Livraison", check_addr:"Adresse de livraison *", check_pay:"Moyen de paiement", check_note:"Note (facultatif)", cancel:"Annuler",
+  auth_login:"Se connecter", auth_register:"S'inscrire", login_desc:"Accédez à votre panneau d'administration.", reg_desc:"Créez votre compte et votre catalogue en moins d'une minute.",
+  auth_email:"Email", auth_pass:"Mot de passe", auth_name:"Nom de votre activité *", auth_wa:"WhatsApp (indicatif + numéro) *",
+  login_btn:"Entrer", reg_btn:"Créer mon catalogue gratuit →", logout:"Déconnexion", admin_view_cat:"Voir mon catalogue",
+  tab_prod:"Produits", tab_orders:"Commandes", tab_cfg:"Paramètres", tab_share:"Partager", tab_media:"Bibliothèque",
+  add_prod:"Ajouter produit", edit_prod:"Modifier produit", f_name:"Nom *", f_cat:"Catégorie *", f_price:"Prix *", f_promo:"Prix promo (facultatif)",
+  f_emoji:"Emoji (image rapide)", f_img:"Image (URL ou bibliothèque)", f_desc:"Description", save:"Enregistrer produit", clear:"Effacer",
+  th_prod:"Produit", th_cat:"Catégorie", th_price:"Prix", th_status:"État",
+  cfg_biz:"Données du commerce", cfg_name:"Nom du commerce", cfg_wa:"WhatsApp (indicatif + numéro, chiffres uniquement)", cfg_email:"Email de contact",
+  cfg_cur:"Symbole monétaire", cfg_pay:"Moyens de paiement (séparés par virgule)", cfg_eye:"Petit texte de bannière", cfg_banner:"Titre de bannière",
+  cfg_deliv:"Proposer la livraison", cfg_cost:"Coût de livraison", save_cfg:"Enregistrer paramètres",
+  share_title:"Partagez votre catalogue", share_desc:"Envoyez ce lien à vos clients. Ils pourront voir vos produits, remplir leur panier et vous envoyer la commande sur WhatsApp.",
+  share_link:"Votre lien public", copy:"Copier", share_wa:"Partager sur WhatsApp",
+  lib_title:"Bibliothèque d'images", lib_desc:"Uploadez vos images (compression automatique). Utilisez-les pour produits et catégories, ou supprimez-les.",
+  lib_upload:"Uploader une image", lib_empty:"Aucune image pour le moment.", lib_added:"✓ Image(s) ajoutée(s)", lib_deleted:"Image supprimée",
+  lib_choose:"Choisir dans la bibliothèque", lib_cat_title:"Images par catégorie", lib_cat_desc:"Assignez une image de la bibliothèque à chaque catégorie.",
+  lib_cat_assign:"Choisir", lib_cat_clear:"Retirer", lib_cat_none:"Sans image", confirm_delete_img:"Supprimer cette image ?",
+  empty_prods:"Aucun produit ajouté. Utilisez le formulaire ci-dessus.", empty_orders:"Aucune commande enregistrée.",
+  cart_empty:"Votre panier est vide.", no_prods_public:"Aucun produit disponible pour le moment.",
+  active:"🟢 Actif", inactive:"⚪ Inactif", deliv_lbl_retiro:"Retrait", deliv_lbl_delivery:"Livraison", per_unit:"l'unité",
+  item_count:"{n} produits", item_count_one:"1 produit", confirm_delete_prod:"Supprimer ce produit ?", not_found:"Catalogue introuvable",
+  st_pend:"En attente", st_conf:"Confirmé", st_deliv:"En livraison", st_done:"Livré", st_cancel:"Annulé",
+  wa_new_order:"🧾 *Nouvelle commande {id}*", wa_customer:"👤 Client : {name}", wa_business:"🏪 Activité : {biz}", wa_products:"📦 *Produits :*",
+  wa_product_line:"• {q} × {name} — {price}", wa_delivery_line:"🚚 Livraison : {mode}", wa_delivery_with_addr:"🚚 Livraison : {mode} ({cost}) — {addr}",
+  wa_payment:"💳 Paiement : {pay}", wa_total:"🧮 *Total : {total}*", wa_note:"📝 Note : {note}", wa_share_msg:"Regardez mon catalogue !",
+  toast_added:"✓ Ajouté au panier", toast_saved:"✓ Produit enregistré", toast_deleted:"Produit supprimé", toast_cfg_saved:"✓ Paramètres enregistrés",
+  toast_status:"État mis à jour :", toast_copied:"🔗 Lien copié", toast_created:"🎉 Catalogue prêt", toast_fill:"Remplissez tous les champs obligatoires.",
+  toast_email:"Entrez un email valide.", toast_pass_min:"Le mot de passe doit avoir au moins 6 caractères.", toast_exists:"Un compte existe déjà avec cet email.",
+  toast_badlogin:"Identifiants incorrects.", toast_login_first:"Connectez-vous pour accéder au panneau.", toast_fill_cart:"Ajoutez des produits au panier d'abord.",
+  toast_fill_name:"Entrez votre nom.", toast_fill_addr:"Entrez l'adresse de livraison.", toast_fill_wa:"⚙️ Configurez votre WhatsApp dans le panneau.",
+  toast_order_sent:"✅ Commande enregistrée et envoyée sur WhatsApp",
+  hint_pass_weak:"Minimum 6 caractères", hint_pass_ok:"✓ Mot de passe valide", hint_email_ok:"✓ Email valide", hint_email_bad:"Email invalide",
+  hint_name_ok:"✓ Nom valide", hint_wa_ok:"✓ Numéro valide", processing:"Traitement…",
+  install:"Installer l'app", install_ios:"Sur iPhone : partagez puis « Sur l'écran d'accueil »", install_manual:"Menu du navigateur → « Ajouter à l'écran d'accueil »",
+  bot_title:"Assistant Catalogo Wha",
+  bot_hello:"Bonjour ! Je suis l'assistant de Catalogo Wha. Je vous explique tout, pas à pas.",
+  bot_ask_name:"D'abord, comment vous appelez-vous ?", bot_thanks_name:"Enchanté, {name}.",
+  bot_ask_type:"Quel type de commerce avez-vous ?",
+  bot_type1:"Boutique / produits", bot_type2:"Restauration", bot_type3:"Services", bot_type4:"Autre",
+  bot_menu_intro:"Parfait. Choisissez ce que vous voulez savoir :",
+  bot_q_create:"Créer mon catalogue", bot_a_create:"1. Touchez *Créer mon catalogue* et inscrivez-vous (nom, email, WhatsApp).<br>2. Vous arrivez dans le panneau.<br>3. Complétez monnaie, paiements et bannière dans *Paramètres*.",
+  bot_q_products:"Ajouter des produits", bot_a_products:"Panneau → *Produits* : nom, catégorie, prix, promo, emoji ou image (uploadez-la dans la *Bibliothèque* puis choisissez-la). Enregistrez : c'est en ligne.",
+  bot_q_share:"Partager mon lien", bot_a_share:"Panneau → *Partager* : copiez votre lien public. Envoyez-le sur WhatsApp, réseaux ou bio. Vos clients voient produits et panier sans compte.",
+  bot_q_client:"Comment commande un client", bot_a_client:"Il ouvre le lien, cherche, ajoute au panier, choisit retrait ou livraison et paiement, puis *Envoyer la commande via WhatsApp* : vous recevez produits, quantités et total.",
+  bot_q_pay:"Paiements et livraison", bot_a_pay:"Vous définissez dans *Paramètres* : monnaie, moyens de paiement, livraison avec coût. La commande arrive sur WhatsApp pour coordonner directement.",
+  bot_q_install:"Installer l'app", bot_a_install:"Dans le menu (☰) touchez *Installer l'app*. Android : ajout à l'écran d'accueil. iPhone : Partage → Sur l'écran d'accueil.",
+  bot_q_human:"Parler à une personne", bot_a_human:"Avec plaisir : touchez *Envoyer le résumé sur WhatsApp* et nous vous répondons avec tout ce que vous avez consulté ici.",
+  bot_fallback:"Je ne suis pas sûr d'avoir compris. Choisissez une option ou reformulez (prix, produits, lien, commande…).",
+  bot_summary:"Envoyer le résumé sur WhatsApp", bot_sent:"C'est parti : WhatsApp s'est ouvert avec votre résumé. À très vite !",
+  bot_input_ph:"Écrivez ici…"
+},
+es: {
+  nav_how:"Cómo funciona", nav_feat:"Funciones", nav_biz:"Negocios", nav_faq:"FAQ", nav_contact:"Contacto",
+  nav_view:"Ver catálogo", nav_create:"Crear mi catálogo", menu:"Menú",
+  hero_eyebrow:"Vende más por WhatsApp", hero_title1:"Tu catálogo online con carrito y pedido directo a",
+  hero_desc:"Publica tus productos una sola vez, comparte un enlace y recibe pedidos completos: cantidades, total y datos del cliente. Sin tienda online, sin comisiones y sin perder ventas entre mensajes.",
+  hero_cta1:"Crear mi catálogo gratis", hero_cta2:"Ver catálogo en vivo", hero_chk1:"Listo en minutos", hero_chk2:"0% comisión por venta",
+  mock_biz:"Tu negocio", mock_banner:"Todo tu inventario<br>a un tap", mock_explore:"Ver productos", mock_all:"🏷️ Todos", mock_cats:"📦 Categorías",
+  mock_p1:"Producto", mock_p2:"Producto", mock_wa_sub:"Pedido recibido",
+  mock_bub1:"¡Hola! Te envío mi pedido:<br>2 × Artículo A<br>1 × Artículo B<br><b>Total listo</b>", mock_bub2:"¡Perfecto! Lo preparo ahora ✓",
+  cmp_title:"Vender por chat está bien.<br>Vender por chat desordenado, no.",
+  cmp_lead:"Cada precio que repites y cada cantidad que relees es tiempo que no vuelve. Un catálogo pone orden sin cambiar tu forma de vender.",
+  cmp_bad_title:"Hoy, mensaje por mensaje", cmp_client:"Cliente",
+  cmp_b1:"¿Me pasas el precio de…?", cmp_b2:"📷 foto + precio", cmp_b3:"¿Y tienen descuento?", cmp_b4:"💬 otra explicación", cmp_b5:"Ok, ¿me anotas 2 y 1? ¿Cuánto sería?",
+  cmp_bad1:"Respondes <b>las mismas preguntas</b> cada día.", cmp_bad2:"Tus precios viven en <b>chats antiguos</b>.", cmp_bad3:"Un pedido mal leído se convierte en <b>un reclamo</b>.",
+  cmp_good_title:"Con tu enlace de Catalogo Wha",
+  cmp_good1:"El cliente <b>ve todo solo</b>: fotos, precios y ofertas.", cmp_good2:"El carrito <b>suma por ti</b> cantidades y total.", cmp_good3:"Recibes un mensaje <b>claro y completo</b> para confirmar.",
+  send_wa:"Enviar pedido por WhatsApp", total:"Total",
+  steps_title:"De cero a vendiendo<br>en tres movimientos", steps_lead:"Sin instalaciones ni conocimientos técnicos: tu catálogo queda público desde el primer día.",
+  step1_t:"Abre tu cuenta", step1_d:"Nombre del negocio, tu WhatsApp y una contraseña: tu espacio queda creado.",
+  step2_t:"Sube tu inventario", step2_d:"Fotos o emojis, precios, ofertas y categorías. Edita cuando quieras.",
+  step3_t:"Comparte tu enlace", step3_d:"En estados, redes o el mostrador: quien lo abre puede comprar al instante.",
+  ben_title1:"Un catálogo que trabaja", ben_title2:"aunque no estés en línea",
+  ben_lead:"Tu enlace muestra, suma y prepara el pedido por ti. Tú solo confirmas y coordinas por WhatsApp.",
+  ben1_t:"Un enlace, todo tu inventario", ben1_d:"Nada de enviar archivos: un link con fotos, precios y stock visible.", ben1_tag:"compártelo donde quieras",
+  ben2_b:"de comisión por venta", ben2_d:"Lo que vendes es tuyo: no tocamos tus ganancias.",
+  ben3_t:"Cierre por WhatsApp, como siempre", ben3_d:"El pedido llega armado; tú acuerdas pago y entrega cara a cara.", ben3_tag:"sin intermediarios",
+  feat_eye:"Funciones", feat_title:"Todo lo que tu venta necesita,<br>nada que te sobre", feat_lead:"Herramientas pensadas para vender por chat con orden profesional.",
+  f1:"Enlace único de venta", f1d:"Una dirección simple que abre tu catálogo completo, sin descargas.",
+  f2:"Buscador y categorías", f2d:"El cliente encuentra en segundos lo que quiere comprar.",
+  f3:"Carrito que suma solo", f3d:"Cantidades, subtotal y total calculados sin errores.",
+  f4:"Pedido guardado antes del chat", f4d:"Cada pedido queda registrado en tu panel, aunque el cliente no escriba.",
+  f5:"Retiro o delivery, tú decides", f5d:"Activa entrega a domicilio con costo o coordina por chat.",
+  f6:"Tus reglas de pago", f6d:"Efectivo, transferencia o el método local que uses.",
+  f7:"Precios en tu moneda", f7d:"Publica en la moneda de tu país, sin conversiones raras.",
+  f8:"Biblioteca de imágenes", f8d:"Sube tus fotos, elígelas por categoría y reutilízalas sin pegar URLs.",
+  view_order:"🛒 Ver pedido", order_sent:"Pedido enviado", order_conf:"✓ Pedido confirmado",
+  exp_eye:"Para tu cliente", exp_title:"Comprar te toma menos que escribir un mensaje",
+  exp1:"Navega categorías sin preguntar nada.", exp2:"Busca por nombre al instante.", exp3:"Ve ofertas y el precio final sin sorpresas.",
+  exp4:"Ajusta cantidades en el carrito.", exp5:"Elige retiro o delivery si lo ofreces.", exp6:"Escoge cómo pagar entre tus opciones.", exp7:"Envía el pedido a tu WhatsApp en un tap.",
+  exp_t1:"Sin cuentas ni contraseñas", exp_t2:"Funciona en cualquier navegador",
+  ctrl_eye:"Para ti", ctrl_title:"Tú decides qué se vende y cómo",
+  ctrl1:"Publica, pausa o retira productos en un clic.", ctrl2:"Cambia precios y ofertas sin reimprimir nada.", ctrl3:"Configura entrega y zonas a tu manera.",
+  ctrl4:"Historial completo de pedidos recibidos.", ctrl5:"Marca estados: pendiente, confirmado, entregado.", ctrl6:"Tu enlace corto, fácil de recordar y compartir.",
+  ctrl_t1:"Sin permanencia", ctrl_t2:"Tus datos son tuyos",
+  types_title:"Hecho para negocios que venden todos los días", types_lead:"Si tu venta termina en una conversación de WhatsApp, este catálogo la hace más rápida y clara.",
+  dir_title:"Negocios que ya venden con Catalogo Wha", dir_lead:"Catálogos públicos creados por la comunidad: entra, mira y pide.",
+  dir_empty:"Aún no hay catálogos públicos. ¡Estrena el tuyo!",
+  dark_eye:"La diferencia", dark_title:"No es una tienda online:<br>es tu venta de siempre, con orden",
+  dark_lead:"Una tienda tradicional exige pasarelas, plugins y mantenimiento. Tú solo necesitas mostrar, recibir el pedido y cerrar por WhatsApp.",
+  dark1:"Publicas una vez", dark2:"El cliente pide claro", dark3:"Tú cierras por WhatsApp",
+  dark_lead2:"Menos fricción para empezar, menos abandono para tu cliente.",
+  faq_eye:"Preguntas frecuentes", faq_title:"Resolvemos tus dudas antes de empezar",
+  faq1q:"¿Necesito saber programar o tener web?", faq1a:"No. Creas tu cuenta, subes productos desde el panel y compartes tu enlace. Nada de código ni hosting propio.",
+  faq2q:"¿Cuánto cuesta usar Catalogo Wha?", faq2a:"Empezar es gratis y no cobramos comisión por tus ventas: lo que facturas es tuyo.",
+  faq3q:"¿Mis clientes deben instalar una app?", faq3a:"No. Abren tu enlace en el navegador del móvil, eligen productos y envían el pedido a tu WhatsApp.",
+  faq4q:"¿Puedo cambiar precios o stock después?", faq4a:"Sí, y se refleja al instante en tu enlace, sin reenviar catálogos ni mensajes.",
+  faq5q:"¿Funciona en mi país y moneda?", faq5a:"Sí. Configuras tu prefijo de WhatsApp, tu moneda y tus métodos de pago locales.",
+  faq6q:"¿Qué recibe mi cliente al enviar el pedido?", faq6a:"Se abre tu chat de WhatsApp con el detalle completo: productos, cantidades, total, entrega y pago.",
+  cta_title:"Tu próximo pedido puede llegar ordenado hoy", cta_lead:"Crea tu catálogo, comparte el enlace y deja que el carrito trabaje por ti.", cta_btn:"Crear mi catálogo gratis",
+  contact_eye:"Contacto", contact_title:"¿Hablamos de tu catálogo?", contact_lead:"Escríbenos y te ayudamos a dejar tu catálogo vendiendo.",
+  contact_name:"Empresa", contact_wa:"WhatsApp", contact_email:"Correo",
+  foot_desc:"Catálogo online y pedidos por WhatsApp.", foot_panel:"Panel",
+  your_order:"Tu pedido", continue:"Continuar pedido →",
+  check_title:"Completar pedido", check_desc:"Sin registro. Solo lo necesario para coordinar.",
+  check_name:"Tu nombre *", check_deliv:"Entrega", check_addr:"Dirección de entrega *", check_pay:"Forma de pago", check_note:"Nota (opcional)", cancel:"Cancelar",
+  auth_login:"Iniciar sesión", auth_register:"Registrarme", login_desc:"Accede a tu panel de administración.", reg_desc:"Crea tu cuenta y tu catálogo en menos de 1 minuto.",
+  auth_email:"Correo", auth_pass:"Contraseña", auth_name:"Nombre de tu negocio *", auth_wa:"WhatsApp (código país + número) *",
+  login_btn:"Entrar", reg_btn:"Crear mi catálogo gratis →", logout:"Salir", admin_view_cat:"Ver mi catálogo",
+  tab_prod:"Productos", tab_orders:"Pedidos", tab_cfg:"Configuración", tab_share:"Compartir", tab_media:"Biblioteca",
+  add_prod:"Agregar producto", edit_prod:"Editar producto", f_name:"Nombre *", f_cat:"Categoría *", f_price:"Precio *", f_promo:"Precio en promo (opcional)",
+  f_emoji:"Emoji (imagen rápida)", f_img:"Imagen (URL o biblioteca)", f_desc:"Descripción", save:"Guardar producto", clear:"Limpiar",
+  th_prod:"Producto", th_cat:"Categoría", th_price:"Precio", th_status:"Estado",
+  cfg_biz:"Datos del negocio", cfg_name:"Nombre del negocio", cfg_wa:"WhatsApp (código país + número, solo dígitos)", cfg_email:"Correo de contacto",
+  cfg_cur:"Símbolo de moneda", cfg_pay:"Formas de pago (separadas por coma)", cfg_eye:"Texto pequeño del banner", cfg_banner:"Título del banner",
+  cfg_deliv:"Ofrecer delivery", cfg_cost:"Costo de delivery", save_cfg:"Guardar configuración",
+  share_title:"Comparte tu catálogo", share_desc:"Envía este enlace a tus clientes. Podrán ver tus productos, armar el carrito y enviarte el pedido por WhatsApp.",
+  share_link:"Tu enlace público", copy:"Copiar", share_wa:"Compartir por WhatsApp",
+  lib_title:"Biblioteca de imágenes", lib_desc:"Sube tus imágenes (se comprimen solas). Úsalas en productos y categorías, o elimínalas cuando quieras.",
+  lib_upload:"Subir imagen", lib_empty:"Aún no hay imágenes.", lib_added:"✓ Imagen(es) agregada(s)", lib_deleted:"Imagen eliminada",
+  lib_choose:"Elegir de la biblioteca", lib_cat_title:"Imágenes por categoría", lib_cat_desc:"Asigna una imagen de la biblioteca a cada categoría de tu catálogo.",
+  lib_cat_assign:"Elegir", lib_cat_clear:"Quitar", lib_cat_none:"Sin imagen", confirm_delete_img:"¿Eliminar esta imagen?",
+  empty_prods:"Aún no has agregado productos. Usa el formulario de arriba.", empty_orders:"Aún no hay pedidos registrados.",
+  cart_empty:"Tu carrito está vacío.", no_prods_public:"Aún no hay productos disponibles.",
+  active:"🟢 Activo", inactive:"⚪ Inactivo", deliv_lbl_retiro:"Retiro", deliv_lbl_delivery:"Delivery", per_unit:"c/u",
+  item_count:"{n} productos", item_count_one:"1 producto", confirm_delete_prod:"¿Eliminar este producto?", not_found:"Catálogo no encontrado",
+  st_pend:"Pendiente", st_conf:"Confirmado", st_deliv:"En entrega", st_done:"Entregado", st_cancel:"Cancelado",
+  wa_new_order:"🧾 *Nuevo pedido {id}*", wa_customer:"👤 Cliente: {name}", wa_business:"🏪 Negocio: {biz}", wa_products:"📦 *Productos:*",
+  wa_product_line:"• {q} × {name} — {price}", wa_delivery_line:"🚚 Entrega: {mode}", wa_delivery_with_addr:"🚚 Entrega: {mode} ({cost}) — {addr}",
+  wa_payment:"💳 Pago: {pay}", wa_total:"🧮 *Total: {total}*", wa_note:"📝 Nota: {note}", wa_share_msg:"¡Mira mi catálogo!",
+  toast_added:"✓ Agregado al carrito", toast_saved:"✓ Producto guardado", toast_deleted:"Producto eliminado", toast_cfg_saved:"✓ Configuración guardada",
+  toast_status:"Estado actualizado:", toast_copied:"🔗 Enlace copiado", toast_created:"🎉 Catálogo listo", toast_fill:"Completa todos los campos obligatorios.",
+  toast_email:"Ingresa un correo válido.", toast_pass_min:"La contraseña debe tener al menos 6 caracteres.", toast_exists:"Ya existe una cuenta con ese correo.",
+  toast_badlogin:"Credenciales incorrectas.", toast_login_first:"Inicia sesión para acceder al panel.", toast_fill_cart:"Agrega productos al carrito primero.",
+  toast_fill_name:"Escribe tu nombre.", toast_fill_addr:"Escribe la dirección de entrega.", toast_fill_wa:"⚙️ Configura tu WhatsApp en el panel.",
+  toast_order_sent:"✅ Pedido registrado y enviado a WhatsApp",
+  hint_pass_weak:"Mínimo 6 caracteres", hint_pass_ok:"✓ Contraseña válida", hint_email_ok:"✓ Correo válido", hint_email_bad:"Correo no válido",
+  hint_name_ok:"✓ Nombre válido", hint_wa_ok:"✓ Número válido", processing:"Procesando…",
+  install:"Instalar app", install_ios:"En iPhone: comparte y elige «Añadir a pantalla de inicio»", install_manual:"Menú del navegador → «Añadir a pantalla de inicio»",
+  bot_title:"Asistente Catalogo Wha",
+  bot_hello:"¡Hola! Soy el asistente de Catalogo Wha. Te explico cómo funciona todo, paso a paso.",
+  bot_ask_name:"Primero, ¿cómo te llamas?", bot_thanks_name:"Encantado, {name}.",
+  bot_ask_type:"¿Qué tipo de negocio tienes?",
+  bot_type1:"Tienda / productos", bot_type2:"Comida / restaurante", bot_type3:"Servicios", bot_type4:"Otro",
+  bot_menu_intro:"Perfecto. Elige qué quieres saber:",
+  bot_q_create:"Cómo crear mi catálogo", bot_a_create:"1. Pulsa *Crear mi catálogo* y regístrate con nombre, email y WhatsApp.<br>2. Entrarás al panel automáticamente.<br>3. En *Configuración* completas moneda, pagos y banner.",
+  bot_q_products:"Cómo agregar productos", bot_a_products:"En el panel → *Productos*: nombre, categoría, precio, promo opcional, emoji o imagen (súbela a la *Biblioteca* y elígela desde ahí). Guarda y ya está visible.",
+  bot_q_share:"Cómo compartir mi enlace", bot_a_share:"En el panel → *Compartir* copias tu enlace público. Envíalo por WhatsApp, redes o ponlo en tu bio. Quien lo abre ve productos y carrito sin registrarse.",
+  bot_q_client:"Cómo pide mi cliente", bot_a_client:"Tu cliente abre el enlace, busca, agrega al carrito, elige retiro o delivery y forma de pago, y pulsa *Enviar pedido por WhatsApp*: te llega con productos, cantidades y total.",
+  bot_q_pay:"Pagos y entrega", bot_a_pay:"Tú defines en *Configuración*: moneda, formas de pago y si ofreces delivery con su costo. El pedido te llega por WhatsApp para coordinar directamente.",
+  bot_q_install:"Instalar la app", bot_a_install:"En el menú (☰) pulsa *Instalar app*. En Android se añade a tu pantalla de inicio; en iPhone usa Compartir → Añadir a pantalla de inicio.",
+  bot_q_human:"Hablar con una persona", bot_a_human:"Claro: pulsa *Enviar resumen por WhatsApp* y te atendemos con todo lo que consultaste aquí.",
+  bot_fallback:"No estoy seguro de haber entendido. Elige una opción o pregunta con otras palabras (precios, productos, enlace, pedido…).",
+  bot_summary:"Enviar resumen por WhatsApp", bot_sent:"Listo: se abrió WhatsApp con tu resumen. ¡Te respondemos enseguida!",
+  bot_input_ph:"Escribe aquí…"
+},
+ar: {
+  nav_how:"كيف يعمل", nav_feat:"المميزات", nav_biz:"المتاجر", nav_faq:"أسئلة شائعة", nav_contact:"اتصل بنا",
+  nav_view:"عرض الكتالوج", nav_create:"أنشئ كتالوجي", menu:"القائمة",
+  hero_eyebrow:"بِع أكثر عبر واتساب", hero_title1:"كتالوجك الإلكتروني مع سلة وطلب مباشر إلى",
+  hero_desc:"انشر منتجاتك مرة واحدة، شارك رابطًا واحدًا، واستقبل طلبات كاملة: كميات وإجمالي وبيانات العميل. بدون متجر إلكتروني، بدون عمولات، وبدون خسائر بين الرسائل.",
+  hero_cta1:"أنشئ كتالوجي مجانًا", hero_cta2:"شاهد كتالوجًا مباشرًا", hero_chk1:"جاهز في دقائق", hero_chk2:"0% عمولة على البيع",
+  mock_biz:"نشاطك التجاري", mock_banner:"كل مخزونك<br>على بعد لمسة", mock_explore:"عرض المنتجات", mock_all:"🏷️ الكل", mock_cats:"📦 الفئات",
+  mock_p1:"منتج", mock_p2:"منتج", mock_wa_sub:"تم استلام الطلب",
+  mock_bub1:"مرحبًا! هذا طلبي:<br>2 × صنف أ<br>1 × صنف ب<br><b>الإجمالي جاهز</b>", mock_bub2:"ممتاز! أجهزه الآن ✓",
+  cmp_title:"البيع عبر الدردشة جيد.<br>البيع عبر دردشة فوضوية، لا.",
+  cmp_lead:"كل سعر تكرره وكل كمية تعيد قراءتها وقتٌ لا يعود. الكتالوج يرتّب عملك دون تغيير طريقتك في البيع.",
+  cmp_bad_title:"اليوم، رسالة برسالة", cmp_client:"عميل",
+  cmp_b1:"كم سعر…؟", cmp_b2:"📷 صورة + سعر", cmp_b3:"هل يوجد خصم؟", cmp_b4:"💬 شرح آخر", cmp_b5:"حسنًا، سجّل لي 2 و1. كم الإجمالي؟",
+  cmp_bad1:"تجيب على <b>الأسئلة نفسها</b> كل يوم.", cmp_bad2:"أسعارك مدفونة في <b>محادثات قديمة</b>.", cmp_bad3:"طلب مقروء بشكل خاطئ يتحول إلى <b>شكوى</b>.",
+  cmp_good_title:"مع رابطك على Catalogo Wha",
+  cmp_good1:"العميل <b>يرى كل شيء وحده</b>: صور وأسعار وعروض.", cmp_good2:"السلة <b>تجمع عنك</b> الكميات والإجمالي.", cmp_good3:"يصلك رسالة <b>واضحة وكاملة</b> للتأكيد.",
+  send_wa:"إرسال الطلب عبر واتساب", total:"الإجمالي",
+  steps_title:"من الصفر إلى البيع<br>في ثلاث خطوات", steps_lead:"بدون تثبيت ولا خبرة تقنية: كتالوجك متاح للعملاء من اليوم الأول.",
+  step1_t:"افتح حسابك", step1_d:"اسم النشاط، رقم واتساب، وكلمة مرور: مساحتك جاهزة.",
+  step2_t:"انشر مخزونك", step2_d:"صور أو رموز، أسعار، عروض، وفئات. عدّل متى شئت.",
+  step3_t:"شارك رابطك", step3_d:"في الحالات أو السوشيال أو على الطاولة: من يفتحه يستطيع الطلب فورًا.",
+  ben_title1:"كتالوج يعمل", ben_title2:"حتى وأنت غير متصل",
+  ben_lead:"رابطك يعرض ويجمع ويجهّز الطلب عنك. أنت تؤكد وتنسّق عبر واتساب.",
+  ben1_t:"رابط واحد لكل مخزونك", ben1_d:"لا مزيد من إرسال الملفات: رابط فيه الصور والأسعار والتوفر.", ben1_tag:"شاركه أينما تريد",
+  ben2_b:"عمولة على البيع", ben2_d:"ما تبيعه لك وحدك: لا نلمس أرباحك.",
+  ben3_t:"الإتمام عبر واتساب، كعادتك", ben3_d:"يصلك الطلب جاهزًا؛ تتفقان على الدفع والتسليم مباشرة.", ben3_tag:"بدون وسطاء",
+  feat_eye:"المميزات", feat_title:"كل ما تحتاجه للبيع،<br>وبلا زوائد", feat_lead:"أدوات مصممة لتبيع عبر الدردشة بترتيب احترافي.",
+  f1:"رابط بيع واحد", f1d:"عنوان بسيط يفتح كتالوجك كاملًا، بدون تنزيلات.",
+  f2:"بحث وفئات", f2d:"عميلك يجد ما يريد في ثوانٍ.",
+  f3:"سلة تحسب وحدها", f3d:"كميات ومجموع فرعي وإجمالي بدون أخطاء.",
+  f4:"طلب محفوظ قبل الدردشة", f4d:"كل طلب يُسجل في لوحتك حتى لو لم يكتب العميل.",
+  f5:"استلام أو توصيل، أنت تقرر", f5d:"فعّل التوصيل بتكلفة أو نسّق عبر الدردشة.",
+  f6:"قواعد دفعك أنت", f6d:"نقدًا أو تحويلًا أو الوسيلة المحلية التي تستخدمها.",
+  f7:"أسعار بعملتك", f7d:"انشر بعملة بلدك بدون تحويلات غريبة.",
+  f8:"مكتبة الصور", f8d:"ارفع صورك، اخترها لكل فئة، وأعد استخدامها بدون لصق روابط.",
+  view_order:"🛒 عرض الطلب", order_sent:"تم إرسال الطلب", order_conf:"✓ تم تأكيد الطلب",
+  exp_eye:"لعميلك", exp_title:"الشراء أسهل من كتابة رسالة",
+  exp1:"يتصفح الفئات دون سؤال.", exp2:"يبحث بالاسم فورًا.", exp3:"يرى العروض والسعر النهائي بلا مفاجآت.",
+  exp4:"يعدّل الكميات في السلة.", exp5:"يختار الاستلام أو التوصيل إن توفر.", exp6:"يختار طريقة الدفع من خياراتك.", exp7:"يرسل الطلب إلى واتسابك بلمسة واحدة.",
+  exp_t1:"بدون حسابات ولا كلمات مرور", exp_t2:"يعمل في أي متصفح",
+  ctrl_eye:"لك أنت", ctrl_title:"أنت تقرر ماذا تبيع وكيف",
+  ctrl1:"انشر أو أوقف أو اسحب المنتجات بنقرة.", ctrl2:"غيّر الأسعار والعروض دون إعادة طباعة.", ctrl3:"اضبط التوصيل والمناطق بطريقتك.",
+  ctrl4:"سجل كامل للطلبات المستلمة.", ctrl5:"حدّد الحالات: معلّق، مؤكد، تم التسليم.", ctrl6:"رابطك قصير وسهل الحفظ والمشاركة.",
+  ctrl_t1:"بدون التزام", ctrl_t2:"بياناتك ملكك",
+  types_title:"مصمم لنشاطات تبيع كل يوم", types_lead:"إذا كانت بيعتك تنتهي في محادثة واتساب، هذا الكتالوج يجعلها أسرع وأوضح.",
+  dir_title:"نشاطات تبيع بالفعل مع Catalogo Wha", dir_lead:"كتالوجات عامة أنشأها المجتمع: ادخل، شاهد، واطلب.",
+  dir_empty:"لا توجد كتالوجات عامة بعد. كن الأول!",
+  dark_eye:"الفرق", dark_title:"ليس متجرًا إلكترونيًا:<br>إنه بيعك المعتاد، بترتيب",
+  dark_lead:"المتجر التقليدي يحتاج بوابات دفع وإضافات وصيانة. أنت تحتاج فقط: عرض، استلام طلب، وإتمام عبر واتساب.",
+  dark1:"تنشر مرة واحدة", dark2:"العميل يطلب بوضوح", dark3:"تُتمّ عبر واتساب",
+  dark_lead2:"احتكاك أقل للبداية، وتراجع أقل لعميلك.",
+  faq_eye:"أسئلة شائعة", faq_title:"إجاباتك قبل البداية",
+  faq1q:"هل أحتاج برمجة أو موقعًا؟", faq1a:"لا. تنشئ حسابك، تنشر منتجاتك من اللوحة، وتشارك رابطك. بدون كود ولا استضافة خاصة.",
+  faq2q:"كم يكلف Catalogo Wha؟", faq2a:"البداية مجانية ولا نأخذ عمولة على مبيعاتك: ما تبيعه لك.",
+  faq3q:"هل يحتاج عملائي تثبيت تطبيق؟", faq3a:"لا. يفتحون رابطك في متصفح الهاتف، يختارون، ويرسلون الطلب إلى واتسابك.",
+  faq4q:"هل أغيّر الأسعار أو المخزون لاحقًا؟", faq4a:"نعم، ويظهر فورًا في رابطك دون إعادة إرسال كتالوجات.",
+  faq5q:"هل يعمل في بلدي وعملتي؟", faq5a:"نعم. تضبط رمز واتساب بلدك وعملتك وطرق دفعك المحلية.",
+  faq6q:"ماذا يصل عميلي عند الإرسال؟", faq6a:"تُفتح محادثة واتساب معك بالتفاصيل كاملة: منتجات، كميات، إجمالي، تسليم، ودفع.",
+  cta_title:"طلبك القادم يمكن أن يصل مرتّبًا اليوم", cta_lead:"أنشئ كتالوجك، شارك الرابط، ودع السلة تعمل عنك.", cta_btn:"أنشئ كتالوجي مجانًا",
+  contact_eye:"اتصل بنا", contact_title:"نتحدث عن كتالوجك؟", contact_lead:"راسلنا ونساعدك على إطلاق كتالوجك.",
+  contact_name:"الشركة", contact_wa:"واتساب", contact_email:"البريد الإلكتروني",
+  foot_desc:"كتالوج عبر الإنترنت وطلبات عبر واتساب.", foot_panel:"اللوحة",
+  your_order:"طلبك", continue:"متابعة الطلب ←",
+  check_title:"إتمام الطلب", check_desc:"دون تسجيل. فقط ما يلزم للتنسيق.",
+  check_name:"اسمك *", check_deliv:"التسليم", check_addr:"عنوان التسليم *", check_pay:"طريقة الدفع", check_note:"ملاحظة (اختياري)", cancel:"إلغاء",
+  auth_login:"تسجيل الدخول", auth_register:"إنشاء حساب", login_desc:"ادخل إلى لوحة الإدارة الخاصة بك.", reg_desc:"أنشئ حسابك وكتالوجك في أقل من دقيقة.",
+  auth_email:"البريد الإلكتروني", auth_pass:"كلمة المرور", auth_name:"اسم نشاطك *", auth_wa:"واتساب (رمز الدولة + الرقم) *",
+  login_btn:"دخول", reg_btn:"أنشئ كتالوجي مجانًا ←", logout:"خروج", admin_view_cat:"عرض كتالوجي",
+  tab_prod:"المنتجات", tab_orders:"الطلبات", tab_cfg:"الإعدادات", tab_share:"مشاركة", tab_media:"المكتبة",
+  add_prod:"إضافة منتج", edit_prod:"تعديل منتج", f_name:"الاسم *", f_cat:"الفئة *", f_price:"السعر *", f_promo:"سعر العرض (اختياري)",
+  f_emoji:"رمز تعبيري (صورة سريعة)", f_img:"صورة (رابط أو مكتبة)", f_desc:"الوصف", save:"حفظ المنتج", clear:"مسح",
+  th_prod:"المنتج", th_cat:"الفئة", th_price:"السعر", th_status:"الحالة",
+  cfg_biz:"بيانات النشاط", cfg_name:"اسم النشاط", cfg_wa:"واتساب (رمز الدولة + الرقم، أرقام فقط)", cfg_email:"بريد التواصل",
+  cfg_cur:"رمز العملة", cfg_pay:"طرق الدفع (مفصولة بفواصل)", cfg_eye:"نص صغير للبانر", cfg_banner:"عنوان البانر",
+  cfg_deliv:"تقديم التوصيل", cfg_cost:"تكلفة التوصيل", save_cfg:"حفظ الإعدادات",
+  share_title:"شارك كتالوجك", share_desc:"أرسل هذا الرابط لعملائك. سيتمكنون من رؤية منتجاتك وتجهيز السلة وإرسال الطلب عبر واتساب.",
+  share_link:"رابطك العام", copy:"نسخ", share_wa:"مشاركة عبر واتساب",
+  lib_title:"مكتبة الصور", lib_desc:"ارفع صورك (تُضغط تلقائيًا). استخدمها للمنتجات والفئات، أو احذفها متى شئت.",
+  lib_upload:"رفع صورة", lib_empty:"لا توجد صور بعد.", lib_added:"✓ تمت إضافة الصورة/الصور", lib_deleted:"تم حذف الصورة",
+  lib_choose:"الاختيار من المكتبة", lib_cat_title:"صور الفئات", lib_cat_desc:"عيّن صورة من المكتبة لكل فئة في كتالوجك.",
+  lib_cat_assign:"اختيار", lib_cat_clear:"إزالة", lib_cat_none:"بدون صورة", confirm_delete_img:"حذف هذه الصورة؟",
+  empty_prods:"لم تضف منتجات بعد. استخدم النموذج أعلاه.", empty_orders:"لا توجد طلبات مسجلة بعد.",
+  cart_empty:"سلتك فارغة.", no_prods_public:"لا توجد منتجات متاحة حاليًا.",
+  active:"🟢 نشط", inactive:"⚪ معطل", deliv_lbl_retiro:"استلام", deliv_lbl_delivery:"توصيل", per_unit:"للوحدة",
+  item_count:"{n} منتجات", item_count_one:"منتج واحد", confirm_delete_prod:"حذف هذا المنتج؟", not_found:"الكتالوج غير موجود",
+  st_pend:"قيد الانتظار", st_conf:"مؤكد", st_deliv:"قيد التوصيل", st_done:"تم التسليم", st_cancel:"ملغي",
+  wa_new_order:"🧾 *طلب جديد {id}*", wa_customer:"👤 العميل: {name}", wa_business:"🏪 النشاط: {biz}", wa_products:"📦 *المنتجات:*",
+  wa_product_line:"• {q} × {name} — {price}", wa_delivery_line:"🚚 التسليم: {mode}", wa_delivery_with_addr:"🚚 التسليم: {mode} ({cost}) — {addr}",
+  wa_payment:"💳 الدفع: {pay}", wa_total:"🧮 *الإجمالي: {total}*", wa_note:"📝 ملاحظة: {note}", wa_share_msg:"شاهد كتالوجي!",
+  toast_added:"✓ أضيف إلى السلة", toast_saved:"✓ تم حفظ المنتج", toast_deleted:"تم حذف المنتج", toast_cfg_saved:"✓ تم حفظ الإعدادات",
+  toast_status:"تم تحديث الحالة:", toast_copied:"🔗 تم نسخ الرابط", toast_created:"🎉 الكتالوج جاهز", toast_fill:"أكمل جميع الحقول المطلوبة.",
+  toast_email:"أدخل بريدًا إلكترونيًا صالحًا.", toast_pass_min:"يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل.", toast_exists:"يوجد حساب بالفعل بهذا البريد.",
+  toast_badlogin:"بيانات الاعتماد غير صحيحة.", toast_login_first:"سجّل الدخول للوصول إلى اللوحة.", toast_fill_cart:"أضف منتجات إلى السلة أولًا.",
+  toast_fill_name:"اكتب اسمك.", toast_fill_addr:"اكتب عنوان التسليم.", toast_fill_wa:"⚙️ اضبط واتساب في اللوحة.",
+  toast_order_sent:"✅ تم تسجيل الطلب وإرساله عبر واتساب",
+  hint_pass_weak:"6 أحرف على الأقل", hint_pass_ok:"✓ كلمة مرور صالحة", hint_email_ok:"✓ بريد صالح", hint_email_bad:"بريد غير صالح",
+  hint_name_ok:"✓ اسم صالح", hint_wa_ok:"✓ رقم صالح", processing:"جاري المعالجة…",
+  install:"تثبيت التطبيق", install_ios:"على آيفون: مشاركة ثم «إضافة إلى الشاشة الرئيسية»", install_manual:"قائمة المتصفح → «إضافة إلى الشاشة الرئيسية»",
+  bot_title:"مساعد Catalogo Wha",
+  bot_hello:"مرحبًا! أنا مساعد Catalogo Wha. أشرح لك كل شيء خطوة بخطوة.",
+  bot_ask_name:"أولًا، ما اسمك؟", bot_thanks_name:"تشرفنا، {name}.",
+  bot_ask_type:"ما نوع نشاطك؟",
+  bot_type1:"متجر / منتجات", bot_type2:"مطاعم / طعام", bot_type3:"خدمات", bot_type4:"آخر",
+  bot_menu_intro:"ممتاز. اختر ما تريد معرفته:",
+  bot_q_create:"إنشاء كتالوجي", bot_a_create:"1. اضغط *أنشئ كتالوجي* وسجّل بالاسم والبريد وواتساب.<br>2. تدخل اللوحة مباشرة.<br>3. أكمل العملة والدفع والبانر في *الإعدادات*.",
+  bot_q_products:"إضافة المنتجات", bot_a_products:"اللوحة → *المنتجات*: اسم، فئة، سعر، عرض، رمز أو صورة (ارفعها في *المكتبة* واخترها من هناك). احفظ وستظهر فورًا.",
+  bot_q_share:"مشاركة رابطي", bot_a_share:"اللوحة → *مشاركة*: انسخ رابطك العام وأرسله عبر واتساب أو السوشيال. من يفتحه يرى المنتجات والسلة بدون حساب.",
+  bot_q_client:"كيف يطلب العميل", bot_a_client:"يفتح الرابط، يبحث، يضيف للسلة، يختار الاستلام أو التوصيل وطريقة الدفع، ثم *إرسال الطلب عبر واتساب*: يصلك بالمنتجات والكميات والإجمالي.",
+  bot_q_pay:"الدفع والتسليم", bot_a_pay:"تحدّد في *الإعدادات*: العملة وطرق الدفع والتوصيل بتكلفته. يصلك الطلب على واتساب للتنسيق مباشرة.",
+  bot_q_install:"تثبيت التطبيق", bot_a_install:"من القائمة (☰) اضغط *تثبيت التطبيق*. أندرويد: إضافة للشاشة الرئيسية. آيفون: مشاركة → إضافة للشاشة الرئيسية.",
+  bot_q_human:"التحدث مع شخص", bot_a_human:"بكل سرور: اضغط *إرسال الملخص عبر واتساب* وسنرد عليك مع كل ما استشرته هنا.",
+  bot_fallback:"لم أفهم تمامًا. اختر خيارًا أو أعد الصياغة (أسعار، منتجات، رابط، طلب…).",
+  bot_summary:"إرسال الملخص عبر واتساب", bot_sent:"تم: فُتح واتساب مع ملخصك. نرد عليك قريبًا!",
+  bot_input_ph:"اكتب هنا…"
+}};
+const SEO = {
+  fr: { title:"Catalogo Wha — Catalogue en ligne avec panier et commandes WhatsApp pour votre commerce",
+        desc:"Créez gratuitement votre catalogue en ligne : publiez vos produits, partagez un lien unique et recevez des commandes complètes sur WhatsApp. Sans site e-commerce, sans commission.",
+        kw:"catalogue en ligne WhatsApp, catalogue digital commerçant, commandes via WhatsApp, panier sans site e-commerce, vendre sur WhatsApp" },
+  es: { title:"Catalogo Wha — Catálogo online con carrito y pedidos por WhatsApp para tu negocio",
+        desc:"Crea gratis tu catálogo online: publica tus productos, comparte un enlace y recibe pedidos completos por WhatsApp. Sin tienda online ni comisiones. Listo en minutos.",
+        kw:"catálogo online por WhatsApp, catálogo digital para negocios, recibir pedidos por WhatsApp, carrito sin tienda online, vender por WhatsApp" },
+  ar: { title:"Catalogo Wha — كتالوج إلكتروني مع سلة وطلبات عبر واتساب لنشاطك",
+        desc:"أنشئ كتالوجك الإلكتروني مجانًا: انشر منتجاتك، شارك رابطًا واحدًا، واستقبل طلبات كاملة عبر واتساب. بدون متجر إلكتروني وبدون عمولات.",
+        kw:"كتالوج واتساب, كتالوج إلكتروني, استقبال طلبات واتساب, سلة مشتريات بدون متجر, بيع عبر واتساب" }
+};
+const OG_LOCALE = { fr:"fr_FR", es:"es_ES", ar:"ar_MA" };
+const FLAGS = { fr:"🇫🇷", es:"🇪🇸", ar:"🇲🇦" };
+const LANG_NAMES = { fr:"Français", es:"Español", ar:"العربية" };
+const urlLang = new URLSearchParams(location.search).get("lang");
+let LANG = (urlLang && I18N[urlLang]) ? urlLang : (localStorage.getItem("catwha_lang") || "fr");
+function t(key, vars){ let s = (I18N[LANG] && I18N[LANG][key]) || I18N.es[key] || key; if (vars) Object.keys(vars).forEach(k => s = s.replace(new RegExp("\\{"+k+"\\}","g"), vars[k])); return s; }
+function applySEO(){
+  const m = SEO[LANG];
+  document.title = m.title;
+  $("metaDesc").setAttribute("content", m.desc); $("metaKw").setAttribute("content", m.kw);
+  $("canon").href = DOMAIN + "/?lang=" + LANG;
+  $("hl-fr").href = DOMAIN + "/?lang=fr"; $("hl-es").href = DOMAIN + "/?lang=es"; $("hl-ar").href = DOMAIN + "/?lang=ar"; $("hl-x").href = DOMAIN + "/";
+  $("ogTitle").setAttribute("content", m.title); $("ogDesc").setAttribute("content", m.desc);
+  $("ogUrl").setAttribute("content", DOMAIN + "/?lang=" + LANG); $("ogImg").setAttribute("content", DOMAIN + "/og.png");
+  $("ogLocale").setAttribute("content", OG_LOCALE[LANG]);
+  $("twTitle").setAttribute("content", m.title); $("twDesc").setAttribute("content", m.desc); $("twImg").setAttribute("content", DOMAIN + "/og.png");
+  buildJsonLd();
+}
+function buildJsonLd(){
+  const faqs = [];
+  for (let i=1;i<=6;i++) faqs.push({ "@type":"Question", "name": t("faq"+i+"q"), "acceptedAnswer": { "@type":"Answer", "text": t("faq"+i+"a") } });
+  $("jsonLd").textContent = JSON.stringify({ "@context":"https://schema.org", "@graph":[
+    { "@type":"Organization", "name":"Catalogo Wha", "url":DOMAIN, "logo":DOMAIN+"/og.png", "contactPoint":{ "@type":"ContactPoint", "telephone":"+212690157092", "contactType":"customer support", "email":"contact@clickpubli.com", "availableLanguage":["fr","es","ar"] } },
+    { "@type":"WebApplication", "name":"Catalogo Wha", "url":DOMAIN, "applicationCategory":"BusinessApplication", "operatingSystem":"Web", "offers":{ "@type":"Offer", "price":"0", "priceCurrency":"MAD" }, "description":SEO[LANG].desc, "inLanguage":["fr","es","ar"] },
+    { "@type":"FAQPage", "mainEntity": faqs } ] });
+}
+document.querySelectorAll("#langSwitch button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
+function setLang(l){
+  LANG = l; localStorage.setItem("catwha_lang", l);
+  try { const u = new URL(location.href); u.searchParams.set("lang", l); history.replaceState(null, "", u); } catch {}
+  numFmt = makeNumFmt();
+  applyI18n();
+}
+function applyI18n(){
+  document.documentElement.lang = LANG;
+  document.documentElement.dir = (LANG === "ar") ? "rtl" : "ltr";
+  document.querySelectorAll("[data-i18n]").forEach(el => { const k = el.getAttribute("data-i18n"); const v = t(k); if (v !== k) el.innerHTML = v; });
+  applySEO(); renderFAQ();
+  refreshNavUser(); buildMMenu();
+  if (S){ if (!$("v-catalogo").hidden) renderCatalog(); if (!$("v-admin").hidden) renderAdmin(); }
+  refreshLanding();
+}
+function renderFAQ(){ let h = ""; for (let i=1;i<=6;i++) h += `<details class="faq-item"><summary>${esc(t("faq"+i+"q"))}</summary><p>${esc(t("faq"+i+"a"))}</p></details>`; $("faqList").innerHTML = h; }
+function makeNumFmt(){ return (LANG === "ar") ? new Intl.NumberFormat("ar-MA",{minimumFractionDigits:2,maximumFractionDigits:2}) : new Intl.NumberFormat(LANG === "fr" ? "fr-FR" : "es-ES",{minimumFractionDigits:2,maximumFractionDigits:2}); }
+let numFmt = makeNumFmt();
+const dateFmt = ts => new Date(ts).toLocaleString(LANG === "ar" ? "ar-MA" : LANG === "fr" ? "fr-FR" : "es-ES");
+
+const TYPES = [["🔧","Ferreterías","bg-sun"],["👕","Ropa","bg-lav"],["👟","Calzado","bg-sky"],["🛒","Abarrotes","bg-mint"],["🧴","Limpieza","bg-sky"],["💄","Belleza","bg-rose"],["💻","Tecnología","bg-sun"],["⚡","Electricidad","bg-lav"],["🧸","Juguetes","bg-sky"],["📚","Librerías","bg-mint"],["🐾","Mascotas","bg-sky"],["⚽","Deportes","bg-rose"],["🏺","Artesanías","bg-sun"],["🎁","Regalos","bg-lav"],["🚚","Distribuidoras","bg-sky"]];
+$("typesGrid").innerHTML = TYPES.map(x => `<div class="type"><div class="ico ${x[2]}" aria-hidden="true">${x[0]}</div>${esc(x[1])}</div>`).join("");
+
+/* ====== AUTH MULTI-TENANT ====== */
+const USERS_KEY = "catwha_users_v2", SESSION_KEY = "catwha_session", BIZ_KEY = "catwha_biz_";
+function getUsers(){ try { return JSON.parse(localStorage.getItem(USERS_KEY) || "[]"); } catch { return []; } }
+function saveUsers(u){ try { localStorage.setItem(USERS_KEY, JSON.stringify(u)); } catch { toast("⚠️ Storage lleno"); } }
+function getSession(){ try { return JSON.parse(localStorage.getItem(SESSION_KEY) || "null"); } catch { return null; } }
+function setSession(s){ if (s) localStorage.setItem(SESSION_KEY, JSON.stringify(s)); else localStorage.removeItem(SESSION_KEY); }
+function makeEmptyBiz(userId){ return { userId, config:{ businessName:"", whatsapp:"", email:"", currency:"", payments:["Efectivo"], bannerEyebrow:"", bannerTitle:"", deliveryEnabled:false, deliveryCost:0, slug:"u-"+userId.slice(0,8), created:false, catImages:{} }, products:[], orders:[], nextProdId:1 }; }
+function getBiz(userId){ try { const r = localStorage.getItem(BIZ_KEY+userId); if (r){ const b = JSON.parse(r); b.config.catImages = b.config.catImages || {}; return b; } } catch {} return makeEmptyBiz(userId); }
+function saveBiz(userId, biz){ try { localStorage.setItem(BIZ_KEY+userId, JSON.stringify(biz)); } catch { toast("⚠️ Storage lleno"); } }
+function getCurrentUser(){ const s = getSession(); if (!s) return null; return getUsers().find(u => u.id === s.userId) || null; }
+async function doRegister(){
+  const name = $("rName").value.trim(), email = $("rEmail").value.trim().toLowerCase(), pass = $("rPass").value, wa = $("rWa").value.replace(/\D/g,"");
+  if (!name || !email || !pass || !wa) return toast(t("toast_fill"));
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return toast(t("toast_email"));
+  if (pass.length < 6) return toast(t("toast_pass_min"));
+  const users = getUsers();
+  if (users.some(u => u.email === email)) return toast(t("toast_exists"));
+  const btn = $("btnRegister"); btn.disabled = true; btn.textContent = t("processing");
+  try {
+    const passHash = await sha256(pass + ":" + email);
+    const user = { id:"u_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6), name, email, passHash, createdAt:Date.now() };
+    users.push(user); saveUsers(users);
+    const biz = makeEmptyBiz(user.id);
+    biz.config.businessName = name; biz.config.whatsapp = wa; biz.config.email = email; biz.config.created = true;
+    saveBiz(user.id, biz); setSession({ userId:user.id });
+    closeAll(); toast(t("toast_created")); loadCurrentState(); go("admin");
+  } finally { btn.disabled = false; btn.textContent = t("reg_btn"); }
+}
+async function doLogin(){
+  const email = $("lEmail").value.trim().toLowerCase(), pass = $("lPass").value;
+  if (!email || !pass) return toast(t("toast_fill"));
+  const u = getUsers().find(x => x.email === email);
+  if (!u) return toast(t("toast_badlogin"));
+  const btn = $("btnLogin"); btn.disabled = true; btn.textContent = t("processing");
+  try {
+    const passHash = await sha256(pass + ":" + email);
+    if (u.passHash !== passHash) return toast(t("toast_badlogin"));
+    setSession({ userId:u.id }); closeAll(); toast("✓ " + u.name); loadCurrentState(); go("admin");
+  } finally { btn.disabled = false; btn.textContent = t("login_btn"); }
+}
+function logout(){ setSession(null); cart = {}; F = { cat:"Todos", q:"" }; mediaCacheOwner = null; loadCurrentState(); go("landing"); toast("👋"); }
+function authTab(w){ $("tLogin").classList.toggle("on", w==="login"); $("tReg").classList.toggle("on", w==="register"); $("formLogin").hidden = w!=="login"; $("formRegister").hidden = w!=="register"; }
+function requireAuth(){ if (!getCurrentUser()){ openAuth("login"); toast(t("toast_login_first")); return false; } return true; }
+function openAuth(tab){ authTab(tab||"login"); ["lEmail","lPass","rName","rEmail","rPass","rWa"].forEach(i => { const el=$(i); if(el){ el.value=""; el.classList.remove("valid","invalid"); } }); const h=$("hintPass"); if(h){h.textContent="";h.className="hint";} $("modalAuth").classList.add("on"); $("scrim").classList.add("on"); setTimeout(()=>{ const f=$("modalAuth").querySelector("input"); if(f) f.focus(); },100); }
+function validateField(input, kind){
+  const v = input.value.trim(); let ok = false, msg = "";
+  if (kind==="name"){ ok = v.length>=2; msg = ok ? t("hint_name_ok") : ""; }
+  else if (kind==="email"){ ok = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); msg = v ? (ok?t("hint_email_ok"):t("hint_email_bad")) : ""; }
+  else if (kind==="pass"){ ok = v.length>=6; msg = v ? (ok?t("hint_pass_ok"):t("hint_pass_weak")) : ""; }
+  else if (kind==="wa"){ ok = v.replace(/\D/g,"").length>=8; msg = ok ? t("hint_wa_ok") : ""; }
+  input.classList.toggle("valid", ok && v.length>0); input.classList.toggle("invalid", !ok && v.length>0);
+  if (kind==="pass"){ const h=$("hintPass"); h.textContent=msg; h.className="hint "+(ok?"ok":v?"err":""); }
+}
+
+/* ====== ESTADO ====== */
+let S = null, cart = {}, F = { cat:"Todos", q:"" };
+function loadCurrentState(){
+  const u = getCurrentUser();
+  S = u ? getBiz(u.id) : { userId:null, config:{ businessName:"—", whatsapp:"", email:"", currency:"", payments:["Efectivo"], bannerEyebrow:"", bannerTitle:"", deliveryEnabled:false, deliveryCost:0, created:false, catImages:{} }, products:[], orders:[], nextProdId:1 };
+}
+function money(n){ return (S.config.currency || "") + numFmt.format(Number(n)); }
+function toast(m){ const s = $("toastStack"); const el = document.createElement("div"); el.className="toast"; el.textContent=m; s.appendChild(el); requestAnimationFrame(()=>el.classList.add("on")); setTimeout(()=>{ el.classList.remove("on"); setTimeout(()=>el.remove(),300); },2600); }
+
+/* ====== BIBLIOTECA (IndexedDB) ====== */
+const IDB_NAME = "catwha_media", IDB_STORE = "images";
+function idb(){ return new Promise((res,rej)=>{ const rq = indexedDB.open(IDB_NAME,1); rq.onupgradeneeded = e => { const db = e.target.result; if (!db.objectStoreNames.contains(IDB_STORE)) db.createObjectStore(IDB_STORE,{keyPath:"id"}); }; rq.onsuccess = () => res(rq.result); rq.onerror = () => rej(rq.error); }); }
+async function libAll(owner){ const db = await idb(); return new Promise(res=>{ const rq = db.transaction(IDB_STORE,"readonly").objectStore(IDB_STORE).getAll(); rq.onsuccess = () => res((rq.result||[]).filter(x=>x.ownerId===owner)); }); }
+async function libPut(rec){ const db = await idb(); return new Promise(res=>{ const tx = db.transaction(IDB_STORE,"readwrite"); tx.objectStore(IDB_STORE).put(rec); tx.oncomplete = res; }); }
+async function libDel(id){ const db = await idb(); return new Promise(res=>{ const tx = db.transaction(IDB_STORE,"readwrite"); tx.objectStore(IDB_STORE).delete(id); tx.oncomplete = res; }); }
+function compress(file){ return new Promise((res,rej)=>{ const fr = new FileReader(); fr.onload = () => { const img = new Image(); img.onload = () => { const max = 900; const sc = Math.min(1, max/Math.max(img.width,img.height)); const w = Math.round(img.width*sc), h = Math.round(img.height*sc); const cv = document.createElement("canvas"); cv.width=w; cv.height=h; cv.getContext("2d").drawImage(img,0,0,w,h); res(cv.toDataURL("image/jpeg",0.72)); }; img.onerror = rej; img.src = fr.result; }; fr.onerror = rej; fr.readAsDataURL(file); }); }
+let MEDIA_CACHE = {}, mediaCacheOwner = "__none__";
+async function ensureMediaCache(owner){ if (mediaCacheOwner === owner) return; MEDIA_CACHE = {}; mediaCacheOwner = owner; if (owner){ try { (await libAll(owner)).forEach(m => MEDIA_CACHE[m.id] = m.dataUrl); } catch {} } }
+function imgSrc(p){ if (!p || !p.img) return null; if (p.img.startsWith("lib:")) return MEDIA_CACHE[p.img.slice(4)] || null; return p.img; }
+async function uploadImgs(files){
+  const u = getCurrentUser(); if (!u) return;
+  for (const f of files){ if (!f.type.startsWith("image/")) continue;
+    const dataUrl = await compress(f);
+    await libPut({ id:"m_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6), ownerId:u.id, name:f.name, dataUrl, ts:Date.now() });
+  }
+  mediaCacheOwner = null; await ensureMediaCache(u.id);
+  toast(t("lib_added")); renderMedia();
+}
+async function delMedia(id){ if (!confirm(t("confirm_delete_img"))) return; await libDel(id); mediaCacheOwner = null; const u = getCurrentUser(); await ensureMediaCache(u ? u.id : null); toast(t("lib_deleted")); renderMedia(); if (!$("v-catalogo").hidden) renderCatalog(); }
+async function renderMedia(){
+  const u = getCurrentUser(); if (!u) return;
+  await ensureMediaCache(u.id);
+  const items = Object.values(MEDIA_CACHE).length ? (await libAll(u.id)) : [];
+  $("libGrid").innerHTML = items.length
+    ? items.map(m => `<div class="lib-item"><img src="${m.dataUrl}" alt="" loading="lazy"><button class="lib-del" onclick="delMedia('${m.id}')" aria-label="🗑️">🗑️</button></div>`).join("")
+    : `<p style="grid-column:1/-1;color:var(--muted)">${esc(t("lib_empty"))}</p>`;
+  const cats = [...new Set(S.products.map(p => p.cat))];
+  $("catImgList").innerHTML = cats.length ? cats.map(c => {
+    const mid = (S.config.catImages||{})[c];
+    const src = mid ? MEDIA_CACHE[mid] : null;
+    return `<div class="catimg-row">${src ? `<img src="${src}" alt="">` : `<span style="font-size:24px">🏷️</span>`}<b>${esc(c)}</b>
+      <button class="btn btn-ghost btn-sm" onclick="openPicker('cat:${esc(c).replace(/'/g,"\\'")}')">${esc(t("lib_cat_assign"))}</button>
+      ${mid ? `<button class="btn btn-ghost btn-sm" onclick="clearCatImg('${esc(c).replace(/'/g,"\\'")}')">${esc(t("lib_cat_clear"))}</button>` : ""}</div>`;
+  }).join("") : `<p style="color:var(--muted)">${esc(t("lib_cat_none"))}</p>`;
+}
+let pickTarget = null;
+async function openPicker(target){
+  const u = getCurrentUser(); if (!u) return;
+  pickTarget = target;
+  await ensureMediaCache(u.id);
+  const items = await libAll(u.id);
+  $("pickGrid").innerHTML = items.length
+    ? items.map(m => `<div class="lib-item pick" onclick="pickMedia('${m.id}')" role="button" tabindex="0"><img src="${m.dataUrl}" alt="" loading="lazy"></div>`).join("")
+    : `<p style="grid-column:1/-1;color:var(--muted)">${esc(t("lib_empty"))}</p>`;
+  $("modalPicker").classList.add("on"); $("scrim").classList.add("on");
+}
+function pickMedia(id){
+  if (pickTarget === "prod"){ $("fImg").value = "lib:" + id; }
+  else if (typeof pickTarget === "string" && pickTarget.startsWith("cat:")){
+    S.config.catImages = S.config.catImages || {}; S.config.catImages[pickTarget.slice(4)] = id; saveBiz(S.userId, S); renderMedia();
+  }
+  closeAll(); toast("✓");
+}
+function clearCatImg(cat){ delete (S.config.catImages||{})[cat]; saveBiz(S.userId, S); renderMedia(); toast("✓"); }
+
+/* ====== ROUTER ====== */
+function go(v, slug){
+  ["landing","catalogo","admin"].forEach(x => $("v-"+x).hidden = (x !== v));
+  if (v === "landing"){ location.hash = "#/"; window.scrollTo(0,0); refreshLanding(); refreshNavUser(); }
+  else if (v === "catalogo"){ location.hash = slug ? "#/s/"+slug : "#/catalogo"; window.scrollTo(0,0); renderCatalog(); }
+  else if (v === "admin"){ if (!requireAuth()){ location.hash = "#/"; return; } location.hash = "#/admin"; window.scrollTo(0,0); tab("prod"); renderAdmin(); }
+  closeAll();
+}
+window.addEventListener("hashchange", route);
+function route(){
+  const raw = location.hash.replace(/^#\/?/, "");
+  if (raw === "admin") return go("admin");
+  if (raw.startsWith("s/")) return viewPublicCatalog(raw.slice(2));
+  if (raw === "catalogo"){ const u = getCurrentUser(); if (u){ go("catalogo", getBiz(u.id).config.slug); } else { go("landing"); toast(t("toast_login_first")); openAuth("login"); } return; }
+  if (raw === "") return go("landing");
+  const el = document.getElementById(raw);
+  if (el){ ["landing","catalogo","admin"].forEach(x => $("v-"+x).hidden = (x !== "landing")); refreshLanding(); refreshNavUser(); closeAll(); setTimeout(()=>el.scrollIntoView({behavior:"smooth"}),60); return; }
+  go("landing");
+}
+
+/* ====== UI ====== */
+function viewMyCatalog(){
+  const u = getCurrentUser();
+  if (!u){ openAuth("login"); toast(t("toast_login_first")); return; }
+  const b = getBiz(u.id);
+  if (!b.config.created){ go("admin"); tab("cfg"); toast(t("toast_fill_wa")); return; }
+  go("catalogo", b.config.slug);
+}
+function refreshNavUser(){
+  const u = getCurrentUser();
+  if (u){
+    $("userBox").innerHTML = `<span class="user-box">👤 ${esc(u.name)}</span>`;
+    $("ctaNav").textContent = t("admin_view_cat"); $("ctaNav").onclick = () => viewMyCatalog();
+    $("navViewCat").style.display = "";
+  } else {
+    $("userBox").innerHTML = `<button class="btn btn-ghost btn-sm" onclick="openAuth('login')">${esc(t("auth_login"))}</button>`;
+    $("ctaNav").textContent = t("nav_create"); $("ctaNav").onclick = () => openAuth("register");
+    $("navViewCat").style.display = "none";
+  }
+  $("ctaHero").onclick = () => openAuth("register");
+  $("ctaFinal").onclick = () => openAuth("register");
+}
+function openMenu(){ buildMMenu(); $("mmenu").classList.add("on"); $("scrim").classList.add("on"); }
+function buildMMenu(){
+  $("mmLang").innerHTML = ["fr","es","ar"].map(l => `<button class="mm-lang-btn ${LANG===l?"on":""}" onclick="setLang('${l}')">${FLAGS[l]} ${LANG_NAMES[l]}</button>`).join("");
+  const u = getCurrentUser();
+  $("mmAuth").innerHTML = u
+    ? `<div class="user-box" style="justify-content:center">👤 ${esc(u.name)}</div>
+       <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" onclick="closeAll();go('admin')">⚙️ ${esc(t("foot_panel"))}</button>
+       <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" onclick="logout()">🚪 ${esc(t("logout"))}</button>`
+    : `<button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" onclick="closeAll();openAuth('login')">${esc(t("auth_login"))}</button>`;
+  const cta = $("mmCta");
+  cta.textContent = u ? t("admin_view_cat") : t("nav_create");
+  cta.onclick = () => { closeAll(); if (u) viewMyCatalog(); else openAuth("register"); };
+}
+function refreshLanding(){
+  const pub = getUsers().map(u => ({ u, b:getBiz(u.id) })).filter(x => x.b.config.created && x.b.config.businessName);
+  const grid = $("dirGrid");
+  grid.innerHTML = pub.length ? pub.map(({b}) => {
+    const n = b.products.filter(p=>p.active).length;
+    return `<div class="biz-card" onclick="viewPublicCatalog('${esc(b.config.slug)}')"><div class="biz-avatar">${esc((b.config.businessName||"?")[0].toUpperCase())}</div><h4>${esc(b.config.businessName)}</h4><div class="meta">${esc(n===1?t("item_count_one"):t("item_count",{n}))}</div></div>`;
+  }).join("") : `<p class="empty-state" style="grid-column:1/-1"><span class="ico-big">📭</span><br>${esc(t("dir_empty"))}</p>`;
+}
+
+/* ====== CATÁLOGO ====== */
+let curCats = [];
+function viewPublicCatalog(slug){
+  for (const u of getUsers()){
+    const b = getBiz(u.id);
+    if (b.config.slug === slug){
+      S = b; cart = {}; F = { cat:"Todos", q:"" }; mediaCacheOwner = null;
+      $("v-landing").hidden = true; $("v-admin").hidden = true; $("v-catalogo").hidden = false;
+      location.hash = "#/s/" + slug; window.scrollTo(0,0); renderCatalog(); return;
+    }
+  }
+  go("landing"); toast(t("not_found"));
+}
+async function renderCatalog(){
+  const isOwner = getCurrentUser() && getCurrentUser().id === S.userId;
+  $("adminBtn2").style.display = isOwner ? "" : "none";
+  await ensureMediaCache(S.userId || null);
+  const c = S.config;
+  $("catName").textContent = c.businessName || "—"; $("catNameFoot").textContent = c.businessName || "—";
+  $("catAvatar").textContent = (c.businessName || "W")[0].toUpperCase();
+  $("catEyebrow").textContent = c.bannerEyebrow || "—"; $("catTitle").textContent = c.bannerTitle || c.businessName || "—";
+  $("searchInput").placeholder = LANG === "ar" ? "بحث…" : LANG === "fr" ? "Rechercher…" : "Buscar…";
+  const act = S.products.filter(p => p.active);
+  curCats = ["Todos", ...new Set(act.map(p => p.cat))];
+  const allLabel = LANG === "ar" ? "الكل" : LANG === "fr" ? "Tous" : "Todos";
+  $("chips").innerHTML = curCats.map((x,i) => {
+    const img = (x !== "Todos" && (c.catImages||{})[x]) ? MEDIA_CACHE[c.catImages[x]] : null;
+    return `<button class="chip ${F.cat===x?"on":""}" onclick="F.cat=curCats[${i}];renderCatalog()">${img?`<img src="${img}" alt="">`:""}${esc(x==="Todos"?allLabel:x)}</button>`;
+  }).join("");
+  const list = act.filter(p => (F.cat==="Todos" || p.cat===F.cat) && p.name.toLowerCase().includes(F.q));
+  $("productsGrid").innerHTML = list.length ? list.map(p => {
+    const pr = p.promo ? Math.round((1 - p.promo/p.price)*100) : 0;
+    const src = imgSrc(p);
+    return `<div class="pcard">${p.promo?`<span class="promo">-${pr}%</span>`:""}
+      <div class="pimg">${src?`<img src="${esc(src)}" alt="${esc(p.name)}" loading="lazy">`:esc(p.emoji||"🛍️")}</div>
+      <div class="pname">${esc(p.name)}</div><div class="pdesc">${esc(p.desc||"")}</div>
+      <div class="pprice">${esc(money(p.promo||p.price))}${p.promo?`<s>${esc(money(p.price))}</s>`:""}</div>
+      <button class="btn btn-primary btn-sm" style="justify-content:center" onclick="add(${p.id})" aria-label="🛒">🛒</button></div>`;
+  }).join("") : `<div class="empty-state"><span class="ico-big">🛍️</span><h3>${esc(t("no_prods_public"))}</h3></div>`;
+  renderCart();
+}
+function add(id){ cart[id] = (cart[id]||0)+1; renderCart(); toast(t("toast_added")); }
+function qty(id,d){ cart[id] = (cart[id]||0)+d; if (cart[id]<=0) delete cart[id]; renderCart(); }
+function cartLines(){ return Object.entries(cart).map(([id,q]) => { const p = S.products.find(x => x.id == id); return p ? { p, q, unit:p.promo||p.price } : null; }).filter(Boolean); }
+function subtotal(){ return cartLines().reduce((s,l)=>s+l.q*l.unit,0); }
+function renderCart(){
+  const n = Object.values(cart).reduce((a,b)=>a+b,0);
+  $("cartCount").textContent = n;
+  $("cartItems").innerHTML = cartLines().length ? cartLines().map(l => {
+    const src = imgSrc(l.p);
+    return `<div class="citem"><div class="pimg">${src?`<img src="${esc(src)}" alt="">`:esc(l.p.emoji||"🛍️")}</div>
+      <div><b>${esc(l.p.name)}</b><br><small style="color:var(--muted)">${esc(money(l.unit))} ${esc(t("per_unit"))}</small></div>
+      <div style="text-align:right"><div class="qty"><button onclick="qty(${l.p.id},-1)" aria-label="−">−</button><b>${l.q}</b><button onclick="qty(${l.p.id},1)" aria-label="+">+</button></div><b style="color:var(--violet)">${esc(money(l.q*l.unit))}</b></div></div>`;
+  }).join("") : `<p style="text-align:center;color:var(--muted);padding:30px">${esc(t("cart_empty"))}</p>`;
+  $("cartTotal").textContent = money(subtotal());
+}
+function openDrawer(){ $("drawer").classList.add("on"); $("scrim").classList.add("on"); }
+function closeAll(){ ["drawer","mmenu"].forEach(i => $(i).classList.remove("on")); $("scrim").classList.remove("on"); ["modalCheckout","modalAuth","modalPicker"].forEach(i => $(i).classList.remove("on")); }
+
+/* ====== CHECKOUT ====== */
+function openCheckout(){
+  if (!cartLines().length) return toast(t("toast_fill_cart"));
+  closeAll();
+  const c = S.config;
+  let d = `<label><input type="radio" name="deliv" value="retiro" checked onchange="addrToggle()"> ${esc(t("deliv_lbl_retiro"))}</label>`;
+  if (c.deliveryEnabled) d += `<label><input type="radio" name="deliv" value="delivery" onchange="addrToggle()"> ${esc(t("deliv_lbl_delivery"))} (+${esc(money(c.deliveryCost))})</label>`;
+  $("delivWrap").innerHTML = d;
+  $("payWrap").innerHTML = (c.payments||["—"]).map((p,i) => `<label><input type="radio" name="pay" value="${esc(p)}" ${i===0?"checked":""}> ${esc(p)}</label>`).join("");
+  addrToggle(); renderSum();
+  $("modalCheckout").classList.add("on"); $("scrim").classList.add("on");
+  setTimeout(() => $("cName").focus(), 100);
+}
+function delivVal(){ const r = document.querySelector('input[name="deliv"]:checked'); return r ? r.value : "retiro"; }
+function addrToggle(){ $("addrRow").hidden = delivVal() !== "delivery"; renderSum(); }
+function total(){ return subtotal() + (delivVal() === "delivery" ? Number(S.config.deliveryCost||0) : 0); }
+function renderSum(){
+  $("sumBox").innerHTML = cartLines().map(l => `<div><span>${l.q} × ${esc(l.p.name)}</span><span>${esc(money(l.q*l.unit))}</span></div>`).join("")
+    + `<div><span>${esc(t("check_deliv"))}</span><span>${esc(delivVal()==="delivery" ? money(S.config.deliveryCost) : t("deliv_lbl_retiro"))}</span></div>
+    <div style="font-weight:750;border-top:1px solid #D9CFF0;padding-top:6px"><span>${esc(t("total"))}</span><span>${esc(money(total()))}</span></div>`;
+}
+function sendOrder(){
+  const c = S.config;
+  if (!c.whatsapp){ toast(t("toast_fill_wa")); closeAll(); go("admin"); return; }
+  const name = $("cName").value.trim(); if (!name) return toast(t("toast_fill_name"));
+  const deliv = delivVal(), addr = $("cAddress").value.trim();
+  if (deliv === "delivery" && !addr) return toast(t("toast_fill_addr"));
+  const pay = (document.querySelector('input[name="pay"]:checked')||{}).value || (c.payments||["—"])[0];
+  const note = $("cNote").value.trim();
+  const L = cartLines(), id = "P-" + Date.now().toString().slice(-6);
+  const dl = deliv === "delivery" ? t("deliv_lbl_delivery") : t("deliv_lbl_retiro");
+  const msg = [ t("wa_new_order",{id}), t("wa_customer",{name}), t("wa_business",{biz:c.businessName}), "", t("wa_products"),
+    ...L.map(l => t("wa_product_line",{q:l.q,name:l.p.name,price:money(l.q*l.unit)})), "",
+    deliv==="delivery" ? t("wa_delivery_with_addr",{mode:dl,cost:money(c.deliveryCost),addr}) : t("wa_delivery_line",{mode:dl}),
+    t("wa_payment",{pay}), t("wa_total",{total:money(total())}), note ? t("wa_note",{note}) : "" ].filter(Boolean).join("\n");
+  const cur = getCurrentUser();
+  if (cur && cur.id === S.userId){ S.orders.unshift({ id, ts:Date.now(), customer:name, delivery:dl, address:addr, payment:pay, note, items:L.map(l=>({name:l.p.name,qty:l.q,unit:l.unit})), total:total(), status:"pend" }); saveBiz(cur.id, S); }
+  cart = {}; renderCart(); closeAll();
+  window.open(`https://wa.me/${c.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank");
+  toast(t("toast_order_sent"));
+}
+
+/* ====== ADMIN ====== */
+const STATUSES = ["pend","conf","deliv","done","cancel"];
+function tab(t2){ ["prod","orders","media","cfg","share"].forEach(x => { const p = $("p"+x[0].toUpperCase()+x.slice(1)); if (p) p.hidden = (x !== t2); const b = $("tab"+x[0].toUpperCase()+x.slice(1)); if (b) b.classList.toggle("on", x===t2); }); if (t2 === "media") renderMedia(); }
+async function renderAdmin(){
+  if (!requireAuth()) return;
+  const u = getCurrentUser(); S = getBiz(u.id);
+  await ensureMediaCache(u.id);
+  const c = S.config;
+  $("adminTitle").textContent = c.businessName || u.name;
+  $("prodList").innerHTML = S.products.length ? S.products.map(p => {
+    const src = imgSrc(p);
+    return `<tr><td style="font-size:22px">${src?`<img src="${esc(src)}" alt="" style="width:34px;height:34px;object-fit:cover;border-radius:8px">`:esc(p.emoji||"🛍️")}</td>
+      <td><b>${esc(p.name)}</b>${p.promo?` <span class="promo" style="position:static">-${Math.round((1-p.promo/p.price)*100)}%</span>`:""}</td>
+      <td>${esc(p.cat)}</td><td>${esc(money(p.promo||p.price))}</td>
+      <td><button class="st" onclick="toggleProd(${p.id})">${esc(p.active?t("active"):t("inactive"))}</button></td>
+      <td><button class="st" onclick="editProd(${p.id})" aria-label="✏️">️</button> <button class="st" onclick="delProd(${p.id})" aria-label="🗑️">🗑️</button></td></tr>`;
+  }).join("") : `<tr><td colspan="6" style="text-align:center;padding:30px;color:var(--muted)">${esc(t("empty_prods"))}</td></tr>`;
+  $("ordersCount").textContent = S.orders.length ? `(${S.orders.length})` : "";
+  $("ordersList").innerHTML = S.orders.length ? S.orders.map(o => `<div class="order-card">
+      <div class="head"><span>🧾 ${esc(o.id)} · ${esc(o.customer)}</span><span style="color:var(--violet)">${esc(money(o.total))}</span></div>
+      <p style="font-size:13.5px;margin:8px 0">${o.items.map(i=>`${i.qty} × ${esc(i.name)}`).join(" · ")}<br>🚚 ${esc(o.delivery)}${o.address?" — "+esc(o.address):""} · 💳 ${esc(o.payment)}${o.note?" · 📝 "+esc(o.note):""}<br><small style="color:var(--muted)">${esc(dateFmt(o.ts))}</small></p>
+      <select class="st" onchange="setStatus('${esc(o.id)}',this.value)">${STATUSES.map(s=>`<option value="${s}" ${o.status===s?"selected":""}>${esc(t("st_"+s))}</option>`).join("")}</select>
+    </div>`).join("") : `<div class="card center"><p>${esc(t("empty_orders"))}</p></div>`;
+  $("cfgName").value = c.businessName; $("cfgWa").value = c.whatsapp; $("cfgEmail").value = c.email || u.email || "";
+  $("cfgCur").value = c.currency; $("cfgPay").value = (c.payments||[]).join(", ");
+  $("cfgEye").value = c.bannerEyebrow; $("cfgTitle").value = c.bannerTitle;
+  $("cfgDeliv").checked = !!c.deliveryEnabled; $("cfgCost").value = c.deliveryCost;
+  const pubLink = location.origin + location.pathname + "#/s/" + c.slug;
+  $("shareLink").value = pubLink;
+  $("shareWA").href = `https://wa.me/?text=${encodeURIComponent(t("wa_share_msg")+" "+pubLink)}`;
+  if (!$("pMedia").hidden) renderMedia();
+}
+function saveProd(){
+  if (!requireAuth()) return;
+  const n = $("fName").value.trim(), cat = $("fCat").value.trim(), pr = parseFloat($("fPrice").value);
+  if (!n || !cat || isNaN(pr)) return toast(t("toast_fill"));
+  const data = { name:n, cat, price:pr, promo: $("fPromo").value ? parseFloat($("fPromo").value) : null, emoji:$("fEmoji").value.trim(), img:$("fImg").value.trim(), desc:$("fDesc").value.trim() };
+  const id = $("fId").value;
+  if (id) Object.assign(S.products.find(p=>p.id==id), data);
+  else { data.id = S.nextProdId || (S.products.length+1); S.nextProdId = (S.nextProdId||1)+1; data.active = true; S.products.push(data); }
+  saveBiz(S.userId, S); clearForm(); renderAdmin(); toast(t("toast_saved"));
+}
+function editProd(id){ const p = S.products.find(x=>x.id==id); $("fId").value=p.id; $("fName").value=p.name; $("fCat").value=p.cat; $("fPrice").value=p.price; $("fPromo").value=p.promo||""; $("fEmoji").value=p.emoji||""; $("fImg").value=p.img||""; $("fDesc").value=p.desc||""; $("formTitle").textContent=t("edit_prod"); window.scrollTo(0,0); }
+function clearForm(){ $("fId").value=""; ["fName","fCat","fPrice","fPromo","fEmoji","fImg","fDesc"].forEach(i=>$(i).value=""); $("formTitle").textContent=t("add_prod"); }
+function delProd(id){ if (confirm(t("confirm_delete_prod"))){ S.products = S.products.filter(p=>p.id!=id); saveBiz(S.userId,S); renderAdmin(); toast(t("toast_deleted")); } }
+function toggleProd(id){ const p = S.products.find(x=>x.id==id); p.active = !p.active; saveBiz(S.userId,S); renderAdmin(); }
+function setStatus(id,st){ const o = S.orders.find(x=>x.id===id); o.status = st; saveBiz(S.userId,S); toast(t("toast_status")+" "+t("st_"+st)); }
+function saveCfg(){
+  if (!requireAuth()) return;
+  const c = S.config;
+  c.businessName = $("cfgName").value.trim()||""; c.whatsapp = $("cfgWa").value.replace(/\D/g,""); c.email = $("cfgEmail").value.trim();
+  c.currency = $("cfgCur").value; c.payments = $("cfgPay").value.split(",").map(x=>x.trim()).filter(Boolean);
+  c.bannerEyebrow = $("cfgEye").value; c.bannerTitle = $("cfgTitle").value;
+  c.deliveryEnabled = $("cfgDeliv").checked; c.deliveryCost = parseFloat($("cfgCost").value)||0; c.created = true;
+  saveBiz(S.userId, S);
+  const users = getUsers(); const u = users.find(x=>x.id===S.userId);
+  if (u){ u.name = c.businessName || u.name; saveUsers(users); }
+  refreshNavUser(); buildMMenu(); toast(t("toast_cfg_saved"));
+}
+function copyLink(){ navigator.clipboard.writeText($("shareLink").value).then(()=>toast(t("toast_copied"))); }
+
+/* ====== CHATBOT ====== */
+const BOT_KW = {
+  create:["crear","registro","cuenta","créer","compte","أنشئ","حساب"],
+  products:["producto","produc","artículo","produit","منتج"],
+  share:["enlace","link","compartir","lien","partager","رابط","مشاركة"],
+  client:["cliente","pedido","carrito","client","commande","عميل","طلب"],
+  pay:["pago","pagar","delivery","entrega","paiement","livraison","دفع","توصيل"],
+  install:["app","instalar","aplicación","installer","تطبيق"],
+  human:["persona","humano","contacto","personne","شخص"]
+};
+let BOT = { name:"", type:"", asked:[], step:"idle", started:false };
+function toggleBot(){ const p = $("botPanel"); if (p.hidden){ p.hidden = false; if (!BOT.started){ BOT.started = true; botSay(t("bot_hello")); botSay(t("bot_ask_name")); BOT.step = "name"; setBotChips([]); } $("botInput").placeholder = t("bot_input_ph"); $("botInput").focus(); } else p.hidden = true; }
+function botSay(txt, who){ const m = $("botMsgs"); const el = document.createElement("div"); el.className = "bot-bub " + (who || "in"); el.innerHTML = txt; m.appendChild(el); m.scrollTop = m.scrollHeight; }
+function setBotChips(list){ $("botChips").innerHTML = list.map(x => `<button class="bot-chip" onclick="botChip('${x.k}')">${esc(x.label)}</button>`).join(""); }
+function menuChips(){ return ["create","products","share","client","pay","install","human"].map(k => ({ k, label:t("bot_q_"+k) })).concat([{ k:"summary", label:t("bot_summary") }]); }
+function botChip(k){
+  if (k === "summary") return botSummary();
+  botSay(esc(t("bot_q_"+k)), "out");
+  botSay(t("bot_a_"+k));
+  if (!BOT.asked.includes(k)) BOT.asked.push(k);
+  setBotChips(menuChips());
+}
+function botSend(){
+  const inp = $("botInput"); const txt = inp.value.trim(); if (!txt) return; inp.value = "";
+  if (BOT.step === "name"){ BOT.name = txt; botSay(esc(txt), "out"); botSay(t("bot_thanks_name",{name:esc(txt)})); botSay(t("bot_ask_type")); BOT.step = "type"; setBotChips([1,2,3,4].map(i => ({ k:"type"+i, label:t("bot_type"+i) }))); return; }
+  if (BOT.step === "type"){ const m = txt.match(/^type(\d)$/); BOT.type = m ? t("bot_type"+m[1]) : txt; botSay(esc(BOT.type), "out"); botSay(t("bot_menu_intro")); BOT.step = "menu"; setBotChips(menuChips()); return; }
+  botSay(esc(txt), "out");
+  const low = txt.toLowerCase();
+  let hit = null;
+  for (const k of Object.keys(BOT_KW)){ if (BOT_KW[k].some(w => low.includes(w))){ hit = k; break; } }
+  if (hit){ botSay(t("bot_a_"+hit)); if (!BOT.asked.includes(hit)) BOT.asked.push(hit); }
+  else botSay(t("bot_fallback"));
+  setBotChips(menuChips());
+}
+function botSummary(){
+  const topics = BOT.asked.map(k => "• " + t("bot_q_"+k)).join("\n");
+  const msg = [ "*Consulta desde Catalogo Wha*",
+    "*Nombre:* " + (BOT.name || "-"),
+    "*Tipo de negocio:* " + (BOT.type || "-"),
+    "*Idioma:* " + LANG_NAMES[LANG],
+    "*Temas consultados:*", topics || "-",
+    "*Enviado desde:* " + DOMAIN ].join("\n");
+  window.open(`https://wa.me/${SUPPORT_WA}?text=${encodeURIComponent(msg)}`, "_blank");
+  botSay(t("bot_sent"));
+}
+
+/* ====== PWA ====== */
+let deferredPrompt = null;
+window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); deferredPrompt = e; showInstall(true); });
+const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+function showInstall(on){ const a = $("mmInstall"), b = $("footInstall"); if (a) a.hidden = !on; if (b) b.hidden = !on; }
+if (isIOS) showInstall(true);
+async function installApp(){
+  if (deferredPrompt){ deferredPrompt.prompt(); const c = await deferredPrompt.userChoice; deferredPrompt = null; if (c.outcome === "accepted") showInstall(false); }
+  else if (isIOS) toast(t("install_ios"));
+  else toast(t("install_manual"));
+}
+if ("serviceWorker" in navigator && location.protocol.startsWith("http")){
+  window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{}));
+}
+
+/* ====== TECLADO ====== */
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeAll();
+  if (e.key === "Tab"){
+    const m = document.querySelector(".modal.on .modal-card, .drawer.on");
+    if (!m) return;
+    const f = m.querySelectorAll("button, input, textarea, select, [tabindex]:not([tabindex='-1'])");
+    if (!f.length) return;
+    const first = f[0], last = f[f.length-1];
+    if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  }
+});
+
+/* ====== INICIO ====== */
+loadCurrentState();
+applyI18n();
+route();
+</script>
+</body>
+</html>
