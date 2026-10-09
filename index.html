@@ -70,15 +70,29 @@ p{color:var(--muted)}
 .nav{position:sticky;top:0;z-index:40;background:rgba(247,245,252,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav-in{display:flex;align-items:center;gap:14px;padding:12px 20px;max-width:1120px;margin:auto;flex-wrap:nowrap}
 .logo{font-weight:750;font-size:19px;display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);white-space:nowrap}
-.logo i{width:28px;height:28px;border-radius:8px;background:var(--violet);color:#fff;display:grid;place-items:center;font-style:normal;font-size:15px;flex:none}
+.logo i{width:28px;height:28px;border-radius:8px;background:var(--violet);color:#fff;display:grid;place-items:center;font-style:normal;font-size:15px;flex:none;overflow:hidden}
+.logo i img{width:100%;height:100%;object-fit:cover}
 .nav a.l{color:var(--muted);text-decoration:none;font-weight:750;font-size:13.5px;white-space:nowrap}
 .nav a.l:hover{color:var(--violet)}
 .nav .sp{flex:1}
 .burger{display:none}
-.lang-switch{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:12px;font-weight:750}
-.lang-switch button{border:0;background:none;padding:7px 10px;cursor:pointer;color:var(--muted)}
-.lang-switch button.on{background:var(--violet);color:#fff}
+/* DESPLEGABLE IDIOMAS (estilo referencia) */
+.lang-dd{position:relative}
+.lang-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:7px 11px;font:inherit;font-weight:800;font-size:13px;cursor:pointer;color:var(--ink)}
+.lang-btn .flag{font-size:16px;line-height:1}
+.lang-btn .caret{font-size:9px;color:var(--muted);transition:.2s}
+.lang-dd.open .caret{transform:rotate(180deg)}
+.lang-menu{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px rgba(34,28,58,.18);min-width:190px;padding:6px;z-index:70;display:grid;gap:2px}
+[dir="rtl"] .lang-menu{right:auto;left:0}
+.lang-item{display:flex;align-items:center;gap:11px;padding:10px 12px;border:0;background:none;border-radius:10px;font:inherit;font-weight:750;font-size:14px;color:var(--ink);cursor:pointer;text-align:left;width:100%}
+[dir="rtl"] .lang-item{text-align:right}
+.lang-item .flag{font-size:18px;line-height:1}
+.lang-item:hover{background:var(--lav)}
+.lang-item.on{background:var(--sun);color:#C2410C}
 .user-box{display:inline-flex;align-items:center;gap:8px;background:var(--lav);border-radius:10px;padding:6px 10px;font-size:13px;font-weight:750;color:var(--violet)}
+.av{width:22px;height:22px;border-radius:6px;object-fit:cover}
+.av-prev{width:46px;height:46px;border-radius:12px;background:var(--lav);display:grid;place-items:center;font-size:22px;overflow:hidden;flex:none}
+.av-prev img{width:100%;height:100%;object-fit:cover}
 .hero{padding:70px 0 90px;background:linear-gradient(180deg,#F3EFFC,var(--bg))}
 .hero-in{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
 .hero h1{font-size:clamp(34px,4.6vw,54px);margin:16px 0 18px}
@@ -208,9 +222,8 @@ p{color:var(--muted)}
 .mm-link{display:block;padding:13px 10px;border-radius:10px;font-weight:750;color:var(--ink);text-decoration:none;font-size:15px}
 .mm-link:hover{background:var(--lav);color:var(--violet)}
 .mm-sep{height:1px;background:var(--line);margin:6px 0}
-.mm-lang{display:grid;gap:8px}
-.mm-lang-btn{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:11px 14px;font:inherit;font-weight:750;font-size:14px;cursor:pointer;color:var(--muted)}
-.mm-lang-btn.on{border-color:var(--violet);color:var(--violet);background:var(--lav)}
+.mm-lang{display:grid;gap:6px}
+.mm-lang .lang-item{border:1px solid var(--line)}
 .citem{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px}
 .citem .pimg{height:52px;font-size:26px;border-radius:10px}
 .qty{display:flex;align-items:center;gap:10px}
@@ -223,7 +236,7 @@ p{color:var(--muted)}
 .field{margin:14px 0}
 .field label{font-size:13px;font-weight:750;display:block;margin-bottom:6px}
 .field input,.field textarea,.field select{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 12px;font:inherit;outline:none;background:var(--bg);transition:border-color .2s}
-.field input:focus,.field textarea:focus{border-color:var(--violet)}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--violet)}
 .field input.valid{border-color:var(--ok)}
 .field input.invalid{border-color:var(--err)}
 .field .hint{font-size:12px;margin-top:4px;color:var(--muted)}
@@ -239,7 +252,7 @@ p{color:var(--muted)}
 .tab{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 18px;font:inherit;font-weight:750;cursor:pointer;color:var(--muted)}
 .tab.on{background:var(--violet);border-color:var(--violet);color:#fff}
 .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.tbl{width:100%;border-collapse:collapse;font-size:14px;min-width:600px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
 .tbl th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:10px;font-weight:750}
 [dir="rtl"] .tbl th{text-align:right}
 .tbl td{padding:10px;border-top:1px solid var(--line);vertical-align:middle}
@@ -262,7 +275,8 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 .biz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-top:30px}
 .biz-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px;cursor:pointer;transition:.2s}
 .biz-card:hover{border-color:var(--violet);transform:translateY(-2px);box-shadow:0 14px 30px rgba(109,40,217,.12)}
-.biz-avatar{width:48px;height:48px;border-radius:12px;background:var(--lav);display:grid;place-items:center;font-size:22px;color:var(--violet);font-weight:750}
+.biz-avatar{width:48px;height:48px;border-radius:12px;background:var(--lav);display:grid;place-items:center;font-size:22px;color:var(--violet);font-weight:750;overflow:hidden}
+.biz-avatar img{width:100%;height:100%;object-fit:cover}
 .biz-card h4{font-weight:750;font-size:15px}
 .biz-card .meta{font-size:12px;color:var(--muted)}
 .auth-tabs{display:flex;gap:10px;margin-bottom:18px}
@@ -302,7 +316,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 @media(max-width:960px){
   .hero-in,.split,.g2,.g3,.g4,.dark-cols,.contact-grid{grid-template-columns:1fr}
   .wa-float{right:0}.share-chip{left:0}.form-grid{grid-template-columns:1fr}
-  .nav a.l,.nav .lang-switch,#userBox,#ctaNav{display:none}
+  .nav a.l,.nav .lang-dd,#userBox,#ctaNav{display:none}
   .burger{display:grid}
 }
 @media(max-width:720px){#typesGrid{grid-template-columns:repeat(3,1fr)!important}}
@@ -320,10 +334,11 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
   <a class="l" href="#negocios" data-i18n="nav_biz">Commerces</a>
   <a class="l" href="#faq" data-i18n="nav_faq">FAQ</a>
   <a class="l" href="#contacto" data-i18n="nav_contact">Contact</a>
-  <div class="lang-switch" id="langSwitch">
-    <button data-lang="fr" class="on">🇫🇷</button>
-    <button data-lang="es">🇪🇸</button>
-    <button data-lang="ar">🇲🇦</button>
+  <div class="lang-dd" id="langDD">
+    <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" onclick="toggleLangDD(event)">
+      <span class="flag" id="langFlag">🇫🇷</span><span id="langCode">FR</span><span class="caret">▼</span>
+    </button>
+    <div class="lang-menu" id="langMenu" role="listbox" hidden></div>
   </div>
   <span id="userBox"></span>
   <button class="btn btn-ghost btn-sm" id="navViewCat" onclick="viewMyCatalog()" data-i18n="nav_view">Voir catalogue</button>
@@ -549,6 +564,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 <header class="cat-head"><div class="cat-head-in">
   <button class="iconbtn" onclick="go('landing')" aria-label="Retour">‹</button>
   <a class="logo" href="#/catalogo"><i id="catAvatar">W</i><span id="catName">—</span></a>
+  <span class="tag lav" id="catCat" hidden></span>
   <div class="search">🔍<input id="searchInput" placeholder="Rechercher…" oninput="F.q=this.value.toLowerCase();renderCatalog()" aria-label="Rechercher"></div>
   <button class="iconbtn" id="adminBtn2" onclick="go('admin')" aria-label="Panneau">⚙️</button>
   <button class="iconbtn" onclick="openDrawer()" aria-label="Panier">🛒<span class="badge" id="cartCount">0</span></button>
@@ -564,7 +580,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 <div id="v-admin" class="view" hidden>
 <header class="cat-head"><div class="cat-head-in">
   <button class="iconbtn" onclick="go('landing')" aria-label="Retour">‹</button>
-  <a class="logo"><i>W</i><span id="adminTitle">—</span></a>
+  <a class="logo"><i id="adminAvatar">W</i><span id="adminTitle">—</span></a>
   <span class="sp" style="flex:1"></span>
   <button class="btn btn-ghost btn-sm" id="superBtn" hidden onclick="go('super')">👑 <span data-i18n="super_btn">Super panel</span></button>
   <button class="btn btn-ghost btn-sm" onclick="logout()">🚪 <span data-i18n="logout">Déconnexion</span></button>
@@ -599,7 +615,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
   <div id="pMedia" hidden>
     <div class="card">
       <h3 data-i18n="lib_title">Bibliothèque d'images</h3>
-      <p style="font-size:13.5px;margin:6px 0 14px" data-i18n="lib_desc">Suba sus imágenes (se comprimen solas). Úselas en productos y categorías, o elimínelas cuando quiera.</p>
+      <p style="font-size:13.5px;margin:6px 0 14px" data-i18n="lib_desc">Suba sus imágenes (se comprimen solas). Úsalas en productos y categorías, o elimínelas cuando quiera.</p>
       <label class="btn btn-primary btn-sm" style="cursor:pointer">📤 <span data-i18n="lib_upload">Subir imagen</span><input type="file" accept="image/*" multiple hidden onchange="uploadImgs(this.files);this.value=''"></label>
       <div class="lib-grid" id="libGrid"></div>
     </div>
@@ -612,8 +628,16 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
   <div id="pCfg" hidden>
     <div class="card">
       <h3 data-i18n="cfg_biz">Données du commerce</h3>
+      <div class="field"><label data-i18n="auth_avatar">Logo / avatar (facultatif)</label>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <span class="av-prev" id="cfgAvPrev">🏪</span>
+          <label class="btn btn-ghost btn-sm" style="cursor:pointer">📤 <span data-i18n="av_change">Changer</span><input type="file" accept="image/*" hidden onchange="setCfgAvatar(this)"></label>
+          <button class="btn btn-ghost btn-sm" onclick="clearCfgAvatar()">✕ <span data-i18n="av_remove">Retirer</span></button>
+        </div>
+      </div>
       <div class="form-grid">
         <div class="field"><label data-i18n="cfg_name">Nom du commerce</label><input id="cfgName"></div>
+        <div class="field"><label data-i18n="cfg_cat">Catégorie du commerce</label><select id="cfgCat"></select></div>
         <div class="field"><label data-i18n="cfg_wa">WhatsApp (indicatif + numéro, chiffres uniquement)</label><input id="cfgWa"></div>
         <div class="field"><label data-i18n="cfg_email">Email de contact</label><input id="cfgEmail" type="email"></div>
         <div class="field"><label data-i18n="cfg_cur">Symbole monétaire</label><input id="cfgCur"></div>
@@ -637,7 +661,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 </div>
 </div>
 
-<!-- ====== SUPER PANEL (ADMIN PLATAFORMA) ====== -->
+<!-- SUPER PANEL -->
 <div id="v-super" class="view" hidden>
 <header class="cat-head"><div class="cat-head-in">
   <button class="iconbtn" onclick="go('landing')" aria-label="Volver">‹</button>
@@ -658,7 +682,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
     <div class="card"><h3 data-i18n="recent_orders">Pedidos recientes</h3><div id="recentOrders" style="margin-top:12px"></div></div>
   </div>
   <div id="spBiz" hidden>
-    <div class="card tbl-wrap"><table class="tbl"><thead><tr><th data-i18n="th_biz">Negocio</th><th data-i18n="th_email">Email</th><th data-i18n="th_wa">WhatsApp</th><th data-i18n="th_prods">Prod.</th><th data-i18n="th_orders2">Pedidos</th><th data-i18n="th_state">Estado</th><th></th></tr></thead><tbody id="superBizList"></tbody></table></div>
+    <div class="card tbl-wrap"><table class="tbl"><thead><tr><th></th><th data-i18n="th_biz">Negocio</th><th data-i18n="th_catg">Categoría</th><th data-i18n="th_email">Email</th><th data-i18n="th_wa">WhatsApp</th><th data-i18n="th_prods">Prod.</th><th data-i18n="th_orders2">Pedidos</th><th data-i18n="th_state">Estado</th><th></th></tr></thead><tbody id="superBizList"></tbody></table></div>
   </div>
   <div id="spOrd" hidden><div id="allOrders"></div></div>
   <div id="spPlat" hidden>
@@ -668,7 +692,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
         <div class="field"><label data-i18n="plat_name">Nombre de la plataforma</label><input id="plName"></div>
         <div class="field"><label data-i18n="plat_wa">WhatsApp de soporte</label><input id="plWa"></div>
         <div class="field"><label data-i18n="plat_email">Email de contacto</label><input id="plEmail"></div>
-        <div class="field"><label data-i18n="plat_lang">Idioma por defecto</label><select id="plLang"><option value="fr">Français</option><option value="es">Español</option><option value="ar">العربية</option></select></div>
+        <div class="field"><label data-i18n="plat_lang">Idioma por defecto</label><select id="plLang"></select></div>
       </div>
       <div class="field"><label style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="plDir" style="width:auto"> <span data-i18n="plat_dir">Mostrar directorio público</span></label></div>
       <button class="btn btn-primary btn-sm" onclick="savePlatForm()" data-i18n="plat_save">Guardar ajustes</button>
@@ -744,7 +768,15 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
   </div>
   <div id="formRegister" hidden>
     <p style="font-size:14px;margin-bottom:14px" data-i18n="reg_desc">Créez votre compte et votre catalogue en moins d'une minute.</p>
+    <div class="field"><label data-i18n="auth_avatar">Logo / avatar (facultatif)</label>
+      <div style="display:flex;gap:10px;align-items:center">
+        <span class="av-prev" id="rAvPrev">🏪</span>
+        <label class="btn btn-ghost btn-sm" style="cursor:pointer">📤 <span data-i18n="lib_upload">Subir</span><input type="file" accept="image/*" hidden onchange="previewRegAvatar(this)"></label>
+        <button type="button" class="btn btn-ghost btn-sm" onclick="clearRegAvatar()">✕</button>
+      </div>
+    </div>
     <div class="field"><label data-i18n="auth_name">Nom de votre activité *</label><input id="rName" oninput="validateField(this,'name')" autocomplete="organization"></div>
+    <div class="field"><label data-i18n="auth_cat">Catégorie du commerce</label><select id="rCat"></select></div>
     <div class="field"><label data-i18n="auth_email">Email *</label><input id="rEmail" type="email" oninput="validateField(this,'email')" autocomplete="email"></div>
     <div class="field"><label data-i18n="auth_pass">Mot de passe *</label><input id="rPass" type="password" oninput="validateField(this,'pass')" autocomplete="new-password"><div class="hint" id="hintPass"></div></div>
     <div class="field"><label data-i18n="auth_wa">WhatsApp (indicatif + numéro) *</label><input id="rWa" oninput="validateField(this,'wa')" autocomplete="tel"></div>
@@ -778,7 +810,6 @@ const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({'&':'&amp
 async function sha256(text){ const d = new TextEncoder().encode(text); const b = await crypto.subtle.digest("SHA-256", d); return Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2,"0")).join(""); }
 const $ = id => document.getElementById(id);
 
-/* ====== AJUSTES DE PLATAFORMA ====== */
 const PLAT_KEY = "catwha_platform";
 function getPlat(){ const d = { name:"Catalogo Wha", supportWa:"212690157092", contactEmail:"contact@clickpubli.com", defaultLang:"fr", dirEnabled:true }; try { return Object.assign(d, JSON.parse(localStorage.getItem(PLAT_KEY)||"{}")); } catch { return d; } }
 function savePlat(p){ localStorage.setItem(PLAT_KEY, JSON.stringify(p)); }
@@ -858,6 +889,8 @@ fr: {
   check_name:"Votre nom *", check_deliv:"Livraison", check_addr:"Adresse de livraison *", check_pay:"Moyen de paiement", check_note:"Note (facultatif)", cancel:"Annuler",
   auth_login:"Se connecter", auth_register:"S'inscrire", login_desc:"Accédez à votre panneau d'administration.", reg_desc:"Créez votre compte et votre catalogue en moins d'une minute.",
   auth_email:"Email", auth_pass:"Mot de passe", auth_name:"Nom de votre activité *", auth_wa:"WhatsApp (indicatif + numéro) *",
+  auth_avatar:"Logo / avatar (facultatif)", auth_cat:"Catégorie du commerce", select_cat:"Choisissez une catégorie…",
+  cfg_cat:"Catégorie du commerce", th_catg:"Catégorie", av_change:"Changer", av_remove:"Retirer",
   login_btn:"Entrer", reg_btn:"Créer mon catalogue gratuit →", logout:"Déconnexion", admin_view_cat:"Voir mon catalogue",
   tab_prod:"Produits", tab_orders:"Commandes", tab_cfg:"Paramètres", tab_share:"Partager", tab_media:"Bibliothèque",
   add_prod:"Ajouter produit", edit_prod:"Modifier produit", f_name:"Nom *", f_cat:"Catégorie *", f_price:"Prix *", f_promo:"Prix promo (facultatif)",
@@ -869,7 +902,7 @@ fr: {
   share_title:"Partagez votre catalogue", share_desc:"Envoyez ce lien à vos clients. Ils pourront voir vos produits, remplir leur panier et vous envoyer la commande sur WhatsApp.",
   share_link:"Votre lien public", copy:"Copier", share_wa:"Partager sur WhatsApp",
   lib_title:"Bibliothèque d'images", lib_desc:"Uploadez vos images (compression automatique). Utilisez-les pour produits et catégories, ou supprimez-les.",
-  lib_upload:"Uploader une image", lib_empty:"Aucune image pour le moment.", lib_added:"✓ Image(s) ajoutée(s)", lib_deleted:"Image supprimée",
+  lib_upload:"Uploader", lib_empty:"Aucune image pour le moment.", lib_added:"✓ Image(s) ajoutée(s)", lib_deleted:"Image supprimée",
   lib_choose:"Choisir dans la bibliothèque", lib_cat_title:"Images par catégorie", lib_cat_desc:"Assignez une image de la bibliothèque à chaque catégorie.",
   lib_cat_assign:"Choisir", lib_cat_clear:"Retirer", lib_cat_none:"Sans image", confirm_delete_img:"Supprimer cette image ?",
   empty_prods:"Aucun produit ajouté. Utilisez le formulaire ci-dessus.", empty_orders:"Aucune commande enregistrée.",
@@ -885,7 +918,7 @@ fr: {
   toast_email:"Entrez un email valide.", toast_pass_min:"Le mot de passe doit avoir au moins 6 caractères.", toast_exists:"Un compte existe déjà avec cet email.",
   toast_badlogin:"Identifiants incorrects.", toast_login_first:"Connectez-vous pour accéder au panneau.", toast_fill_cart:"Ajoutez des produits au panier d'abord.",
   toast_fill_name:"Entrez votre nom.", toast_fill_addr:"Entrez l'adresse de livraison.", toast_fill_wa:"⚙️ Configurez votre WhatsApp dans le panneau.",
-  toast_order_sent:"✅ Commande enregistrée et envoyée sur WhatsApp",
+  toast_order_sent:"✅ Commande enregistrée et envoyée sur WhatsApp", toast_avatar:"✓ Avatar mis à jour",
   hint_pass_weak:"Minimum 6 caractères", hint_pass_ok:"✓ Mot de passe valide", hint_email_ok:"✓ Email valide", hint_email_bad:"Email invalide",
   hint_name_ok:"✓ Nom valide", hint_wa_ok:"✓ Numéro valide", processing:"Traitement…",
   install:"Installer l'app", install_ios:"Sur iPhone : partagez puis « Sur l'écran d'accueil »", install_manual:"Menu du navigateur → « Ajouter à l'écran d'accueil »",
@@ -973,6 +1006,8 @@ es: {
   check_name:"Tu nombre *", check_deliv:"Entrega", check_addr:"Dirección de entrega *", check_pay:"Forma de pago", check_note:"Nota (opcional)", cancel:"Cancelar",
   auth_login:"Iniciar sesión", auth_register:"Registrarme", login_desc:"Accede a tu panel de administración.", reg_desc:"Crea tu cuenta y tu catálogo en menos de 1 minuto.",
   auth_email:"Correo", auth_pass:"Contraseña", auth_name:"Nombre de tu negocio *", auth_wa:"WhatsApp (código país + número) *",
+  auth_avatar:"Logo / avatar (opcional)", auth_cat:"Categoría del negocio", select_cat:"Elige una categoría…",
+  cfg_cat:"Categoría del negocio", th_catg:"Categoría", av_change:"Cambiar", av_remove:"Quitar",
   login_btn:"Entrar", reg_btn:"Crear mi catálogo gratis →", logout:"Salir", admin_view_cat:"Ver mi catálogo",
   tab_prod:"Productos", tab_orders:"Pedidos", tab_cfg:"Configuración", tab_share:"Compartir", tab_media:"Biblioteca",
   add_prod:"Agregar producto", edit_prod:"Editar producto", f_name:"Nombre *", f_cat:"Categoría *", f_price:"Precio *", f_promo:"Precio en promo (opcional)",
@@ -984,7 +1019,7 @@ es: {
   share_title:"Comparte tu catálogo", share_desc:"Envía este enlace a tus clientes. Podrán ver tus productos, armar el carrito y enviarte el pedido por WhatsApp.",
   share_link:"Tu enlace público", copy:"Copiar", share_wa:"Compartir por WhatsApp",
   lib_title:"Biblioteca de imágenes", lib_desc:"Sube tus imágenes (se comprimen solas). Úsalas en productos y categorías, o elimínalas cuando quieras.",
-  lib_upload:"Subir imagen", lib_empty:"Aún no hay imágenes.", lib_added:"✓ Imagen(es) agregada(s)", lib_deleted:"Imagen eliminada",
+  lib_upload:"Subir", lib_empty:"Aún no hay imágenes.", lib_added:"✓ Imagen(es) agregada(s)", lib_deleted:"Imagen eliminada",
   lib_choose:"Elegir de la biblioteca", lib_cat_title:"Imágenes por categoría", lib_cat_desc:"Asigna una imagen de la biblioteca a cada categoría de tu catálogo.",
   lib_cat_assign:"Elegir", lib_cat_clear:"Quitar", lib_cat_none:"Sin imagen", confirm_delete_img:"¿Eliminar esta imagen?",
   empty_prods:"Aún no has agregado productos. Usa el formulario de arriba.", empty_orders:"Aún no hay pedidos registrados.",
@@ -1000,7 +1035,7 @@ es: {
   toast_email:"Ingresa un correo válido.", toast_pass_min:"La contraseña debe tener al menos 6 caracteres.", toast_exists:"Ya existe una cuenta con ese correo.",
   toast_badlogin:"Credenciales incorrectas.", toast_login_first:"Inicia sesión para acceder al panel.", toast_fill_cart:"Agrega productos al carrito primero.",
   toast_fill_name:"Escribe tu nombre.", toast_fill_addr:"Escribe la dirección de entrega.", toast_fill_wa:"⚙️ Configura tu WhatsApp en el panel.",
-  toast_order_sent:"✅ Pedido registrado y enviado a WhatsApp",
+  toast_order_sent:"✅ Pedido registrado y enviado a WhatsApp", toast_avatar:"✓ Avatar actualizado",
   hint_pass_weak:"Mínimo 6 caracteres", hint_pass_ok:"✓ Contraseña válida", hint_email_ok:"✓ Correo válido", hint_email_bad:"Correo no válido",
   hint_name_ok:"✓ Nombre válido", hint_wa_ok:"✓ Número válido", processing:"Procesando…",
   install:"Instalar app", install_ios:"En iPhone: comparte y elige «Añadir a pantalla de inicio»", install_manual:"Menú del navegador → «Añadir a pantalla de inicio»",
@@ -1020,7 +1055,6 @@ es: {
   bot_fallback:"No estoy seguro de haber entendido. Elige una opción o pregunta con otras palabras (precios, productos, enlace, pedido…).",
   bot_summary:"Enviar resumen por WhatsApp", bot_sent:"Listo: se abrió WhatsApp con tu resumen. ¡Te respondemos enseguida!",
   bot_input_ph:"Escribe aquí…",
-  /* ---- SUPER PANEL (interno, español) ---- */
   super_btn:"Super panel", super_title:"Super panel", super_sum:"Resumen", super_biz:"Negocios", super_ord:"Pedidos", super_plat:"Ajustes",
   stat_users:"Usuarios", stat_cats:"Catálogos activos", stat_prods:"Productos publicados", stat_orders:"Pedidos totales",
   recent_orders:"Pedidos recientes", all_orders:"Todos los pedidos", no_data:"Sin datos todavía.",
@@ -1099,6 +1133,8 @@ ar: {
   check_name:"اسمك *", check_deliv:"التسليم", check_addr:"عنوان التسليم *", check_pay:"طريقة الدفع", check_note:"ملاحظة (اختياري)", cancel:"إلغاء",
   auth_login:"تسجيل الدخول", auth_register:"إنشاء حساب", login_desc:"ادخل إلى لوحة الإدارة الخاصة بك.", reg_desc:"أنشئ حسابك وكتالوجك في أقل من دقيقة.",
   auth_email:"البريد الإلكتروني", auth_pass:"كلمة المرور", auth_name:"اسم نشاطك *", auth_wa:"واتساب (رمز الدولة + الرقم) *",
+  auth_avatar:"شعار / صورة (اختياري)", auth_cat:"فئة النشاط", select_cat:"اختر فئة…",
+  cfg_cat:"فئة النشاط", th_catg:"الفئة", av_change:"تغيير", av_remove:"إزالة",
   login_btn:"دخول", reg_btn:"أنشئ كتالوجي مجانًا ←", logout:"خروج", admin_view_cat:"عرض كتالوجي",
   tab_prod:"المنتجات", tab_orders:"الطلبات", tab_cfg:"الإعدادات", tab_share:"مشاركة", tab_media:"المكتبة",
   add_prod:"إضافة منتج", edit_prod:"تعديل منتج", f_name:"الاسم *", f_cat:"الفئة *", f_price:"السعر *", f_promo:"سعر العرض (اختياري)",
@@ -1110,7 +1146,7 @@ ar: {
   share_title:"شارك كتالوجك", share_desc:"أرسل هذا الرابط لعملائك. سيتمكنون من رؤية منتجاتك وتجهيز السلة وإرسال الطلب عبر واتساب.",
   share_link:"رابطك العام", copy:"نسخ", share_wa:"مشاركة عبر واتساب",
   lib_title:"مكتبة الصور", lib_desc:"ارفع صورك (تُضغط تلقائيًا). استخدمها للمنتجات والفئات، أو احذفها متى شئت.",
-  lib_upload:"رفع صورة", lib_empty:"لا توجد صور بعد.", lib_added:"✓ تمت إضافة الصورة/الصور", lib_deleted:"تم حذف الصورة",
+  lib_upload:"رفع", lib_empty:"لا توجد صور بعد.", lib_added:"✓ تمت إضافة الصورة/الصور", lib_deleted:"تم حذف الصورة",
   lib_choose:"الاختيار من المكتبة", lib_cat_title:"صور الفئات", lib_cat_desc:"عيّن صورة من المكتبة لكل فئة في كتالوجك.",
   lib_cat_assign:"اختيار", lib_cat_clear:"إزالة", lib_cat_none:"بدون صورة", confirm_delete_img:"حذف هذه الصورة؟",
   empty_prods:"لم تضف منتجات بعد. استخدم النموذج أعلاه.", empty_orders:"لا توجد طلبات مسجلة بعد.",
@@ -1126,7 +1162,7 @@ ar: {
   toast_email:"أدخل بريدًا إلكترونيًا صالحًا.", toast_pass_min:"يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل.", toast_exists:"يوجد حساب بالفعل بهذا البريد.",
   toast_badlogin:"بيانات الاعتماد غير صحيحة.", toast_login_first:"سجّل الدخول للوصول إلى اللوحة.", toast_fill_cart:"أضف منتجات إلى السلة أولًا.",
   toast_fill_name:"اكتب اسمك.", toast_fill_addr:"اكتب عنوان التسليم.", toast_fill_wa:"⚙️ اضبط واتساب في اللوحة.",
-  toast_order_sent:"✅ تم تسجيل الطلب وإرساله عبر واتساب",
+  toast_order_sent:"✅ تم تسجيل الطلب وإرساله عبر واتساب", toast_avatar:"✓ تم تحديث الصورة",
   hint_pass_weak:"6 أحرف على الأقل", hint_pass_ok:"✓ كلمة مرور صالحة", hint_email_ok:"✓ بريد صالح", hint_email_bad:"بريد غير صالح",
   hint_name_ok:"✓ اسم صالح", hint_wa_ok:"✓ رقم صالح", processing:"جاري المعالجة…",
   install:"تثبيت التطبيق", install_ios:"على آيفون: مشاركة ثم «إضافة إلى الشاشة الرئيسية»", install_manual:"قائمة المتصفح → «إضافة إلى الشاشة الرئيسية»",
@@ -1159,8 +1195,13 @@ const SEO = {
         kw:"كتالوج واتساب, كتالوج إلكتروني, استقبال طلبات واتساب, سلة مشتريات بدون متجر, بيع عبر واتساب" }
 };
 const OG_LOCALE = { fr:"fr_FR", es:"es_ES", ar:"ar_MA" };
-const FLAGS = { fr:"🇫🇷", es:"🇪", ar:"🇲🇦" };
 const LANG_NAMES = { fr:"Français", es:"Español", ar:"العربية" };
+/* ====== LISTA DE IDIOMAS (añade aquí English con el parche opcional) ====== */
+let LANGS = [
+  { code:"es", tag:"ES", flag:"🇪🇸", name:"Español" },
+  { code:"fr", tag:"FR", flag:"🇫🇷", name:"Français" },
+  { code:"ar", tag:"AR", flag:"🇲🇦", name:"العربية" }
+];
 const urlLang = new URLSearchParams(location.search).get("lang");
 let LANG = (urlLang && I18N[urlLang]) ? urlLang : (localStorage.getItem("catwha_lang") || getPlat().defaultLang || "fr");
 function t(key, vars){ let s = (I18N[LANG] && I18N[LANG][key]) || I18N.es[key] || key; if (vars) Object.keys(vars).forEach(k => s = s.replace(new RegExp("\\{"+k+"\\}","g"), vars[k])); return s; }
@@ -1180,11 +1221,19 @@ function buildJsonLd(){
   const faqs = [];
   for (let i=1;i<=6;i++) faqs.push({ "@type":"Question", "name": t("faq"+i+"q"), "acceptedAnswer": { "@type":"Answer", "text": t("faq"+i+"a") } });
   $("jsonLd").textContent = JSON.stringify({ "@context":"https://schema.org", "@graph":[
-    { "@type":"Organization", "name":"Catalogo Wha", "url":DOMAIN, "logo":DOMAIN+"/og.png", "contactPoint":{ "@type":"ContactPoint", "telephone":"+212690157092", "contactType":"customer support", "email":getPlat().contactEmail, "availableLanguage":["fr","es","ar"] } },
-    { "@type":"WebApplication", "name":"Catalogo Wha", "url":DOMAIN, "applicationCategory":"BusinessApplication", "operatingSystem":"Web", "offers":{ "@type":"Offer", "price":"0", "priceCurrency":"MAD" }, "description":SEO[LANG].desc, "inLanguage":["fr","es","ar"] },
+    { "@type":"Organization", "name":"Catalogo Wha", "url":DOMAIN, "logo":DOMAIN+"/og.png", "contactPoint":{ "@type":"ContactPoint", "telephone":"+212690157092", "contactType":"customer support", "email":getPlat().contactEmail, "availableLanguage":LANGS.map(l=>l.code) } },
+    { "@type":"WebApplication", "name":"Catalogo Wha", "url":DOMAIN, "applicationCategory":"BusinessApplication", "operatingSystem":"Web", "offers":{ "@type":"Offer", "price":"0", "priceCurrency":"MAD" }, "description":SEO[LANG].desc, "inLanguage":LANGS.map(l=>l.code) },
     { "@type":"FAQPage", "mainEntity": faqs } ] });
 }
-document.querySelectorAll("#langSwitch button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
+/* ====== DESPLEGABLE DE IDIOMAS ====== */
+function renderLangDD(){
+  const cur = LANGS.find(l => l.code === LANG) || LANGS[0];
+  $("langFlag").textContent = cur.flag; $("langCode").textContent = cur.tag;
+  $("langMenu").innerHTML = LANGS.map(l => `<button class="lang-item ${l.code===LANG?"on":""}" role="option" aria-selected="${l.code===LANG}" onclick="setLang('${l.code}');closeLangDD()"><span class="flag">${l.flag}</span><span>${esc(l.name)}</span></button>`).join("");
+}
+function toggleLangDD(e){ e && e.stopPropagation(); const dd = $("langDD"); const open = dd.classList.toggle("open"); $("langMenu").hidden = !open; $("langBtn").setAttribute("aria-expanded", open ? "true" : "false"); }
+function closeLangDD(){ const dd = $("langDD"); if (!dd) return; dd.classList.remove("open"); $("langMenu").hidden = true; $("langBtn").setAttribute("aria-expanded","false"); }
+document.addEventListener("click", e => { const dd = $("langDD"); if (dd && !dd.contains(e.target)) closeLangDD(); });
 function setLang(l){
   LANG = l; localStorage.setItem("catwha_lang", l);
   try { const u = new URL(location.href); u.searchParams.set("lang", l); history.replaceState(null, "", u); } catch {}
@@ -1195,8 +1244,8 @@ function applyI18n(){
   document.documentElement.lang = LANG;
   document.documentElement.dir = (LANG === "ar") ? "rtl" : "ltr";
   document.querySelectorAll("[data-i18n]").forEach(el => { const k = el.getAttribute("data-i18n"); const v = t(k); if (v !== k) el.innerHTML = v; });
-  applySEO(); applyPlat(); renderFAQ();
-  refreshNavUser(); buildMMenu();
+  applySEO(); applyPlat(); renderFAQ(); renderLangDD();
+  refreshNavUser(); buildMMenu(); fillCatSelects(); fillPlatLangSelect();
   if (S){ if (!$("v-catalogo").hidden) renderCatalog(); if (!$("v-admin").hidden) renderAdmin(); if (!$("v-super").hidden) renderSuper(); }
   refreshLanding();
 }
@@ -1206,19 +1255,33 @@ let numFmt = makeNumFmt();
 const dateFmt = ts => new Date(ts).toLocaleString(LANG === "ar" ? "ar-MA" : LANG === "fr" ? "fr-FR" : "es-ES");
 
 const TYPES = [["🔧","Ferreterías","bg-sun"],["👕","Ropa","bg-lav"],["👟","Calzado","bg-sky"],["🛒","Abarrotes","bg-mint"],["🧴","Limpieza","bg-sky"],["💄","Belleza","bg-rose"],["💻","Tecnología","bg-sun"],["⚡","Electricidad","bg-lav"],["🧸","Juguetes","bg-sky"],["📚","Librerías","bg-mint"],["🐾","Mascotas","bg-sky"],["⚽","Deportes","bg-rose"],["🏺","Artesanías","bg-sun"],["🎁","Regalos","bg-lav"],["🚚","Distribuidoras","bg-sky"]];
+const BIZ_CATS = TYPES.map(x => x[1]).concat(["Otro"]);
 $("typesGrid").innerHTML = TYPES.map(x => `<div class="type"><div class="ico ${x[2]}" aria-hidden="true">${x[0]}</div>${esc(x[1])}</div>`).join("");
+function fillCatSelects(){
+  const opts = `<option value="">${esc(t("select_cat"))}</option>` + BIZ_CATS.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join("");
+  if ($("rCat")) $("rCat").innerHTML = opts;
+  if ($("cfgCat")) $("cfgCat").innerHTML = opts;
+}
+function fillPlatLangSelect(){ const s = $("plLang"); if (s) s.innerHTML = LANGS.map(l => `<option value="${l.code}">${esc(l.name)}</option>`).join(""); }
 
-/* ====== AUTH MULTI-TENANT + ROL ADMIN ====== */
+/* ====== AUTH MULTI-TENANT ====== */
 const USERS_KEY = "catwha_users_v2", SESSION_KEY = "catwha_session", BIZ_KEY = "catwha_biz_";
 function getUsers(){ try { return JSON.parse(localStorage.getItem(USERS_KEY) || "[]"); } catch { return []; } }
 function saveUsers(u){ try { localStorage.setItem(USERS_KEY, JSON.stringify(u)); } catch { toast("⚠️ Storage lleno"); } }
 function getSession(){ try { return JSON.parse(localStorage.getItem(SESSION_KEY) || "null"); } catch { return null; } }
 function setSession(s){ if (s) localStorage.setItem(SESSION_KEY, JSON.stringify(s)); else localStorage.removeItem(SESSION_KEY); }
-function makeEmptyBiz(userId){ return { userId, config:{ businessName:"", whatsapp:"", email:"", currency:"", payments:["Efectivo"], bannerEyebrow:"", bannerTitle:"", deliveryEnabled:false, deliveryCost:0, slug:"u-"+userId.slice(0,8), created:false, catImages:{} }, products:[], orders:[], nextProdId:1 }; }
-function getBiz(userId){ try { const r = localStorage.getItem(BIZ_KEY+userId); if (r){ const b = JSON.parse(r); b.config.catImages = b.config.catImages || {}; return b; } } catch {} return makeEmptyBiz(userId); }
+function makeEmptyBiz(userId){ return { userId, config:{ businessName:"", whatsapp:"", email:"", currency:"", payments:["Efectivo"], bannerEyebrow:"", bannerTitle:"", deliveryEnabled:false, deliveryCost:0, slug:"u-"+userId.slice(0,8), created:false, catImages:{}, category:"", avatar:"" }, products:[], orders:[], nextProdId:1 }; }
+function getBiz(userId){ try { const r = localStorage.getItem(BIZ_KEY+userId); if (r){ const b = JSON.parse(r); b.config.catImages = b.config.catImages || {}; b.config.category = b.config.category || ""; b.config.avatar = b.config.avatar || ""; return b; } } catch {} return makeEmptyBiz(userId); }
 function saveBiz(userId, biz){ try { localStorage.setItem(BIZ_KEY+userId, JSON.stringify(biz)); } catch { toast("⚠️ Storage lleno"); } }
 function getCurrentUser(){ const s = getSession(); if (!s) return null; return getUsers().find(u => u.id === s.userId) || null; }
 function isAdmin(){ const u = getCurrentUser(); return !!u && (u.role === "admin" || u.email === ADMIN_EMAIL); }
+/* ---- compresión de imágenes ---- */
+function compressSize(file, max, q){ return new Promise((res,rej)=>{ const fr = new FileReader(); fr.onload = () => { const img = new Image(); img.onload = () => { const sc = Math.min(1, max/Math.max(img.width,img.height)); const w = Math.round(img.width*sc), h = Math.round(img.height*sc); const cv = document.createElement("canvas"); cv.width=w; cv.height=h; cv.getContext("2d").drawImage(img,0,0,w,h); res(cv.toDataURL("image/jpeg",q)); }; img.onerror = rej; img.src = fr.result; }; fr.onerror = rej; fr.readAsDataURL(file); }); }
+const compress = f => compressSize(f, 900, 0.72);
+/* ---- avatar registro ---- */
+let regAvatar = "";
+async function previewRegAvatar(input){ const f = input.files && input.files[0]; if (!f) return; regAvatar = await compressSize(f, 160, 0.8); $("rAvPrev").innerHTML = `<img src="${regAvatar}" alt="">`; }
+function clearRegAvatar(){ regAvatar = ""; $("rAvPrev").innerHTML = "🏪"; }
 async function doRegister(){
   const name = $("rName").value.trim(), email = $("rEmail").value.trim().toLowerCase(), pass = $("rPass").value, wa = $("rWa").value.replace(/\D/g,"");
   if (!name || !email || !pass || !wa) return toast(t("toast_fill"));
@@ -1229,12 +1292,14 @@ async function doRegister(){
   const btn = $("btnRegister"); btn.disabled = true; btn.textContent = t("processing");
   try {
     const passHash = await sha256(pass + ":" + email);
-    const user = { id:"u_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6), name, email, passHash, createdAt:Date.now() };
+    const user = { id:"u_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6), name, email, passHash, avatar:regAvatar||"", createdAt:Date.now() };
     if (email === ADMIN_EMAIL) user.role = "admin";
     users.push(user); saveUsers(users);
     const biz = makeEmptyBiz(user.id);
-    biz.config.businessName = name; biz.config.whatsapp = wa; biz.config.email = email; biz.config.created = true;
+    biz.config.businessName = name; biz.config.whatsapp = wa; biz.config.email = email;
+    biz.config.category = $("rCat").value; biz.config.avatar = regAvatar || ""; biz.config.created = true;
     saveBiz(user.id, biz); setSession({ userId:user.id });
+    regAvatar = ""; clearRegAvatar();
     closeAll(); toast(t("toast_created")); loadCurrentState(); go("admin");
   } finally { btn.disabled = false; btn.textContent = t("reg_btn"); }
 }
@@ -1254,7 +1319,7 @@ async function doLogin(){
 function logout(){ setSession(null); cart = {}; F = { cat:"Todos", q:"" }; mediaCacheOwner = "__none__"; loadCurrentState(); go("landing"); toast("👋"); }
 function authTab(w){ $("tLogin").classList.toggle("on", w==="login"); $("tReg").classList.toggle("on", w==="register"); $("formLogin").hidden = w!=="login"; $("formRegister").hidden = w!=="register"; }
 function requireAuth(){ if (!getCurrentUser()){ openAuth("login"); toast(t("toast_login_first")); return false; } return true; }
-function openAuth(tab){ authTab(tab||"login"); ["lEmail","lPass","rName","rEmail","rPass","rWa"].forEach(i => { const el=$(i); if(el){ el.value=""; el.classList.remove("valid","invalid"); } }); const h=$("hintPass"); if(h){h.textContent="";h.className="hint";} $("modalAuth").classList.add("on"); $("scrim").classList.add("on"); setTimeout(()=>{ const f=$("modalAuth").querySelector("input"); if(f) f.focus(); },100); }
+function openAuth(tab){ authTab(tab||"login"); ["lEmail","lPass","rName","rEmail","rPass","rWa"].forEach(i => { const el=$(i); if(el){ el.value=""; el.classList.remove("valid","invalid"); } }); const h=$("hintPass"); if(h){h.textContent="";h.className="hint";} clearRegAvatar(); $("modalAuth").classList.add("on"); $("scrim").classList.add("on"); setTimeout(()=>{ const f=$("modalAuth").querySelector("input"); if(f) f.focus(); },100); }
 function validateField(input, kind){
   const v = input.value.trim(); let ok = false, msg = "";
   if (kind==="name"){ ok = v.length>=2; msg = ok ? t("hint_name_ok") : ""; }
@@ -1269,7 +1334,7 @@ function validateField(input, kind){
 let S = null, cart = {}, F = { cat:"Todos", q:"" };
 function loadCurrentState(){
   const u = getCurrentUser();
-  S = u ? getBiz(u.id) : { userId:null, config:{ businessName:"—", whatsapp:"", email:"", currency:"", payments:["Efectivo"], bannerEyebrow:"", bannerTitle:"", deliveryEnabled:false, deliveryCost:0, created:false, catImages:{} }, products:[], orders:[], nextProdId:1 };
+  S = u ? getBiz(u.id) : { userId:null, config:{ businessName:"—", whatsapp:"", email:"", currency:"", payments:["Efectivo"], bannerEyebrow:"", bannerTitle:"", deliveryEnabled:false, deliveryCost:0, created:false, catImages:{}, category:"", avatar:"" }, products:[], orders:[], nextProdId:1 };
 }
 function money(n){ return (S.config.currency || "") + numFmt.format(Number(n)); }
 function toast(m){ const s = $("toastStack"); const el = document.createElement("div"); el.className="toast"; el.textContent=m; s.appendChild(el); requestAnimationFrame(()=>el.classList.add("on")); setTimeout(()=>{ el.classList.remove("on"); setTimeout(()=>el.remove(),300); },2600); }
@@ -1280,7 +1345,6 @@ function idb(){ return new Promise((res,rej)=>{ const rq = indexedDB.open(IDB_NA
 async function libAll(owner){ const db = await idb(); return new Promise(res=>{ const rq = db.transaction(IDB_STORE,"readonly").objectStore(IDB_STORE).getAll(); rq.onsuccess = () => res((rq.result||[]).filter(x=>x.ownerId===owner)); }); }
 async function libPut(rec){ const db = await idb(); return new Promise(res=>{ const tx = db.transaction(IDB_STORE,"readwrite"); tx.objectStore(IDB_STORE).put(rec); tx.oncomplete = res; }); }
 async function libDel(id){ const db = await idb(); return new Promise(res=>{ const tx = db.transaction(IDB_STORE,"readwrite"); tx.objectStore(IDB_STORE).delete(id); tx.oncomplete = res; }); }
-function compress(file){ return new Promise((res,rej)=>{ const fr = new FileReader(); fr.onload = () => { const img = new Image(); img.onload = () => { const max = 900; const sc = Math.min(1, max/Math.max(img.width,img.height)); const w = Math.round(img.width*sc), h = Math.round(img.height*sc); const cv = document.createElement("canvas"); cv.width=w; cv.height=h; cv.getContext("2d").drawImage(img,0,0,w,h); res(cv.toDataURL("image/jpeg",0.72)); }; img.onerror = rej; img.src = fr.result; }; fr.onerror = rej; fr.readAsDataURL(file); }); }
 let MEDIA_CACHE = {}, mediaCacheOwner = "__none__";
 async function ensureMediaCache(owner){ if (mediaCacheOwner === owner) return; MEDIA_CACHE = {}; mediaCacheOwner = owner; if (owner){ try { (await libAll(owner)).forEach(m => MEDIA_CACHE[m.id] = m.dataUrl); } catch {} } }
 function imgSrc(p){ if (!p || !p.img) return null; if (p.img.startsWith("lib:")) return MEDIA_CACHE[p.img.slice(4)] || null; return p.img; }
@@ -1344,6 +1408,7 @@ function route(){
   const raw = location.hash.replace(/^#\/?/, "");
   if (raw === "admin") return go("admin");
   if (raw === "super") return go("super");
+  if (raw === "registro"){ go("landing"); setTimeout(() => openAuth("register"), 150); return; }
   if (raw.startsWith("s/")) return viewPublicCatalog(raw.slice(2));
   if (raw === "catalogo"){ const u = getCurrentUser(); if (u){ go("catalogo", getBiz(u.id).config.slug); } else { go("landing"); toast(t("toast_login_first")); openAuth("login"); } return; }
   if (raw === "") return go("landing");
@@ -1360,10 +1425,11 @@ function viewMyCatalog(){
   if (!b.config.created){ go("admin"); tab("cfg"); toast(t("toast_fill_wa")); return; }
   go("catalogo", b.config.slug);
 }
+function avHtml(src, cls){ return src ? `<img class="${cls}" src="${esc(src)}" alt="">` : ""; }
 function refreshNavUser(){
   const u = getCurrentUser();
   if (u){
-    $("userBox").innerHTML = `<span class="user-box">👤 ${esc(u.name)}${isAdmin()?" 👑":""}</span>`;
+    $("userBox").innerHTML = `<span class="user-box">${u.avatar ? avHtml(u.avatar,"av") : "👤"} ${esc(u.name)}${isAdmin()?" 👑":""}</span>`;
     $("ctaNav").textContent = t("admin_view_cat"); $("ctaNav").onclick = () => viewMyCatalog();
     $("navViewCat").style.display = "";
   } else {
@@ -1377,12 +1443,12 @@ function refreshNavUser(){
 }
 function openMenu(){ buildMMenu(); $("mmenu").classList.add("on"); $("scrim").classList.add("on"); }
 function buildMMenu(){
-  $("mmLang").innerHTML = ["fr","es","ar"].map(l => `<button class="mm-lang-btn ${LANG===l?"on":""}" onclick="setLang('${l}')">${FLAGS[l]} ${LANG_NAMES[l]}</button>`).join("");
+  $("mmLang").innerHTML = LANGS.map(l => `<button class="lang-item ${LANG===l.code?"on":""}" onclick="setLang('${l.code}')"><span class="flag">${l.flag}</span><span>${esc(l.name)}</span></button>`).join("");
   const u = getCurrentUser();
   let extra = "";
   if (u && isAdmin()) extra = `<button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" onclick="closeAll();go('super')">👑 ${esc(t("super_btn"))}</button>`;
   $("mmAuth").innerHTML = u
-    ? `<div class="user-box" style="justify-content:center">👤 ${esc(u.name)}${isAdmin()?" 👑":""}</div>` + extra +
+    ? `<div class="user-box" style="justify-content:center">${u.avatar ? avHtml(u.avatar,"av") : "👤"} ${esc(u.name)}${isAdmin()?" 👑":""}</div>` + extra +
       `<button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" onclick="closeAll();go('admin')">⚙️ ${esc(t("foot_panel"))}</button>
        <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" onclick="logout()">🚪 ${esc(t("logout"))}</button>`
     : `<button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" onclick="closeAll();openAuth('login')">${esc(t("auth_login"))}</button>`;
@@ -1396,7 +1462,8 @@ function refreshLanding(){
   const grid = $("dirGrid");
   grid.innerHTML = pub.length ? pub.map(({b}) => {
     const n = b.products.filter(p=>p.active).length;
-    return `<div class="biz-card" onclick="viewPublicCatalog('${esc(b.config.slug)}')"><div class="biz-avatar">${esc((b.config.businessName||"?")[0].toUpperCase())}</div><h4>${esc(b.config.businessName)}</h4><div class="meta">${esc(n===1?t("item_count_one"):t("item_count",{n}))}</div></div>`;
+    const meta = [b.config.category, (n===1?t("item_count_one"):t("item_count",{n}))].filter(Boolean).join(" · ");
+    return `<div class="biz-card" onclick="viewPublicCatalog('${esc(b.config.slug)}')"><div class="biz-avatar">${b.config.avatar ? `<img src="${esc(b.config.avatar)}" alt="">` : esc((b.config.businessName||"?")[0].toUpperCase())}</div><h4>${esc(b.config.businessName)}</h4><div class="meta">${esc(meta)}</div></div>`;
   }).join("") : `<p class="empty-state" style="grid-column:1/-1"><span class="ico-big">📭</span><br>${esc(t("dir_empty"))}</p>`;
 }
 
@@ -1420,8 +1487,11 @@ async function renderCatalog(){
   await ensureMediaCache(S.userId || null);
   const c = S.config;
   $("catName").textContent = c.businessName || "—"; $("catNameFoot").textContent = c.businessName || "—";
-  $("catAvatar").textContent = (c.businessName || "W")[0].toUpperCase();
+  const av = $("catAvatar");
+  av.innerHTML = c.avatar ? `<img src="${esc(c.avatar)}" alt="">` : "W";
   $("catEyebrow").textContent = c.bannerEyebrow || "—"; $("catTitle").textContent = c.bannerTitle || c.businessName || "—";
+  const cc = $("catCat");
+  if (c.category){ cc.hidden = false; cc.textContent = c.category; } else cc.hidden = true;
   $("searchInput").placeholder = LANG === "ar" ? "بحث…" : LANG === "fr" ? "Rechercher…" : "Buscar…";
   const act = S.products.filter(p => p.active);
   curCats = ["Todos", ...new Set(act.map(p => p.cat))];
@@ -1458,7 +1528,7 @@ function renderCart(){
   $("cartTotal").textContent = money(subtotal());
 }
 function openDrawer(){ $("drawer").classList.add("on"); $("scrim").classList.add("on"); }
-function closeAll(){ ["drawer","mmenu"].forEach(i => $(i).classList.remove("on")); $("scrim").classList.remove("on"); ["modalCheckout","modalAuth","modalPicker","modalSuperEdit"].forEach(i => $(i).classList.remove("on")); }
+function closeAll(){ ["drawer","mmenu"].forEach(i => $(i).classList.remove("on")); $("scrim").classList.remove("on"); ["modalCheckout","modalAuth","modalPicker","modalSuperEdit"].forEach(i => $(i).classList.remove("on")); closeLangDD(); }
 
 /* ====== CHECKOUT ====== */
 function openCheckout(){
@@ -1502,15 +1572,29 @@ function sendOrder(){
   toast(t("toast_order_sent"));
 }
 
-/* ====== ADMIN (negocio propio) ====== */
+/* ====== ADMIN ====== */
 const STATUSES = ["pend","conf","deliv","done","cancel"];
 function tab(t2){ ["prod","orders","media","cfg","share"].forEach(x => { const p = $("p"+x[0].toUpperCase()+x.slice(1)); if (p) p.hidden = (x !== t2); const b = $("tab"+x[0].toUpperCase()+x.slice(1)); if (b) b.classList.toggle("on", x===t2); }); if (t2 === "media") renderMedia(); }
+async function setCfgAvatar(input){ const f = input.files && input.files[0]; if (!f) return; const u = getCurrentUser(); if (!u) return;
+  const dataUrl = await compressSize(f, 160, 0.8);
+  u.avatar = dataUrl; saveUsers(getUsers().map(x => x.id === u.id ? u : x));
+  S.config.avatar = dataUrl; saveBiz(S.userId, S);
+  $("cfgAvPrev").innerHTML = `<img src="${dataUrl}" alt="">`;
+  refreshNavUser(); buildMMenu(); renderCatalogSafe(); toast(t("toast_avatar"));
+}
+function clearCfgAvatar(){ const u = getCurrentUser(); if (!u) return;
+  u.avatar = ""; saveUsers(getUsers().map(x => x.id === u.id ? u : x));
+  S.config.avatar = ""; saveBiz(S.userId, S);
+  $("cfgAvPrev").innerHTML = "🏪"; refreshNavUser(); buildMMenu(); renderCatalogSafe(); toast("✓");
+}
+function renderCatalogSafe(){ if (!$("v-catalogo").hidden) renderCatalog(); }
 async function renderAdmin(){
   if (!requireAuth()) return;
   const u = getCurrentUser(); S = getBiz(u.id);
   await ensureMediaCache(u.id);
   const c = S.config;
   $("adminTitle").textContent = c.businessName || u.name;
+  $("adminAvatar").innerHTML = (c.avatar || u.avatar) ? `<img src="${esc(c.avatar || u.avatar)}" alt="">` : "W";
   const sb = $("superBtn"); if (sb) sb.hidden = !isAdmin();
   $("prodList").innerHTML = S.products.length ? S.products.map(p => {
     const src = imgSrc(p);
@@ -1518,7 +1602,7 @@ async function renderAdmin(){
       <td><b>${esc(p.name)}</b>${p.promo?` <span class="promo" style="position:static">-${Math.round((1-p.promo/p.price)*100)}%</span>`:""}</td>
       <td>${esc(p.cat)}</td><td>${esc(money(p.promo||p.price))}</td>
       <td><button class="st" onclick="toggleProd(${p.id})">${esc(p.active?t("active"):t("inactive"))}</button></td>
-      <td><button class="st" onclick="editProd(${p.id})" aria-label="✏️">✏️</button> <button class="st" onclick="delProd(${p.id})" aria-label="🗑️">️</button></td></tr>`;
+      <td><button class="st" onclick="editProd(${p.id})" aria-label="✏️">✏️</button> <button class="st" onclick="delProd(${p.id})" aria-label="🗑️">🗑️</button></td></tr>`;
   }).join("") : `<tr><td colspan="6" style="text-align:center;padding:30px;color:var(--muted)">${esc(t("empty_prods"))}</td></tr>`;
   $("ordersCount").textContent = S.orders.length ? `(${S.orders.length})` : "";
   $("ordersList").innerHTML = S.orders.length ? S.orders.map(o => `<div class="order-card">
@@ -1526,7 +1610,8 @@ async function renderAdmin(){
       <p style="font-size:13.5px;margin:8px 0">${o.items.map(i=>`${i.qty} × ${esc(i.name)}`).join(" · ")}<br>🚚 ${esc(o.delivery)}${o.address?" — "+esc(o.address):""} · 💳 ${esc(o.payment)}${o.note?" · 📝 "+esc(o.note):""}<br><small style="color:var(--muted)">${esc(dateFmt(o.ts))}</small></p>
       <select class="st" onchange="setStatus('${esc(o.id)}',this.value)">${STATUSES.map(s=>`<option value="${s}" ${o.status===s?"selected":""}>${esc(t("st_"+s))}</option>`).join("")}</select>
     </div>`).join("") : `<div class="card center"><p>${esc(t("empty_orders"))}</p></div>`;
-  $("cfgName").value = c.businessName; $("cfgWa").value = c.whatsapp; $("cfgEmail").value = c.email || u.email || "";
+  $("cfgAvPrev").innerHTML = (c.avatar || u.avatar) ? `<img src="${esc(c.avatar || u.avatar)}" alt="">` : "🏪";
+  $("cfgName").value = c.businessName; $("cfgCat").value = c.category || ""; $("cfgWa").value = c.whatsapp; $("cfgEmail").value = c.email || u.email || "";
   $("cfgCur").value = c.currency; $("cfgPay").value = (c.payments||[]).join(", ");
   $("cfgEye").value = c.bannerEyebrow; $("cfgTitle").value = c.bannerTitle;
   $("cfgDeliv").checked = !!c.deliveryEnabled; $("cfgCost").value = c.deliveryCost;
@@ -1553,7 +1638,7 @@ function setStatus(id,st){ const o = S.orders.find(x=>x.id===id); o.status = st;
 function saveCfg(){
   if (!requireAuth()) return;
   const c = S.config;
-  c.businessName = $("cfgName").value.trim()||""; c.whatsapp = $("cfgWa").value.replace(/\D/g,""); c.email = $("cfgEmail").value.trim();
+  c.businessName = $("cfgName").value.trim()||""; c.category = $("cfgCat").value; c.whatsapp = $("cfgWa").value.replace(/\D/g,""); c.email = $("cfgEmail").value.trim();
   c.currency = $("cfgCur").value; c.payments = $("cfgPay").value.split(",").map(x=>x.trim()).filter(Boolean);
   c.bannerEyebrow = $("cfgEye").value; c.bannerTitle = $("cfgTitle").value;
   c.deliveryEnabled = $("cfgDeliv").checked; c.deliveryCost = parseFloat($("cfgCost").value)||0; c.created = true;
@@ -1564,7 +1649,7 @@ function saveCfg(){
 }
 function copyLink(){ navigator.clipboard.writeText($("shareLink").value).then(()=>toast(t("toast_copied"))); }
 
-/* ====== SUPER PANEL (admin plataforma) ====== */
+/* ====== SUPER PANEL ====== */
 function stab(s){ ["sum","biz","ord","plat"].forEach(x => { $("sp"+x[0].toUpperCase()+x.slice(1)).hidden = (x!==s); $("stab"+x[0].toUpperCase()+x.slice(1)).classList.toggle("on", x===s); }); if (s==="plat") fillPlatForm(); }
 function superRows(){ return getUsers().map(u => ({ u, b:getBiz(u.id) })); }
 function orderCardX(x){ const o = x.o; return `<div class="order-card">
@@ -1587,7 +1672,9 @@ function renderSuper(){
   $("recentOrders").innerHTML = allOrders.slice(0,8).length ? allOrders.slice(0,8).map(orderCardX).join("") : `<p style="color:var(--muted)">${esc(t("no_data"))}</p>`;
   $("allOrders").innerHTML = allOrders.length ? allOrders.map(orderCardX).join("") : `<div class="card center"><p>${esc(t("no_data"))}</p></div>`;
   $("superBizList").innerHTML = rows.map(({u,b}) => `<tr>
+     <td style="font-size:20px">${b.config.avatar ? `<img src="${esc(b.config.avatar)}" alt="" style="width:30px;height:30px;border-radius:8px;object-fit:cover">` : "🏪"}</td>
      <td><b>${esc(b.config.businessName||u.name)}</b>${u.role==="admin"||u.email===ADMIN_EMAIL?" 👑":""}</td>
+     <td>${esc(b.config.category||"-")}</td>
      <td>${esc(u.email)}</td><td>${esc(b.config.whatsapp||"-")}</td>
      <td>${b.products.length}</td><td>${b.orders.length}</td>
      <td>${u.suspended?esc(t("suspended")):esc(t("active"))}</td>
@@ -1596,7 +1683,7 @@ function renderSuper(){
        <button class="st" onclick="superView('${u.id}')" title="${esc(t("act_view"))}">👁️</button>
        <button class="st" onclick="superSuspend('${u.id}')" title="${esc(u.suspended?t("act_act"):t("act_susp"))}">${u.suspended?"▶️":"⏸️"}</button>
        <button class="st" onclick="superDelete('${u.id}')" title="${esc(t("act_del"))}">🗑️</button>
-     </td></tr>`).join("") || `<tr><td colspan="7" style="text-align:center;padding:26px;color:var(--muted)">${esc(t("no_data"))}</td></tr>`;
+     </td></tr>`).join("") || `<tr><td colspan="9" style="text-align:center;padding:26px;color:var(--muted)">${esc(t("no_data"))}</td></tr>`;
 }
 function superStatus(bizUserId, orderId, st){ const b = getBiz(bizUserId); const o = b.orders.find(x=>x.id===orderId); if (!o) return; o.status = st; saveBiz(bizUserId, b); toast(t("toast_status")+" "+t("st_"+st)); renderSuper(); }
 function superEdit(userId){ const b = getBiz(userId); const c = b.config;
@@ -1710,6 +1797,7 @@ document.addEventListener("keydown", e => {
 
 /* ====== INICIO ====== */
 loadCurrentState();
+fillCatSelects();
 applyI18n();
 route();
 </script>
