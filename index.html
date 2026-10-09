@@ -293,6 +293,11 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 .bot-input{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--line);background:#fff}
 .bot-input input{flex:1;border:1px solid var(--line);border-radius:10px;padding:9px 12px;font:inherit;outline:none}
 .bot-input button{border:0;background:var(--violet);color:#fff;border-radius:10px;width:40px;cursor:pointer;font-size:16px}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:20px 0}
+.stat-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center}
+.stat-card b{display:block;font-size:30px;color:var(--violet)}
+.stat-card span{font-size:12.5px;color:var(--muted);font-weight:750}
+@media(max-width:720px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:1100px){#navViewCat{display:none}}
 @media(max-width:960px){
   .hero-in,.split,.g2,.g3,.g4,.dark-cols,.contact-grid{grid-template-columns:1fr}
@@ -406,7 +411,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
   <p class="lead" data-i18n="steps_lead">Sans installation ni technique : votre catalogue est public dès le premier jour.</p>
   <div class="grid g3" style="margin-top:44px;text-align:left">
     <div class="card"><div class="step-ill bg-lav" aria-hidden="true">🏪</div><span class="step-n">1</span><h3 data-i18n="step1_t">Ouvrez votre compte</h3><p style="font-size:14px;margin-top:8px" data-i18n="step1_d">Nom du commerce, votre WhatsApp et un mot de passe : votre espace est créé.</p></div>
-    <div class="card"><div class="step-ill bg-sun" aria-hidden="true">🛍️📦</div><span class="step-n">2</span><h3 data-i18n="step2_t">Publiez votre stock</h3><p style="font-size:14px;margin-top:8px" data-i18n="step2_d">Photos ou emojis, prix, offres et catégories. Modifiable à tout moment.</p></div>
+    <div class="card"><div class="step-ill bg-sun" aria-hidden="true">🛍️</div><span class="step-n">2</span><h3 data-i18n="step2_t">Publiez votre stock</h3><p style="font-size:14px;margin-top:8px" data-i18n="step2_d">Photos ou emojis, prix, offres et catégories. Modifiable à tout moment.</p></div>
     <div class="card"><div class="step-ill bg-mint" aria-hidden="true">🔗</div><span class="step-n">3</span><h3 data-i18n="step3_t">Partagez votre lien</h3><p style="font-size:14px;margin-top:8px" data-i18n="step3_d">En story, sur les réseaux ou au comptoir : qui l'ouvre peut commander.</p></div>
   </div>
 </div></section>
@@ -431,7 +436,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
     <div class="card feat"><div class="ico bg-lav" aria-hidden="true">🚚</div><h3 data-i18n="f5">Retrait ou livraison, à vous de voir</h3><p data-i18n="f5d">Activez la livraison avec coût ou coordonnez par chat.</p></div>
     <div class="card feat"><div class="ico bg-sky" aria-hidden="true">💳</div><h3 data-i18n="f6">Vos règles de paiement</h3><p data-i18n="f6d">Espèces, virement ou le moyen local que vous utilisez.</p></div>
     <div class="card feat"><div class="ico bg-mint" aria-hidden="true">💵</div><h3 data-i18n="f7">Prix dans votre monnaie</h3><p data-i18n="f7d">Publiez dans la monnaie de votre pays, sans conversion bizarre.</p></div>
-    <div class="card feat"><div class="ico bg-sun" aria-hidden="true">️</div><h3 data-i18n="f8">Bibliothèque d'images</h3><p data-i18n="f8d">Suba sus fotos, elíjalas por categoría y reutilícelas sin pegar URLs.</p></div>
+    <div class="card feat"><div class="ico bg-sun" aria-hidden="true">🖼️</div><h3 data-i18n="f8">Bibliothèque d'images</h3><p data-i18n="f8d">Uploadez vos photos, choisissez-les par catégorie, réutilisez-les sans coller d'URL.</p></div>
   </div>
 </div></section>
 
@@ -489,9 +494,11 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
   <h2 data-i18n="types_title">Pensé pour les commerces qui vendent chaque jour</h2>
   <p class="lead" data-i18n="types_lead">Si votre vente se termine dans une conversation WhatsApp, ce catalogue la rend plus rapide et plus claire.</p>
   <div class="grid" style="grid-template-columns:repeat(5,1fr);margin-top:40px" id="typesGrid"></div>
-  <h2 style="margin-top:70px" data-i18n="dir_title">Commerces qui vendent déjà avec Catalogo Wha</h2>
-  <p class="lead" data-i18n="dir_lead">Catalogues publics créés par la communauté : entrez, regardez, commandez.</p>
-  <div id="dirGrid" class="biz-grid"></div>
+  <div id="dirWrap">
+    <h2 style="margin-top:70px" data-i18n="dir_title">Commerces qui vendent déjà avec Catalogo Wha</h2>
+    <p class="lead" data-i18n="dir_lead">Catalogues publics créés par la communauté : entrez, regardez, commandez.</p>
+    <div id="dirGrid" class="biz-grid"></div>
+  </div>
 </div></section>
 
 <section class="dark"><div class="container center">
@@ -524,14 +531,15 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
   <p class="lead" data-i18n="contact_lead">Écrivez-nous et nous vous aidons à lancer votre catalogue.</p>
   <div class="contact-grid">
     <div class="contact-card"><div class="ico" aria-hidden="true">🏢</div><h3 data-i18n="contact_name">Entreprise</h3><p style="font-weight:750;color:var(--violet)">Catalogo Wha</p></div>
-    <div class="contact-card"><div class="ico" aria-hidden="true">💬</div><h3 data-i18n="contact_wa">WhatsApp</h3><a href="https://wa.me/212690157092" target="_blank" rel="noopener">+212 6 90 15 70 92</a></div>
-    <div class="contact-card"><div class="ico" aria-hidden="true">✉️</div><h3 data-i18n="contact_email">Email</h3><a href="mailto:contact@clickpubli.com">contact@clickpubli.com</a></div>
+    <div class="contact-card"><div class="ico" aria-hidden="true">💬</div><h3 data-i18n="contact_wa">WhatsApp</h3><a id="contactWaLink" href="https://wa.me/212690157092" target="_blank" rel="noopener">+212690157092</a></div>
+    <div class="contact-card"><div class="ico" aria-hidden="true">✉️</div><h3 data-i18n="contact_email">Email</h3><a id="contactMailLink" href="mailto:contact@clickpubli.com">contact@clickpubli.com</a></div>
   </div>
 </div></section>
 
 <footer class="site"><div class="container" style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
   <a class="logo" href="#/"><i>W</i>Catalogo Wha</a>
   <p style="flex:1" data-i18n="foot_desc">Catalogue en ligne et commandes via WhatsApp.</p>
+  <a id="footMailLink" class="logo" href="mailto:contact@clickpubli.com" style="font-size:14px;color:var(--violet)">✉ contact@clickpubli.com</a>
   <button class="btn btn-ghost btn-sm" id="footInstall" hidden onclick="installApp()">📲 <span data-i18n="install">Installer l'app</span></button>
   <button class="btn btn-ghost btn-sm" onclick="go('admin')">⚙️ <span data-i18n="foot_panel">Panneau</span></button>
 </div></footer>
@@ -550,7 +558,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
     <button class="btn btn-primary btn-sm" style="margin-top:14px" onclick="document.getElementById('gridZone').scrollIntoView({behavior:'smooth'})" data-i18n="mock_explore">Voir les produits</button></div>
   <div id="gridZone"><div class="chips" id="chips"></div><div class="pgrid-real" id="productsGrid"></div></div>
 </div>
-<footer class="site"><div class="container center"><p><span id="catNameFoot">—</span> · <a href="mailto:contact@clickpubli.com" style="color:var(--violet)">contact@clickpubli.com</a></p></div></footer>
+<footer class="site"><div class="container center"><p><span id="catNameFoot">—</span> · <a id="catMailLink" href="mailto:contact@clickpubli.com" style="color:var(--violet)">contact@clickpubli.com</a></p></div></footer>
 </div>
 
 <div id="v-admin" class="view" hidden>
@@ -558,6 +566,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
   <button class="iconbtn" onclick="go('landing')" aria-label="Retour">‹</button>
   <a class="logo"><i>W</i><span id="adminTitle">—</span></a>
   <span class="sp" style="flex:1"></span>
+  <button class="btn btn-ghost btn-sm" id="superBtn" hidden onclick="go('super')">👑 <span data-i18n="super_btn">Super panel</span></button>
   <button class="btn btn-ghost btn-sm" onclick="logout()">🚪 <span data-i18n="logout">Déconnexion</span></button>
   <button class="btn btn-primary btn-sm" onclick="viewMyCatalog()" data-i18n="admin_view_cat">Voir mon catalogue</button>
 </div></header>
@@ -627,6 +636,62 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
   </div>
 </div>
 </div>
+
+<!-- ====== SUPER PANEL (ADMIN PLATAFORMA) ====== -->
+<div id="v-super" class="view" hidden>
+<header class="cat-head"><div class="cat-head-in">
+  <button class="iconbtn" onclick="go('landing')" aria-label="Volver">‹</button>
+  <a class="logo"><i>👑</i><span data-i18n="super_title">Super panel</span></a>
+  <span class="sp" style="flex:1"></span>
+  <button class="btn btn-ghost btn-sm" onclick="go('admin')">⚙️ <span data-i18n="foot_panel">Panneau</span></button>
+  <button class="btn btn-primary btn-sm" onclick="viewMyCatalog()" data-i18n="admin_view_cat">Voir mon catalogue</button>
+</div></header>
+<div class="admin-wrap">
+  <div class="tabs">
+    <button class="tab on" id="stabSum" onclick="stab('sum')">📊 <span data-i18n="super_sum">Resumen</span></button>
+    <button class="tab" id="stabBiz" onclick="stab('biz')">🏪 <span data-i18n="super_biz">Negocios</span></button>
+    <button class="tab" id="stabOrd" onclick="stab('ord')">🧾 <span data-i18n="super_ord">Pedidos</span></button>
+    <button class="tab" id="stabPlat" onclick="stab('plat')">⚙️ <span data-i18n="super_plat">Ajustes</span></button>
+  </div>
+  <div id="spSum">
+    <div class="stat-grid" id="statGrid"></div>
+    <div class="card"><h3 data-i18n="recent_orders">Pedidos recientes</h3><div id="recentOrders" style="margin-top:12px"></div></div>
+  </div>
+  <div id="spBiz" hidden>
+    <div class="card tbl-wrap"><table class="tbl"><thead><tr><th data-i18n="th_biz">Negocio</th><th data-i18n="th_email">Email</th><th data-i18n="th_wa">WhatsApp</th><th data-i18n="th_prods">Prod.</th><th data-i18n="th_orders2">Pedidos</th><th data-i18n="th_state">Estado</th><th></th></tr></thead><tbody id="superBizList"></tbody></table></div>
+  </div>
+  <div id="spOrd" hidden><div id="allOrders"></div></div>
+  <div id="spPlat" hidden>
+    <div class="card">
+      <h3 data-i18n="super_plat">Ajustes</h3>
+      <div class="form-grid">
+        <div class="field"><label data-i18n="plat_name">Nombre de la plataforma</label><input id="plName"></div>
+        <div class="field"><label data-i18n="plat_wa">WhatsApp de soporte</label><input id="plWa"></div>
+        <div class="field"><label data-i18n="plat_email">Email de contacto</label><input id="plEmail"></div>
+        <div class="field"><label data-i18n="plat_lang">Idioma por defecto</label><select id="plLang"><option value="fr">Français</option><option value="es">Español</option><option value="ar">العربية</option></select></div>
+      </div>
+      <div class="field"><label style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="plDir" style="width:auto"> <span data-i18n="plat_dir">Mostrar directorio público</span></label></div>
+      <button class="btn btn-primary btn-sm" onclick="savePlatForm()" data-i18n="plat_save">Guardar ajustes</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="modal" id="modalSuperEdit" role="dialog" aria-modal="true"><div class="modal-card">
+  <h3 data-i18n="super_edit_title">Editar negocio</h3>
+  <input type="hidden" id="seUserId">
+  <div class="form-grid">
+    <div class="field"><label data-i18n="cfg_name">Nom</label><input id="seName"></div>
+    <div class="field"><label data-i18n="cfg_wa">WhatsApp</label><input id="seWa"></div>
+    <div class="field"><label data-i18n="cfg_email">Email</label><input id="seEmail"></div>
+    <div class="field"><label data-i18n="cfg_cur">Moneda</label><input id="seCur"></div>
+    <div class="field"><label data-i18n="cfg_pay">Pagos</label><input id="sePay"></div>
+    <div class="field"><label data-i18n="cfg_cost">Coût livraison</label><input id="seCost" type="number" min="0" step="0.01"></div>
+  </div>
+  <div class="field"><label data-i18n="cfg_banner">Titre bannière</label><input id="seTitle"></div>
+  <div class="field"><label style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="seDeliv" style="width:auto"> <span data-i18n="cfg_deliv">Livraison</span></label></div>
+  <div style="display:flex;gap:10px"><button class="btn btn-primary btn-sm" onclick="saveSuperBiz()" data-i18n="save_cfg">Enregistrer</button><button class="btn btn-ghost btn-sm" onclick="closeAll()" data-i18n="cancel">Annuler</button></div>
+</div></div>
 
 <!-- MENÚ MÓVIL -->
 <aside class="drawer" id="mmenu" role="dialog" aria-modal="true" aria-label="Menú">
@@ -705,13 +770,23 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 <div class="toast-stack" id="toastStack" aria-live="polite"></div>
 
 <script>
-/* 🔧 DOMINIO: reemplaza en esta única línea */
-const DOMAIN = "https://TU-DOMINIO-AQUI.com";   // ← cambia solo esta línea
-const SUPPORT_WA = "212690157092";
+/* 🔧 CONFIGURACIÓN EN 1 LÍNEA CADA UNA: */
+const DOMAIN = "https://TU-DOMINIO-AQUI.com";   // ← tu dominio
+const ADMIN_EMAIL = "contact@clickpubli.com";   // ← tu correo de super-admin
 
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 async function sha256(text){ const d = new TextEncoder().encode(text); const b = await crypto.subtle.digest("SHA-256", d); return Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2,"0")).join(""); }
 const $ = id => document.getElementById(id);
+
+/* ====== AJUSTES DE PLATAFORMA ====== */
+const PLAT_KEY = "catwha_platform";
+function getPlat(){ const d = { name:"Catalogo Wha", supportWa:"212690157092", contactEmail:"contact@clickpubli.com", defaultLang:"fr", dirEnabled:true }; try { return Object.assign(d, JSON.parse(localStorage.getItem(PLAT_KEY)||"{}")); } catch { return d; } }
+function savePlat(p){ localStorage.setItem(PLAT_KEY, JSON.stringify(p)); }
+function applyPlat(){
+  const p = getPlat();
+  const wa = $("contactWaLink"); if (wa){ wa.href = "https://wa.me/" + p.supportWa; wa.textContent = "+" + p.supportWa; }
+  ["contactMailLink","footMailLink","catMailLink"].forEach(id => { const el = $(id); if (el){ el.href = "mailto:" + p.contactEmail; el.textContent = (id === "footMailLink" ? "✉ " : "") + p.contactEmail; } });
+}
 
 /* ====== I18N ====== */
 const I18N = {
@@ -944,7 +1019,18 @@ es: {
   bot_q_human:"Hablar con una persona", bot_a_human:"Claro: pulsa *Enviar resumen por WhatsApp* y te atendemos con todo lo que consultaste aquí.",
   bot_fallback:"No estoy seguro de haber entendido. Elige una opción o pregunta con otras palabras (precios, productos, enlace, pedido…).",
   bot_summary:"Enviar resumen por WhatsApp", bot_sent:"Listo: se abrió WhatsApp con tu resumen. ¡Te respondemos enseguida!",
-  bot_input_ph:"Escribe aquí…"
+  bot_input_ph:"Escribe aquí…",
+  /* ---- SUPER PANEL (interno, español) ---- */
+  super_btn:"Super panel", super_title:"Super panel", super_sum:"Resumen", super_biz:"Negocios", super_ord:"Pedidos", super_plat:"Ajustes",
+  stat_users:"Usuarios", stat_cats:"Catálogos activos", stat_prods:"Productos publicados", stat_orders:"Pedidos totales",
+  recent_orders:"Pedidos recientes", all_orders:"Todos los pedidos", no_data:"Sin datos todavía.",
+  th_biz:"Negocio", th_email:"Email", th_wa:"WhatsApp", th_prods:"Prod.", th_orders2:"Pedidos", th_state:"Estado",
+  act_edit:"Editar", act_view:"Ver catálogo", act_susp:"Suspender", act_act:"Reactivar", act_del:"Eliminar",
+  suspended:"🔴 Suspendido", acct_suspended:"Cuenta suspendida. Contacta a soporte.",
+  super_edit_title:"Editar negocio", confirm_del_user:"¿Eliminar este usuario y todo su catálogo?",
+  plat_name:"Nombre de la plataforma", plat_wa:"WhatsApp de soporte", plat_email:"Email de contacto", plat_lang:"Idioma por defecto",
+  plat_dir:"Mostrar directorio público", plat_save:"Guardar ajustes",
+  toast_plat_saved:"✓ Ajustes de plataforma guardados", toast_no_self:"🔒 No puedes aplicar esto al super-admin", toast_locked:"🔒 Zona exclusiva del administrador"
 },
 ar: {
   nav_how:"كيف يعمل", nav_feat:"المميزات", nav_biz:"المتاجر", nav_faq:"أسئلة شائعة", nav_contact:"اتصل بنا",
@@ -1073,10 +1159,10 @@ const SEO = {
         kw:"كتالوج واتساب, كتالوج إلكتروني, استقبال طلبات واتساب, سلة مشتريات بدون متجر, بيع عبر واتساب" }
 };
 const OG_LOCALE = { fr:"fr_FR", es:"es_ES", ar:"ar_MA" };
-const FLAGS = { fr:"🇫🇷", es:"🇪🇸", ar:"🇲🇦" };
+const FLAGS = { fr:"🇫🇷", es:"🇪", ar:"🇲🇦" };
 const LANG_NAMES = { fr:"Français", es:"Español", ar:"العربية" };
 const urlLang = new URLSearchParams(location.search).get("lang");
-let LANG = (urlLang && I18N[urlLang]) ? urlLang : (localStorage.getItem("catwha_lang") || "fr");
+let LANG = (urlLang && I18N[urlLang]) ? urlLang : (localStorage.getItem("catwha_lang") || getPlat().defaultLang || "fr");
 function t(key, vars){ let s = (I18N[LANG] && I18N[LANG][key]) || I18N.es[key] || key; if (vars) Object.keys(vars).forEach(k => s = s.replace(new RegExp("\\{"+k+"\\}","g"), vars[k])); return s; }
 function applySEO(){
   const m = SEO[LANG];
@@ -1094,7 +1180,7 @@ function buildJsonLd(){
   const faqs = [];
   for (let i=1;i<=6;i++) faqs.push({ "@type":"Question", "name": t("faq"+i+"q"), "acceptedAnswer": { "@type":"Answer", "text": t("faq"+i+"a") } });
   $("jsonLd").textContent = JSON.stringify({ "@context":"https://schema.org", "@graph":[
-    { "@type":"Organization", "name":"Catalogo Wha", "url":DOMAIN, "logo":DOMAIN+"/og.png", "contactPoint":{ "@type":"ContactPoint", "telephone":"+212690157092", "contactType":"customer support", "email":"contact@clickpubli.com", "availableLanguage":["fr","es","ar"] } },
+    { "@type":"Organization", "name":"Catalogo Wha", "url":DOMAIN, "logo":DOMAIN+"/og.png", "contactPoint":{ "@type":"ContactPoint", "telephone":"+212690157092", "contactType":"customer support", "email":getPlat().contactEmail, "availableLanguage":["fr","es","ar"] } },
     { "@type":"WebApplication", "name":"Catalogo Wha", "url":DOMAIN, "applicationCategory":"BusinessApplication", "operatingSystem":"Web", "offers":{ "@type":"Offer", "price":"0", "priceCurrency":"MAD" }, "description":SEO[LANG].desc, "inLanguage":["fr","es","ar"] },
     { "@type":"FAQPage", "mainEntity": faqs } ] });
 }
@@ -1109,9 +1195,9 @@ function applyI18n(){
   document.documentElement.lang = LANG;
   document.documentElement.dir = (LANG === "ar") ? "rtl" : "ltr";
   document.querySelectorAll("[data-i18n]").forEach(el => { const k = el.getAttribute("data-i18n"); const v = t(k); if (v !== k) el.innerHTML = v; });
-  applySEO(); renderFAQ();
+  applySEO(); applyPlat(); renderFAQ();
   refreshNavUser(); buildMMenu();
-  if (S){ if (!$("v-catalogo").hidden) renderCatalog(); if (!$("v-admin").hidden) renderAdmin(); }
+  if (S){ if (!$("v-catalogo").hidden) renderCatalog(); if (!$("v-admin").hidden) renderAdmin(); if (!$("v-super").hidden) renderSuper(); }
   refreshLanding();
 }
 function renderFAQ(){ let h = ""; for (let i=1;i<=6;i++) h += `<details class="faq-item"><summary>${esc(t("faq"+i+"q"))}</summary><p>${esc(t("faq"+i+"a"))}</p></details>`; $("faqList").innerHTML = h; }
@@ -1122,7 +1208,7 @@ const dateFmt = ts => new Date(ts).toLocaleString(LANG === "ar" ? "ar-MA" : LANG
 const TYPES = [["🔧","Ferreterías","bg-sun"],["👕","Ropa","bg-lav"],["👟","Calzado","bg-sky"],["🛒","Abarrotes","bg-mint"],["🧴","Limpieza","bg-sky"],["💄","Belleza","bg-rose"],["💻","Tecnología","bg-sun"],["⚡","Electricidad","bg-lav"],["🧸","Juguetes","bg-sky"],["📚","Librerías","bg-mint"],["🐾","Mascotas","bg-sky"],["⚽","Deportes","bg-rose"],["🏺","Artesanías","bg-sun"],["🎁","Regalos","bg-lav"],["🚚","Distribuidoras","bg-sky"]];
 $("typesGrid").innerHTML = TYPES.map(x => `<div class="type"><div class="ico ${x[2]}" aria-hidden="true">${x[0]}</div>${esc(x[1])}</div>`).join("");
 
-/* ====== AUTH MULTI-TENANT ====== */
+/* ====== AUTH MULTI-TENANT + ROL ADMIN ====== */
 const USERS_KEY = "catwha_users_v2", SESSION_KEY = "catwha_session", BIZ_KEY = "catwha_biz_";
 function getUsers(){ try { return JSON.parse(localStorage.getItem(USERS_KEY) || "[]"); } catch { return []; } }
 function saveUsers(u){ try { localStorage.setItem(USERS_KEY, JSON.stringify(u)); } catch { toast("⚠️ Storage lleno"); } }
@@ -1132,6 +1218,7 @@ function makeEmptyBiz(userId){ return { userId, config:{ businessName:"", whatsa
 function getBiz(userId){ try { const r = localStorage.getItem(BIZ_KEY+userId); if (r){ const b = JSON.parse(r); b.config.catImages = b.config.catImages || {}; return b; } } catch {} return makeEmptyBiz(userId); }
 function saveBiz(userId, biz){ try { localStorage.setItem(BIZ_KEY+userId, JSON.stringify(biz)); } catch { toast("⚠️ Storage lleno"); } }
 function getCurrentUser(){ const s = getSession(); if (!s) return null; return getUsers().find(u => u.id === s.userId) || null; }
+function isAdmin(){ const u = getCurrentUser(); return !!u && (u.role === "admin" || u.email === ADMIN_EMAIL); }
 async function doRegister(){
   const name = $("rName").value.trim(), email = $("rEmail").value.trim().toLowerCase(), pass = $("rPass").value, wa = $("rWa").value.replace(/\D/g,"");
   if (!name || !email || !pass || !wa) return toast(t("toast_fill"));
@@ -1143,6 +1230,7 @@ async function doRegister(){
   try {
     const passHash = await sha256(pass + ":" + email);
     const user = { id:"u_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6), name, email, passHash, createdAt:Date.now() };
+    if (email === ADMIN_EMAIL) user.role = "admin";
     users.push(user); saveUsers(users);
     const biz = makeEmptyBiz(user.id);
     biz.config.businessName = name; biz.config.whatsapp = wa; biz.config.email = email; biz.config.created = true;
@@ -1155,6 +1243,7 @@ async function doLogin(){
   if (!email || !pass) return toast(t("toast_fill"));
   const u = getUsers().find(x => x.email === email);
   if (!u) return toast(t("toast_badlogin"));
+  if (u.suspended) return toast(t("acct_suspended"));
   const btn = $("btnLogin"); btn.disabled = true; btn.textContent = t("processing");
   try {
     const passHash = await sha256(pass + ":" + email);
@@ -1162,7 +1251,7 @@ async function doLogin(){
     setSession({ userId:u.id }); closeAll(); toast("✓ " + u.name); loadCurrentState(); go("admin");
   } finally { btn.disabled = false; btn.textContent = t("login_btn"); }
 }
-function logout(){ setSession(null); cart = {}; F = { cat:"Todos", q:"" }; mediaCacheOwner = null; loadCurrentState(); go("landing"); toast("👋"); }
+function logout(){ setSession(null); cart = {}; F = { cat:"Todos", q:"" }; mediaCacheOwner = "__none__"; loadCurrentState(); go("landing"); toast("👋"); }
 function authTab(w){ $("tLogin").classList.toggle("on", w==="login"); $("tReg").classList.toggle("on", w==="register"); $("formLogin").hidden = w!=="login"; $("formRegister").hidden = w!=="register"; }
 function requireAuth(){ if (!getCurrentUser()){ openAuth("login"); toast(t("toast_login_first")); return false; } return true; }
 function openAuth(tab){ authTab(tab||"login"); ["lEmail","lPass","rName","rEmail","rPass","rWa"].forEach(i => { const el=$(i); if(el){ el.value=""; el.classList.remove("valid","invalid"); } }); const h=$("hintPass"); if(h){h.textContent="";h.className="hint";} $("modalAuth").classList.add("on"); $("scrim").classList.add("on"); setTimeout(()=>{ const f=$("modalAuth").querySelector("input"); if(f) f.focus(); },100); }
@@ -1208,9 +1297,9 @@ async function delMedia(id){ if (!confirm(t("confirm_delete_img"))) return; awai
 async function renderMedia(){
   const u = getCurrentUser(); if (!u) return;
   await ensureMediaCache(u.id);
-  const items = Object.values(MEDIA_CACHE).length ? (await libAll(u.id)) : [];
+  const items = (await libAll(u.id));
   $("libGrid").innerHTML = items.length
-    ? items.map(m => `<div class="lib-item"><img src="${m.dataUrl}" alt="" loading="lazy"><button class="lib-del" onclick="delMedia('${m.id}')" aria-label="🗑️">🗑️</button></div>`).join("")
+    ? items.map(m => `<div class="lib-item"><img src="${m.dataUrl}" alt="" loading="lazy"><button class="lib-del" onclick="delMedia('${m.id}')" aria-label="🗑️">️</button></div>`).join("")
     : `<p style="grid-column:1/-1;color:var(--muted)">${esc(t("lib_empty"))}</p>`;
   const cats = [...new Set(S.products.map(p => p.cat))];
   $("catImgList").innerHTML = cats.length ? cats.map(c => {
@@ -1243,21 +1332,23 @@ function clearCatImg(cat){ delete (S.config.catImages||{})[cat]; saveBiz(S.userI
 
 /* ====== ROUTER ====== */
 function go(v, slug){
-  ["landing","catalogo","admin"].forEach(x => $("v-"+x).hidden = (x !== v));
+  ["landing","catalogo","admin","super"].forEach(x => $("v-"+x).hidden = (x !== v));
   if (v === "landing"){ location.hash = "#/"; window.scrollTo(0,0); refreshLanding(); refreshNavUser(); }
   else if (v === "catalogo"){ location.hash = slug ? "#/s/"+slug : "#/catalogo"; window.scrollTo(0,0); renderCatalog(); }
   else if (v === "admin"){ if (!requireAuth()){ location.hash = "#/"; return; } location.hash = "#/admin"; window.scrollTo(0,0); tab("prod"); renderAdmin(); }
+  else if (v === "super"){ if (!isAdmin()){ toast(t("toast_locked")); go("landing"); return; } location.hash = "#/super"; window.scrollTo(0,0); stab("sum"); renderSuper(); }
   closeAll();
 }
 window.addEventListener("hashchange", route);
 function route(){
   const raw = location.hash.replace(/^#\/?/, "");
   if (raw === "admin") return go("admin");
+  if (raw === "super") return go("super");
   if (raw.startsWith("s/")) return viewPublicCatalog(raw.slice(2));
   if (raw === "catalogo"){ const u = getCurrentUser(); if (u){ go("catalogo", getBiz(u.id).config.slug); } else { go("landing"); toast(t("toast_login_first")); openAuth("login"); } return; }
   if (raw === "") return go("landing");
   const el = document.getElementById(raw);
-  if (el){ ["landing","catalogo","admin"].forEach(x => $("v-"+x).hidden = (x !== "landing")); refreshLanding(); refreshNavUser(); closeAll(); setTimeout(()=>el.scrollIntoView({behavior:"smooth"}),60); return; }
+  if (el){ ["landing","catalogo","admin","super"].forEach(x => $("v-"+x).hidden = (x !== "landing")); refreshLanding(); refreshNavUser(); closeAll(); setTimeout(()=>el.scrollIntoView({behavior:"smooth"}),60); return; }
   go("landing");
 }
 
@@ -1272,7 +1363,7 @@ function viewMyCatalog(){
 function refreshNavUser(){
   const u = getCurrentUser();
   if (u){
-    $("userBox").innerHTML = `<span class="user-box">👤 ${esc(u.name)}</span>`;
+    $("userBox").innerHTML = `<span class="user-box">👤 ${esc(u.name)}${isAdmin()?" 👑":""}</span>`;
     $("ctaNav").textContent = t("admin_view_cat"); $("ctaNav").onclick = () => viewMyCatalog();
     $("navViewCat").style.display = "";
   } else {
@@ -1282,14 +1373,17 @@ function refreshNavUser(){
   }
   $("ctaHero").onclick = () => openAuth("register");
   $("ctaFinal").onclick = () => openAuth("register");
+  const sb = $("superBtn"); if (sb) sb.hidden = !isAdmin();
 }
 function openMenu(){ buildMMenu(); $("mmenu").classList.add("on"); $("scrim").classList.add("on"); }
 function buildMMenu(){
   $("mmLang").innerHTML = ["fr","es","ar"].map(l => `<button class="mm-lang-btn ${LANG===l?"on":""}" onclick="setLang('${l}')">${FLAGS[l]} ${LANG_NAMES[l]}</button>`).join("");
   const u = getCurrentUser();
+  let extra = "";
+  if (u && isAdmin()) extra = `<button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" onclick="closeAll();go('super')">👑 ${esc(t("super_btn"))}</button>`;
   $("mmAuth").innerHTML = u
-    ? `<div class="user-box" style="justify-content:center">👤 ${esc(u.name)}</div>
-       <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" onclick="closeAll();go('admin')">⚙️ ${esc(t("foot_panel"))}</button>
+    ? `<div class="user-box" style="justify-content:center">👤 ${esc(u.name)}${isAdmin()?" 👑":""}</div>` + extra +
+      `<button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" onclick="closeAll();go('admin')">⚙️ ${esc(t("foot_panel"))}</button>
        <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" onclick="logout()">🚪 ${esc(t("logout"))}</button>`
     : `<button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" onclick="closeAll();openAuth('login')">${esc(t("auth_login"))}</button>`;
   const cta = $("mmCta");
@@ -1297,7 +1391,8 @@ function buildMMenu(){
   cta.onclick = () => { closeAll(); if (u) viewMyCatalog(); else openAuth("register"); };
 }
 function refreshLanding(){
-  const pub = getUsers().map(u => ({ u, b:getBiz(u.id) })).filter(x => x.b.config.created && x.b.config.businessName);
+  $("dirWrap").hidden = !getPlat().dirEnabled;
+  const pub = getUsers().map(u => ({ u, b:getBiz(u.id) })).filter(x => x.b.config.created && x.b.config.businessName && !x.u.suspended);
   const grid = $("dirGrid");
   grid.innerHTML = pub.length ? pub.map(({b}) => {
     const n = b.products.filter(p=>p.active).length;
@@ -1311,8 +1406,9 @@ function viewPublicCatalog(slug){
   for (const u of getUsers()){
     const b = getBiz(u.id);
     if (b.config.slug === slug){
-      S = b; cart = {}; F = { cat:"Todos", q:"" }; mediaCacheOwner = null;
-      $("v-landing").hidden = true; $("v-admin").hidden = true; $("v-catalogo").hidden = false;
+      if (u.suspended) break;
+      S = b; cart = {}; F = { cat:"Todos", q:"" }; mediaCacheOwner = "__none__";
+      $("v-landing").hidden = true; $("v-admin").hidden = true; $("v-super").hidden = true; $("v-catalogo").hidden = false;
       location.hash = "#/s/" + slug; window.scrollTo(0,0); renderCatalog(); return;
     }
   }
@@ -1362,7 +1458,7 @@ function renderCart(){
   $("cartTotal").textContent = money(subtotal());
 }
 function openDrawer(){ $("drawer").classList.add("on"); $("scrim").classList.add("on"); }
-function closeAll(){ ["drawer","mmenu"].forEach(i => $(i).classList.remove("on")); $("scrim").classList.remove("on"); ["modalCheckout","modalAuth","modalPicker"].forEach(i => $(i).classList.remove("on")); }
+function closeAll(){ ["drawer","mmenu"].forEach(i => $(i).classList.remove("on")); $("scrim").classList.remove("on"); ["modalCheckout","modalAuth","modalPicker","modalSuperEdit"].forEach(i => $(i).classList.remove("on")); }
 
 /* ====== CHECKOUT ====== */
 function openCheckout(){
@@ -1406,7 +1502,7 @@ function sendOrder(){
   toast(t("toast_order_sent"));
 }
 
-/* ====== ADMIN ====== */
+/* ====== ADMIN (negocio propio) ====== */
 const STATUSES = ["pend","conf","deliv","done","cancel"];
 function tab(t2){ ["prod","orders","media","cfg","share"].forEach(x => { const p = $("p"+x[0].toUpperCase()+x.slice(1)); if (p) p.hidden = (x !== t2); const b = $("tab"+x[0].toUpperCase()+x.slice(1)); if (b) b.classList.toggle("on", x===t2); }); if (t2 === "media") renderMedia(); }
 async function renderAdmin(){
@@ -1415,13 +1511,14 @@ async function renderAdmin(){
   await ensureMediaCache(u.id);
   const c = S.config;
   $("adminTitle").textContent = c.businessName || u.name;
+  const sb = $("superBtn"); if (sb) sb.hidden = !isAdmin();
   $("prodList").innerHTML = S.products.length ? S.products.map(p => {
     const src = imgSrc(p);
     return `<tr><td style="font-size:22px">${src?`<img src="${esc(src)}" alt="" style="width:34px;height:34px;object-fit:cover;border-radius:8px">`:esc(p.emoji||"🛍️")}</td>
       <td><b>${esc(p.name)}</b>${p.promo?` <span class="promo" style="position:static">-${Math.round((1-p.promo/p.price)*100)}%</span>`:""}</td>
       <td>${esc(p.cat)}</td><td>${esc(money(p.promo||p.price))}</td>
       <td><button class="st" onclick="toggleProd(${p.id})">${esc(p.active?t("active"):t("inactive"))}</button></td>
-      <td><button class="st" onclick="editProd(${p.id})" aria-label="✏️">️</button> <button class="st" onclick="delProd(${p.id})" aria-label="🗑️">🗑️</button></td></tr>`;
+      <td><button class="st" onclick="editProd(${p.id})" aria-label="✏️">✏️</button> <button class="st" onclick="delProd(${p.id})" aria-label="🗑️">️</button></td></tr>`;
   }).join("") : `<tr><td colspan="6" style="text-align:center;padding:30px;color:var(--muted)">${esc(t("empty_prods"))}</td></tr>`;
   $("ordersCount").textContent = S.orders.length ? `(${S.orders.length})` : "";
   $("ordersList").innerHTML = S.orders.length ? S.orders.map(o => `<div class="order-card">
@@ -1467,6 +1564,74 @@ function saveCfg(){
 }
 function copyLink(){ navigator.clipboard.writeText($("shareLink").value).then(()=>toast(t("toast_copied"))); }
 
+/* ====== SUPER PANEL (admin plataforma) ====== */
+function stab(s){ ["sum","biz","ord","plat"].forEach(x => { $("sp"+x[0].toUpperCase()+x.slice(1)).hidden = (x!==s); $("stab"+x[0].toUpperCase()+x.slice(1)).classList.toggle("on", x===s); }); if (s==="plat") fillPlatForm(); }
+function superRows(){ return getUsers().map(u => ({ u, b:getBiz(u.id) })); }
+function orderCardX(x){ const o = x.o; return `<div class="order-card">
+  <div class="head"><span>🧾 ${esc(o.id)} · ${esc(o.customer)} · 🏪 ${esc(x.bizName||"-")}</span><span style="color:var(--violet)">${esc(x.cur||"")}${numFmt.format(o.total)}</span></div>
+  <p style="font-size:13.5px;margin:8px 0">${o.items.map(i=>`${i.qty} × ${esc(i.name)}`).join(" · ")}<br>🚚 ${esc(o.delivery)}${o.address?" — "+esc(o.address):""} · 💳 ${esc(o.payment)}${o.note?" · 📝 "+esc(o.note):""}<br><small style="color:var(--muted)">${esc(dateFmt(o.ts))}</small></p>
+  <select class="st" onchange="superStatus('${x.bizUserId}','${esc(o.id)}',this.value)">${STATUSES.map(s=>`<option value="${s}" ${o.status===s?"selected":""}>${esc(t("st_"+s))}</option>`).join("")}</select>
+</div>`; }
+function renderSuper(){
+  if (!isAdmin()){ toast(t("toast_locked")); go("landing"); return; }
+  const rows = superRows();
+  const created = rows.filter(r => r.b.config.created);
+  const totProds = created.reduce((s,r)=>s+r.b.products.filter(p=>p.active).length,0);
+  const allOrders = rows.flatMap(r => r.b.orders.map(o => ({ o, bizName:r.b.config.businessName, cur:r.b.config.currency, bizUserId:r.u.id })));
+  allOrders.sort((a,b)=>b.o.ts-a.o.ts);
+  $("statGrid").innerHTML = `
+    <div class="stat-card"><b>${rows.length}</b><span>${esc(t("stat_users"))}</span></div>
+    <div class="stat-card"><b>${created.length}</b><span>${esc(t("stat_cats"))}</span></div>
+    <div class="stat-card"><b>${totProds}</b><span>${esc(t("stat_prods"))}</span></div>
+    <div class="stat-card"><b>${allOrders.length}</b><span>${esc(t("stat_orders"))}</span></div>`;
+  $("recentOrders").innerHTML = allOrders.slice(0,8).length ? allOrders.slice(0,8).map(orderCardX).join("") : `<p style="color:var(--muted)">${esc(t("no_data"))}</p>`;
+  $("allOrders").innerHTML = allOrders.length ? allOrders.map(orderCardX).join("") : `<div class="card center"><p>${esc(t("no_data"))}</p></div>`;
+  $("superBizList").innerHTML = rows.map(({u,b}) => `<tr>
+     <td><b>${esc(b.config.businessName||u.name)}</b>${u.role==="admin"||u.email===ADMIN_EMAIL?" 👑":""}</td>
+     <td>${esc(u.email)}</td><td>${esc(b.config.whatsapp||"-")}</td>
+     <td>${b.products.length}</td><td>${b.orders.length}</td>
+     <td>${u.suspended?esc(t("suspended")):esc(t("active"))}</td>
+     <td style="white-space:nowrap">
+       <button class="st" onclick="superEdit('${u.id}')" title="${esc(t("act_edit"))}">✏️</button>
+       <button class="st" onclick="superView('${u.id}')" title="${esc(t("act_view"))}">👁️</button>
+       <button class="st" onclick="superSuspend('${u.id}')" title="${esc(u.suspended?t("act_act"):t("act_susp"))}">${u.suspended?"▶️":"⏸️"}</button>
+       <button class="st" onclick="superDelete('${u.id}')" title="${esc(t("act_del"))}">🗑️</button>
+     </td></tr>`).join("") || `<tr><td colspan="7" style="text-align:center;padding:26px;color:var(--muted)">${esc(t("no_data"))}</td></tr>`;
+}
+function superStatus(bizUserId, orderId, st){ const b = getBiz(bizUserId); const o = b.orders.find(x=>x.id===orderId); if (!o) return; o.status = st; saveBiz(bizUserId, b); toast(t("toast_status")+" "+t("st_"+st)); renderSuper(); }
+function superEdit(userId){ const b = getBiz(userId); const c = b.config;
+  $("seUserId").value = userId; $("seName").value = c.businessName; $("seWa").value = c.whatsapp; $("seEmail").value = c.email;
+  $("seCur").value = c.currency; $("sePay").value = (c.payments||[]).join(", "); $("seCost").value = c.deliveryCost;
+  $("seTitle").value = c.bannerTitle; $("seDeliv").checked = !!c.deliveryEnabled;
+  $("modalSuperEdit").classList.add("on"); $("scrim").classList.add("on");
+}
+function saveSuperBiz(){ const id = $("seUserId").value; if (!id) return; const b = getBiz(id); const c = b.config;
+  c.businessName = $("seName").value.trim(); c.whatsapp = $("seWa").value.replace(/\D/g,""); c.email = $("seEmail").value.trim();
+  c.currency = $("seCur").value; c.payments = $("sePay").value.split(",").map(x=>x.trim()).filter(Boolean);
+  c.deliveryCost = parseFloat($("seCost").value)||0; c.bannerTitle = $("seTitle").value; c.deliveryEnabled = $("seDeliv").checked;
+  saveBiz(id, b);
+  const users = getUsers(); const u = users.find(x=>x.id===id);
+  if (u && c.businessName){ u.name = c.businessName; saveUsers(users); }
+  closeAll(); renderSuper(); refreshLanding(); toast(t("toast_cfg_saved"));
+}
+function superView(userId){ const b = getBiz(userId); viewPublicCatalog(b.config.slug); }
+function superSuspend(userId){ const users = getUsers(); const u = users.find(x=>x.id===userId); if (!u) return;
+  if (u.email === ADMIN_EMAIL) return toast(t("toast_no_self"));
+  u.suspended = !u.suspended; saveUsers(users);
+  const s = getSession(); if (s && s.userId === userId && u.suspended) setSession(null);
+  renderSuper(); refreshLanding(); toast(u.suspended ? t("suspended") : t("active"));
+}
+function superDelete(userId){ const users = getUsers(); const u = users.find(x=>x.id===userId); if (!u) return;
+  if (u.email === ADMIN_EMAIL) return toast(t("toast_no_self"));
+  if (!confirm(t("confirm_del_user"))) return;
+  saveUsers(users.filter(x=>x.id!==userId));
+  localStorage.removeItem(BIZ_KEY+userId);
+  const s = getSession(); if (s && s.userId === userId) setSession(null);
+  renderSuper(); refreshLanding(); toast(t("toast_deleted"));
+}
+function fillPlatForm(){ const p = getPlat(); $("plName").value = p.name; $("plWa").value = p.supportWa; $("plEmail").value = p.contactEmail; $("plLang").value = p.defaultLang; $("plDir").checked = !!p.dirEnabled; }
+function savePlatForm(){ savePlat({ name:$("plName").value.trim()||"Catalogo Wha", supportWa:$("plWa").value.replace(/\D/g,""), contactEmail:$("plEmail").value.trim(), defaultLang:$("plLang").value, dirEnabled:$("plDir").checked }); applyPlat(); refreshLanding(); toast(t("toast_plat_saved")); }
+
 /* ====== CHATBOT ====== */
 const BOT_KW = {
   create:["crear","registro","cuenta","créer","compte","أنشئ","حساب"],
@@ -1502,6 +1667,7 @@ function botSend(){
   setBotChips(menuChips());
 }
 function botSummary(){
+  const p = getPlat();
   const topics = BOT.asked.map(k => "• " + t("bot_q_"+k)).join("\n");
   const msg = [ "*Consulta desde Catalogo Wha*",
     "*Nombre:* " + (BOT.name || "-"),
@@ -1509,7 +1675,7 @@ function botSummary(){
     "*Idioma:* " + LANG_NAMES[LANG],
     "*Temas consultados:*", topics || "-",
     "*Enviado desde:* " + DOMAIN ].join("\n");
-  window.open(`https://wa.me/${SUPPORT_WA}?text=${encodeURIComponent(msg)}`, "_blank");
+  window.open(`https://wa.me/${p.supportWa}?text=${encodeURIComponent(msg)}`, "_blank");
   botSay(t("bot_sent"));
 }
 
