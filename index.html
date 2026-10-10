@@ -130,6 +130,24 @@ p{color:var(--muted)}
 .cfg-sub{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:6px}
 .cfg-sub h3{margin-bottom:4px}
 .cfg-sub .back{margin-bottom:16px}
+.cfg-side{background:var(--mint);border:1px solid #BBF7D0;border-radius:14px;padding:16px;margin-top:14px}
+.cfg-side b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#15803D;margin-bottom:4px}
+.warn-box{background:#FEF9C3;border:1px solid #FDE68A;border-radius:14px;padding:16px;margin:14px 0}
+.warn-box b{display:flex;gap:8px;align-items:center;color:#854D0E}
+.warn-box p{font-size:13px;color:#854D0E;margin-top:4px}
+.confirm-row{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:10px;background:var(--bg)}
+.confirm-row input{margin-top:3px;accent-color:var(--violet)}
+.confirm-row label{font-size:13.5px;font-weight:600}
+.char-count{float:right;font-size:11px;color:var(--muted);font-weight:600}
+.auto-chip{display:inline-flex;align-items:center;gap:5px;background:var(--lav);color:var(--violet);border-radius:20px;padding:3px 10px;font-size:11px;font-weight:750;margin-left:8px}
+.seo-layout{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}
+.seo-prev{position:sticky;top:80px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.seo-prev .sp-img{height:150px;background:var(--lav);display:grid;place-items:center;color:var(--muted);font-size:12px}
+.seo-prev .sp-img img{width:100%;height:100%;object-fit:cover}
+.seo-prev .sp-body{padding:14px}
+.seo-prev .sp-dom{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.seo-prev .sp-t{font-weight:750;font-size:14px;margin:3px 0}
+.seo-prev .sp-d{font-size:12px;color:var(--muted)}
 .prod-layout{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}
 .rte{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
 .rte-bar{display:flex;gap:6px;padding:8px;border-bottom:1px solid var(--line);background:var(--bg);flex-wrap:wrap}
@@ -162,13 +180,18 @@ p{color:var(--muted)}
 .cat-stat span{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:750}
 .cat-stat p{font-size:12.5px;margin-top:4px}
 .cat-stat.hl{background:var(--lav);border-color:var(--violet)}
-@media(max-width:900px){.prod-layout{grid-template-columns:1fr}.quick-grid,.cfg-grid,.cat-stats{grid-template-columns:1fr 1fr}.imgslots{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:600px){.quick-grid,.cfg-grid,.cat-stats{grid-template-columns:1fr}}
+.pay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pay-opt{border:1px solid var(--line);border-radius:12px;padding:14px;cursor:pointer;background:#fff}
+.pay-opt.on{border-color:var(--violet);background:var(--lav)}
+.pay-opt b{display:flex;gap:8px;align-items:center;font-size:14px}
+.pay-opt p{font-size:12px;margin-top:4px}
+@media(max-width:900px){.prod-layout,.seo-layout{grid-template-columns:1fr}.quick-grid,.cfg-grid,.cat-stats,.pay-grid{grid-template-columns:1fr 1fr}.imgslots{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.quick-grid,.cfg-grid,.cat-stats,.pay-grid{grid-template-columns:1fr}}
 .hero{padding:70px 0 90px;background:linear-gradient(180deg,#F3EFFC,var(--bg))}
 .hero-in{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
 .hero h1{font-size:clamp(34px,4.6vw,54px);margin:16px 0 18px}
 .hero h1 .wa{color:var(--wateal);display:inline-flex;align-items:center;gap:10px}
-.wa-ic{width:.95em;height:.95em;border-radius:50%;;background:var(--wa);display:inline-grid;place-items:center}
+.wa-ic{width:.95em;height:.95em;border-radius:50%;background:var(--wa);display:inline-grid;place-items:center}
 .wa-ic svg{width:62%;height:62%;fill:#fff}
 .hero-visual{position:relative;display:flex;justify-content:center;padding:20px 0}
 .phone{width:262px;border:9px solid #241E3B;border-radius:38px;background:#fff;overflow:hidden;box-shadow:0 30px 60px rgba(34,28,58,.25)}
@@ -262,9 +285,11 @@ p{color:var(--muted)}
 .iconbtn{position:relative;background:var(--lav);border:0;border-radius:10px;width:40px;height:40px;font-size:17px;cursor:pointer}
 .badge{position:absolute;top:-6px;right:-6px;background:var(--violet);color:#fff;font-size:10px;font-weight:750;border-radius:20px;min-width:18px;height:18px;display:grid;place-items:center;padding:0 4px}
 [dir="rtl"] .badge{right:auto;left:-6px}
-.cat-banner{background:linear-gradient(120deg,#EDE7FB,#F8F4FE);border-radius:20px;padding:34px;margin:24px 0}
+.cat-banner{background:linear-gradient(120deg,#EDE7FB,#F8F4FE);border-radius:20px;padding:34px;margin:24px 0;position:relative;overflow:hidden}
 .cat-banner .eyebrow{margin-bottom:8px}
 .cat-banner h2{font-size:clamp(22px,3vw,32px)}
+.cat-banner .hdr-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22}
+.cat-banner .hdr-body{position:relative}
 .chips{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 26px}
 .chip{border:1px solid var(--line);background:#fff;border-radius:20px;padding:8px 16px;font:inherit;font-size:13.5px;font-weight:750;cursor:pointer;color:var(--muted);display:inline-flex;align-items:center;gap:7px}
 .chip.on{background:var(--violet);border-color:var(--violet);color:#fff}
@@ -421,12 +446,12 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
     <h1><span data-i18n="hero_title1">Votre catalogue en ligne avec panier et commande directe sur</span>
       <span class="wa">WhatsApp <span class="wa-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></span>
     </h1>
-    <p data-i18n="hero_desc">Publiez vos produits une seule fois, partagez un lien et recevez des commandes complètes. Sans site e-commerce, sans commission.</p>
+    <p data-i18n="hero_desc">Publiez une fois, partagez un lien, recevez des commandes complètes. Sans site, sans commission.</p>
     <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:26px">
       <button class="btn btn-primary" id="ctaHero" data-i18n="hero_cta1">Créer mon catalogue gratuit</button>
-      <button class="btn btn-ghost" onclick="viewMyCatalog()" data-i18n="hero_cta2">Voir un catalogue en direct</button>
+      <button class="btn btn-ghost" onclick="viewMyCatalog()" data-i18n="hero_cta2">Voir un catalogue</button>
     </div>
-    <div class="checks"><span data-i18n="hero_chk1">Prêt en quelques minutes</span><span data-i18n="hero_chk2">0% de commission par vente</span></div>
+    <div class="checks"><span data-i18n="hero_chk1">Prêt en minutes</span><span data-i18n="hero_chk2">0% commission</span></div>
   </div>
   <div class="hero-visual">
     <div class="share-chip">🔗 <span style="font-family:monospace">votre-lien.catalogowha</span></div>
@@ -442,7 +467,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
     <div class="wa-float" aria-hidden="true">
       <div class="wa-head"><span class="wa-ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="#25D366"/></svg></span><span>Catalogo Wha<small data-i18n="mock_wa_sub">Commande reçue</small></span></div>
       <div class="wa-body">
-        <div class="bub in" data-i18n="mock_bub1">Bonjour ! Voici ma commande :<br>2 × A<br>1 × B<br><b>Total prêt</b></div>
+        <div class="bub in" data-i18n="mock_bub1">Bonjour ! Ma commande :<br>2 × A<br>1 × B<br><b>Total prêt</b></div>
         <div class="bub out" data-i18n="mock_bub2">Parfait ! ✓</div>
       </div>
     </div>
@@ -450,29 +475,29 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 </div></section>
 
 <section><div class="container center">
-  <h2 data-i18n="cmp_title">Vendre par chat, c'est bien.<br>Vendre par chat en désordre, non.</h2>
-  <p class="lead" data-i18n="cmp_lead">Chaque prix répété est du temps perdu. Un catalogue remet de l'ordre.</p>
+  <h2 data-i18n="cmp_title">Vendre par chat, c'est bien.<br>En désordre, non.</h2>
+  <p class="lead" data-i18n="cmp_lead">Chaque prix répété est du temps perdu.</p>
   <div class="grid g2" style="margin-top:44px;text-align:left">
     <div class="cmp-card bad">
-      <h3 data-i18n="cmp_bad_title">Aujourd'hui, message par message</h3>
+      <h3 data-i18n="cmp_bad_title">Message par message</h3>
       <div class="phone" style="width:230px" aria-hidden="true">
         <div class="chathead">← <span data-i18n="cmp_client">Client</span></div>
         <div class="chatscreen">
-          <div class="bub in" data-i18n="cmp_b1">Tu me donnes le prix… ?</div>
-          <div class="bub out" data-i18n="cmp_b2">📷 photo + prix</div>
-          <div class="bub in" data-i18n="cmp_b3">Une remise ?</div>
-          <div class="bub out" data-i18n="cmp_b4">💬 explication</div>
-          <div class="bub in" data-i18n="cmp_b5">2 et 1, total ?</div>
+          <div class="bub in" data-i18n="cmp_b1">Le prix… ?</div>
+          <div class="bub out" data-i18n="cmp_b2">📷</div>
+          <div class="bub in" data-i18n="cmp_b3">Remise ?</div>
+          <div class="bub out" data-i18n="cmp_b4">💬</div>
+          <div class="bub in" data-i18n="cmp_b5">Total ?</div>
         </div>
       </div>
       <ul class="cmp-list">
         <li data-i18n="cmp_bad1">Vous répétez <b>les mêmes réponses</b>.</li>
-        <li data-i18n="cmp_bad2">Vos prix dans <b>d'anciens chats</b>.</li>
-        <li data-i18n="cmp_bad3">Commande mal lue = <b>réclamation</b>.</li>
+        <li data-i18n="cmp_bad2">Prix dans <b>anciens chats</b>.</li>
+        <li data-i18n="cmp_bad3">Mal lu = <b>réclamation</b>.</li>
       </ul>
     </div>
     <div class="cmp-card good">
-      <h3 data-i18n="cmp_good_title">Avec votre lien Catalogo Wha</h3>
+      <h3 data-i18n="cmp_good_title">Avec votre lien</h3>
       <div class="phone" style="width:230px" aria-hidden="true"><div class="pscreen">
         <div class="phead"><i>W</i> <span data-i18n="mock_biz">Votre commerce</span> <s>🛒</s></div>
         <div class="pgrid">
@@ -483,45 +508,45 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
         <button class="btn btn-wa btn-sm" style="margin-top:10px" data-i18n="send_wa">Envoyer via WhatsApp</button>
       </div></div>
       <ul class="cmp-list ok">
-        <li data-i18n="cmp_good1">Le client <b>voit tout seul</b>.</li>
-        <li data-i18n="cmp_good2">Le panier <b>additionne</b>.</li>
-        <li data-i18n="cmp_good3">Message <b>clair et complet</b>.</li>
+        <li data-i18n="cmp_good1">Client <b>voit tout</b>.</li>
+        <li data-i18n="cmp_good2">Panier <b>additionne</b>.</li>
+        <li data-i18n="cmp_good3">Message <b>clair</b>.</li>
       </ul>
     </div>
   </div>
 </div></section>
 
 <section id="pasos" style="background:#fff"><div class="container center">
-  <h2 data-i18n="steps_title">De zéro à la vente<br>en trois mouvements</h2>
-  <p class="lead" data-i18n="steps_lead">Public dès le premier jour.</p>
+  <h2 data-i18n="steps_title">Trois mouvements</h2>
+  <p class="lead" data-i18n="steps_lead">Public dès le jour 1.</p>
   <div class="grid g3" style="margin-top:44px;text-align:left">
-    <div class="card"><div class="step-ill bg-lav" aria-hidden="true">🏪</div><span class="step-n">1</span><h3 data-i18n="step1_t">Ouvrez votre compte</h3><p style="font-size:14px;margin-top:8px" data-i18n="step1_d">Nom, WhatsApp, mot de passe.</p></div>
-    <div class="card"><div class="step-ill bg-sun" aria-hidden="true">🛍️</div><span class="step-n">2</span><h3 data-i18n="step2_t">Publiez votre stock</h3><p style="font-size:14px;margin-top:8px" data-i18n="step2_d">Photos, prix, offres.</p></div>
-    <div class="card"><div class="step-ill bg-mint" aria-hidden="true">🔗</div><span class="step-n">3</span><h3 data-i18n="step3_t">Partagez votre lien</h3><p style="font-size:14px;margin-top:8px" data-i18n="step3_d">Story, réseaux, comptoir.</p></div>
+    <div class="card"><div class="step-ill bg-lav" aria-hidden="true">🏪</div><span class="step-n">1</span><h3 data-i18n="step1_t">Compte</h3><p style="font-size:14px;margin-top:8px" data-i18n="step1_d">Nom, WhatsApp, mdp.</p></div>
+    <div class="card"><div class="step-ill bg-sun" aria-hidden="true">🛍️</div><span class="step-n">2</span><h3 data-i18n="step2_t">Stock</h3><p style="font-size:14px;margin-top:8px" data-i18n="step2_d">Photos, prix.</p></div>
+    <div class="card"><div class="step-ill bg-mint" aria-hidden="true">🔗</div><span class="step-n">3</span><h3 data-i18n="step3_t">Lien</h3><p style="font-size:14px;margin-top:8px" data-i18n="step3_d">Partagez.</p></div>
   </div>
 </div></section>
 
 <section><div class="container center">
-  <h2><span data-i18n="ben_title1">Un catalogue qui travaille</span> <span style="color:var(--violet)" data-i18n="ben_title2">même hors ligne</span></h2>
+  <h2><span data-i18n="ben_title1">Catalogue qui travaille</span> <span style="color:var(--violet)" data-i18n="ben_title2">hors ligne</span></h2>
   <p class="lead" data-i18n="ben_lead">Votre lien prépare la commande.</p>
   <div class="grid g3" style="margin-top:44px;text-align:left">
-    <div class="card"><div class="step-ill bg-lav" style="font-size:30px" aria-hidden="true">🛍️</div><h3 data-i18n="ben1_t">Un lien, tout votre stock</h3><p style="font-size:14px;margin:8px 0 12px" data-i18n="ben1_d">Photos, prix, disponibilités.</p><span class="tag lav">🔗 <span data-i18n="ben1_tag">partagez-le</span></span></div>
-    <div class="card center"><div class="step-ill bg-sun" style="font-size:34px" aria-hidden="true">💰</div><h3 style="font-size:44px;color:var(--violet)">0%</h3><p style="font-size:14px;margin:6px 0"><b data-i18n="ben2_b">de commission</b><br><span data-i18n="ben2_d">Vos gains restent vôtres.</span></p></div>
-    <div class="card"><div class="step-ill bg-mint" style="font-size:30px" aria-hidden="true">💬</div><h3 data-i18n="ben3_t">Conclusion sur WhatsApp</h3><p style="font-size:14px;margin:8px 0 12px" data-i18n="ben3_d">Commande prête.</p><span class="tag">✓ <span data-i18n="ben3_tag">sans intermédiaire</span></span></div>
+    <div class="card"><div class="step-ill bg-lav" style="font-size:30px" aria-hidden="true">🛍️</div><h3 data-i18n="ben1_t">Un lien</h3><p style="font-size:14px;margin:8px 0 12px" data-i18n="ben1_d">Photos, prix.</p><span class="tag lav">🔗 <span data-i18n="ben1_tag">partagez</span></span></div>
+    <div class="card center"><div class="step-ill bg-sun" style="font-size:34px" aria-hidden="true">💰</div><h3 style="font-size:44px;color:var(--violet)">0%</h3><p style="font-size:14px;margin:6px 0"><b data-i18n="ben2_b">commission</b><br><span data-i18n="ben2_d">Vos gains vôtres.</span></p></div>
+    <div class="card"><div class="step-ill bg-mint" style="font-size:30px" aria-hidden="true">💬</div><h3 data-i18n="ben3_t">WhatsApp</h3><p style="font-size:14px;margin:8px 0 12px" data-i18n="ben3_d">Commande prête.</p><span class="tag">✓ <span data-i18n="ben3_tag">sans intermédiaire</span></span></div>
   </div>
 </div></section>
 
 <section id="funciones" style="background:#fff"><div class="container">
-  <div class="center"><span class="eyebrow" data-i18n="feat_eye">Fonctions</span><h2 data-i18n="feat_title">Tout ce qu'il faut pour vendre</h2><p class="lead" data-i18n="feat_lead">Outils pour vendre par chat avec ordre.</p></div>
+  <div class="center"><span class="eyebrow" data-i18n="feat_eye">Fonctions</span><h2 data-i18n="feat_title">Tout pour vendre</h2><p class="lead" data-i18n="feat_lead">Ordre professionnel.</p></div>
   <div class="grid g4" style="margin-top:44px">
-    <div class="card feat"><div class="ico bg-lav" aria-hidden="true">🔗</div><h3 data-i18n="f1">Lien unique</h3><p data-i18n="f1d">Ouvre tout le catalogue.</p></div>
-    <div class="card feat"><div class="ico bg-sky" aria-hidden="true">🔍</div><h3 data-i18n="f2">Recherche & catégories</h3><p data-i18n="f2d">Trouve en secondes.</p></div>
-    <div class="card feat"><div class="ico bg-mint" aria-hidden="true">🛒</div><h3 data-i18n="f3">Panier automatique</h3><p data-i18n="f3d">Total sans erreur.</p></div>
-    <div class="card feat"><div class="ico bg-sun" aria-hidden="true">🧾</div><h3 data-i18n="f4">Commande gardée</h3><p data-i18n="f4d">Avant le chat.</p></div>
-    <div class="card feat"><div class="ico bg-lav" aria-hidden="true">🚚</div><h3 data-i18n="f5">Retrait / livraison</h3><p data-i18n="f5d">À votre choix.</p></div>
-    <div class="card feat"><div class="ico bg-sky" aria-hidden="true">💳</div><h3 data-i18n="f6">Vos paiements</h3><p data-i18n="f6d">Espèces, virement…</p></div>
-    <div class="card feat"><div class="ico bg-mint" aria-hidden="true">💵</div><h3 data-i18n="f7">Votre monnaie</h3><p data-i18n="f7d">Prix locaux.</p></div>
-    <div class="card feat"><div class="ico bg-sun" aria-hidden="true">🖼️</div><h3 data-i18n="f8">Bibliothèque</h3><p data-i18n="f8d">Photos réutilisables.</p></div>
+    <div class="card feat"><div class="ico bg-lav">🔗</div><h3 data-i18n="f1">Lien unique</h3><p data-i18n="f1d">Tout le catalogue.</p></div>
+    <div class="card feat"><div class="ico bg-sky">🔍</div><h3 data-i18n="f2">Recherche</h3><p data-i18n="f2d">Secondes.</p></div>
+    <div class="card feat"><div class="ico bg-mint">🛒</div><h3 data-i18n="f3">Panier</h3><p data-i18n="f3d">Sans erreur.</p></div>
+    <div class="card feat"><div class="ico bg-sun">🧾</div><h3 data-i18n="f4">Commande gardée</h3><p data-i18n="f4d">Avant chat.</p></div>
+    <div class="card feat"><div class="ico bg-lav">🚚</div><h3 data-i18n="f5">Retrait/livraison</h3><p data-i18n="f5d">Choix.</p></div>
+    <div class="card feat"><div class="ico bg-sky">💳</div><h3 data-i18n="f6">Paiements</h3><p data-i18n="f6d">Vos règles.</p></div>
+    <div class="card feat"><div class="ico bg-mint">💵</div><h3 data-i18n="f7">Monnaie</h3><p data-i18n="f7d">Locale.</p></div>
+    <div class="card feat"><div class="ico bg-sun">🖼️</div><h3 data-i18n="f8">Bibliothèque</h3><p data-i18n="f8d">Photos.</p></div>
   </div>
 </div></section>
 
@@ -533,18 +558,18 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
         <div class="pitem"><i>🛍️</i></div><div class="pitem"><i>📦</i></div>
         <div class="pitem"><i>🏷️</i></div><div class="pitem"><i>💼</i></div>
       </div>
-      <button class="pbtn" style="width:100%;margin-top:10px;padding:10px" data-i18n="view_order">🛒 Voir commande</button>
+      <button class="pbtn" style="width:100%;margin-top:10px;padding:10px" data-i18n="view_order">🛒 Voir</button>
     </div></div>
-    <div class="wa-float" style="right:-10%;bottom:18%"><div class="wa-head"><span class="wa-ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="#25D366"/></svg></span><span data-i18n="order_sent">Commande envoyée</span></div><div class="wa-body"><div class="bub in" style="max-width:100%" data-i18n="order_conf">✓ Confirmée</div></div></div>
+    <div class="wa-float" style="right:-10%;bottom:18%"><div class="wa-head"><span class="wa-ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="#25D366"/></svg></span><span data-i18n="order_sent">Envoyée</span></div><div class="wa-body"><div class="bub in" style="max-width:100%" data-i18n="order_conf">✓ Confirmée</div></div></div>
   </div>
   <div>
-    <span class="eyebrow" data-i18n="exp_eye">Pour votre client</span>
-    <h2 data-i18n="exp_title">Acheter prend moins de temps qu'écrire</h2>
+    <span class="eyebrow" data-i18n="exp_eye">Client</span>
+    <h2 data-i18n="exp_title">Acheter < écrire</h2>
     <ul class="ul-check">
-      <li data-i18n="exp1">Parcourt les catégories.</li><li data-i18n="exp2">Cherche par nom.</li>
-      <li data-i18n="exp3">Voit offres et prix.</li><li data-i18n="exp4">Ajuste quantités.</li>
-      <li data-i18n="exp5">Retrait ou livraison.</li><li data-i18n="exp6">Choisit paiement.</li>
-      <li data-i18n="exp7">Envoie sur WhatsApp.</li>
+      <li data-i18n="exp1">Catégories.</li><li data-i18n="exp2">Nom.</li>
+      <li data-i18n="exp3">Offres.</li><li data-i18n="exp4">Quantités.</li>
+      <li data-i18n="exp5">Livraison.</li><li data-i18n="exp6">Paiement.</li>
+      <li data-i18n="exp7">WhatsApp.</li>
     </ul>
     <div class="tags"><span class="tag" data-i18n="exp_t1">Sans compte</span><span class="tag" data-i18n="exp_t2">Tout navigateur</span></div>
   </div>
@@ -552,14 +577,14 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 
 <section style="background:#fff"><div class="container split">
   <div>
-    <span class="eyebrow" data-i18n="ctrl_eye">Pour vous</span>
-    <h2 data-i18n="ctrl_title">Vous décidez quoi vendre</h2>
+    <span class="eyebrow" data-i18n="ctrl_eye">Vous</span>
+    <h2 data-i18n="ctrl_title">Vous décidez</h2>
     <ul class="ul-check">
-      <li data-i18n="ctrl1">Publiez/retirez en 1 clic.</li><li data-i18n="ctrl2">Changez prix facilement.</li>
-      <li data-i18n="ctrl3">Réglez livraison.</li><li data-i18n="ctrl4">Historique commandes.</li>
-      <li data-i18n="ctrl5">Marquez états.</li><li data-i18n="ctrl6">Lien court.</li>
+      <li data-i18n="ctrl1">1 clic.</li><li data-i18n="ctrl2">Prix.</li>
+      <li data-i18n="ctrl3">Livraison.</li><li data-i18n="ctrl4">Historique.</li>
+      <li data-i18n="ctrl5">États.</li><li data-i18n="ctrl6">Lien court.</li>
     </ul>
-    <div class="tags"><span class="tag lav" data-i18n="ctrl_t1">Sans engagement</span><span class="tag lav" data-i18n="ctrl_t2">Vos données vôtres</span></div>
+    <div class="tags"><span class="tag lav" data-i18n="ctrl_t1">Sans engagement</span><span class="tag lav" data-i18n="ctrl_t2">Données vôtres</span></div>
   </div>
   <div class="panel-ill" aria-hidden="true">
     <div class="bar"><i></i><i></i><i></i></div>
@@ -576,38 +601,38 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 </div></section>
 
 <section id="negocios"><div class="container center">
-  <h2 data-i18n="types_title">Pour les commerces quotidiens</h2>
-  <p class="lead" data-i18n="types_lead">Si ça finit sur WhatsApp, ça accélère.</p>
+  <h2 data-i18n="types_title">Commerces quotidiens</h2>
+  <p class="lead" data-i18n="types_lead">Accélère WhatsApp.</p>
   <div class="grid" style="grid-template-columns:repeat(5,1fr);margin-top:40px" id="typesGrid"></div>
   <div id="dirWrap">
-    <h2 style="margin-top:70px" data-i18n="dir_title">Ils vendent déjà avec Catalogo Wha</h2>
+    <h2 style="margin-top:70px" data-i18n="dir_title">Ils vendent déjà</h2>
     <p class="lead" data-i18n="dir_lead">Catalogues publics.</p>
     <div id="dirGrid" class="biz-grid"></div>
   </div>
 </div></section>
 
 <section class="dark"><div class="container center">
-  <span class="eyebrow" data-i18n="dark_eye">La différence</span>
-  <h2 data-i18n="dark_title">Pas une boutique en ligne :<br>votre vente, en ordre</h2>
+  <span class="eyebrow" data-i18n="dark_eye">Différence</span>
+  <h2 data-i18n="dark_title">Pas une boutique :<br>votre vente</h2>
   <p class="lead" data-i18n="dark_lead">Montrez, recevez, concluez.</p>
   <div class="dark-cols">
-    <div><b>01</b><span data-i18n="dark1">Publiez une fois</span></div>
-    <div><b>02</b><span data-i18n="dark2">Commande claire</span></div>
-    <div><b>03</b><span data-i18n="dark3">Concluez sur WhatsApp</span></div>
+    <div><b>01</b><span data-i18n="dark1">Publiez</span></div>
+    <div><b>02</b><span data-i18n="dark2">Commande</span></div>
+    <div><b>03</b><span data-i18n="dark3">Concluez</span></div>
   </div>
   <p class="lead" data-i18n="dark_lead2">Moins de friction.</p>
 </div></section>
 
 <section id="faq" style="background:#fff"><div class="container center">
   <span class="eyebrow" data-i18n="faq_eye">FAQ</span>
-  <h2 data-i18n="faq_title">Vos réponses</h2>
+  <h2 data-i18n="faq_title">Réponses</h2>
   <div class="faq-list" id="faqList"></div>
 </div></section>
 
 <section class="center"><div class="container">
-  <h2 data-i18n="cta_title">Votre prochaine commande ordonnée aujourd'hui</h2>
+  <h2 data-i18n="cta_title">Commande ordonnée aujourd'hui</h2>
   <p class="lead" data-i18n="cta_lead">Créez et partagez.</p>
-  <button class="btn btn-primary" style="margin-top:24px" id="ctaFinal" data-i18n="cta_btn">Créer mon catalogue gratuit</button>
+  <button class="btn btn-primary" style="margin-top:24px" id="ctaFinal" data-i18n="cta_btn">Créer gratuit</button>
 </div></section>
 
 <section id="contacto" style="background:var(--bg)"><div class="container center">
@@ -623,7 +648,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 
 <footer class="site"><div class="container" style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
   <a class="logo" href="#/"><i>W</i>Catalogo Wha</a>
-  <p style="flex:1" data-i18n="foot_desc">Catalogue + commandes WhatsApp.</p>
+  <p style="flex:1" data-i18n="foot_desc">Catalogue + WhatsApp.</p>
   <a id="footMailLink" class="logo" href="mailto:contact@clickpubli.com" style="font-size:14px;color:var(--violet)">✉ contact@clickpubli.com</a>
   <button class="btn btn-ghost btn-sm" id="footInstall" hidden onclick="installApp()">📲 <span data-i18n="install">Installer</span></button>
   <button class="btn btn-ghost btn-sm" onclick="go('admin')">⚙️ <span data-i18n="foot_panel">Panneau</span></button>
@@ -640,7 +665,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
   <button class="iconbtn" onclick="openDrawer()" aria-label="Panier">🛒<span class="badge" id="cartCount">0</span></button>
 </div></header>
 <div class="container">
-  <div class="cat-banner"><span class="eyebrow" id="catEyebrow">—</span><h2 id="catTitle">—</h2>
+  <div class="cat-banner" id="catBanner"><span class="eyebrow" id="catEyebrow">—</span><div class="hdr-body"><h2 id="catTitle">—</h2><p id="catHdrDesc" style="max-width:520px;margin-top:6px" hidden></p></div>
     <button class="btn btn-primary btn-sm" style="margin-top:14px" onclick="document.getElementById('gridZone').scrollIntoView({behavior:'smooth'})" data-i18n="mock_explore">Voir les produits</button></div>
   <div id="gridZone"><div class="chips" id="chips"></div><div class="pgrid-real" id="productsGrid"></div></div>
 </div>
@@ -698,14 +723,14 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
       </div>
     </div>
     <div class="quick-grid">
-      <button class="quick-card" onclick="tab('prod');$('fName').focus()"><div class="ico bg-lav">📦</div><h4 data-i18n="q_newprod">Nouveau produit</h4><p data-i18n="q_newprod_d">Rapide.</p></button>
+      <button class="quick-card" onclick="tab('prod');$('fName').focus()"><div class="ico bg-lav">📦</div><h4 data-i18n="q_newprod">Produit</h4><p data-i18n="q_newprod_d">Rapide.</p></button>
       <button class="quick-card" onclick="tab('cats')"><div class="ico bg-rose">🏷️</div><h4 data-i18n="q_cats">Catégories</h4><p data-i18n="q_cats_d">Organisez.</p></button>
       <button class="quick-card" onclick="tab('orders')"><div class="ico bg-sun">🧾</div><h4 data-i18n="q_orders">Commandes</h4><p data-i18n="q_orders_d">Gérer.</p></button>
       <button class="quick-card" onclick="tab('share')"><div class="ico bg-sky">🔗</div><h4 data-i18n="q_share">Partager</h4><p data-i18n="q_share_d">Lien.</p></button>
     </div>
     <div class="card">
       <span class="eyebrow" data-i18n="dash_act_t">Activité</span>
-      <h3 style="font-size:20px;margin:6px 0 14px" data-i18n="dash_act">Derniers événements</h3>
+      <h3 style="font-size:20px;margin:6px 0 14px" data-i18n="dash_act">Événements</h3>
       <ul class="act-list" id="dashActivity"></ul>
     </div>
   </div>
@@ -718,18 +743,18 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
           <input type="hidden" id="fId">
           <div class="field"><label data-i18n="f_name">Nom *</label><input id="fName" oninput="onNameInput()"></div>
           <div class="form-grid">
-            <div class="field"><label data-i18n="prod_slug">URL du produit</label><input id="fSlug"><div class="hint" data-i18n="prod_slug_d">Généré depuis le nom.</div></div>
-            <div class="field"><label data-i18n="f_cat">Catégorie *</label><select id="fCat"></select><div class="hint"><button type="button" class="btn btn-ghost btn-xs" onclick="tab('cats')" data-i18n="cat_goto">Gérer les catégories</button></div></div>
+            <div class="field"><label data-i18n="prod_slug">URL</label><input id="fSlug"><div class="hint" data-i18n="prod_slug_d">Généré du nom.</div></div>
+            <div class="field"><label data-i18n="f_cat">Catégorie *</label><select id="fCat"></select><div class="hint"><button type="button" class="btn btn-ghost btn-xs" onclick="tab('cats')" data-i18n="cat_goto">Gérer</button></div></div>
           </div>
           <div class="form-grid">
             <div class="field"><label><span data-i18n="f_price">Prix *</span> · <span id="curLabel">—</span></label><input id="fPrice" type="number" min="0" step="0.01" oninput="renderPreview()"></div>
-            <div class="field"><label data-i18n="f_promo">Prix promo</label><input id="fPromo" type="number" min="0" step="0.01" oninput="renderPreview()"></div>
+            <div class="field"><label data-i18n="f_promo">Promo</label><input id="fPromo" type="number" min="0" step="0.01" oninput="renderPreview()"></div>
           </div>
           <div class="form-grid">
             <div class="field"><label data-i18n="prod_sort">Ordre</label><input id="fSort" type="number" value="0"><div class="hint" data-i18n="prod_sort_d">Menors d'abord.</div></div>
             <div class="field"><label data-i18n="f_emoji">Emoji</label><input id="fEmoji" oninput="renderPreview()"></div>
           </div>
-          <div class="field"><label data-i18n="prod_desc_rich">Description (enrichie)</label>
+          <div class="field"><label data-i18n="prod_desc_rich">Description</label>
             <div class="rte">
               <div class="rte-bar">
                 <button type="button" onclick="rte('bold')"><b data-i18n="rte_b">G</b></button>
@@ -765,39 +790,37 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
     <div class="card tbl-wrap"><table class="tbl"><thead><tr><th></th><th data-i18n="th_prod">Produit</th><th data-i18n="th_cat">Catégorie</th><th data-i18n="th_price">Prix</th><th data-i18n="prod_sort">Ordre</th><th data-i18n="th_status">État</th><th></th></tr></thead><tbody id="prodList"></tbody></table></div>
   </div>
 
-  <!-- CATEGORÍAS (Fase 3) -->
   <div id="pCats" hidden>
     <div id="catsList">
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
-        <div><h2 data-i18n="cats_title">Catégories</h2><p style="font-size:13.5px" data-i18n="cats_sub">Organisez vos produits pour vos clients.</p></div>
-        <button class="btn btn-primary btn-sm" onclick="catShow()">+ <span data-i18n="cat_add">Ajouter catégorie</span></button>
+        <div><h2 data-i18n="cats_title">Catégories</h2><p style="font-size:13.5px" data-i18n="cats_sub">Organisez vos produits.</p></div>
+        <button class="btn btn-primary btn-sm" onclick="catShow()">+ <span data-i18n="cat_add">Ajouter</span></button>
       </div>
       <div class="cat-stats" id="catStats"></div>
       <div class="card tbl-wrap"><table class="tbl"><thead><tr><th></th><th data-i18n="cat_name">Catégorie</th><th data-i18n="cat_prods">Produits</th><th data-i18n="prod_sort">Ordre</th><th data-i18n="cat_type">Type</th><th></th></tr></thead><tbody id="catList"></tbody></table></div>
     </div>
     <div id="catsForm" hidden>
-      <button class="btn btn-ghost btn-sm back" onclick="catHide()">‹ <span data-i18n="cat_back">Volver</span></button>
+      <button class="btn btn-ghost btn-sm back" onclick="catHide()">‹ <span data-i18n="cat_back">Retour</span></button>
       <div class="card" style="margin-top:12px">
-        <h3 id="catFormTitle" data-i18n="cat_add">Ajouter catégorie</h3>
+        <h3 id="catFormTitle" data-i18n="cat_add">Ajouter</h3>
         <input type="hidden" id="cId">
         <div class="form-grid">
           <div class="field"><label data-i18n="cat_name">Nom *</label><input id="cName" oninput="onCatName()"></div>
-          <div class="field"><label data-i18n="cat_slug">Slug / URL</label><input id="cSlug"><div class="hint" data-i18n="cat_slug_d">Court, minuscules, facile à partager.</div></div>
+          <div class="field"><label data-i18n="cat_slug">Slug</label><input id="cSlug"><div class="hint" data-i18n="cat_slug_d">Court, minuscules.</div></div>
         </div>
         <div class="form-grid">
-          <div class="field"><label data-i18n="prod_sort">Ordre</label><input id="cSort" type="number" value="0"><div class="hint" data-i18n="cat_sort_d">Menors d'abord.</div></div>
-          <div class="field"><label style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="cDefault" style="width:auto"> <span data-i18n="cat_set_default">Catégorie par défaut</span></label></div>
+          <div class="field"><label data-i18n="prod_sort">Ordre</label><input id="cSort" type="number" value="0"></div>
+          <div class="field"><label style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="cDefault" style="width:auto"> <span data-i18n="cat_set_default">Par défaut</span></label></div>
         </div>
-        <div class="field"><label data-i18n="cat_img">Image représentative</label>
+        <div class="field"><label data-i18n="cat_img">Image</label>
           <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
             <span class="av-prev" id="cImgPrev" style="width:80px;height:80px">🏷️</span>
             <label class="btn btn-ghost btn-sm" style="cursor:pointer">📤 <span data-i18n="av_change">Choisir</span><input type="file" accept="image/*" hidden onchange="previewCatImg(this)"></label>
             <button type="button" class="btn btn-ghost btn-sm" onclick="openPicker('catimg')">🖼️ <span data-i18n="lib_choose">Bibliothèque</span></button>
             <button type="button" class="btn btn-ghost btn-sm" onclick="clearCatImgForm()">✕</button>
           </div>
-          <div class="hint" data-i18n="cat_img_d">Optionnelle. Identifie la catégorie visuellement.</div>
         </div>
-        <div class="field"><label data-i18n="cat_alt">Texte alternatif (accessibilité)</label><input id="cAlt"><div class="hint" data-i18n="cat_alt_d">Décrit l'image ; sinon on utilise le nom.</div></div>
+        <div class="field"><label data-i18n="cat_alt">Texte alternatif</label><input id="cAlt"></div>
         <div style="display:flex;gap:10px"><button class="btn btn-primary btn-sm" onclick="saveCat()" data-i18n="save">Enregistrer</button><button class="btn btn-ghost btn-sm" onclick="catHide()" data-i18n="cancel">Annuler</button></div>
       </div>
     </div>
@@ -807,13 +830,12 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
   <div id="pMedia" hidden>
     <div class="card">
       <h3 data-i18n="lib_title">Bibliothèque</h3>
-      <p style="font-size:13.5px;margin:6px 0 14px" data-i18n="lib_desc">Upload compressé + cloud.</p>
+      <p style="font-size:13.5px;margin:6px 0 14px" data-i18n="lib_desc">Upload + cloud.</p>
       <label class="btn btn-primary btn-sm" style="cursor:pointer">📤 <span data-i18n="lib_upload">Uploader</span><input type="file" accept="image/*" multiple hidden onchange="uploadImgs(this.files);this.value=''"></label>
       <div class="lib-grid" id="libGrid"></div>
     </div>
     <div class="card" style="margin-top:22px">
-      <h3 data-i18n="lib_cat_title">Images par catégorie</h3>
-      <p style="font-size:13.5px;margin:6px 0 14px" data-i18n="lib_cat_desc">Une image par catégorie.</p>
+      <h3 data-i18n="lib_cat_title">Images catégories</h3>
       <div id="catImgList"></div>
     </div>
   </div>
@@ -890,9 +912,15 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
     <div class="field"><label data-i18n="cfg_pay">Pagos</label><input id="sePay"></div>
     <div class="field"><label data-i18n="cfg_cost">Coût</label><input id="seCost" type="number" min="0" step="0.01"></div>
   </div>
-  <div class="field"><label data-i18n="cfg_banner">Titre bannière</label><input id="seTitle"></div>
-  <div class="field"><label style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="seDeliv" style="width:auto"> <span data-i18n="cfg_deliv">Livraison</span></label></div>
   <div style="display:flex;gap:10px"><button class="btn btn-primary btn-sm" onclick="saveSuperBiz()" data-i18n="save_cfg">Enregistrer</button><button class="btn btn-ghost btn-sm" onclick="closeAll()" data-i18n="cancel">Annuler</button></div>
+</div></div>
+
+<!-- MODAL CONFIRMACIÓN GENÉRICO (moneda / whatsapp / enlace) -->
+<div class="modal" id="modalConfirm" role="dialog" aria-modal="true"><div class="modal-card">
+  <div class="warn-box"><b>⚠️ <span id="cfTitle">—</span></b><p id="cfDesc">—</p></div>
+  <div id="cfBody"></div>
+  <div class="confirm-row" id="cfCheckRow"><input type="checkbox" id="cfCheck"><label for="cfCheck" id="cfCheckLabel">—</label></div>
+  <div style="display:flex;gap:10px;margin-top:16px"><button class="btn btn-primary btn-sm" id="cfOk" style="flex:1;justify-content:center">—</button><button class="btn btn-ghost btn-sm" onclick="closeAll()" data-i18n="cancel">Annuler</button></div>
 </div></div>
 
 <aside class="drawer" id="mmenu" role="dialog" aria-modal="true" aria-label="Menú">
@@ -923,9 +951,9 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 <div class="modal" id="modalCheckout" role="dialog" aria-modal="true"><div class="modal-card">
   <h3 data-i18n="check_title">Finaliser</h3><p style="font-size:14px" data-i18n="check_desc">Sans inscription.</p>
   <div class="field"><label data-i18n="check_name">Votre nom *</label><input id="cName" autocomplete="name"></div>
-  <div class="field"><label data-i18n="check_deliv">Livraison</label><div class="radio-row" id="delivWrap"></div></div>
+  <div class="field" id="delivField"><label data-i18n="check_deliv">Livraison</label><div class="radio-row" id="delivWrap"></div></div>
   <div class="field" id="addrRow" hidden><label data-i18n="check_addr">Adresse *</label><input id="cAddress" autocomplete="street-address"></div>
-  <div class="field"><label data-i18n="check_pay">Paiement</label><div class="radio-row" id="payWrap"></div></div>
+  <div class="field" id="payField"><label data-i18n="check_pay">Paiement</label><div class="radio-row" id="payWrap"></div></div>
   <div class="field"><label data-i18n="check_note">Note</label><textarea id="cNote" rows="2"></textarea></div>
   <div class="sumbox" id="sumBox"></div>
   <button class="btn btn-wa" onclick="sendOrder()"><span data-i18n="send_wa">Envoyer via WhatsApp</span></button>
@@ -934,18 +962,18 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 
 <div class="modal" id="modalAuth" role="dialog" aria-modal="true"><div class="modal-card">
   <div class="auth-tabs">
-    <button class="on" id="tLogin" onclick="authTab('login')" data-i18n="auth_login">Se connecter</button>
-    <button id="tReg" onclick="authTab('register')" data-i18n="auth_register">S'inscrire</button>
+    <button class="on" id="tLogin" onclick="authTab('login')" data-i18n="auth_login">Connexion</button>
+    <button id="tReg" onclick="authTab('register')" data-i18n="auth_register">Inscription</button>
   </div>
   <div id="formLogin">
-    <p style="font-size:14px;margin-bottom:14px" data-i18n="login_desc">Accédez au panneau.</p>
+    <p style="font-size:14px;margin-bottom:14px" data-i18n="login_desc">Panneau.</p>
     <div class="field"><label data-i18n="auth_email">Email</label><input id="lEmail" type="email" autocomplete="email"></div>
-    <div class="field"><label data-i18n="auth_pass">Mot de passe</label><input id="lPass" type="password" autocomplete="current-password"></div>
+    <div class="field"><label data-i18n="auth_pass">Mdp</label><input id="lPass" type="password" autocomplete="current-password"></div>
     <button class="btn btn-primary" id="btnLogin" style="width:100%;justify-content:center" onclick="doLogin()" data-i18n="login_btn">Entrer</button>
   </div>
   <div id="formRegister" hidden>
-    <p style="font-size:14px;margin-bottom:14px" data-i18n="reg_desc">Compte en 1 minute.</p>
-    <div class="field"><label data-i18n="auth_avatar">Logo (facultatif)</label>
+    <p style="font-size:14px;margin-bottom:14px" data-i18n="reg_desc">1 minute.</p>
+    <div class="field"><label data-i18n="auth_avatar">Logo</label>
       <div style="display:flex;gap:10px;align-items:center">
         <span class="av-prev" id="rAvPrev">🏪</span>
         <label class="btn btn-ghost btn-sm" style="cursor:pointer">📤 <span data-i18n="lib_upload">Subir</span><input type="file" accept="image/*" hidden onchange="previewRegAvatar(this)"></label>
@@ -955,9 +983,9 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
     <div class="field"><label data-i18n="auth_name">Nom activité *</label><input id="rName" oninput="validateField(this,'name')" autocomplete="organization"></div>
     <div class="field"><label data-i18n="auth_cat">Catégorie</label><select id="rCat"></select></div>
     <div class="field"><label data-i18n="auth_email">Email *</label><input id="rEmail" type="email" oninput="validateField(this,'email')" autocomplete="email"></div>
-    <div class="field"><label data-i18n="auth_pass">Mot de passe *</label><input id="rPass" type="password" oninput="validateField(this,'pass')" autocomplete="new-password"><div class="hint" id="hintPass"></div></div>
+    <div class="field"><label data-i18n="auth_pass">Mdp *</label><input id="rPass" type="password" oninput="validateField(this,'pass')" autocomplete="new-password"><div class="hint" id="hintPass"></div></div>
     <div class="field"><label data-i18n="auth_wa">WhatsApp *</label><input id="rWa" oninput="validateField(this,'wa')" autocomplete="tel"></div>
-    <button class="btn btn-primary" id="btnRegister" style="width:100%;justify-content:center" onclick="doRegister()" data-i18n="reg_btn">Créer mon catalogue →</button>
+    <button class="btn btn-primary" id="btnRegister" style="width:100%;justify-content:center" onclick="doRegister()" data-i18n="reg_btn">Créer →</button>
   </div>
   <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;margin-top:14px" onclick="closeAll()" data-i18n="cancel">Annuler</button>
 </div></div>
@@ -992,6 +1020,10 @@ function getPlat(){ const d = { name:"Catalogo Wha", supportWa:"212690157092", c
 function savePlat(p){ localStorage.setItem(PLAT_KEY, JSON.stringify(p)); }
 function applyPlat(){ const p = getPlat(); const wa = $("contactWaLink"); if (wa){ wa.href = "https://wa.me/" + p.supportWa; wa.textContent = "+" + p.supportWa; } ["contactMailLink","footMailLink","catMailLink"].forEach(id => { const el = $(id); if (el){ el.href = "mailto:" + p.contactEmail; el.textContent = (id === "footMailLink" ? "✉ " : "") + p.contactEmail; } }); }
 
+const COUNTRIES = [ ["212","🇲🇦","Marruecos / Maroc"], ["34","🇪","España"], ["33","🇫🇷","France"], ["1","🇺🇸","USA / Canadá"], ["52","🇲🇽","México"], ["57","🇨🇴","Colombia"], ["51","🇵🇪","Perú"], ["54","🇦🇷","Argentina"], ["56","🇨","Chile"], ["593","🇪🇨","Ecuador"], ["58","🇻🇪","Venezuela"], ["591","🇧🇴","Bolivia"] ];
+const CURRENCIES = [ ["MAD","Dirham marroquí"], ["EUR","Euro"], ["USD","Dólar estadounidense"], ["MXN","Peso mexicano"], ["COP","Peso colombiano"], ["PEN","Sol peruano"], ["ARS","Peso argentino"], ["CLP","Peso chileno"], ["VES","Bolívar"], ["BOB","Boliviano"] ];
+const TIMEZONES = ["Africa/Casablanca","Europe/Madrid","Europe/Paris","America/Mexico_City","America/Bogota","America/Lima","America/Santiago","America/Argentina/Buenos_Aires","UTC"];
+
 const I18N = {
 fr: {
   nav_how:"Fonctionnement", nav_feat:"Fonctions", nav_biz:"Commerces", nav_faq:"FAQ", nav_contact:"Contact", nav_view:"Voir catalogue", nav_create:"Créer mon catalogue", menu:"Menu",
@@ -1013,43 +1045,32 @@ fr: {
   feat_eye:"Fonctions", feat_title:"Tout pour vendre", feat_lead:"Ordre professionnel.",
   f1:"Lien unique", f1d:"Tout le catalogue.", f2:"Recherche", f2d:"Secondes.", f3:"Panier", f3d:"Sans erreur.", f4:"Commande gardée", f4d:"Avant chat.", f5:"Retrait/livraison", f5d:"Choix.", f6:"Paiements", f6d:"Vos règles.", f7:"Monnaie", f7d:"Locale.", f8:"Bibliothèque", f8d:"Photos.",
   view_order:"🛒 Voir", order_sent:"Envoyée", order_conf:"✓ Confirmée",
-  exp_eye:"Client", exp_title:"Acheter < écrire",
-  exp1:"Catégories.", exp2:"Nom.", exp3:"Offres.", exp4:"Quantités.", exp5:"Livraison.", exp6:"Paiement.", exp7:"WhatsApp.",
+  exp_eye:"Client", exp_title:"Acheter < écrire", exp1:"Catégories.", exp2:"Nom.", exp3:"Offres.", exp4:"Quantités.", exp5:"Livraison.", exp6:"Paiement.", exp7:"WhatsApp.",
   exp_t1:"Sans compte", exp_t2:"Tout navigateur",
-  ctrl_eye:"Vous", ctrl_title:"Vous décidez",
-  ctrl1:"1 clic.", ctrl2:"Prix.", ctrl3:"Livraison.", ctrl4:"Historique.", ctrl5:"États.", ctrl6:"Lien court.",
+  ctrl_eye:"Vous", ctrl_title:"Vous décidez", ctrl1:"1 clic.", ctrl2:"Prix.", ctrl3:"Livraison.", ctrl4:"Historique.", ctrl5:"États.", ctrl6:"Lien court.",
   ctrl_t1:"Sans engagement", ctrl_t2:"Données vôtres",
-  types_title:"Commerces quotidiens", types_lead:"Accélère WhatsApp.",
-  dir_title:"Ils vendent déjà", dir_lead:"Catalogues publics.", dir_empty:"Soyez premier !",
-  dark_eye:"Différence", dark_title:"Pas une boutique :<br>votre vente", dark_lead:"Montrez, recevez, concluez.",
-  dark1:"Publiez", dark2:"Commande", dark3:"Concluez", dark_lead2:"Moins de friction.",
-  faq_eye:"FAQ", faq_title:"Réponses",
-  faq1q:"Programmer ?", faq1a:"Non.", faq2q:"Coût ?", faq2a:"Gratuit.", faq3q:"App ?", faq3a:"Non.", faq4q:"Prix ?", faq4a:"Oui.", faq5q:"Pays ?", faq5a:"Oui.", faq6q:"Reçu ?", faq6a:"WhatsApp.",
+  types_title:"Commerces quotidiens", types_lead:"Accélère WhatsApp.", dir_title:"Ils vendent déjà", dir_lead:"Catalogues publics.", dir_empty:"Soyez premier !",
+  dark_eye:"Différence", dark_title:"Pas une boutique :<br>votre vente", dark_lead:"Montrez, recevez, concluez.", dark1:"Publiez", dark2:"Commande", dark3:"Concluez", dark_lead2:"Moins de friction.",
+  faq_eye:"FAQ", faq_title:"Réponses", faq1q:"Programmer ?", faq1a:"Non.", faq2q:"Coût ?", faq2a:"Gratuit.", faq3q:"App ?", faq3a:"Non.", faq4q:"Prix ?", faq4a:"Oui.", faq5q:"Pays ?", faq5a:"Oui.", faq6q:"Reçu ?", faq6a:"WhatsApp.",
   cta_title:"Commande ordonnée aujourd'hui", cta_lead:"Créez et partagez.", cta_btn:"Créer gratuit",
   contact_eye:"Contact", contact_title:"On parle ?", contact_lead:"Écrivez.", contact_name:"Entreprise", contact_wa:"WhatsApp", contact_email:"Email",
   foot_desc:"Catalogue + WhatsApp.", foot_panel:"Panneau",
   your_order:"Commande", continue:"Continuer →",
   check_title:"Finaliser", check_desc:"Sans inscription.", check_name:"Nom *", check_deliv:"Livraison", check_addr:"Adresse *", check_pay:"Paiement", check_note:"Note", cancel:"Annuler",
   auth_login:"Connexion", auth_register:"Inscription", login_desc:"Panneau.", reg_desc:"1 minute.",
-  auth_email:"Email", auth_pass:"Mdp", auth_name:"Nom activité *", auth_wa:"WhatsApp *",
-  auth_avatar:"Logo", auth_cat:"Catégorie", select_cat:"Choisissez…",
+  auth_email:"Email", auth_pass:"Mdp", auth_name:"Nom activité *", auth_wa:"WhatsApp *", auth_avatar:"Logo", auth_cat:"Catégorie", select_cat:"Choisissez…",
   cfg_cat:"Catégorie", th_catg:"Catégorie", av_change:"Changer", av_remove:"Retirer",
   login_btn:"Entrer", reg_btn:"Créer →", logout:"Déconnexion", admin_view_cat:"Mon catalogue",
   tab_home:"Accueil", tab_prod:"Produits", tab_cats:"Catégories", tab_orders:"Commandes", tab_cfg:"Paramètres", tab_share:"Partager", tab_media:"Bibliothèque",
-  add_prod:"Ajouter produit", edit_prod:"Modifier", f_name:"Nom *", f_cat:"Catégorie *", f_price:"Prix *", f_promo:"Promo", f_emoji:"Emoji", f_img:"Image", f_desc:"Description", save:"Enregistrer", clear:"Effacer",
+  add_prod:"Ajouter produit", edit_prod:"Modifier", f_name:"Nom *", f_cat:"Catégorie *", f_price:"Prix *", f_promo:"Promo", f_emoji:"Emoji", f_desc:"Description", save:"Enregistrer", clear:"Effacer",
   th_prod:"Produit", th_cat:"Catégorie", th_price:"Prix", th_status:"État",
-  prod_slug:"URL produit", prod_slug_d:"Généré du nom.", prod_sort:"Ordre", prod_sort_d:"Menors d'abord.",
-  prod_imgs:"Images", prod_imgs_d:"Jusqu'à 5.", prod_drop:"Glissez ou cliquez", prod_preview:"Aperçu",
-  prod_desc_rich:"Description", rte_b:"G", rte_i:"I", rte_ul:"Liste", rte_ol:"1.",
-  cats_title:"Catégories", cats_sub:"Organisez vos produits.", cat_add:"Ajouter catégorie", cat_back:"Retour",
-  cat_name:"Catégorie", cat_slug:"Slug / URL", cat_slug_d:"Court, minuscules.", cat_img:"Image représentative", cat_img_d:"Optionnelle.", cat_alt:"Texte alternatif", cat_alt_d:"Décrit l'image.",
-  cat_stats_total:"Catégories", cat_stats_org:"Produits organisés", cat_stats_default:"Par défaut",
-  cat_prods:"Produits", cat_type:"Type", cat_type_def:"Par défaut", cat_type_custom:"Personnalisée", cat_edit:"Modifier", cat_del:"Supprimer", cat_empty:"Aucune catégorie.", cat_set_default:"Catégorie par défaut", cat_goto:"Gérer catégories",
-  toast_cat_saved:"✓ Catégorie enregistrée", confirm_del_cat:"Supprimer cette catégorie ?",
+  prod_slug:"URL", prod_slug_d:"Généré du nom.", prod_sort:"Ordre", prod_sort_d:"Menors d'abord.", prod_imgs:"Images", prod_imgs_d:"Jusqu'à 5.", prod_drop:"Glissez ou cliquez", prod_preview:"Aperçu", prod_desc_rich:"Description", rte_b:"G", rte_i:"I", rte_ul:"Liste", rte_ol:"1.",
+  cats_title:"Catégories", cats_sub:"Organisez.", cat_add:"Ajouter", cat_back:"Retour", cat_name:"Catégorie", cat_slug:"Slug", cat_slug_d:"Court.", cat_img:"Image", cat_alt:"Texte alternatif",
+  cat_stats_total:"Catégories", cat_stats_org:"Produits organisés", cat_stats_default:"Par défaut", cat_prods:"Produits", cat_type:"Type", cat_type_def:"Défaut", cat_type_custom:"Perso", cat_empty:"Aucune.", cat_set_default:"Par défaut", cat_goto:"Gérer",
+  toast_cat_saved:"✓ Catégorie", confirm_del_cat:"Supprimer ?",
   cfg_biz:"Données", cfg_name:"Nom", cfg_wa:"WhatsApp", cfg_email:"Email", cfg_cur:"Monnaie", cfg_pay:"Paiements", cfg_eye:"Texte bannière", cfg_banner:"Titre bannière", cfg_deliv:"Livraison", cfg_cost:"Coût", save_cfg:"Enregistrer",
   share_title:"Partagez", share_desc:"Envoyez le lien.", share_link:"Lien public", copy:"Copier", share_wa:"WhatsApp",
-  lib_title:"Bibliothèque", lib_desc:"Upload + cloud.", lib_upload:"Uploader", lib_empty:"Vide.", lib_added:"✓ Ajouté", lib_deleted:"Supprimé",
-  lib_choose:"Bibliothèque", lib_cat_title:"Images catégories", lib_cat_desc:"Une par catégorie.", lib_cat_assign:"Choisir", lib_cat_clear:"Retirer", lib_cat_none:"Sans image", confirm_delete_img:"Supprimer ?",
+  lib_title:"Bibliothèque", lib_desc:"Upload + cloud.", lib_upload:"Uploader", lib_empty:"Vide.", lib_added:"✓ Ajouté", lib_deleted:"Supprimé", lib_choose:"Bibliothèque", lib_cat_title:"Images catégories", lib_cat_assign:"Choisir", lib_cat_clear:"Retirer", lib_cat_none:"Sans image", confirm_delete_img:"Supprimer ?",
   empty_prods:"Aucun produit.", empty_orders:"Aucune commande.", cart_empty:"Panier vide.", no_prods_public:"Aucun produit.",
   active:"🟢 Actif", inactive:"⚪ Inactif", deliv_lbl_retiro:"Retrait", deliv_lbl_delivery:"Livraison", per_unit:"l'unité",
   item_count:"{n} produits", item_count_one:"1 produit", confirm_delete_prod:"Supprimer ?", not_found:"Introuvable",
@@ -1057,18 +1078,28 @@ fr: {
   wa_new_order:"🧾 *Commande {id}*", wa_customer:"👤 {name}", wa_business:"🏪 {biz}", wa_products:"📦 *:*", wa_product_line:"• {q} × {name} — {price}", wa_delivery_line:"🚚 {mode}", wa_delivery_with_addr:"🚚 {mode} ({cost}) — {addr}", wa_payment:"💳 {pay}", wa_total:"🧮 *{total}*", wa_note:"📝 {note}", wa_share_msg:"Mon catalogue !",
   toast_added:"✓ Panier", toast_saved:"✓ Enregistré", toast_deleted:"Supprimé", toast_cfg_saved:"✓ Enregistré", toast_status:"État :", toast_copied:"🔗 Copié", toast_created:"🎉 Prêt", toast_fill:"Champs requis.", toast_email:"Email.", toast_pass_min:"6 car.", toast_exists:"Existant.", toast_badlogin:"Incorrect.", toast_login_first:"Connectez-vous.", toast_fill_cart:"Produits.", toast_fill_name:"Nom.", toast_fill_addr:"Adresse.", toast_fill_wa:"⚙️ WhatsApp.", toast_order_sent:"✅ Envoyé", toast_avatar:"✓ Avatar", toast_email_confirm:"📧 Confirmez.", toast_sb_error:"⚠️ ",
   hint_pass_weak:"6", hint_pass_ok:"✓", hint_email_ok:"✓", hint_email_bad:"✗", hint_name_ok:"✓", hint_wa_ok:"✓", processing:"…",
-  install:"Installer", install_ios:"iPhone", install_manual:"Menu",
-  sb_missing:"Configurez SUPABASE_URL.", mig_btn:"⬆️ v6", mig_done:"✓", mig_none:"Rien",
+  install:"Installer", install_ios:"iPhone", install_manual:"Menu", sb_missing:"Configurez SUPABASE_URL.",
   dash_chip:"Préparation", dash_sub:"Publiez quand prêt.", dash_prep:"Préparer ↓", dash_addprod:"+ Produit",
   dash_req_t:"Catalogue", dash_req_d:"Complétez.", dash_complete:"Compléter", dash_manageprod:"Gérer",
   dash_quick_t:"Vue rapide", dash_quick:"Données", q_newprod:"Produit", q_newprod_d:"Rapide.", q_cats:"Catégories", q_cats_d:"Organisez.", q_orders:"Commandes", q_orders_d:"Gérer.", q_share:"Partager", q_share_d:"Lien.",
   dash_act_t:"Activité", dash_act:"Événements", dash_noact:"Rien.",
-  req_wa:"WhatsApp valide", req_prod:"1 produit actif", req_cur:"Monnaie", req_pay:"1 paiement",
-  req_ok:"Prêt", req_left:"{n} à compléter", req_pending:"Attente", req_ready:"Prête",
+  req_wa:"WhatsApp valide", req_prod:"1 produit actif", req_cur:"Monnaie", req_pay:"1 paiement", req_ok:"Prêt", req_left:"{n} à compléter", req_pending:"Attente", req_ready:"Prête",
   cfg_hub_title:"Configuration", cfg_hub_sub:"Par blocs.", cfg_back:"Retour", cfg_open:"Configurer",
   cfg_f_all:"Tout", cfg_f_gen:"Général", cfg_f_cat:"Catalogue", cfg_f_pub:"Publication", cfg_f_sales:"Ventes",
   st_ok:"Configuré", st_pend:"Attente", st_miss:"À configurer", st_opt:"Facultatif",
-  c_info:"Informations", c_info_d:"Nom, lieu.", c_wa:"WhatsApp", c_wa_d:"Réception.", c_brand:"Marque", c_brand_d:"Logo.", c_cur:"Monnaie", c_cur_d:"Prix.", c_link:"Lien", c_link_d:"Publique.", c_deliv:"Livraison", c_deliv_d:"Modes.", c_pay:"Paiements", c_pay_d:"Options.",
+  c_info:"Informations", c_info_d:"Nom, description, lieu.", c_wa:"WhatsApp", c_wa_d:"Numéro de réception.", c_brand:"Marque", c_brand_d:"Logo/avatar.", c_cur:"Monnaie", c_cur_d:"Monnaie des prix.", c_link:"Lien", c_link_d:"Adresse publique.", c_deliv:"Livraison", c_deliv_d:"Retrait/livraison/WhatsApp.", c_pay:"Paiements", c_pay_d:"Options client.", c_header:"Présentation", c_header_d:"En-tête visuel du catalogue.", c_seo:"SEO & partage", c_seo_d:"Titre, description, image sociale.",
+  wa_country:"Pays / région", wa_number:"Numéro (sans indicatif)", wa_review:"Revisar y confirmar", wa_current:"Numéro actuel", wa_test:"Probar enlace WhatsApp",
+  cur_warn:"Ce changement requiert une révision des prix", cur_warn_d:"Les produits gardent leur valeur numérique jusqu'à confirmation dans la nouvelle monnaie. Si la boutique est publiée, elle peut être désactivée temporairement.",
+  cur_confirm:"Je confirme le changement et la révision des prix.", cur_new:"Nouvelle monnaie", cur_current:"Monnaie actuelle",
+  info_region:"Région / état", info_addr:"Adresse commerciale", info_postal:"Code postal", info_tz:"Fuseau horaire",
+  header_show:"Afficher l'en-tête visuel", header_title:"Titre", header_desc:"Description", header_img:"Image d'en-tête", header_save:"Enregistrer l'en-tête",
+  deliv_mode_wa:"Coordonner par WhatsApp", deliv_mode_wa_d:"Les détails de livraison/retrait se coordonnent directement sur WhatsApp.",
+  deliv_mode_modes:"Définir des modalités", deliv_mode_modes_d:"Sélectionnez ce qui sera proposé au client.",
+  deliv_retiro_d:"Le client retire sa commande au commerce.", deliv_delivery_d:"Le client indique une adresse et coordonne par WhatsApp.",
+  pay_cash:"Espèces", pay_cash_d:"Le client paie en espèces.", pay_transfer:"Virement", pay_transfer_d:"Virement bancaire ou équivalent.", pay_card:"Carte", pay_card_d:"Le commerce coordonne le paiement par carte.", pay_none:"Si vous n'activez rien, le catalogue ne demandera pas de moyen de paiement.",
+  seo_title_f:"Titre pour moteurs et réseaux", seo_desc_f:"Description", seo_auto:"Automatique", seo_prev:"Ainsi votre lien peut apparaître", seo_prev_d:"La carte change en temps réel pendant que vous écrivez.", seo_img:"Image pour réseaux et messagerie", seo_save:"Enregistrer SEO", seo_chars:"{n} caractères",
+  link_rules:"Lettres, chiffres ou tirets, sans espaces.", link_preview:"Aperçu du lien",
+  deliv_wa_coord:"À coordonner sur WhatsApp",
   bot_title:"Assistant", bot_hello:"Bonjour !", bot_ask_name:"Nom ?", bot_thanks_name:"Enchanté, {name}.", bot_ask_type:"Type ?", bot_type1:"Boutique", bot_type2:"Resto", bot_type3:"Services", bot_type4:"Autre", bot_menu_intro:"Choisissez :",
   bot_q_create:"Créer", bot_a_create:"Inscrivez-vous.", bot_q_products:"Produits", bot_a_products:"Panneau.", bot_q_share:"Partager", bot_a_share:"Panneau.", bot_q_client:"Commande", bot_a_client:"Client.", bot_q_pay:"Paiements", bot_a_pay:"Paramètres.", bot_q_install:"App", bot_a_install:"Menu.", bot_q_human:"Humain", bot_a_human:"Résumé.", bot_fallback:"?", bot_summary:"Résumé WhatsApp", bot_sent:"Ouvert.", bot_input_ph:"…"
 },
@@ -1092,43 +1123,32 @@ es: {
   feat_eye:"Funciones", feat_title:"Todo para vender", feat_lead:"Orden profesional.",
   f1:"Enlace único", f1d:"Todo el catálogo.", f2:"Búsqueda", f2d:"Segundos.", f3:"Carrito", f3d:"Sin errores.", f4:"Pedido guardado", f4d:"Antes del chat.", f5:"Retiro/delivery", f5d:"Eliges.", f6:"Pagos", f6d:"Tus reglas.", f7:"Moneda", f7d:"Local.", f8:"Biblioteca", f8d:"Fotos.",
   view_order:"🛒 Ver", order_sent:"Enviado", order_conf:"✓ Confirmado",
-  exp_eye:"Cliente", exp_title:"Comprar < escribir",
-  exp1:"Categorías.", exp2:"Nombre.", exp3:"Ofertas.", exp4:"Cantidades.", exp5:"Entrega.", exp6:"Pago.", exp7:"WhatsApp.",
+  exp_eye:"Cliente", exp_title:"Comprar < escribir", exp1:"Categorías.", exp2:"Nombre.", exp3:"Ofertas.", exp4:"Cantidades.", exp5:"Entrega.", exp6:"Pago.", exp7:"WhatsApp.",
   exp_t1:"Sin cuenta", exp_t2:"Cualquier navegador",
-  ctrl_eye:"Tú", ctrl_title:"Tú decides",
-  ctrl1:"1 clic.", ctrl2:"Precios.", ctrl3:"Entrega.", ctrl4:"Historial.", ctrl5:"Estados.", ctrl6:"Enlace corto.",
+  ctrl_eye:"Tú", ctrl_title:"Tú decides", ctrl1:"1 clic.", ctrl2:"Precios.", ctrl3:"Entrega.", ctrl4:"Historial.", ctrl5:"Estados.", ctrl6:"Enlace corto.",
   ctrl_t1:"Sin permanencia", ctrl_t2:"Tus datos",
-  types_title:"Negocios diarios", types_lead:"Acelera WhatsApp.",
-  dir_title:"Ya venden", dir_lead:"Catálogos públicos.", dir_empty:"¡Estrena el tuyo!",
-  dark_eye:"Diferencia", dark_title:"No es tienda:<br>tu venta", dark_lead:"Muestra, recibe, cierra.",
-  dark1:"Publicas", dark2:"Pedido", dark3:"Cierras", dark_lead2:"Menos fricción.",
-  faq_eye:"FAQ", faq_title:"Respuestas",
-  faq1q:"¿Programar?", faq1a:"No.", faq2q:"¿Costo?", faq2a:"Gratis.", faq3q:"¿App?", faq3a:"No.", faq4q:"¿Precios?", faq4a:"Sí.", faq5q:"¿País?", faq5a:"Sí.", faq6q:"¿Recibo?", faq6a:"WhatsApp.",
+  types_title:"Negocios diarios", types_lead:"Acelera WhatsApp.", dir_title:"Ya venden", dir_lead:"Catálogos públicos.", dir_empty:"¡Estrena el tuyo!",
+  dark_eye:"Diferencia", dark_title:"No es tienda:<br>tu venta", dark_lead:"Muestra, recibe, cierra.", dark1:"Publicas", dark2:"Pedido", dark3:"Cierras", dark_lead2:"Menos fricción.",
+  faq_eye:"FAQ", faq_title:"Respuestas", faq1q:"¿Programar?", faq1a:"No.", faq2q:"¿Costo?", faq2a:"Gratis.", faq3q:"¿App?", faq3a:"No.", faq4q:"¿Precios?", faq4a:"Sí.", faq5q:"¿País?", faq5a:"Sí.", faq6q:"¿Recibo?", faq6a:"WhatsApp.",
   cta_title:"Pedido ordenado hoy", cta_lead:"Crea y comparte.", cta_btn:"Crear gratis",
   contact_eye:"Contacto", contact_title:"¿Hablamos?", contact_lead:"Escríbenos.", contact_name:"Empresa", contact_wa:"WhatsApp", contact_email:"Correo",
   foot_desc:"Catálogo + WhatsApp.", foot_panel:"Panel",
   your_order:"Pedido", continue:"Continuar →",
   check_title:"Completar", check_desc:"Sin registro.", check_name:"Nombre *", check_deliv:"Entrega", check_addr:"Dirección *", check_pay:"Pago", check_note:"Nota", cancel:"Cancelar",
   auth_login:"Iniciar sesión", auth_register:"Registrarme", login_desc:"Tu panel.", reg_desc:"1 minuto.",
-  auth_email:"Correo", auth_pass:"Contraseña", auth_name:"Nombre negocio *", auth_wa:"WhatsApp *",
-  auth_avatar:"Logo", auth_cat:"Categoría", select_cat:"Elige…",
+  auth_email:"Correo", auth_pass:"Contraseña", auth_name:"Nombre negocio *", auth_wa:"WhatsApp *", auth_avatar:"Logo", auth_cat:"Categoría", select_cat:"Elige…",
   cfg_cat:"Categoría", th_catg:"Categoría", av_change:"Cambiar", av_remove:"Quitar",
   login_btn:"Entrar", reg_btn:"Crear →", logout:"Salir", admin_view_cat:"Mi catálogo",
   tab_home:"Inicio", tab_prod:"Productos", tab_cats:"Categorías", tab_orders:"Pedidos", tab_cfg:"Configuración", tab_share:"Compartir", tab_media:"Biblioteca",
-  add_prod:"Agregar producto", edit_prod:"Editar", f_name:"Nombre *", f_cat:"Categoría *", f_price:"Precio *", f_promo:"Promo", f_emoji:"Emoji", f_img:"Imagen", f_desc:"Descripción", save:"Guardar", clear:"Limpiar",
+  add_prod:"Agregar producto", edit_prod:"Editar", f_name:"Nombre *", f_cat:"Categoría *", f_price:"Precio *", f_promo:"Promo", f_emoji:"Emoji", f_desc:"Descripción", save:"Guardar", clear:"Limpiar",
   th_prod:"Producto", th_cat:"Categoría", th_price:"Precio", th_status:"Estado",
-  prod_slug:"URL producto", prod_slug_d:"Generado del nombre.", prod_sort:"Orden", prod_sort_d:"Menores primero.",
-  prod_imgs:"Imágenes", prod_imgs_d:"Hasta 5.", prod_drop:"Arrastra o haz clic", prod_preview:"Vista previa",
-  prod_desc_rich:"Descripción", rte_b:"N", rte_i:"K", rte_ul:"Lista", rte_ol:"1.",
-  cats_title:"Categorías", cats_sub:"Organiza tus productos para tus clientes.", cat_add:"Agregar categoría", cat_back:"Volver",
-  cat_name:"Categoría", cat_slug:"Slug / URL", cat_slug_d:"Corto, minúsculas, fácil de compartir.", cat_img:"Imagen representativa", cat_img_d:"Opcional. Identifica la categoría.", cat_alt:"Texto alternativo", cat_alt_d:"Describe la imagen; si no, se usa el nombre.",
-  cat_stats_total:"Categorías", cat_stats_org:"Productos organizados", cat_stats_default:"Predeterminada",
-  cat_prods:"Productos", cat_type:"Tipo", cat_type_def:"Predeterminada", cat_type_custom:"Personalizada", cat_edit:"Editar", cat_del:"Eliminar", cat_empty:"Aún no hay categorías.", cat_set_default:"Categoría predeterminada", cat_goto:"Gestionar categorías",
-  toast_cat_saved:"✓ Categoría guardada", confirm_del_cat:"¿Eliminar esta categoría?",
+  prod_slug:"URL", prod_slug_d:"Generado del nombre.", prod_sort:"Orden", prod_sort_d:"Menores primero.", prod_imgs:"Imágenes", prod_imgs_d:"Hasta 5.", prod_drop:"Arrastra o haz clic", prod_preview:"Vista previa", prod_desc_rich:"Descripción", rte_b:"N", rte_i:"K", rte_ul:"Lista", rte_ol:"1.",
+  cats_title:"Categorías", cats_sub:"Organiza tus productos.", cat_add:"Agregar", cat_back:"Volver", cat_name:"Categoría", cat_slug:"Slug", cat_slug_d:"Corto, minúsculas.", cat_img:"Imagen", cat_alt:"Texto alternativo",
+  cat_stats_total:"Categorías", cat_stats_org:"Productos organizados", cat_stats_default:"Predeterminada", cat_prods:"Productos", cat_type:"Tipo", cat_type_def:"Predeterminada", cat_type_custom:"Personalizada", cat_empty:"Aún no hay.", cat_set_default:"Predeterminada", cat_goto:"Gestionar",
+  toast_cat_saved:"✓ Categoría guardada", confirm_del_cat:"¿Eliminar categoría?",
   cfg_biz:"Datos", cfg_name:"Nombre", cfg_wa:"WhatsApp", cfg_email:"Correo", cfg_cur:"Moneda", cfg_pay:"Pagos", cfg_eye:"Texto banner", cfg_banner:"Título banner", cfg_deliv:"Delivery", cfg_cost:"Costo", save_cfg:"Guardar",
   share_title:"Comparte", share_desc:"Envía el enlace.", share_link:"Enlace público", copy:"Copiar", share_wa:"WhatsApp",
-  lib_title:"Biblioteca", lib_desc:"Subida + nube.", lib_upload:"Subir", lib_empty:"Vacía.", lib_added:"✓ Agregado", lib_deleted:"Eliminado",
-  lib_choose:"Biblioteca", lib_cat_title:"Imágenes categorías", lib_cat_desc:"Una por categoría.", lib_cat_assign:"Elegir", lib_cat_clear:"Quitar", lib_cat_none:"Sin imagen", confirm_delete_img:"¿Eliminar?",
+  lib_title:"Biblioteca", lib_desc:"Subida + nube.", lib_upload:"Subir", lib_empty:"Vacía.", lib_added:"✓ Agregado", lib_deleted:"Eliminado", lib_choose:"Biblioteca", lib_cat_title:"Imágenes categorías", lib_cat_assign:"Elegir", lib_cat_clear:"Quitar", lib_cat_none:"Sin imagen", confirm_delete_img:"¿Eliminar?",
   empty_prods:"Sin productos.", empty_orders:"Sin pedidos.", cart_empty:"Carrito vacío.", no_prods_public:"Sin productos.",
   active:"🟢 Activo", inactive:"⚪ Inactivo", deliv_lbl_retiro:"Retiro", deliv_lbl_delivery:"Delivery", per_unit:"c/u",
   item_count:"{n} productos", item_count_one:"1 producto", confirm_delete_prod:"¿Eliminar?", not_found:"No encontrado",
@@ -1136,18 +1156,28 @@ es: {
   wa_new_order:"🧾 *Pedido {id}*", wa_customer:"👤 {name}", wa_business:"🏪 {biz}", wa_products:"📦 *:*", wa_product_line:"• {q} × {name} — {price}", wa_delivery_line:"🚚 {mode}", wa_delivery_with_addr:"🚚 {mode} ({cost}) — {addr}", wa_payment:"💳 {pay}", wa_total:"🧮 *{total}*", wa_note:"📝 {note}", wa_share_msg:"¡Mi catálogo!",
   toast_added:"✓ Carrito", toast_saved:"✓ Guardado", toast_deleted:"Eliminado", toast_cfg_saved:"✓ Guardado", toast_status:"Estado:", toast_copied:"🔗 Copiado", toast_created:"🎉 Listo", toast_fill:"Campos requeridos.", toast_email:"Correo.", toast_pass_min:"6 caract.", toast_exists:"Ya existe.", toast_badlogin:"Incorrecto.", toast_login_first:"Inicia sesión.", toast_fill_cart:"Productos.", toast_fill_name:"Nombre.", toast_fill_addr:"Dirección.", toast_fill_wa:"⚙️ WhatsApp.", toast_order_sent:"✅ Enviado", toast_avatar:"✓ Avatar", toast_email_confirm:"📧 Confirma.", toast_sb_error:"⚠️ ",
   hint_pass_weak:"6", hint_pass_ok:"✓", hint_email_ok:"✓", hint_email_bad:"✗", hint_name_ok:"✓", hint_wa_ok:"✓", processing:"…",
-  install:"Instalar", install_ios:"iPhone", install_manual:"Menú",
-  sb_missing:"Configura SUPABASE_URL.", mig_btn:"⬆️ v6", mig_done:"✓", mig_none:"Nada",
+  install:"Instalar", install_ios:"iPhone", install_manual:"Menú", sb_missing:"Configura SUPABASE_URL.",
   dash_chip:"Preparando", dash_sub:"Publica cuando esté listo.", dash_prep:"Preparar ↓", dash_addprod:"+ Producto",
   dash_req_t:"Tu catálogo", dash_req_d:"Completa las reglas.", dash_complete:"Completar", dash_manageprod:"Gestionar",
   dash_quick_t:"Vista rápida", dash_quick:"Datos", q_newprod:"Producto", q_newprod_d:"Rápido.", q_cats:"Categorías", q_cats_d:"Organiza.", q_orders:"Pedidos", q_orders_d:"Gestionar.", q_share:"Compartir", q_share_d:"Tu enlace.",
   dash_act_t:"Actividad", dash_act:"Últimos eventos", dash_noact:"Sin actividad.",
-  req_wa:"WhatsApp válido", req_prod:"1 producto activo", req_cur:"Moneda", req_pay:"1 forma de pago",
-  req_ok:"Listo para publicar", req_left:"Faltan {n}", req_pending:"Pendiente", req_ready:"Lista",
+  req_wa:"WhatsApp válido", req_prod:"1 producto activo", req_cur:"Moneda", req_pay:"1 forma de pago", req_ok:"Listo para publicar", req_left:"Faltan {n}", req_pending:"Pendiente", req_ready:"Lista",
   cfg_hub_title:"Configuración", cfg_hub_sub:"Por bloques.", cfg_back:"Volver", cfg_open:"Configurar",
   cfg_f_all:"Todo", cfg_f_gen:"General", cfg_f_cat:"Catálogo", cfg_f_pub:"Publicación", cfg_f_sales:"Ventas",
   st_ok:"Configurado", st_pend:"Pendiente", st_miss:"Falta", st_opt:"Opcional",
-  c_info:"Información", c_info_d:"Nombre, lugar.", c_wa:"WhatsApp", c_wa_d:"Recepción.", c_brand:"Marca", c_brand_d:"Logo.", c_cur:"Moneda", c_cur_d:"Precios.", c_link:"Enlace", c_link_d:"Público.", c_deliv:"Entrega", c_deliv_d:"Modos.", c_pay:"Pagos", c_pay_d:"Opciones.",
+  c_info:"Información", c_info_d:"Nombre, descripción y ubicación.", c_wa:"WhatsApp", c_wa_d:"Número de recepción.", c_brand:"Marca", c_brand_d:"Logo/avatar.", c_cur:"Moneda", c_cur_d:"Moneda de precios.", c_link:"Enlace", c_link_d:"Dirección pública.", c_deliv:"Entrega", c_deliv_d:"Retiro, delivery o WhatsApp.", c_pay:"Pagos", c_pay_d:"Opciones del cliente.", c_header:"Presentación", c_header_d:"Encabezado visual del catálogo.", c_seo:"SEO y compartir", c_seo_d:"Título, descripción e imagen social.",
+  wa_country:"País o región", wa_number:"Número sin código de país", wa_review:"Revisar y confirmar", wa_current:"Número actual", wa_test:"Probar enlace WhatsApp",
+  cur_warn:"Este cambio requiere revisión de precios", cur_warn_d:"Los productos conservan su valor numérico hasta que confirmes los precios en la nueva moneda. Si la tienda está publicada, puede desactivarse temporalmente.",
+  cur_confirm:"Confirmo el cambio y la revisión de precios.", cur_new:"Nueva moneda", cur_current:"Moneda actual",
+  info_region:"Región / estado", info_addr:"Dirección comercial", info_postal:"Código postal", info_tz:"Zona horaria",
+  header_show:"Mostrar encabezado visual", header_title:"Título", header_desc:"Descripción", header_img:"Imagen del encabezado", header_save:"Guardar encabezado",
+  deliv_mode_wa:"Coordinar por WhatsApp", deliv_mode_wa_d:"Los detalles de entrega o retiro se coordinan directamente por WhatsApp.",
+  deliv_mode_modes:"Definir modalidades", deliv_mode_modes_d:"Selecciona las disponibles para el cliente.",
+  deliv_retiro_d:"El cliente retira su pedido en el negocio.", deliv_delivery_d:"El cliente indica dirección y coordina el delivery por WhatsApp.",
+  pay_cash:"Efectivo", pay_cash_d:"El cliente paga en efectivo.", pay_transfer:"Transferencia", pay_transfer_d:"Transferencia bancaria o equivalente.", pay_card:"Tarjeta", pay_card_d:"El negocio coordina el pago con tarjeta.", pay_none:"Si no activas ninguna, el catálogo no preguntará forma de pago.",
+  seo_title_f:"Título para buscadores y redes", seo_desc_f:"Descripción", seo_auto:"Automático", seo_prev:"Así puede verse tu enlace", seo_prev_d:"La tarjeta cambia en tiempo real mientras escribes.", seo_img:"Imagen para redes y mensajería", seo_save:"Guardar SEO", seo_chars:"{n} caracteres",
+  link_rules:"Letras, números o guiones, sin espacios.", link_preview:"Vista previa del enlace",
+  deliv_wa_coord:"A coordinar por WhatsApp",
   bot_title:"Asistente", bot_hello:"¡Hola!", bot_ask_name:"¿Nombre?", bot_thanks_name:"Encantado, {name}.", bot_ask_type:"¿Tipo?", bot_type1:"Tienda", bot_type2:"Comida", bot_type3:"Servicios", bot_type4:"Otro", bot_menu_intro:"Elige:",
   bot_q_create:"Crear", bot_a_create:"Regístrate.", bot_q_products:"Productos", bot_a_products:"Panel.", bot_q_share:"Compartir", bot_a_share:"Panel.", bot_q_client:"Pedido", bot_a_client:"Cliente.", bot_q_pay:"Pagos", bot_a_pay:"Configuración.", bot_q_install:"App", bot_a_install:"Menú.", bot_q_human:"Humano", bot_a_human:"Resumen.", bot_fallback:"?", bot_summary:"Resumen WhatsApp", bot_sent:"Abierto.", bot_input_ph:"…"
 },
@@ -1163,51 +1193,36 @@ ar: {
   cmp_bad1:"تكرر <b>الإجابات</b>.", cmp_bad2:"أسعار قديمة.", cmp_bad3:"خطأ = <b>شكوى</b>.",
   cmp_good_title:"مع رابطك", cmp_good1:"يرى <b>الكل</b>.", cmp_good2:"السلة <b>تجمع</b>.", cmp_good3:"رسالة <b>واضحة</b>.",
   send_wa:"إرسال واتساب", total:"الإجمالي",
-  steps_title:"ثلاث خطوات", steps_lead:"عام من اليوم.",
-  step1_t:"حساب", step1_d:"اسم، واتساب، سر.", step2_t:"مخزون", step2_d:"صور وأسعار.", step3_t:"رابط", step3_d:"شارك.",
-  ben_title1:"كتالوج يعمل", ben_title2:"بدونك", ben_lead:"رابطك يجهّز.",
-  ben1_t:"رابط", ben1_d:"صور وأسعار.", ben1_tag:"شارك", ben2_b:"عمولة", ben2_d:"أرباحك لك.",
-  ben3_t:"واتساب", ben3_d:"طلب جاهز.", ben3_tag:"بدون وسطاء",
-  feat_eye:"مميزات", feat_title:"كل ما تحتاج", feat_lead:"ترتيب.",
-  f1:"رابط", f1d:"الكل.", f2:"بحث", f2d:"ثوانٍ.", f3:"سلة", f3d:"بدون خطأ.", f4:"طلب", f4d:"محفوظ.", f5:"تسليم", f5d:"اختيار.", f6:"دفع", f6d:"قواعدك.", f7:"عملة", f7d:"محلية.", f8:"مكتبة", f8d:"صور.",
+  steps_title:"ثلاث خطوات", steps_lead:"عام من اليوم.", step1_t:"حساب", step1_d:"اسم، واتساب، سر.", step2_t:"مخزون", step2_d:"صور وأسعار.", step3_t:"رابط", step3_d:"شارك.",
+  ben_title1:"كتالوج يعمل", ben_title2:"بدونك", ben_lead:"رابطك يجهّز.", ben1_t:"رابط", ben1_d:"صور وأسعار.", ben1_tag:"شارك", ben2_b:"عمولة", ben2_d:"أرباحك لك.", ben3_t:"واتساب", ben3_d:"طلب جاهز.", ben3_tag:"بدون وسطاء",
+  feat_eye:"مميزات", feat_title:"كل ما تحتاج", feat_lead:"ترتيب.", f1:"رابط", f1d:"الكل.", f2:"بحث", f2d:"ثوانٍ.", f3:"سلة", f3d:"بدون خطأ.", f4:"طلب", f4d:"محفوظ.", f5:"تسليم", f5d:"اختيار.", f6:"دفع", f6d:"قواعدك.", f7:"عملة", f7d:"محلية.", f8:"مكتبة", f8d:"صور.",
   view_order:"🛒 عرض", order_sent:"أُرسل", order_conf:"✓ مؤكد",
-  exp_eye:"عميل", exp_title:"الشراء أسهل",
-  exp1:"فئات.", exp2:"اسم.", exp3:"عروض.", exp4:"كميات.", exp5:"تسليم.", exp6:"دفع.", exp7:"واتساب.",
+  exp_eye:"عميل", exp_title:"الشراء أسهل", exp1:"فئات.", exp2:"اسم.", exp3:"عروض.", exp4:"كميات.", exp5:"تسليم.", exp6:"دفع.", exp7:"واتساب.",
   exp_t1:"بدون حساب", exp_t2:"أي متصفح",
-  ctrl_eye:"لك", ctrl_title:"أنت تقرر",
-  ctrl1:"نقرة.", ctrl2:"أسعار.", ctrl3:"تسليم.", ctrl4:"سجل.", ctrl5:"حالات.", ctrl6:"رابط.",
+  ctrl_eye:"لك", ctrl_title:"أنت تقرر", ctrl1:"نقرة.", ctrl2:"أسعار.", ctrl3:"تسليم.", ctrl4:"سجل.", ctrl5:"حالات.", ctrl6:"رابط.",
   ctrl_t1:"بدون التزام", ctrl_t2:"بياناتك",
-  types_title:"يوميًا", types_lead:"يسرّع.",
-  dir_title:"يبيعون", dir_lead:"كتالوجات.", dir_empty:"كن الأول!",
-  dark_eye:"الفرق", dark_title:"ليس متجرًا:<br>بيعك", dark_lead:"اعرض، استلم، أَتمّ.",
-  dark1:"انشر", dark2:"طلب", dark3:"أتمّ", dark_lead2:"أقل احتكاكًا.",
-  faq_eye:"أسئلة", faq_title:"إجابات",
-  faq1q:"برمجة؟", faq1a:"لا.", faq2q:"كلفة؟", faq2a:"مجاني.", faq3q:"تطبيق؟", faq3a:"لا.", faq4q:"أسعار؟", faq4a:"نعم.", faq5q:"بلدي؟", faq5a:"نعم.", faq6q:"الاستلام؟", faq6a:"واتساب.",
+  types_title:"يوميًا", types_lead:"يسرّع.", dir_title:"يبيعون", dir_lead:"كتالوجات.", dir_empty:"كن الأول!",
+  dark_eye:"الفرق", dark_title:"ليس متجرًا:<br>بيعك", dark_lead:"اعرض، استلم، أَتمّ.", dark1:"انشر", dark2:"طلب", dark3:"أتمّ", dark_lead2:"أقل احتكاكًا.",
+  faq_eye:"أسئلة", faq_title:"إجابات", faq1q:"برمجة؟", faq1a:"لا.", faq2q:"كلفة؟", faq2a:"مجاني.", faq3q:"تطبيق؟", faq3a:"لا.", faq4q:"أسعار؟", faq4a:"نعم.", faq5q:"بلدي؟", faq5a:"نعم.", faq6q:"الاستلام؟", faq6a:"واتساب.",
   cta_title:"طلبك مرتّب اليوم", cta_lead:"أنشئ وشارك.", cta_btn:"أنشئ مجانًا",
   contact_eye:"اتصل", contact_title:"نتحدث؟", contact_lead:"راسلنا.", contact_name:"شركة", contact_wa:"واتساب", contact_email:"بريد",
   foot_desc:"كتالوج + واتساب.", foot_panel:"لوحة",
   your_order:"طلبك", continue:"متابعة →",
   check_title:"إتمام", check_desc:"بدون تسجيل.", check_name:"اسم *", check_deliv:"تسليم", check_addr:"عنوان *", check_pay:"دفع", check_note:"ملاحظة", cancel:"إلغاء",
   auth_login:"دخول", auth_register:"حساب", login_desc:"لوحتك.", reg_desc:"دقيقة.",
-  auth_email:"بريد", auth_pass:"سر", auth_name:"اسم النشاط *", auth_wa:"واتساب *",
-  auth_avatar:"شعار", auth_cat:"فئة", select_cat:"اختر…",
+  auth_email:"بريد", auth_pass:"سر", auth_name:"اسم النشاط *", auth_wa:"واتساب *", auth_avatar:"شعار", auth_cat:"فئة", select_cat:"اختر…",
   cfg_cat:"فئة", th_catg:"فئة", av_change:"تغيير", av_remove:"إزالة",
   login_btn:"دخول", reg_btn:"أنشئ →", logout:"خروج", admin_view_cat:"كتالوجي",
   tab_home:"الرئيسية", tab_prod:"منتجات", tab_cats:"فئات", tab_orders:"طلبات", tab_cfg:"إعدادات", tab_share:"مشاركة", tab_media:"مكتبة",
-  add_prod:"إضافة منتج", edit_prod:"تعديل", f_name:"اسم *", f_cat:"فئة *", f_price:"سعر *", f_promo:"عرض", f_emoji:"رمز", f_img:"صورة", f_desc:"وصف", save:"حفظ", clear:"مسح",
+  add_prod:"إضافة منتج", edit_prod:"تعديل", f_name:"اسم *", f_cat:"فئة *", f_price:"سعر *", f_promo:"عرض", f_emoji:"رمز", f_desc:"وصف", save:"حفظ", clear:"مسح",
   th_prod:"منتج", th_cat:"فئة", th_price:"سعر", th_status:"حالة",
-  prod_slug:"رابط", prod_slug_d:"من الاسم.", prod_sort:"ترتيب", prod_sort_d:"الأصغر أولًا.",
-  prod_imgs:"صور", prod_imgs_d:"حتى 5.", prod_drop:"اسحب أو انقر", prod_preview:"معاينة",
-  prod_desc_rich:"وصف", rte_b:"غ", rte_i:"م", rte_ul:"قائمة", rte_ol:"1.",
-  cats_title:"الفئات", cats_sub:"نظّم منتجاتك.", cat_add:"إضافة فئة", cat_back:"رجوع",
-  cat_name:"فئة", cat_slug:"Slug", cat_slug_d:"قصير وصغير.", cat_img:"صورة ممثلة", cat_img_d:"اختيارية.", cat_alt:"نص بديل", cat_alt_d:"يصف الصورة.",
-  cat_stats_total:"فئات", cat_stats_org:"منتجات منظمة", cat_stats_default:"افتراضية",
-  cat_prods:"منتجات", cat_type:"نوع", cat_type_def:"افتراضية", cat_type_custom:"مخصصة", cat_edit:"تعديل", cat_del:"حذف", cat_empty:"لا فئات.", cat_set_default:"فئة افتراضية", cat_goto:"إدارة الفئات",
-  toast_cat_saved:"✓ تم حفظ الفئة", confirm_del_cat:"حذف الفئة؟",
+  prod_slug:"رابط", prod_slug_d:"من الاسم.", prod_sort:"ترتيب", prod_sort_d:"الأصغر أولًا.", prod_imgs:"صور", prod_imgs_d:"حتى 5.", prod_drop:"اسحب أو انقر", prod_preview:"معاينة", prod_desc_rich:"وصف", rte_b:"غ", rte_i:"م", rte_ul:"قائمة", rte_ol:"1.",
+  cats_title:"الفئات", cats_sub:"نظّم.", cat_add:"إضافة", cat_back:"رجوع", cat_name:"فئة", cat_slug:"Slug", cat_slug_d:"قصير.", cat_img:"صورة", cat_alt:"نص بديل",
+  cat_stats_total:"فئات", cat_stats_org:"منتجات منظمة", cat_stats_default:"افتراضية", cat_prods:"منتجات", cat_type:"نوع", cat_type_def:"افتراضية", cat_type_custom:"مخصصة", cat_empty:"لا فئات.", cat_set_default:"افتراضية", cat_goto:"إدارة",
+  toast_cat_saved:"✓ الفئة", confirm_del_cat:"حذف الفئة؟",
   cfg_biz:"بيانات", cfg_name:"اسم", cfg_wa:"واتساب", cfg_email:"بريد", cfg_cur:"عملة", cfg_pay:"دفع", cfg_eye:"نص", cfg_banner:"عنوان", cfg_deliv:"توصيل", cfg_cost:"كلفة", save_cfg:"حفظ",
   share_title:"مشاركة", share_desc:"أرسل الرابط.", share_link:"رابطك", copy:"نسخ", share_wa:"واتساب",
-  lib_title:"مكتبة", lib_desc:"رفع + سحابة.", lib_upload:"رفع", lib_empty:"فارغة.", lib_added:"✓", lib_deleted:"حذف",
-  lib_choose:"مكتبة", lib_cat_title:"صور الفئات", lib_cat_desc:"صورة لكل فئة.", lib_cat_assign:"اختيار", lib_cat_clear:"إزالة", lib_cat_none:"بدون", confirm_delete_img:"حذف؟",
+  lib_title:"مكتبة", lib_desc:"رفع + سحابة.", lib_upload:"رفع", lib_empty:"فارغة.", lib_added:"✓", lib_deleted:"حذف", lib_choose:"مكتبة", lib_cat_title:"صور الفئات", lib_cat_assign:"اختيار", lib_cat_clear:"إزالة", lib_cat_none:"بدون", confirm_delete_img:"حذف؟",
   empty_prods:"لا منتجات.", empty_orders:"لا طلبات.", cart_empty:"فارغة.", no_prods_public:"لا منتجات.",
   active:"🟢", inactive:"⚪", deliv_lbl_retiro:"استلام", deliv_lbl_delivery:"توصيل", per_unit:"/وحدة",
   item_count:"{n} منتجات", item_count_one:"منتج", confirm_delete_prod:"حذف؟", not_found:"غير موجود",
@@ -1215,18 +1230,28 @@ ar: {
   wa_new_order:"🧾 *{id}*", wa_customer:"👤 {name}", wa_business:"🏪 {biz}", wa_products:"📦 *:*", wa_product_line:"• {q} × {name} — {price}", wa_delivery_line:"🚚 {mode}", wa_delivery_with_addr:"🚚 {mode} ({cost}) — {addr}", wa_payment:"💳 {pay}", wa_total:"🧮 *{total}*", wa_note:"📝 {note}", wa_share_msg:"كتالوجي!",
   toast_added:"✓", toast_saved:"✓", toast_deleted:"حذف", toast_cfg_saved:"✓", toast_status:":", toast_copied:"🔗", toast_created:"🎉", toast_fill:"حقول.", toast_email:"بريد.", toast_pass_min:"6.", toast_exists:"موجود.", toast_badlogin:"خطأ.", toast_login_first:"ادخل.", toast_fill_cart:"أضف.", toast_fill_name:"اسم.", toast_fill_addr:"عنوان.", toast_fill_wa:"⚙️", toast_order_sent:"✅", toast_avatar:"✓", toast_email_confirm:"📧", toast_sb_error:"⚠️ ",
   hint_pass_weak:"6", hint_pass_ok:"✓", hint_email_ok:"✓", hint_email_bad:"✗", hint_name_ok:"✓", hint_wa_ok:"✓", processing:"…",
-  install:"تثبيت", install_ios:"آيفون", install_manual:"القائمة",
-  sb_missing:"اضبط URL.", mig_btn:"⬆️", mig_done:"✓", mig_none:"لا",
+  install:"تثبيت", install_ios:"آيفون", install_manual:"القائمة", sb_missing:"اضبط URL.",
   dash_chip:"تحضير", dash_sub:"انشر عند الجاهزية.", dash_prep:"تحضير ↓", dash_addprod:"+ منتج",
   dash_req_t:"كتالوجك", dash_req_d:"أكمل.", dash_complete:"إكمال", dash_manageprod:"إدارة",
   dash_quick_t:"نظرة", dash_quick:"بيانات", q_newprod:"منتج", q_newprod_d:"سريع.", q_cats:"فئات", q_cats_d:"نظّم.", q_orders:"طلبات", q_orders_d:"إدارة.", q_share:"مشاركة", q_share_d:"رابط.",
   dash_act_t:"نشاط", dash_act:"أحداث", dash_noact:"لا.",
-  req_wa:"واتساب صالح", req_prod:"منتج نشط", req_cur:"عملة", req_pay:"دفع",
-  req_ok:"جاهز", req_left:"ينقص {n}", req_pending:"معلق", req_ready:"جاهز",
+  req_wa:"واتساب صالح", req_prod:"منتج نشط", req_cur:"عملة", req_pay:"دفع", req_ok:"جاهز", req_left:"ينقص {n}", req_pending:"معلق", req_ready:"جاهز",
   cfg_hub_title:"إعدادات", cfg_hub_sub:"بلوكات.", cfg_back:"رجوع", cfg_open:"إعداد",
   cfg_f_all:"الكل", cfg_f_gen:"عام", cfg_f_cat:"كتالوج", cfg_f_pub:"نشر", cfg_f_sales:"مبيعات",
   st_ok:"مُعد", st_pend:"معلق", st_miss:"ناقص", st_opt:"اختياري",
-  c_info:"معلومات", c_info_d:"اسم، موقع.", c_wa:"واتساب", c_wa_d:"استلام.", c_brand:"علامة", c_brand_d:"شعار.", c_cur:"عملة", c_cur_d:"أسعار.", c_link:"رابط", c_link_d:"عام.", c_deliv:"تسليم", c_deliv_d:"أنماط.", c_pay:"دفع", c_pay_d:"خيارات.",
+  c_info:"معلومات", c_info_d:"اسم، وصف، موقع.", c_wa:"واتساب", c_wa_d:"الرقم.", c_brand:"علامة", c_brand_d:"شعار.", c_cur:"عملة", c_cur_d:"الأسعار.", c_link:"رابط", c_link_d:"عام.", c_deliv:"تسليم", c_deliv_d:"استلام/توصيل/واتساب.", c_pay:"دفع", c_pay_d:"خيارات.", c_header:"عرض", c_header_d:"ترويسة بصرية.", c_seo:"SEO ومشاركة", c_seo_d:"عنوان، وصف، صورة.",
+  wa_country:"الدولة", wa_number:"الرقم بدون رمز", wa_review:"مراجعة وتأكيد", wa_current:"الرقم الحالي", wa_test:"تجربة رابط واتساب",
+  cur_warn:"يتطلب مراجعة الأسعار", cur_warn_d:"تحتفظ المنتجات بقيمتها الرقمية حتى التأكيد بالعملة الجديدة.",
+  cur_confirm:"أؤكد التغيير ومراجعة الأسعار.", cur_new:"عملة جديدة", cur_current:"العملة الحالية",
+  info_region:"المنطقة", info_addr:"العنوان التجاري", info_postal:"الرمز البريدي", info_tz:"المنطقة الزمنية",
+  header_show:"إظهار الترويسة", header_title:"العنوان", header_desc:"الوصف", header_img:"صورة الترويسة", header_save:"حفظ الترويسة",
+  deliv_mode_wa:"تنسيق عبر واتساب", deliv_mode_wa_d:"تُنسق التفاصيل مباشرة عبر واتساب.",
+  deliv_mode_modes:"تحديد الأنماط", deliv_mode_modes_d:"اختر المتاح للعميل.",
+  deliv_retiro_d:"يستلم العميل من المتجر.", deliv_delivery_d:"يحدد العميل عنوانًا وينسق عبر واتساب.",
+  pay_cash:"نقدًا", pay_cash_d:"دفع نقدي.", pay_transfer:"تحويل", pay_transfer_d:"تحويل بنكي.", pay_card:"بطاقة", pay_card_d:"تنسيق بالدفع بالبطاقة.", pay_none:"إن لم تفعّل شيئًا لن يسأل الكتالوج عن الدفع.",
+  seo_title_f:"عنوان للمحركات", seo_desc_f:"وصف", seo_auto:"تلقائي", seo_prev:"هكذا يظهر رابطك", seo_prev_d:"تتغير البطاقة أثناء الكتابة.", seo_img:"صورة للمشاركة", seo_save:"حفظ SEO", seo_chars:"{n} حرفًا",
+  link_rules:"أحرف وأرقام وشرطات بدون مسافات.", link_preview:"معاينة الرابط",
+  deliv_wa_coord:"يُنسق عبر واتساب",
   bot_title:"مساعد", bot_hello:"مرحبًا!", bot_ask_name:"اسمك؟", bot_thanks_name:"أهلًا {name}.", bot_ask_type:"النوع؟", bot_type1:"متجر", bot_type2:"طعام", bot_type3:"خدمات", bot_type4:"آخر", bot_menu_intro:"اختر:",
   bot_q_create:"إنشاء", bot_a_create:"سجّل.", bot_q_products:"منتجات", bot_a_products:"اللوحة.", bot_q_share:"مشاركة", bot_a_share:"اللوحة.", bot_q_client:"طلب", bot_a_client:"العميل.", bot_q_pay:"دفع", bot_a_pay:"إعدادات.", bot_q_install:"تطبيق", bot_a_install:"القائمة.", bot_q_human:"شخص", bot_a_human:"ملخص.", bot_fallback:"؟", bot_summary:"ملخص واتساب", bot_sent:"فُتح.", bot_input_ph:"…"
 }};
@@ -1243,12 +1268,13 @@ let LANG = (urlLang && I18N[urlLang]) ? urlLang : (localStorage.getItem("catwha_
 function t(key, vars){ let s = (I18N[LANG] && I18N[LANG][key]) || I18N.es[key] || key; if (vars) Object.keys(vars).forEach(k => s = s.replace(new RegExp("\\{"+k+"\\}","g"), vars[k])); return s; }
 function applySEO(){ const m = SEO[LANG]; document.title = m.title; $("metaDesc").setAttribute("content", m.desc); $("metaKw").setAttribute("content", m.kw); $("canon").href = DOMAIN + "/?lang=" + LANG; $("hl-fr").href = DOMAIN + "/?lang=fr"; $("hl-es").href = DOMAIN + "/?lang=es"; $("hl-ar").href = DOMAIN + "/?lang=ar"; $("hl-x").href = DOMAIN + "/"; $("ogTitle").setAttribute("content", m.title); $("ogDesc").setAttribute("content", m.desc); $("ogUrl").setAttribute("content", DOMAIN + "/?lang=" + LANG); $("ogImg").setAttribute("content", DOMAIN + "/og.png"); $("ogLocale").setAttribute("content", OG_LOCALE[LANG]); $("twTitle").setAttribute("content", m.title); $("twDesc").setAttribute("content", m.desc); $("twImg").setAttribute("content", DOMAIN + "/og.png"); buildJsonLd(); }
 function buildJsonLd(){ const faqs = []; for (let i=1;i<=6;i++) faqs.push({ "@type":"Question", "name": t("faq"+i+"q"), "acceptedAnswer": { "@type":"Answer", "text": t("faq"+i+"a") } }); $("jsonLd").textContent = JSON.stringify({ "@context":"https://schema.org", "@graph":[ { "@type":"Organization", "name":"Catalogo Wha", "url":DOMAIN, "contactPoint":{ "@type":"ContactPoint", "telephone":"+212690157092", "contactType":"customer support", "email":getPlat().contactEmail } }, { "@type":"WebApplication", "name":"Catalogo Wha", "url":DOMAIN, "applicationCategory":"BusinessApplication", "offers":{ "@type":"Offer", "price":"0" }, "description":SEO[LANG].desc }, { "@type":"FAQPage", "mainEntity": faqs } ] }); }
+function applyBizSEO(){ if (!S || !S.bizId) return applySEO(); const c = S.config; const ti = c.seoTitle || (c.businessName + " | " + t("nav_view")); const de = c.seoDescription || c.description || t("hero_desc"); $("ogTitle").setAttribute("content", ti); $("ogDesc").setAttribute("content", de); $("ogUrl").setAttribute("content", DOMAIN + "/#/s/" + c.slug); if (c.seoImage) $("ogImg").setAttribute("content", c.seoImage); $("twTitle").setAttribute("content", ti); $("twDesc").setAttribute("content", de); if (c.seoImage) $("twImg").setAttribute("content", c.seoImage); document.title = ti; }
 function renderLangDD(){ const cur = LANGS.find(l => l.code === LANG) || LANGS[0]; $("langFlag").textContent = cur.flag; $("langCode").textContent = cur.tag; $("langMenu").innerHTML = LANGS.map(l => `<button class="lang-item ${l.code===LANG?"on":""}" onclick="setLang('${l.code}');closeLangDD()"><span class="flag">${l.flag}</span><span>${esc(l.name)}</span></button>`).join(""); }
 function toggleLangDD(e){ e && e.stopPropagation(); const dd = $("langDD"); const open = dd.classList.toggle("open"); $("langMenu").hidden = !open; $("langBtn").setAttribute("aria-expanded", open); }
 function closeLangDD(){ const dd = $("langDD"); if (!dd) return; dd.classList.remove("open"); $("langMenu").hidden = true; }
 document.addEventListener("click", e => { const dd = $("langDD"); if (dd && !dd.contains(e.target)) closeLangDD(); });
 function setLang(l){ LANG = l; localStorage.setItem("catwha_lang", l); try { const u = new URL(location.href); u.searchParams.set("lang", l); history.replaceState(null, "", u); } catch {} numFmt = makeNumFmt(); applyI18n(); }
-function applyI18n(){ document.documentElement.lang = LANG; document.documentElement.dir = (LANG === "ar") ? "rtl" : "ltr"; document.querySelectorAll("[data-i18n]").forEach(el => { const k = el.getAttribute("data-i18n"); const v = t(k); if (v !== k) el.innerHTML = v; }); applySEO(); applyPlat(); renderFAQ(); renderLangDD(); refreshNavUser(); buildMMenu(); fillCatSelects(); fillPlatLangSelect(); if (S && !$("v-catalogo").hidden) renderCatalog(); if (!$("v-admin").hidden) renderAdmin(); if (!$("v-super").hidden) renderSuper(); refreshLanding(); }
+function applyI18n(){ document.documentElement.lang = LANG; document.documentElement.dir = (LANG === "ar") ? "rtl" : "ltr"; document.querySelectorAll("[data-i18n]").forEach(el => { const k = el.getAttribute("data-i18n"); const v = t(k); if (v !== k) el.innerHTML = v; }); if (S && S.bizId) applyBizSEO(); else applySEO(); applyPlat(); renderFAQ(); renderLangDD(); refreshNavUser(); buildMMenu(); fillCatSelects(); fillPlatLangSelect(); if (S && !$("v-catalogo").hidden) renderCatalog(); if (!$("v-admin").hidden) renderAdmin(); if (!$("v-super").hidden) renderSuper(); refreshLanding(); }
 function renderFAQ(){ let h = ""; for (let i=1;i<=6;i++) h += `<details class="faq-item"><summary>${esc(t("faq"+i+"q"))}</summary><p>${esc(t("faq"+i+"a"))}</p></details>`; $("faqList").innerHTML = h; }
 function makeNumFmt(){ return (LANG === "ar") ? new Intl.NumberFormat("ar-MA",{minimumFractionDigits:2,maximumFractionDigits:2}) : new Intl.NumberFormat(LANG === "fr" ? "fr-FR" : "es-ES",{minimumFractionDigits:2,maximumFractionDigits:2}); }
 let numFmt = makeNumFmt();
@@ -1277,15 +1303,15 @@ function clearRegAvatar(){ regAvatar = ""; $("rAvPrev").innerHTML = "🏪"; }
 async function uniqueSlug(){ for (let i=0;i<10;i++){ const s = "u-" + Math.random().toString(36).slice(2,8); const { data } = await sb.from('businesses').select('id').eq('slug', s).maybeSingle(); if (!data) return s; } return "u-" + Date.now().toString(36); }
 async function doRegister(){ if (!sb) return toast(t("sb_missing")); const name = $("rName").value.trim(), email = $("rEmail").value.trim().toLowerCase(), pass = $("rPass").value, wa = $("rWa").value.replace(/\D/g,""); if (!name || !email || !pass || !wa) return toast(t("toast_fill")); if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return toast(t("toast_email")); if (pass.length < 6) return toast(t("toast_pass_min")); const btn = $("btnRegister"); btn.disabled = true; btn.textContent = t("processing"); try { const { data, error } = await sb.auth.signUp({ email, password: pass, options:{ data:{ name } } }); if (error) return toast(t("toast_sb_error") + error.message); const uid = data.user && data.user.id; if (!uid) return toast(t("toast_email_confirm")); if (data.session) await refreshMe(uid); else { await sb.auth.signInWithPassword({ email, password: pass }); await refreshMe(uid); } if (!BIZ){ const slug = await uniqueSlug(); await sb.from('businesses').insert({ owner_id: ME.id, business_name:name, whatsapp:wa, email, category: $("rCat").value, slug, created:true }); await refreshMe(ME.id); await ensureDefaultCat(); } if (regAvatar){ try { const url = await uploadDataUrl(regAvatar, ME.id + "/avatar.jpg"); await sb.from('profiles').update({ avatar:url }).eq('id', ME.id); ME.avatar = url; } catch {} regAvatar = ""; clearRegAvatar(); } closeAll(); toast(t("toast_created")); go("admin"); } finally { btn.disabled = false; btn.textContent = t("reg_btn"); } }
 async function doLogin(){ if (!sb) return toast(t("sb_missing")); const email = $("lEmail").value.trim().toLowerCase(), pass = $("lPass").value; if (!email || !pass) return toast(t("toast_fill")); const btn = $("btnLogin"); btn.disabled = true; btn.textContent = t("processing"); try { const { data, error } = await sb.auth.signInWithPassword({ email, password: pass }); if (error) return toast(t("toast_badlogin")); await refreshMe(data.user.id); if (ME && ME.suspended){ await sb.auth.signOut(); ME = null; BIZ = null; return toast("🔴"); } closeAll(); toast("✓ " + (ME ? ME.name : "")); go("admin"); } finally { btn.disabled = false; btn.textContent = t("login_btn"); } }
-async function logout(){ await sb.auth.signOut(); ME = null; BIZ = null; CATS = []; cart = {}; F = { cat:"Todos", q:"" }; loadCurrentState(); go("landing"); toast("👋"); }
+async function logout(){ await sb.auth.signOut(); ME = null; BIZ = null; CATS = []; cart = {}; F = { cat:"Todos", q:"" }; loadCurrentState(); go("landing"); applySEO(); toast("👋"); }
 function authTab(w){ $("tLogin").classList.toggle("on", w==="login"); $("tReg").classList.toggle("on", w==="register"); $("formLogin").hidden = w!=="login"; $("formRegister").hidden = w!=="register"; }
 function requireAuth(){ if (!ME){ openAuth("login"); toast(t("toast_login_first")); return false; } return true; }
 function openAuth(tab){ authTab(tab||"login"); ["lEmail","lPass","rName","rEmail","rPass","rWa"].forEach(i => { const el=$(i); if(el){ el.value=""; el.classList.remove("valid","invalid"); } }); const h=$("hintPass"); if(h){h.textContent="";h.className="hint";} clearRegAvatar(); $("modalAuth").classList.add("on"); $("scrim").classList.add("on"); }
 function validateField(input, kind){ const v = input.value.trim(); let ok = false, msg = ""; if (kind==="name"){ ok = v.length>=2; msg = ok ? t("hint_name_ok") : ""; } else if (kind==="email"){ ok = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); msg = v ? (ok?t("hint_email_ok"):t("hint_email_bad")) : ""; } else if (kind==="pass"){ ok = v.length>=6; msg = v ? (ok?t("hint_pass_ok"):t("hint_pass_weak")) : ""; } else if (kind==="wa"){ ok = v.replace(/\D/g,"").length>=8; msg = ok ? t("hint_wa_ok") : ""; } input.classList.toggle("valid", ok && v.length>0); input.classList.toggle("invalid", !ok && v.length>0); if (kind==="pass"){ const h=$("hintPass"); h.textContent=msg; h.className="hint "+(ok?"ok":v?"err":""); } }
 
 let S = null, cart = {}, F = { cat:"Todos", q:"" };
-function bizToState(b, products){ return { userId: b.owner_id, bizId: b.id, config: { businessName:b.business_name, whatsapp:b.whatsapp, email:b.email, currency:b.currency, payments:b.payments||[], bannerEyebrow:b.banner_eyebrow, bannerTitle:b.banner_title, deliveryEnabled:b.delivery_enabled, deliveryCost:Number(b.delivery_cost||0), slug:b.slug, created:b.created, catImages:b.cat_images||{}, category:b.category||"", avatar:b.avatar||"" }, products: (products||[]).map(p => ({ id:p.id, name:p.name, cat:p.category, price:Number(p.price), promo:p.promo==null?null:Number(p.promo), emoji:p.emoji, img:p.image_url, images:p.images||[], sort:p.sort||0, rich:p.description_rich||"", desc:p.description, active:p.active, slug:p.slug })), orders: [] }; }
-function loadCurrentState(){ S = { userId:null, bizId:null, config:{ businessName:"—", whatsapp:"", email:"", currency:"", payments:["Efectivo"], bannerEyebrow:"", bannerTitle:"", deliveryEnabled:false, deliveryCost:0, created:false, catImages:{}, category:"", avatar:"" }, products:[], orders:[] }; }
+function bizToState(b, products){ return { userId: b.owner_id, bizId: b.id, config: { businessName:b.business_name, whatsapp:b.whatsapp, email:b.email, currency:b.currency, payments:b.payments||[], bannerEyebrow:b.banner_eyebrow, bannerTitle:b.banner_title, deliveryEnabled:b.delivery_enabled, deliveryCost:Number(b.delivery_cost||0), slug:b.slug, created:b.created, catImages:b.cat_images||{}, category:b.category||"", avatar:b.avatar||"", description:b.description||"", country:b.country||"", region:b.region||"", city:b.city||"", address:b.address||"", postal:b.postal_code||"", timezone:b.timezone||"", showHeader:!!b.show_header, headerTitle:b.header_title||"", headerDesc:b.header_description||"", headerImage:b.header_image||"", seoTitle:b.seo_title||"", seoDescription:b.seo_description||"", seoImage:b.seo_image||"", deliveryMode:b.delivery_mode||"whatsapp", deliveryModes:b.delivery_modes||[] }, products: (products||[]).map(p => ({ id:p.id, name:p.name, cat:p.category, price:Number(p.price), promo:p.promo==null?null:Number(p.promo), emoji:p.emoji, img:p.image_url, images:p.images||[], sort:p.sort||0, rich:p.description_rich||"", desc:p.description, active:p.active, slug:p.slug })), orders: [] }; }
+function loadCurrentState(){ S = { userId:null, bizId:null, config:{ businessName:"—", whatsapp:"", email:"", currency:"", payments:["Efectivo"], bannerEyebrow:"", bannerTitle:"", deliveryEnabled:false, deliveryCost:0, created:false, catImages:{}, category:"", avatar:"", deliveryMode:"whatsapp", deliveryModes:[] }, products:[], orders:[] }; }
 function money(n){ return (S.config.currency || "") + numFmt.format(Number(n)); }
 function toast(m){ const s = $("toastStack"); const el = document.createElement("div"); el.className="toast"; el.textContent=m; s.appendChild(el); requestAnimationFrame(()=>el.classList.add("on")); setTimeout(()=>{ el.classList.remove("on"); setTimeout(()=>el.remove(),300); },2600); }
 
@@ -1295,14 +1321,13 @@ async function delMedia(name){ if (!confirm(t("confirm_delete_img"))) return; aw
 async function renderMedia(){ if (!ME) return; const items = await libList(); $("libGrid").innerHTML = items.length ? items.map(m => `<div class="lib-item"><img src="${esc(m.url)}" alt="" loading="lazy"><button class="lib-del" onclick="delMedia('${esc(m.name)}')">🗑️</button></div>`).join("") : `<p style="grid-column:1/-1;color:var(--muted)">${esc(t("lib_empty"))}</p>`; const cats = CATS.length ? CATS.map(c=>c.name) : [...new Set(S.products.map(p => p.cat))]; $("catImgList").innerHTML = cats.length ? cats.map(cn => { const src = (S.config.catImages||{})[cn]; return `<div class="catimg-row">${src ? `<img src="${esc(src)}" alt="">` : `<span style="font-size:24px">🏷️</span>`}<b>${esc(cn)}</b><button class="btn btn-ghost btn-sm" onclick="openPicker('cat:${esc(cn).replace(/'/g,"\\'")}')">${esc(t("lib_cat_assign"))}</button>${src ? `<button class="btn btn-ghost btn-sm" onclick="clearCatImg('${esc(cn).replace(/'/g,"\\'")}')">${esc(t("lib_cat_clear"))}</button>` : ""}</div>`; }).join("") : `<p style="color:var(--muted)">${esc(t("lib_cat_none"))}</p>`; }
 let pickTarget = null;
 async function openPicker(target){ if (!ME) return; pickTarget = target; const items = await libList(); $("pickGrid").innerHTML = items.length ? items.map(m => `<div class="lib-item pick" onclick="pickMedia('${esc(m.url).replace(/'/g,"\\'")}')" role="button" tabindex="0"><img src="${esc(m.url)}" alt="" loading="lazy"></div>`).join("") : `<p style="grid-column:1/-1;color:var(--muted)">${esc(t("lib_empty"))}</p>`; $("modalPicker").classList.add("on"); $("scrim").classList.add("on"); }
-function pickMedia(url){ if (pickTarget === "prodimg"){ if (prodImgs.length < 5){ prodImgs.push(url); renderImgSlots(); renderPreview(); } } else if (pickTarget === "catimg"){ catImgTemp = url; $("cImgPrev").innerHTML = `<img src="${url}">`; } else if (typeof pickTarget === "string" && pickTarget.startsWith("cat:")){ S.config.catImages = S.config.catImages || {}; S.config.catImages[pickTarget.slice(4)] = url; sb.from('businesses').update({ cat_images: S.config.catImages }).eq('id', S.bizId); renderMedia(); } closeAll(); toast("✓"); }
+function pickMedia(url){ if (pickTarget === "prodimg"){ if (prodImgs.length < 5){ prodImgs.push(url); renderImgSlots(); renderPreview(); } } else if (pickTarget === "catimg"){ catImgTemp = url; $("cImgPrev").innerHTML = `<img src="${url}">`; } else if (pickTarget === "headerimg"){ headerImgTemp = url; const pv = $("hImgPrev"); if (pv) pv.innerHTML = `<img src="${url}" style="width:100%;height:100%;object-fit:cover">`; } else if (pickTarget === "seoimg"){ seoImgTemp = url; const pv = $("seoImgPrev"); if (pv) pv.innerHTML = `<img src="${url}" style="width:100%;height:100%;object-fit:cover">`; renderSeoPrev(); } else if (typeof pickTarget === "string" && pickTarget.startsWith("cat:")){ S.config.catImages = S.config.catImages || {}; S.config.catImages[pickTarget.slice(4)] = url; sb.from('businesses').update({ cat_images: S.config.catImages }).eq('id', S.bizId); renderMedia(); } closeAll(); toast("✓"); }
 function clearCatImg(cn){ delete (S.config.catImages||{})[cn]; sb.from('businesses').update({ cat_images:S.config.catImages }).eq('id', S.bizId); renderMedia(); toast("✓"); }
 
-/* ===== CATEGORÍAS (Fase 3) ===== */
 async function loadCategories(){ if (!ME || !BIZ){ CATS = []; return; } const { data } = await sb.from('categories').select('*').eq('business_id', BIZ.id).order('sort', { ascending:true }); CATS = data || []; }
 async function ensureDefaultCat(){ if (!BIZ) return; const { data } = await sb.from('categories').select('id').eq('business_id', BIZ.id).limit(1); if (!data || !data.length){ await sb.from('categories').insert({ business_id:BIZ.id, name:"Otros", slug:"otros", sort:999, is_default:true }); } }
 function fillProdCatSelect(current){ const sel = $("fCat"); if (!sel) return; const names = CATS.map(c => c.name); if (current && !names.includes(current)) names.unshift(current); sel.innerHTML = names.length ? names.map(n => `<option value="${esc(n)}" ${n===current?"selected":""}>${esc(n)}</option>`).join("") : `<option value="">${esc(t("cat_empty"))}</option>`; }
-function renderCats(){ if (!BIZ) return; const prodCount = {}; S.products.forEach(p => { prodCount[p.cat] = (prodCount[p.cat]||0)+1; }); const organized = CATS.reduce((s,c)=> s + (prodCount[c.name]||0), 0); const def = CATS.find(c => c.is_default); $("catStats").innerHTML = `<div class="cat-stat"><span>${esc(t("cat_stats_total"))}</span><b>${CATS.length}</b><p>${esc(t("cats_sub"))}</p></div><div class="cat-stat"><span>${esc(t("cat_stats_org"))}</span><b>${organized}</b><p>${S.products.length - organized > 0 ? (S.products.length - organized) + " sin categoría" : "Todos organizados"}</p></div><div class="cat-stat hl"><span>${esc(t("cat_stats_default"))}</span><b style="font-size:18px">${esc(def ? def.name : "—")}</b><p>${esc(t("cat_type_def"))}</p></div>`; $("catList").innerHTML = CATS.length ? CATS.map(c => `<tr><td style="font-size:22px">${c.image_url?`<img src="${esc(c.image_url)}" alt="" style="width:34px;height:34px;object-fit:cover;border-radius:8px">`:"🏷️"}</td><td><b>${esc(c.name)}</b><br><small style="color:var(--muted)">/${esc(c.slug)}</small></td><td>${prodCount[c.name]||0}</td><td>${c.sort}</td><td>${c.is_default?`<span class="tag lav">${esc(t("cat_type_def"))}</span>`:`<span class="tag">${esc(t("cat_type_custom"))}</span>`}</td><td><button class="st" onclick="editCat(${c.id})">✏️</button> <button class="st" onclick="delCat(${c.id})">🗑️</button></td></tr>`).join("") : `<tr><td colspan="6" style="text-align:center;padding:30px;color:var(--muted)">${esc(t("cat_empty"))}</td></tr>`; }
+function renderCats(){ if (!BIZ) return; const prodCount = {}; S.products.forEach(p => { prodCount[p.cat] = (prodCount[p.cat]||0)+1; }); const organized = CATS.reduce((s,c)=> s + (prodCount[c.name]||0), 0); const def = CATS.find(c => c.is_default); $("catStats").innerHTML = `<div class="cat-stat"><span>${esc(t("cat_stats_total"))}</span><b>${CATS.length}</b><p>${esc(t("cats_sub"))}</p></div><div class="cat-stat"><span>${esc(t("cat_stats_org"))}</span><b>${organized}</b><p>${S.products.length - organized > 0 ? (S.products.length - organized) + " sin categoría" : "OK"}</p></div><div class="cat-stat hl"><span>${esc(t("cat_stats_default"))}</span><b style="font-size:18px">${esc(def ? def.name : "—")}</b><p>${esc(t("cat_type_def"))}</p></div>`; $("catList").innerHTML = CATS.length ? CATS.map(c => `<tr><td style="font-size:22px">${c.image_url?`<img src="${esc(c.image_url)}" alt="" style="width:34px;height:34px;object-fit:cover;border-radius:8px">`:"🏷️"}</td><td><b>${esc(c.name)}</b><br><small style="color:var(--muted)">/${esc(c.slug)}</small></td><td>${prodCount[c.name]||0}</td><td>${c.sort}</td><td>${c.is_default?`<span class="tag lav">${esc(t("cat_type_def"))}</span>`:`<span class="tag">${esc(t("cat_type_custom"))}</span>`}</td><td><button class="st" onclick="editCat(${c.id})">✏️</button> <button class="st" onclick="delCat(${c.id})">🗑️</button></td></tr>`).join("") : `<tr><td colspan="6" style="text-align:center;padding:30px;color:var(--muted)">${esc(t("cat_empty"))}</td></tr>`; }
 function catShow(){ $("catsList").hidden = true; $("catsForm").hidden = false; $("catFormTitle").textContent = t("cat_add"); $("cId").value = ""; $("cName").value = ""; $("cSlug").value = ""; $("cSort").value = "0"; $("cDefault").checked = false; $("cAlt").value = ""; catImgTemp = ""; $("cImgPrev").innerHTML = "🏷️"; }
 function catHide(){ $("catsForm").hidden = true; $("catsList").hidden = false; renderCats(); }
 function onCatName(){ if (!$("cId").value) $("cSlug").value = slugify($("cName").value); }
@@ -1310,10 +1335,10 @@ let catImgTemp = "";
 async function previewCatImg(input){ const f = input.files && input.files[0]; if (!f) return; catImgTemp = await compressSize(f, 400, 0.8); $("cImgPrev").innerHTML = `<img src="${catImgTemp}">`; }
 function clearCatImgForm(){ catImgTemp = ""; $("cImgPrev").innerHTML = "🏷️"; }
 async function saveCat(){ if (!requireAuth()) return; const name = $("cName").value.trim(); if (!name) return toast(t("toast_fill")); let slug = $("cSlug").value.trim() || slugify(name); const id = $("cId").value; let imgUrl = catImgTemp; if (imgUrl && imgUrl.startsWith("data:")){ imgUrl = await uploadDataUrl(imgUrl, ME.id + "/cat/" + Date.now().toString(36) + ".jpg"); } else if (!imgUrl && id){ const old = CATS.find(c=>c.id==id); imgUrl = old ? old.image_url : ""; } const row = { business_id:BIZ.id, name, slug, sort: parseInt($("cSort").value)||0, is_default: $("cDefault").checked, image_url: imgUrl || "", image_alt: $("cAlt").value.trim() }; if (id) await sb.from('categories').update(row).eq('id', id); else await sb.from('categories').insert(row); if (row.is_default){ await sb.from('categories').update({ is_default:false }).eq('business_id', BIZ.id).neq('id', id||0); } if (imgUrl){ S.config.catImages = S.config.catImages || {}; S.config.catImages[name] = imgUrl; await sb.from('businesses').update({ cat_images:S.config.catImages }).eq('id', BIZ.id); } await loadCategories(); fillProdCatSelect(); catHide(); toast(t("toast_cat_saved")); }
-async function editCat(id){ const c = CATS.find(x=>x.id==id); if (!c) return; catShow(); $("catFormTitle").textContent = t("cat_edit"); $("cId").value = c.id; $("cName").value = c.name; $("cSlug").value = c.slug; $("cSort").value = c.sort; $("cDefault").checked = !!c.is_default; $("cAlt").value = c.image_alt || ""; catImgTemp = c.image_url || ""; $("cImgPrev").innerHTML = c.image_url ? `<img src="${esc(c.image_url)}">` : "🏷️"; }
+async function editCat(id){ const c = CATS.find(x=>x.id==id); if (!c) return; catShow(); $("catFormTitle").textContent = t("cat_edit")||"Editar"; $("cId").value = c.id; $("cName").value = c.name; $("cSlug").value = c.slug; $("cSort").value = c.sort; $("cDefault").checked = !!c.is_default; $("cAlt").value = c.image_alt || ""; catImgTemp = c.image_url || ""; $("cImgPrev").innerHTML = c.image_url ? `<img src="${esc(c.image_url)}">` : "🏷️"; }
 async function delCat(id){ if (!confirm(t("confirm_del_cat"))) return; await sb.from('categories').delete().eq('id', id); await loadCategories(); fillProdCatSelect(); renderCats(); toast(t("toast_deleted")); }
 
-function go(v, slug){ ["landing","catalogo","admin","super"].forEach(x => $("v-"+x).hidden = (x !== v)); if (v === "landing"){ location.hash = "#/"; window.scrollTo(0,0); refreshLanding(); refreshNavUser(); } else if (v === "catalogo"){ location.hash = slug ? "#/s/"+slug : "#/catalogo"; window.scrollTo(0,0); renderCatalog(); } else if (v === "admin"){ if (!requireAuth()){ location.hash = "#/"; return; } location.hash = "#/admin"; window.scrollTo(0,0); tab("home"); renderAdmin(); } else if (v === "super"){ if (!isAdmin()){ go("landing"); return; } location.hash = "#/super"; window.scrollTo(0,0); stab("sum"); renderSuper(); } closeAll(); }
+function go(v, slug){ ["landing","catalogo","admin","super"].forEach(x => $("v-"+x).hidden = (x !== v)); if (v === "landing"){ location.hash = "#/"; window.scrollTo(0,0); refreshLanding(); refreshNavUser(); applySEO(); } else if (v === "catalogo"){ location.hash = slug ? "#/s/"+slug : "#/catalogo"; window.scrollTo(0,0); renderCatalog(); } else if (v === "admin"){ if (!requireAuth()){ location.hash = "#/"; return; } location.hash = "#/admin"; window.scrollTo(0,0); tab("home"); renderAdmin(); } else if (v === "super"){ if (!isAdmin()){ go("landing"); return; } location.hash = "#/super"; window.scrollTo(0,0); stab("sum"); renderSuper(); } closeAll(); }
 window.addEventListener("hashchange", route);
 function route(){ const raw = location.hash.replace(/^#\/?/, ""); if (raw === "admin") return go("admin"); if (raw === "super") return go("super"); if (raw === "registro"){ go("landing"); setTimeout(() => openAuth("register"), 150); return; } if (raw.startsWith("s/")) return viewPublicCatalog(raw.slice(2)); if (raw === "catalogo"){ if (ME && BIZ){ go("catalogo", BIZ.slug); } else { go("landing"); toast(t("toast_login_first")); openAuth("login"); } return; } if (raw === "") return go("landing"); const el = document.getElementById(raw); if (el){ ["landing","catalogo","admin","super"].forEach(x => $("v-"+x).hidden = (x !== "landing")); refreshLanding(); refreshNavUser(); closeAll(); setTimeout(()=>el.scrollIntoView({behavior:"smooth"}),60); return; } go("landing"); }
 
@@ -1324,22 +1349,39 @@ function buildMMenu(){ $("mmLang").innerHTML = LANGS.map(l => `<button class="la
 async function refreshLanding(){ $("dirWrap").hidden = !getPlat().dirEnabled; if (!sb){ $("dirGrid").innerHTML = `<p class="empty-state" style="grid-column:1/-1"><span class="ico-big">📭</span><br>${esc(t("dir_empty"))}</p>`; return; } const { data: bizs } = await sb.from('businesses').select('*').eq('created', true); const list = bizs || []; const ids = [...new Set(list.map(b => b.owner_id))]; let pros = []; if (ids.length){ const r = await sb.from('public_profiles').select('*').in('id', ids); pros = r.data || []; } const pmap = {}; pros.forEach(p => pmap[p.id] = p); const pub = list.filter(b => b.business_name && (!pmap[b.owner_id] || !pmap[b.owner_id].suspended)); const grid = $("dirGrid"); if (!pub.length){ grid.innerHTML = `<p class="empty-state" style="grid-column:1/-1"><span class="ico-big">📭</span><br>${esc(t("dir_empty"))}</p>`; return; } const counts = {}; const { data: pcs } = await sb.from('products').select('business_id, active').eq('active', true); (pcs||[]).forEach(p => counts[p.business_id] = (counts[p.business_id]||0)+1); grid.innerHTML = pub.map(b => { const n = counts[b.id]||0; const av = (pmap[b.owner_id] && pmap[b.owner_id].avatar) || b.avatar || ""; const meta = [b.category, (n===1?t("item_count_one"):t("item_count",{n}))].filter(Boolean).join(" · "); return `<div class="biz-card" onclick="viewPublicCatalog('${esc(b.slug)}')"><div class="biz-avatar">${av ? `<img src="${esc(av)}" alt="">` : esc((b.business_name||"?")[0].toUpperCase())}</div><h4>${esc(b.business_name)}</h4><div class="meta">${esc(meta)}</div></div>`; }).join(""); }
 
 let curCats = [];
-async function viewPublicCatalog(slug){ if (!sb) return go("landing"); const { data: b } = await sb.from('businesses').select('*').eq('slug', slug).maybeSingle(); if (!b || !b.created){ go("landing"); toast(t("not_found")); return; } const { data: pro } = await sb.from('public_profiles').select('*').eq('id', b.owner_id).maybeSingle(); if (pro && pro.suspended){ go("landing"); toast(t("not_found")); return; } const { data: ps } = await sb.from('products').select('*').eq('business_id', b.id).eq('active', true).order('sort',{ascending:true}); const { data: cs } = await sb.from('categories').select('*').eq('business_id', b.id).order('sort',{ascending:true}); S = bizToState(b, ps); S.cats = cs || []; (S.cats||[]).forEach(c => { if (c.image_url){ S.config.catImages = S.config.catImages || {}; S.config.catImages[c.name] = c.image_url; } }); cart = {}; F = { cat:"Todos", q:"" }; $("v-landing").hidden = true; $("v-admin").hidden = true; $("v-super").hidden = true; $("v-catalogo").hidden = false; location.hash = "#/s/" + slug; window.scrollTo(0,0); renderCatalog(); }
-function renderCatalog(){ const isOwner = ME && ME.id === S.userId; $("adminBtn2").style.display = isOwner ? "" : "none"; const c = S.config; $("catName").textContent = c.businessName || "—"; $("catNameFoot").textContent = c.businessName || "—"; $("catAvatar").innerHTML = c.avatar ? `<img src="${esc(c.avatar)}" alt="">` : "W"; $("catEyebrow").textContent = c.bannerEyebrow || "—"; $("catTitle").textContent = c.bannerTitle || c.businessName || "—"; const cc = $("catCat"); if (c.category){ cc.hidden = false; cc.textContent = c.category; } else cc.hidden = true; $("searchInput").placeholder = LANG === "ar" ? "بحث…" : LANG === "fr" ? "Rechercher…" : "Buscar…"; const act = S.products.filter(p => p.active); const orderedCats = (S.cats && S.cats.length) ? S.cats.map(x=>x.name) : [...new Set(act.map(p => p.cat))]; curCats = ["Todos", ...orderedCats.filter((v,i,a)=>a.indexOf(v)===i), ...[...new Set(act.map(p=>p.cat))].filter(x=>!orderedCats.includes(x))]; const allLabel = LANG === "ar" ? "الكل" : LANG === "fr" ? "Tous" : "Todos"; $("chips").innerHTML = curCats.map((x,i) => { const img = (x !== "Todos" && (c.catImages||{})[x]) ? c.catImages[x] : null; return `<button class="chip ${F.cat===x?"on":""}" onclick="F.cat=curCats[${i}];renderCatalog()">${img?`<img src="${esc(img)}" alt="">`:""}${esc(x==="Todos"?allLabel:x)}</button>`; }).join(""); const list = act.filter(p => (F.cat==="Todos" || p.cat===F.cat) && p.name.toLowerCase().includes(F.q)); $("productsGrid").innerHTML = list.length ? list.map(p => { const pr = p.promo ? Math.round((1 - p.promo/p.price)*100) : 0; const gal = (p.images && p.images.length) ? p.images : (p.img?[p.img]:[]); return `<div class="pcard">${p.promo?`<span class="promo">-${pr}%</span>`:""}<div class="pimg">${gal[0]?`<img src="${esc(gal[0])}" alt="${esc(p.name)}" loading="lazy">`:esc(p.emoji||"🛍️")}</div><div class="pname">${esc(p.name)}</div><div class="pdesc">${esc(p.desc||"")}</div><div class="pprice">${esc(money(p.promo||p.price))}${p.promo?`<s>${esc(money(p.price))}</s>`:""}</div><button class="btn btn-primary btn-sm" style="justify-content:center" onclick="add(${p.id})">🛒</button></div>`; }).join("") : `<div class="empty-state"><span class="ico-big">🛍️</span><h3>${esc(t("no_prods_public"))}</h3></div>`; renderCart(); }
+async function viewPublicCatalog(slug){ if (!sb) return go("landing"); const { data: b } = await sb.from('businesses').select('*').eq('slug', slug).maybeSingle(); if (!b || !b.created){ go("landing"); toast(t("not_found")); return; } const { data: pro } = await sb.from('public_profiles').select('*').eq('id', b.owner_id).maybeSingle(); if (pro && pro.suspended){ go("landing"); toast(t("not_found")); return; } const { data: ps } = await sb.from('products').select('*').eq('business_id', b.id).eq('active', true).order('sort',{ascending:true}); const { data: cs } = await sb.from('categories').select('*').eq('business_id', b.id).order('sort',{ascending:true}); S = bizToState(b, ps); S.cats = cs || []; (S.cats||[]).forEach(c => { if (c.image_url){ S.config.catImages = S.config.catImages || {}; S.config.catImages[c.name] = c.image_url; } }); cart = {}; F = { cat:"Todos", q:"" }; $("v-landing").hidden = true; $("v-admin").hidden = true; $("v-super").hidden = true; $("v-catalogo").hidden = false; location.hash = "#/s/" + slug; window.scrollTo(0,0); applyBizSEO(); renderCatalog(); }
+function renderCatalog(){ const isOwner = ME && ME.id === S.userId; $("adminBtn2").style.display = isOwner ? "" : "none"; const c = S.config; $("catName").textContent = c.businessName || "—"; $("catNameFoot").textContent = c.businessName || "—"; $("catAvatar").innerHTML = c.avatar ? `<img src="${esc(c.avatar)}" alt="">` : "W"; const cc = $("catCat"); if (c.category){ cc.hidden = false; cc.textContent = c.category; } else cc.hidden = true;
+  const banner = $("catBanner"); const oldImg = banner.querySelector(".hdr-img"); if (oldImg) oldImg.remove();
+  if (c.showHeader && c.headerImage){ const im = document.createElement("img"); im.className = "hdr-img"; im.src = c.headerImage; im.alt=""; banner.prepend(im); }
+  $("catEyebrow").textContent = c.bannerEyebrow || (c.showHeader ? "" : "—"); $("catEyebrow").hidden = !(c.bannerEyebrow || !c.showHeader);
+  $("catTitle").textContent = (c.showHeader && c.headerTitle) ? c.headerTitle : (c.bannerTitle || c.businessName || "—");
+  const hd = $("catHdrDesc"); if (c.showHeader && c.headerDesc){ hd.hidden = false; hd.textContent = c.headerDesc; } else hd.hidden = true;
+  $("searchInput").placeholder = LANG === "ar" ? "بحث…" : LANG === "fr" ? "Rechercher…" : "Buscar…"; const act = S.products.filter(p => p.active); const orderedCats = (S.cats && S.cats.length) ? S.cats.map(x=>x.name) : []; const allNames = [...new Set(act.map(p => p.cat))]; curCats = ["Todos", ...orderedCats, ...allNames.filter(x=>!orderedCats.includes(x))]; const allLabel = LANG === "ar" ? "الكل" : LANG === "fr" ? "Tous" : "Todos"; $("chips").innerHTML = curCats.map((x,i) => { const img = (x !== "Todos" && (c.catImages||{})[x]) ? c.catImages[x] : null; return `<button class="chip ${F.cat===x?"on":""}" onclick="F.cat=curCats[${i}];renderCatalog()">${img?`<img src="${esc(img)}" alt="">`:""}${esc(x==="Todos"?allLabel:x)}</button>`; }).join(""); const list = act.filter(p => (F.cat==="Todos" || p.cat===F.cat) && p.name.toLowerCase().includes(F.q)); $("productsGrid").innerHTML = list.length ? list.map(p => { const pr = p.promo ? Math.round((1 - p.promo/p.price)*100) : 0; const gal = (p.images && p.images.length) ? p.images : (p.img?[p.img]:[]); return `<div class="pcard">${p.promo?`<span class="promo">-${pr}%</span>`:""}<div class="pimg">${gal[0]?`<img src="${esc(gal[0])}" alt="${esc(p.name)}" loading="lazy">`:esc(p.emoji||"🛍️")}</div><div class="pname">${esc(p.name)}</div><div class="pdesc">${esc(p.desc||"")}</div><div class="pprice">${esc(money(p.promo||p.price))}${p.promo?`<s>${esc(money(p.price))}</s>`:""}</div><button class="btn btn-primary btn-sm" style="justify-content:center" onclick="add(${p.id})">🛒</button></div>`; }).join("") : `<div class="empty-state"><span class="ico-big">🛍️</span><h3>${esc(t("no_prods_public"))}</h3></div>`; renderCart(); }
 function add(id){ cart[id] = (cart[id]||0)+1; renderCart(); toast(t("toast_added")); }
 function qty(id,d){ cart[id] = (cart[id]||0)+d; if (cart[id]<=0) delete cart[id]; renderCart(); }
 function cartLines(){ return Object.entries(cart).map(([id,q]) => { const p = S.products.find(x => x.id == id); return p ? { p, q, unit:p.promo||p.price } : null; }).filter(Boolean); }
 function subtotal(){ return cartLines().reduce((s,l)=>s+l.q*l.unit,0); }
 function renderCart(){ const n = Object.values(cart).reduce((a,b)=>a+b,0); $("cartCount").textContent = n; $("cartItems").innerHTML = cartLines().length ? cartLines().map(l => { const gal = (l.p.images && l.p.images.length) ? l.p.images : (l.p.img?[l.p.img]:[]); return `<div class="citem"><div class="pimg">${gal[0]?`<img src="${esc(gal[0])}" alt="">`:esc(l.p.emoji||"🛍️")}</div><div><b>${esc(l.p.name)}</b><br><small style="color:var(--muted)">${esc(money(l.unit))} ${esc(t("per_unit"))}</small></div><div style="text-align:right"><div class="qty"><button onclick="qty(${l.p.id},-1)">−</button><b>${l.q}</b><button onclick="qty(${l.p.id},1)">+</button></div><b style="color:var(--violet)">${esc(money(l.q*l.unit))}</b></div></div>`; }).join("") : `<p style="text-align:center;color:var(--muted);padding:30px">${esc(t("cart_empty"))}</p>`; $("cartTotal").textContent = money(subtotal()); }
 function openDrawer(){ $("drawer").classList.add("on"); $("scrim").classList.add("on"); }
-function closeAll(){ ["drawer","mmenu"].forEach(i => $(i).classList.remove("on")); $("scrim").classList.remove("on"); ["modalCheckout","modalAuth","modalPicker","modalSuperEdit"].forEach(i => $(i).classList.remove("on")); closeLangDD(); }
+function closeAll(){ ["drawer","mmenu"].forEach(i => $(i).classList.remove("on")); $("scrim").classList.remove("on"); ["modalCheckout","modalAuth","modalPicker","modalSuperEdit","modalConfirm"].forEach(i => $(i).classList.remove("on")); closeLangDD(); }
 
-function openCheckout(){ if (!cartLines().length) return toast(t("toast_fill_cart")); closeAll(); const c = S.config; let d = `<label><input type="radio" name="deliv" value="retiro" checked onchange="addrToggle()"> ${esc(t("deliv_lbl_retiro"))}</label>`; if (c.deliveryEnabled) d += `<label><input type="radio" name="deliv" value="delivery" onchange="addrToggle()"> ${esc(t("deliv_lbl_delivery"))} (+${esc(money(c.deliveryCost))})</label>`; $("delivWrap").innerHTML = d; $("payWrap").innerHTML = (c.payments||["—"]).map((p,i) => `<label><input type="radio" name="pay" value="${esc(p)}" ${i===0?"checked":""}> ${esc(p)}</label>`).join(""); addrToggle(); renderSum(); $("modalCheckout").classList.add("on"); $("scrim").classList.add("on"); setTimeout(() => $("cName").focus(), 100); }
-function delivVal(){ const r = document.querySelector('input[name="deliv"]:checked'); return r ? r.value : "retiro"; }
+/* ===== MODAL CONFIRMACIÓN GENÉRICO ===== */
+let cfOnOk = null;
+function openConfirm({ title, desc, body, checkLabel, okLabel, requireCheck, onOk }){ $("cfTitle").textContent = title; $("cfDesc").textContent = desc || ""; $("cfBody").innerHTML = body || ""; const cr = $("cfCheckRow"); if (checkLabel){ cr.hidden = false; $("cfCheckLabel").textContent = checkLabel; $("cfCheck").checked = false; } else cr.hidden = true; $("cfOk").textContent = okLabel; $("cfOk").disabled = !!requireCheck; if (requireCheck) $("cfCheck").onchange = e => $("cfOk").disabled = !e.target.checked; cfOnOk = onOk; $("modalConfirm").classList.add("on"); $("scrim").classList.add("on"); }
+$("cfOk") && $("cfOk").addEventListener("click", () => { const fn = cfOnOk; closeAll(); if (fn) fn(); });
+
+function openCheckout(){ if (!cartLines().length) return toast(t("toast_fill_cart")); closeAll(); const c = S.config; const mode = c.deliveryMode || "whatsapp"; const df = $("delivField");
+  if (mode === "modes"){ const modes = c.deliveryModes || []; df.hidden = false; let d = ""; if (modes.includes("retiro")) d += `<label><input type="radio" name="deliv" value="retiro" checked onchange="addrToggle()"> ${esc(t("deliv_lbl_retiro"))}</label>`; if (modes.includes("delivery")) d += `<label><input type="radio" name="deliv" value="delivery" onchange="addrToggle()"> ${esc(t("deliv_lbl_delivery"))}${c.deliveryCost?` (+${esc(money(c.deliveryCost))})`:""}</label>`; if (!d){ df.hidden = true; } $("delivWrap").innerHTML = d; }
+  else { df.hidden = true; $("delivWrap").innerHTML = `<input type="hidden" name="deliv" value="whatsapp">`; }
+  const pays = c.payments || []; const pf = $("payField"); if (pays.length){ pf.hidden = false; $("payWrap").innerHTML = pays.map((p,i) => `<label><input type="radio" name="pay" value="${esc(p)}" ${i===0?"checked":""}> ${esc(p)}</label>`).join(""); } else { pf.hidden = true; $("payWrap").innerHTML = ""; }
+  addrToggle(); renderSum(); $("modalCheckout").classList.add("on"); $("scrim").classList.add("on"); setTimeout(() => $("cName").focus(), 100); }
+function delivVal(){ const r = document.querySelector('input[name="deliv"]:checked') || document.querySelector('input[name="deliv"]'); return r ? r.value : "whatsapp"; }
 function addrToggle(){ $("addrRow").hidden = delivVal() !== "delivery"; renderSum(); }
 function total(){ return subtotal() + (delivVal() === "delivery" ? Number(S.config.deliveryCost||0) : 0); }
-function renderSum(){ $("sumBox").innerHTML = cartLines().map(l => `<div><span>${l.q} × ${esc(l.p.name)}</span><span>${esc(money(l.q*l.unit))}</span></div>`).join("") + `<div><span>${esc(t("check_deliv"))}</span><span>${esc(delivVal()==="delivery" ? money(S.config.deliveryCost) : t("deliv_lbl_retiro"))}</span></div><div style="font-weight:750;border-top:1px solid #D9CFF0;padding-top:6px"><span>${esc(t("total"))}</span><span>${esc(money(total()))}</span></div>`; }
-async function sendOrder(){ const c = S.config; if (!c.whatsapp){ toast(t("toast_fill_wa")); closeAll(); go("admin"); return; } const name = $("cName").value.trim(); if (!name) return toast(t("toast_fill_name")); const deliv = delivVal(), addr = $("cAddress").value.trim(); if (deliv === "delivery" && !addr) return toast(t("toast_fill_addr")); const pay = (document.querySelector('input[name="pay"]:checked')||{}).value || (c.payments||["—"])[0]; const note = $("cNote").value.trim(); const L = cartLines(), id = "P-" + Date.now().toString().slice(-6); const dl = deliv === "delivery" ? t("deliv_lbl_delivery") : t("deliv_lbl_retiro"); const msg = [ t("wa_new_order",{id}), t("wa_customer",{name}), t("wa_business",{biz:c.businessName}), "", t("wa_products"), ...L.map(l => t("wa_product_line",{q:l.q,name:l.p.name,price:money(l.q*l.unit)})), "", deliv==="delivery" ? t("wa_delivery_with_addr",{mode:dl,cost:money(c.deliveryCost),addr}) : t("wa_delivery_line",{mode:dl}), t("wa_payment",{pay}), t("wa_total",{total:money(total())}), note ? t("wa_note",{note}) : "" ].filter(Boolean).join("\n"); if (sb && S.bizId){ await sb.from('orders').insert({ business_id:S.bizId, code:id, customer_name:name, delivery_type:dl, address:addr, payment:pay, note, items:L.map(l=>({name:l.p.name,qty:l.q,unit:l.unit})), total:total(), status:"pend" }); } cart = {}; renderCart(); closeAll(); window.open(`https://wa.me/${c.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank"); toast(t("toast_order_sent")); }
+function renderSum(){ const dv = delivVal(); const dLabel = dv === "delivery" ? money(S.config.deliveryCost) : dv === "whatsapp" ? t("deliv_wa_coord") : t("deliv_lbl_retiro"); $("sumBox").innerHTML = cartLines().map(l => `<div><span>${l.q} × ${esc(l.p.name)}</span><span>${esc(money(l.q*l.unit))}</span></div>`).join("") + `<div><span>${esc(t("check_deliv"))}</span><span>${esc(dLabel)}</span></div><div style="font-weight:750;border-top:1px solid #D9CFF0;padding-top:6px"><span>${esc(t("total"))}</span><span>${esc(money(total()))}</span></div>`; }
+async function sendOrder(){ const c = S.config; if (!c.whatsapp){ toast(t("toast_fill_wa")); closeAll(); go("admin"); return; } const name = $("cName").value.trim(); if (!name) return toast(t("toast_fill_name")); const deliv = delivVal(), addr = $("cAddress").value.trim(); if (deliv === "delivery" && !addr) return toast(t("toast_fill_addr")); const payEl = document.querySelector('input[name="pay"]:checked'); const pay = payEl ? payEl.value : ""; const note = $("cNote").value.trim(); const L = cartLines(), id = "P-" + Date.now().toString().slice(-6);
+  const dl = deliv === "delivery" ? t("deliv_lbl_delivery") : deliv === "whatsapp" ? t("deliv_wa_coord") : t("deliv_lbl_retiro");
+  const msg = [ t("wa_new_order",{id}), t("wa_customer",{name}), t("wa_business",{biz:c.businessName}), "", t("wa_products"), ...L.map(l => t("wa_product_line",{q:l.q,name:l.p.name,price:money(l.q*l.unit)})), "", deliv==="delivery" ? t("wa_delivery_with_addr",{mode:dl,cost:money(c.deliveryCost),addr}) : t("wa_delivery_line",{mode:dl}), pay ? t("wa_payment",{pay}) : "", t("wa_total",{total:money(total())}), note ? t("wa_note",{note}) : "" ].filter(Boolean).join("\n"); if (sb && S.bizId){ await sb.from('orders').insert({ business_id:S.bizId, code:id, customer_name:name, delivery_type:dl, address:addr, payment:pay, note, items:L.map(l=>({name:l.p.name,qty:l.q,unit:l.unit})), total:total(), status:"pend" }); } cart = {}; renderCart(); closeAll(); window.open(`https://wa.me/${c.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank"); toast(t("toast_order_sent")); }
 
 const STATUSES = ["pend","conf","deliv","done","cancel"];
 function tab(t2){ ["home","prod","cats","orders","media","cfg","share"].forEach(x => { const p = $("p"+x[0].toUpperCase()+x.slice(1)); if (p) p.hidden = (x !== t2); const b = $("tab"+x[0].toUpperCase()+x.slice(1)); if (b) b.classList.toggle("on", x===t2); }); if (t2 === "media") renderMedia(); if (t2 === "cfg") renderCfgHub(); if (t2 === "home") renderDashboard(); if (t2 === "cats"){ renderCats(); catHide(); } if (t2 === "prod"){ renderImgSlots(); renderPreview(); } }
@@ -1353,29 +1395,39 @@ const CFG_SECTIONS = [
   { key:"brand", group:"gen", icon:"🎨", bg:"bg-rose", title:"c_brand", desc:"c_brand_d" },
   { key:"cur", group:"cat", icon:"💵", bg:"bg-sun", title:"c_cur", desc:"c_cur_d" },
   { key:"link", group:"pub", icon:"🔗", bg:"bg-sky", title:"c_link", desc:"c_link_d" },
-  { key:"deliv", group:"sales", icon:"🚚", bg:"bg-lav", title:"c_deliv", desc:"c_deliv_d" },
-  { key:"pay", group:"sales", icon:"💳", bg:"bg-mint", title:"c_pay", desc:"c_pay_d" }
+  { key:"header", group:"pub", icon:"🖼️", bg:"bg-lav", title:"c_header", desc:"c_header_d" },
+  { key:"seo", group:"pub", icon:"🔎", bg:"bg-mint", title:"c_seo", desc:"c_seo_d" },
+  { key:"deliv", group:"sales", icon:"🚚", bg:"bg-sun", title:"c_deliv", desc:"c_deliv_d" },
+  { key:"pay", group:"sales", icon:"💳", bg:"bg-sky", title:"c_pay", desc:"c_pay_d" }
 ];
 let cfgFilter = "all";
-function cfgState(key){ const c = S.config; switch(key){ case "info": return c.businessName ? "ok" : "miss"; case "wa": return (c.whatsapp && c.whatsapp.replace(/\D/g,"").length>=8) ? "ok" : "miss"; case "brand": return (ME && ME.avatar) ? "ok" : "opt"; case "cur": return c.currency ? "ok" : "pend"; case "link": return c.slug ? "ok" : "miss"; case "deliv": return c.deliveryEnabled ? "ok" : "pend"; case "pay": return (c.payments||[]).length ? "ok" : "pend"; } return "opt"; }
+function cfgState(key){ const c = S.config; switch(key){ case "info": return c.businessName ? "ok" : "miss"; case "wa": return (c.whatsapp && c.whatsapp.replace(/\D/g,"").length>=8) ? "ok" : "miss"; case "brand": return (ME && ME.avatar) ? "ok" : "opt"; case "cur": return c.currency ? "ok" : "pend"; case "link": return c.slug ? "ok" : "miss"; case "header": return c.showHeader ? "ok" : "opt"; case "seo": return (c.seoTitle || c.seoDescription) ? "ok" : "opt"; case "deliv": return (c.deliveryMode==="modes" && (c.deliveryModes||[]).length) ? "ok" : "pend"; case "pay": return (c.payments||[]).length ? "ok" : "pend"; } return "opt"; }
 function renderCfgHub(){ if (!BIZ) return; $("cfgSubWrap").hidden = true; $("cfgHub").hidden = false; const groups = [["all",t("cfg_f_all")],["gen",t("cfg_f_gen")],["cat",t("cfg_f_cat")],["pub",t("cfg_f_pub")],["sales",t("cfg_f_sales")]]; $("cfgFilters").innerHTML = groups.map(g => `<button class="${cfgFilter===g[0]?"on":""}" onclick="cfgFilter='${g[0]}';renderCfgHub()">${esc(g[1])}</button>`).join(""); const list = CFG_SECTIONS.filter(s => cfgFilter==="all" || s.group===cfgFilter); const stLabel = { ok:t("st_ok"), pend:t("st_pend"), miss:t("st_miss"), opt:t("st_opt") }; $("cfgGrid").innerHTML = list.map(s => { const st = cfgState(s.key); return `<div class="cfg-card"><span class="state ${st}">${esc(stLabel[st])}</span><div class="ico ${s.bg}">${s.icon}</div><h4>${esc(t(s.title))}</h4><p>${esc(t(s.desc))}</p><button class="btn btn-ghost btn-sm" onclick="cfgOpen('${s.key}')">${esc(t("cfg_open"))} ›</button></div>`; }).join(""); }
 function cfgBack(){ $("cfgSubWrap").hidden = true; $("cfgHub").hidden = false; renderCfgHub(); }
+let headerImgTemp = "", seoImgTemp = "";
 function cfgOpen(key){ $("cfgHub").hidden = true; $("cfgSubWrap").hidden = false; const c = S.config; let html = "";
-  if (key === "info") html = `<div class="cfg-sub"><h3>${esc(t("c_info"))}</h3><div class="form-grid"><div class="field"><label>${esc(t("cfg_name"))}</label><input id="s_name" value="${esc(c.businessName)}"></div><div class="field"><label>${esc(t("cfg_cat"))}</label><select id="s_cat">${BIZ_CATS.map(x=>`<option ${c.category===x?"selected":""}>${esc(x)}</option>`).join("")}</select></div></div><div class="field"><label>${esc(t("f_desc"))}</label><textarea id="s_desc" rows="3">${esc(BIZ.description||"")}</textarea></div><div class="form-grid"><div class="field"><label>País</label><input id="s_country" value="${esc(BIZ.country||"")}"></div><div class="field"><label>Ciudad</label><input id="s_city" value="${esc(BIZ.city||"")}"></div></div><button class="btn btn-primary btn-sm" onclick="cfgSaveInfo()">${esc(t("save_cfg"))}</button></div>`;
-  if (key === "wa") html = `<div class="cfg-sub"><h3>${esc(t("c_wa"))}</h3><div class="form-grid"><div class="field"><label>País / prefijo</label><select id="s_wac"><option value="212" ${(c.whatsapp||"").startsWith("212")?"selected":""}>🇲🇦 +212</option><option value="34" ${(c.whatsapp||"").startsWith("34")?"selected":""}>🇪🇸 +34</option><option value="33" ${(c.whatsapp||"").startsWith("33")?"selected":""}>🇫🇷 +33</option></select></div><div class="field"><label>Número</label><input id="s_wan" value="${esc(c.whatsapp)}"></div></div><button class="btn btn-primary btn-sm" onclick="cfgSaveWa()">${esc(t("save_cfg"))}</button></div>`;
+  if (key === "info") html = `<div class="cfg-sub"><h3>${esc(t("c_info"))}</h3><div class="form-grid"><div class="field"><label>${esc(t("cfg_name"))}</label><input id="s_name" value="${esc(c.businessName)}"></div><div class="field"><label>${esc(t("cfg_cat"))}</label><select id="s_cat">${BIZ_CATS.map(x=>`<option ${c.category===x?"selected":""}>${esc(x)}</option>`).join("")}</select></div></div><div class="field"><label>${esc(t("f_desc"))}</label><textarea id="s_desc" rows="3">${esc(c.description||"")}</textarea></div><div class="form-grid"><div class="field"><label>País</label><input id="s_country" value="${esc(c.country||"")}"></div><div class="field"><label>${esc(t("info_region"))}</label><input id="s_region" value="${esc(c.region||"")}"></div></div><div class="form-grid"><div class="field"><label>${esc(t("info_addr"))}</label><input id="s_addr" value="${esc(c.address||"")}"></div><div class="field"><label>Ciudad</label><input id="s_city" value="${esc(c.city||"")}"></div></div><div class="form-grid"><div class="field"><label>${esc(t("info_postal"))}</label><input id="s_postal" value="${esc(c.postal||"")}"></div><div class="field"><label>${esc(t("info_tz"))}</label><select id="s_tz">${TIMEZONES.map(z=>`<option ${c.timezone===z?"selected":""}>${z}</option>`).join("")}</select></div></div><button class="btn btn-primary btn-sm" onclick="cfgSaveInfo()">${esc(t("save_cfg"))}</button></div>`;
+  if (key === "wa"){ const cur = c.whatsapp || ""; const pref = COUNTRIES.find(x => cur.startsWith(x[0])); html = `<div class="cfg-sub"><h3>${esc(t("c_wa"))}</h3><div class="form-grid"><div class="field"><label>${esc(t("wa_country"))}</label><select id="s_wac">${COUNTRIES.map(x=>`<option value="${x[0]}" ${pref&&pref[0]===x[0]?"selected":""}>${x[1]} +${x[0]} — ${esc(x[2])}</option>`).join("")}</select></div><div class="field"><label>${esc(t("wa_number"))}</label><input id="s_wan" inputmode="numeric" value="${esc(cur)}" oninput="this.value=this.value.replace(/\\D/g,'')"></div></div><div class="hint">${esc(t("wa_number"))}: 690157092</div><button class="btn btn-primary btn-sm" onclick="cfgReviewWa()">${esc(t("wa_review"))}</button><div class="cfg-side"><b>${esc(t("wa_current"))}</b><span style="font-weight:750">${cur ? "+"+cur : "—"}</span>${cur?` · <a href="https://wa.me/${cur}" target="_blank" rel="noopener">${esc(t("wa_test"))}</a>`:""}</div></div>`; }
   if (key === "brand") html = `<div class="cfg-sub"><h3>${esc(t("c_brand"))}</h3><div style="display:flex;gap:12px;align-items:center"><span class="av-prev" id="cfgAvPrev">${(ME&&ME.avatar)?`<img src="${esc(ME.avatar)}">`:"🏪"}</span><label class="btn btn-ghost btn-sm" style="cursor:pointer">📤 ${esc(t("av_change"))}<input type="file" accept="image/*" hidden onchange="setCfgAvatar(this)"></label><button class="btn btn-ghost btn-sm" onclick="clearCfgAvatar()">✕ ${esc(t("av_remove"))}</button></div></div>`;
-  if (key === "cur") html = `<div class="cfg-sub"><h3>${esc(t("c_cur"))}</h3><div class="field"><label>${esc(t("cfg_cur"))}</label><input id="s_cur" value="${esc(c.currency)}"></div><button class="btn btn-primary btn-sm" onclick="cfgSaveCur()">${esc(t("save_cfg"))}</button></div>`;
-  if (key === "link") html = `<div class="cfg-sub"><h3>${esc(t("c_link"))}</h3><div class="field"><label>Slug</label><div style="display:flex;gap:8px;align-items:center"><span style="color:var(--muted);font-size:13px">${DOMAIN}/#/s/</span><input id="s_slug" value="${esc(c.slug)}"></div></div><button class="btn btn-primary btn-sm" onclick="cfgSaveLink()">${esc(t("save_cfg"))}</button></div>`;
-  if (key === "deliv") html = `<div class="cfg-sub"><h3>${esc(t("c_deliv"))}</h3><div class="field"><label style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="s_deliv" style="width:auto" ${c.deliveryEnabled?"checked":""}> ${esc(t("cfg_deliv"))}</label></div><div class="field" style="max-width:200px"><label>${esc(t("cfg_cost"))}</label><input id="s_cost" type="number" value="${c.deliveryCost}"></div><button class="btn btn-primary btn-sm" onclick="cfgSaveDeliv()">${esc(t("save_cfg"))}</button></div>`;
-  if (key === "pay") html = `<div class="cfg-sub"><h3>${esc(t("c_pay"))}</h3><div class="field"><label>${esc(t("cfg_pay"))}</label><input id="s_pay" value="${esc((c.payments||[]).join(", "))}"></div><button class="btn btn-primary btn-sm" onclick="cfgSavePay()">${esc(t("save_cfg"))}</button></div>`;
-  $("cfgSub").innerHTML = html;
-}
-async function cfgSaveInfo(){ await sb.from('businesses').update({ business_name:$("s_name").value.trim(), category:$("s_cat").value, description:$("s_desc").value, country:$("s_country").value, city:$("s_city").value }).eq('id', BIZ.id); await refreshMe(ME.id); toast(t("toast_cfg_saved")); cfgBack(); }
-async function cfgSaveWa(){ const num = ($("s_wac").value + $("s_wan").value).replace(/\D/g,""); await sb.from('businesses').update({ whatsapp:num, wa_country:$("s_wac").value }).eq('id', BIZ.id); await refreshMe(ME.id); toast(t("toast_cfg_saved")); cfgBack(); }
-async function cfgSaveCur(){ await sb.from('businesses').update({ currency:$("s_cur").value }).eq('id', BIZ.id); await refreshMe(ME.id); toast(t("toast_cfg_saved")); cfgBack(); }
+  if (key === "cur") html = `<div class="cfg-sub"><h3>${esc(t("c_cur"))}</h3><div class="warn-box"><b>⚠️ ${esc(t("cur_warn"))}</b><p>${esc(t("cur_warn_d"))}</p></div><div class="cfg-side"><b>${esc(t("cur_current"))}</b><span style="font-weight:750;font-size:20px">${esc(c.currency||"—")}</span> · ${S.products.length} ${esc(t("cat_prods").toLowerCase())}</div><div class="field"><label>${esc(t("cur_new"))}</label><select id="s_cur">${CURRENCIES.map(x=>`<option value="${x[0]}" ${c.currency===x[0]?"selected":""}>${x[0]} — ${esc(x[1])}</option>`).join("")}</select></div><button class="btn btn-primary btn-sm" onclick="cfgReviewCur()">${esc(t("save_cfg"))}</button></div>`;
+  if (key === "link") html = `<div class="cfg-sub"><h3>${esc(t("c_link"))}</h3><div class="field"><label>Slug</label><div style="display:flex;gap:8px;align-items:center"><span style="color:var(--muted);font-size:13px">${DOMAIN}/#/s/</span><input id="s_slug" value="${esc(c.slug)}" oninput="this.value=this.value.toLowerCase().replace(/[^a-z0-9-]/g,'-');$('linkPrev').textContent=DOMAIN+'/#/s/'+this.value"></div><div class="hint">${esc(t("link_rules"))}</div></div><div class="cfg-side"><b>${esc(t("link_preview"))}</b><span id="linkPrev" style="font-family:monospace;font-size:12px">${DOMAIN}/#/s/${esc(c.slug)}</span></div><button class="btn btn-primary btn-sm" onclick="cfgSaveLink()">${esc(t("save_cfg"))}</button></div>`;
+  if (key === "header"){ headerImgTemp = c.headerImage || ""; html = `<div class="cfg-sub"><h3>${esc(t("c_header"))}</h3><div class="field"><label style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="s_hshow" style="width:auto" ${c.showHeader?"checked":""}> ${esc(t("header_show"))}</label></div><div class="field"><label>${esc(t("header_title"))}</label><input id="s_htitle" value="${esc(c.headerTitle)}"></div><div class="field"><label>${esc(t("header_desc"))}</label><textarea id="s_hdesc" rows="2">${esc(c.headerDesc)}</textarea></div><div class="field"><label>${esc(t("header_img"))}</label><div style="border:1px dashed var(--line);border-radius:12px;height:120px;overflow:hidden;display:grid;place-items:center;color:var(--muted)" id="hImgPrev">${c.headerImage?`<img src="${esc(c.headerImage)}" style="width:100%;height:100%;object-fit:cover">`:"—"}</div><div style="display:flex;gap:8px;margin-top:8px"><label class="btn btn-ghost btn-sm" style="cursor:pointer">📤 ${esc(t("av_change"))}<input type="file" accept="image/*" hidden onchange="previewHeaderImg(this)"></label><button type="button" class="btn btn-ghost btn-sm" onclick="openPicker('headerimg')">🖼️ ${esc(t("lib_choose"))}</button></div></div><button class="btn btn-primary btn-sm" onclick="cfgSaveHeader()">${esc(t("header_save"))}</button></div>`; }
+  if (key === "seo"){ seoImgTemp = c.seoImage || ""; html = `<div class="cfg-sub"><h3>${esc(t("c_seo"))}</h3><div class="seo-layout"><div><div class="field"><label>${esc(t("seo_title_f"))} <span class="char-count" id="seoTCount">0/60</span>${!c.seoTitle?`<span class="auto-chip">● ${esc(t("seo_auto"))}</span>`:""}</label><input id="s_seot" value="${esc(c.seoTitle)}" placeholder="${esc(c.businessName)} | ${esc(t("nav_view"))}" oninput="renderSeoPrev()"></div><div class="field"><label>${esc(t("seo_desc_f"))} <span class="char-count" id="seoDCount">0/160</span>${!c.seoDescription?`<span class="auto-chip">● ${esc(t("seo_auto"))}</span>`:""}</label><textarea id="s_seod" rows="3" placeholder="${esc(t("hero_desc"))}" oninput="renderSeoPrev()">${esc(c.seoDescription)}</textarea></div><div class="field"><label>${esc(t("seo_img"))}</label><div style="border:1px dashed var(--line);border-radius:12px;height:110px;overflow:hidden;display:grid;place-items:center;color:var(--muted)" id="seoImgPrev">${c.seoImage?`<img src="${esc(c.seoImage)}" style="width:100%;height:100%;object-fit:cover">`:"—"}</div><div style="display:flex;gap:8px;margin-top:8px"><label class="btn btn-ghost btn-sm" style="cursor:pointer">📤 ${esc(t("av_change"))}<input type="file" accept="image/*" hidden onchange="previewSeoImg(this)"></label><button type="button" class="btn btn-ghost btn-sm" onclick="openPicker('seoimg')">🖼️ ${esc(t("lib_choose"))}</button></div><div class="hint">1200 × 630 px</div></div><button class="btn btn-primary btn-sm" onclick="cfgSaveSeo()">${esc(t("seo_save"))}</button></div><div><div class="seo-prev"><div class="sp-img" id="seoPrevImg">${c.seoImage?`<img src="${esc(c.seoImage)}">`:"Sin imagen"}</div><div class="sp-body"><div class="sp-dom">${esc(DOMAIN.replace("https://",""))}</div><div class="sp-t" id="seoPrevT">—</div><div class="sp-d" id="seoPrevD">—</div></div></div><p style="font-size:12px;margin-top:10px">${esc(t("seo_prev_d"))}</p></div></div></div>`; }
+  if (key === "deliv"){ const modes = c.deliveryModes || []; const isModes = c.deliveryMode === "modes"; html = `<div class="cfg-sub"><h3>${esc(t("c_deliv"))}</h3><div class="radio-row"><label><input type="radio" name="dmode" value="whatsapp" ${!isModes?"checked":""} onchange="toggleDelivModes()"> <span><b>${esc(t("deliv_mode_wa"))}</b><br><small style="color:var(--muted)">${esc(t("deliv_mode_wa_d"))}</small></span></label><label><input type="radio" name="dmode" value="modes" ${isModes?"checked":""} onchange="toggleDelivModes()"> <span><b>${esc(t("deliv_mode_modes"))}</b><br><small style="color:var(--muted)">${esc(t("deliv_mode_modes_d"))}</small></span></label></div><div id="delivModes" style="margin-top:12px;${isModes?"":"opacity:.5;pointer-events:none"}"><div class="form-grid"><label class="pay-opt ${modes.includes("retiro")?"on":""}" id="optRetiro"><b><input type="checkbox" id="s_retiro" ${modes.includes("retiro")?"checked":""} onchange="this.closest('.pay-opt').classList.toggle('on',this.checked)"> ${esc(t("deliv_lbl_retiro"))}</b><p>${esc(t("deliv_retiro_d"))}</p></label><label class="pay-opt ${modes.includes("delivery")?"on":""}" id="optDelivery"><b><input type="checkbox" id="s_delivery" ${modes.includes("delivery")?"checked":""} onchange="this.closest('.pay-opt').classList.toggle('on',this.checked)"> ${esc(t("deliv_lbl_delivery"))}</b><p>${esc(t("deliv_delivery_d"))}</p></label></div><div class="field" style="max-width:200px"><label>${esc(t("cfg_cost"))}</label><input id="s_cost" type="number" value="${c.deliveryCost}"></div></div><button class="btn btn-primary btn-sm" onclick="cfgSaveDeliv()">${esc(t("save_cfg"))}</button></div>`; }
+  if (key === "pay"){ const pays = c.payments || []; const opts = [["Efectivo",t("pay_cash"),t("pay_cash_d")],["Transferencia",t("pay_transfer"),t("pay_transfer_d")],["Tarjeta",t("pay_card"),t("pay_card_d")]]; html = `<div class="cfg-sub"><h3>${esc(t("c_pay"))}</h3><div class="pay-grid">${opts.map(o => `<label class="pay-opt ${pays.includes(o[0])?"on":""}"><b><input type="checkbox" value="${o[0]}" ${pays.includes(o[0])?"checked":""} onchange="this.closest('.pay-opt').classList.toggle('on',this.checked)"> ${esc(o[1])}</b><p>${esc(o[2])}</p></label>`).join("")}</div><div class="field" style="margin-top:12px"><label>Otras (separadas por coma)</label><input id="s_payextra" value="${esc(pays.filter(p=>!opts.some(o=>o[0]===p)).join(", "))}"></div><p class="hint">${esc(t("pay_none"))}</p><button class="btn btn-primary btn-sm" onclick="cfgSavePay()">${esc(t("save_cfg"))}</button></div>`; }
+  $("cfgSub").innerHTML = html; if (key === "seo") renderSeoPrev(); }
+function toggleDelivModes(){ const isModes = document.querySelector('input[name="dmode"]:checked').value === "modes"; const dm = $("delivModes"); dm.style.opacity = isModes ? "1" : ".5"; dm.style.pointerEvents = isModes ? "auto" : "none"; }
+async function previewHeaderImg(input){ const f = input.files && input.files[0]; if (!f) return; headerImgTemp = await compressSize(f, 1200, 0.8); $("hImgPrev").innerHTML = `<img src="${headerImgTemp}" style="width:100%;height:100%;object-fit:cover">`; }
+async function previewSeoImg(input){ const f = input.files && input.files[0]; if (!f) return; seoImgTemp = await compressSize(f, 1200, 0.8); $("seoImgPrev").innerHTML = `<img src="${seoImgTemp}" style="width:100%;height:100%;object-fit:cover">`; renderSeoPrev(); }
+function renderSeoPrev(){ const c = S.config; const ti = $("s_seot") ? ($("s_seot").value || (c.businessName + " | " + t("nav_view"))) : ""; const de = $("s_seod") ? ($("s_seod").value || c.description || t("hero_desc")) : ""; if ($("seoPrevT")) $("seoPrevT").textContent = ti; if ($("seoPrevD")) $("seoPrevD").textContent = de; if ($("seoTCount")) $("seoTCount").textContent = ($("s_seot")?$("s_seot").value.length:0) + "/60"; if ($("seoDCount")) $("seoDCount").textContent = ($("s_seod")?$("s_seod").value.length:0) + "/160"; const img = seoImgTemp || c.seoImage; if ($("seoPrevImg")) $("seoPrevImg").innerHTML = img ? `<img src="${esc(img)}">` : "Sin imagen"; }
+async function cfgSaveInfo(){ await sb.from('businesses').update({ business_name:$("s_name").value.trim(), category:$("s_cat").value, description:$("s_desc").value, country:$("s_country").value, region:$("s_region").value, address:$("s_addr").value, city:$("s_city").value, postal_code:$("s_postal").value, timezone:$("s_tz").value }).eq('id', BIZ.id); await refreshMe(ME.id); toast(t("toast_cfg_saved")); cfgBack(); }
+function cfgReviewWa(){ const num = ($("s_wac").value + $("s_wan").value).replace(/\D/g,""); if (num.replace(/\D/g,"").length < 8) return toast(t("toast_fill")); openConfirm({ title: t("wa_review"), desc: "+" + num, body: `<a href="https://wa.me/${num}" target="_blank" rel="noopener">${esc(t("wa_test"))}</a>`, okLabel: t("save_cfg"), onOk: async () => { await sb.from('businesses').update({ whatsapp:num, wa_country:$("s_wac") ? $("s_wac").value : "" }).eq('id', BIZ.id); await refreshMe(ME.id); toast(t("toast_cfg_saved")); cfgBack(); } }); }
+function cfgReviewCur(){ const newCur = $("s_cur").value; const n = S.products.length; openConfirm({ title: t("cur_warn"), desc: t("cur_warn_d"), body: `<p style="font-size:13px">${n} ${esc(t("cat_prods").toLowerCase())} → <b>${esc(newCur)}</b></p>`, checkLabel: t("cur_confirm"), requireCheck: true, okLabel: t("save_cfg"), onOk: async () => { await sb.from('businesses').update({ currency:newCur }).eq('id', BIZ.id); await refreshMe(ME.id); toast(t("toast_cfg_saved")); cfgBack(); } }); }
 async function cfgSaveLink(){ const s = $("s_slug").value.trim().toLowerCase().replace(/[^a-z0-9-]/g,"-"); if (!s) return toast(t("toast_fill")); const { data } = await sb.from('businesses').select('id').eq('slug', s).neq('id', BIZ.id).maybeSingle(); if (data) return toast(t("toast_exists")); await sb.from('businesses').update({ slug:s }).eq('id', BIZ.id); await refreshMe(ME.id); toast(t("toast_cfg_saved")); cfgBack(); }
-async function cfgSaveDeliv(){ await sb.from('businesses').update({ delivery_enabled:$("s_deliv").checked, delivery_cost:parseFloat($("s_cost").value)||0 }).eq('id', BIZ.id); await refreshMe(ME.id); toast(t("toast_cfg_saved")); cfgBack(); }
-async function cfgSavePay(){ await sb.from('businesses').update({ payments:$("s_pay").value.split(",").map(x=>x.trim()).filter(Boolean) }).eq('id', BIZ.id); await refreshMe(ME.id); toast(t("toast_cfg_saved")); cfgBack(); }
+async function cfgSaveHeader(){ let img = headerImgTemp; if (img && img.startsWith("data:")) img = await uploadDataUrl(img, ME.id + "/header/" + Date.now().toString(36) + ".jpg"); await sb.from('businesses').update({ show_header:$("s_hshow").checked, header_title:$("s_htitle").value, header_description:$("s_hdesc").value, header_image: img || "" }).eq('id', BIZ.id); await refreshMe(ME.id); toast(t("toast_cfg_saved")); cfgBack(); }
+async function cfgSaveSeo(){ let img = seoImgTemp; if (img && img.startsWith("data:")) img = await uploadDataUrl(img, ME.id + "/seo/" + Date.now().toString(36) + ".jpg"); await sb.from('businesses').update({ seo_title:$("s_seot").value, seo_description:$("s_seod").value, seo_image: img || "" }).eq('id', BIZ.id); await refreshMe(ME.id); toast(t("toast_cfg_saved")); cfgBack(); }
+async function cfgSaveDeliv(){ const mode = document.querySelector('input[name="dmode"]:checked').value; const modes = []; if ($("s_retiro").checked) modes.push("retiro"); if ($("s_delivery").checked) modes.push("delivery"); await sb.from('businesses').update({ delivery_mode:mode, delivery_modes:modes, delivery_enabled:modes.includes("delivery"), delivery_cost:parseFloat($("s_cost").value)||0 }).eq('id', BIZ.id); await refreshMe(ME.id); toast(t("toast_cfg_saved")); cfgBack(); }
+async function cfgSavePay(){ const boxes = [...document.querySelectorAll('#cfgSub .pay-opt input:checked')].map(i => i.value); const extra = $("s_payextra").value.split(",").map(x=>x.trim()).filter(Boolean); const all = [...new Set([...boxes, ...extra])]; await sb.from('businesses').update({ payments:all }).eq('id', BIZ.id); await refreshMe(ME.id); toast(t("toast_cfg_saved")); cfgBack(); }
 async function setCfgAvatar(input){ const f = input.files && input.files[0]; if (!f || !ME) return; const d = await compressSize(f, 160, 0.8); const url = await uploadDataUrl(d, ME.id + "/avatar.jpg"); await sb.from('profiles').update({ avatar:url }).eq('id', ME.id); if (BIZ) await sb.from('businesses').update({ avatar:url }).eq('id', BIZ.id); ME.avatar = url; const pv = $("cfgAvPrev"); if (pv) pv.innerHTML = `<img src="${url}">`; refreshNavUser(); buildMMenu(); toast(t("toast_avatar")); }
 async function clearCfgAvatar(){ if (!ME) return; await sb.from('profiles').update({ avatar:"" }).eq('id', ME.id); if (BIZ) await sb.from('businesses').update({ avatar:"" }).eq('id', BIZ.id); ME.avatar = ""; const pv = $("cfgAvPrev"); if (pv) pv.innerHTML = "🏪"; refreshNavUser(); buildMMenu(); toast("✓"); }
 
@@ -1403,8 +1455,8 @@ async function superData(){ const [pros, bizs, ords, prods] = await Promise.all(
 function orderCardX(x){ const o = x.o; return `<div class="order-card"><div class="head"><span>🧾 ${esc(o.code)} · ${esc(o.customer_name)} · 🏪 ${esc(x.bizName||"-")}</span><span style="color:var(--violet)">${esc(x.cur||"")}${numFmt.format(o.total)}</span></div><p style="font-size:13.5px;margin:8px 0">${(o.items||[]).map(i=>`${i.qty} × ${esc(i.name)}`).join(" · ")}<br>🚚 ${esc(o.delivery_type)} · 💳 ${esc(o.payment)}<br><small style="color:var(--muted)">${esc(dateFmt(new Date(o.created_at).getTime()))}</small></p><select class="st" onchange="superStatus('${esc(o.id)}',this.value)">${STATUSES.map(s=>`<option value="${s}" ${o.status===s?"selected":""}>${esc(t("st_"+s))}</option>`).join("")}</select></div>`; }
 async function renderSuper(){ if (!isAdmin()){ go("landing"); return; } const D = await superData(); const bizByOwner = {}; D.bizs.forEach(b => bizByOwner[b.owner_id] = b); const created = D.bizs.filter(b => b.created); const totProds = D.prods.filter(p => p.active).length; const allOrders = D.ords.map(o => { const b = D.bizs.find(x => x.id === o.business_id); return { o, bizName:b?b.business_name:"-", cur:b?b.currency:"" }; }); allOrders.sort((a,b)=>new Date(b.o.created_at)-new Date(a.o.created_at)); $("statGrid").innerHTML = `<div class="stat-card"><b>${D.pros.length}</b><span>Usuarios</span></div><div class="stat-card"><b>${created.length}</b><span>Catálogos</span></div><div class="stat-card"><b>${totProds}</b><span>Productos</span></div><div class="stat-card"><b>${allOrders.length}</b><span>Pedidos</span></div>`; $("recentOrders").innerHTML = allOrders.slice(0,8).length ? allOrders.slice(0,8).map(orderCardX).join("") : `<p style="color:var(--muted)">—</p>`; $("allOrders").innerHTML = allOrders.length ? allOrders.map(orderCardX).join("") : `<div class="card center"><p>—</p></div>`; const prodCount = {}, ordCount = {}; D.prods.forEach(p => prodCount[p.business_id] = (prodCount[p.business_id]||0)+1); D.ords.forEach(o => ordCount[o.business_id] = (ordCount[o.business_id]||0)+1); $("superBizList").innerHTML = D.pros.map(p => { const b = bizByOwner[p.id] || {}; return `<tr><td style="font-size:20px">${p.avatar ? `<img src="${esc(p.avatar)}" alt="" style="width:30px;height:30px;border-radius:8px;object-fit:cover">` : "🏪"}</td><td><b>${esc(b.business_name||p.name)}</b>${p.role==="admin"?" 👑":""}</td><td>${esc(b.category||"-")}</td><td>${esc(p.email)}</td><td>${esc(b.whatsapp||"-")}</td><td>${prodCount[b.id]||0}</td><td>${ordCount[b.id]||0}</td><td>${p.suspended?"🔴":esc(t("active"))}</td><td style="white-space:nowrap"><button class="st" onclick="superEdit('${b.id||""}')">✏️</button> <button class="st" onclick="superView('${b.slug||""}')">👁️</button> <button class="st" onclick="superSuspend('${p.id}')">${p.suspended?"▶️":"⏸️"}</button> <button class="st" onclick="superDelete('${p.id}','${b.id||""}')">🗑️</button></td></tr>`; }).join("") || `<tr><td colspan="9" style="text-align:center;padding:26px;color:var(--muted)">—</td></tr>`; }
 async function superStatus(orderId, st){ await sb.from('orders').update({ status:st }).eq('id', orderId); toast(t("toast_status")+" "+t("st_"+st)); renderSuper(); }
-async function superEdit(bizId){ if (!bizId) return; const { data: b } = await sb.from('businesses').select('*').eq('id', bizId).maybeSingle(); if (!b) return; $("seBizId").value = b.id; $("seName").value = b.business_name; $("seWa").value = b.whatsapp; $("seEmail").value = b.email; $("seCur").value = b.currency; $("sePay").value = (b.payments||[]).join(", "); $("seCost").value = b.delivery_cost; $("seTitle").value = b.banner_title; $("seDeliv").checked = !!b.delivery_enabled; $("modalSuperEdit").classList.add("on"); $("scrim").classList.add("on"); }
-async function saveSuperBiz(){ const id = $("seBizId").value; if (!id) return; await sb.from('businesses').update({ business_name: $("seName").value.trim(), whatsapp: $("seWa").value.replace(/\D/g,""), email: $("seEmail").value.trim(), currency: $("seCur").value, payments: $("sePay").value.split(",").map(x=>x.trim()).filter(Boolean), delivery_cost: parseFloat($("seCost").value)||0, banner_title: $("seTitle").value, delivery_enabled: $("seDeliv").checked }).eq('id', id); closeAll(); renderSuper(); refreshLanding(); toast(t("toast_cfg_saved")); }
+async function superEdit(bizId){ if (!bizId) return; const { data: b } = await sb.from('businesses').select('*').eq('id', bizId).maybeSingle(); if (!b) return; $("seBizId").value = b.id; $("seName").value = b.business_name; $("seWa").value = b.whatsapp; $("seEmail").value = b.email; $("seCur").value = b.currency; $("sePay").value = (b.payments||[]).join(", "); $("seCost").value = b.delivery_cost; $("modalSuperEdit").classList.add("on"); $("scrim").classList.add("on"); }
+async function saveSuperBiz(){ const id = $("seBizId").value; if (!id) return; await sb.from('businesses').update({ business_name: $("seName").value.trim(), whatsapp: $("seWa").value.replace(/\D/g,""), email: $("seEmail").value.trim(), currency: $("seCur").value, payments: $("sePay").value.split(",").map(x=>x.trim()).filter(Boolean), delivery_cost: parseFloat($("seCost").value)||0 }).eq('id', id); closeAll(); renderSuper(); refreshLanding(); toast(t("toast_cfg_saved")); }
 function superView(slug){ if (slug) viewPublicCatalog(slug); }
 async function superSuspend(userId){ if (userId === ME.id) return toast("🔒"); const { data: p } = await sb.from('profiles').select('suspended').eq('id', userId).maybeSingle(); if (!p) return; await sb.from('profiles').update({ suspended: !p.suspended }).eq('id', userId); renderSuper(); refreshLanding(); toast(!p.suspended ? "🔴" : t("active")); }
 async function superDelete(userId, bizId){ if (userId === ME.id) return toast("🔒"); if (!confirm("?")) return; if (bizId) await sb.from('businesses').delete().eq('id', bizId); await sb.from('profiles').update({ suspended:true }).eq('id', userId); renderSuper(); refreshLanding(); toast(t("toast_deleted")); }
