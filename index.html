@@ -34,6 +34,7 @@
 <meta name="twitter:description" id="twDesc" content="Publiez vos produits, partagez un lien et recevez des commandes complètes sur WhatsApp.">
 <meta name="twitter:image" id="twImg" content="https://TU-DOMINIO-AQUI.com/og.png">
 <script type="application/ld+json" id="jsonLd">{}</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <style>
 :root{--violet:#6D28D9;--violet2:#7C3AED;--ink:#221C3A;--muted:#6E6A85;--bg:#F7F5FC;--lav:#EFEBFA;--line:#E9E4F6;--wa:#25D366;--wateal:#128C7E;--wadeep:#075E54;--sun:#FDF3DF;--mint:#E4F6EC;--sky:#E3F1FD;--rose:#FBE4EF;--ok:#16A34A;--err:#DC2626;--r:18px}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -76,7 +77,6 @@ p{color:var(--muted)}
 .nav a.l:hover{color:var(--violet)}
 .nav .sp{flex:1}
 .burger{display:none}
-/* DESPLEGABLE IDIOMAS (estilo referencia) */
 .lang-dd{position:relative}
 .lang-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:7px 11px;font:inherit;font-weight:800;font-size:13px;cursor:pointer;color:var(--ink)}
 .lang-btn .flag{font-size:16px;line-height:1}
@@ -93,6 +93,7 @@ p{color:var(--muted)}
 .av{width:22px;height:22px;border-radius:6px;object-fit:cover}
 .av-prev{width:46px;height:46px;border-radius:12px;background:var(--lav);display:grid;place-items:center;font-size:22px;overflow:hidden;flex:none}
 .av-prev img{width:100%;height:100%;object-fit:cover}
+.sb-banner{background:#7C2D12;color:#FFEDD5;font-size:13px;font-weight:750;text-align:center;padding:9px 16px}
 .hero{padding:70px 0 90px;background:linear-gradient(180deg,#F3EFFC,var(--bg))}
 .hero-in{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
 .hero h1{font-size:clamp(34px,4.6vw,54px);margin:16px 0 18px}
@@ -323,6 +324,8 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 </style>
 </head>
 <body>
+
+<div id="sbBanner" class="sb-banner" hidden>⚙️ <span data-i18n="sb_missing">Configura tu Project URL de Supabase en la primera línea del script.</span></div>
 
 <div id="v-landing" class="view">
 <header class="nav"><div class="nav-in">
@@ -615,8 +618,8 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
   <div id="pMedia" hidden>
     <div class="card">
       <h3 data-i18n="lib_title">Bibliothèque d'images</h3>
-      <p style="font-size:13.5px;margin:6px 0 14px" data-i18n="lib_desc">Suba sus imágenes (se comprimen solas). Úsalas en productos y categorías, o elimínelas cuando quiera.</p>
-      <label class="btn btn-primary btn-sm" style="cursor:pointer">📤 <span data-i18n="lib_upload">Subir imagen</span><input type="file" accept="image/*" multiple hidden onchange="uploadImgs(this.files);this.value=''"></label>
+      <p style="font-size:13.5px;margin:6px 0 14px" data-i18n="lib_desc">Suba sus imágenes (se comprimen y suben a la nube). Úsalas en productos y categorías, o elimínalas.</p>
+      <label class="btn btn-primary btn-sm" style="cursor:pointer">📤 <span data-i18n="lib_upload">Subir</span><input type="file" accept="image/*" multiple hidden onchange="uploadImgs(this.files);this.value=''"></label>
       <div class="lib-grid" id="libGrid"></div>
     </div>
     <div class="card" style="margin-top:22px">
@@ -647,7 +650,10 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
       <div class="field"><label data-i18n="cfg_banner">Titre de bannière</label><input id="cfgTitle"></div>
       <div class="field"><label style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="cfgDeliv" style="width:auto"> <span data-i18n="cfg_deliv">Proposer la livraison</span></label></div>
       <div class="field" style="max-width:220px"><label data-i18n="cfg_cost">Coût de livraison</label><input id="cfgCost" type="number" min="0" step="0.01"></div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-primary btn-sm" onclick="saveCfg()" data-i18n="save_cfg">Enregistrer paramètres</button></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn btn-primary btn-sm" onclick="saveCfg()" data-i18n="save_cfg">Enregistrer paramètres</button>
+        <button class="btn btn-ghost btn-sm" id="migBtn" onclick="migrateLocal()" data-i18n="mig_btn">⬆️ Migrar datos locales (v6)</button>
+      </div>
     </div>
   </div>
   <div id="pShare" hidden>
@@ -703,7 +709,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 
 <div class="modal" id="modalSuperEdit" role="dialog" aria-modal="true"><div class="modal-card">
   <h3 data-i18n="super_edit_title">Editar negocio</h3>
-  <input type="hidden" id="seUserId">
+  <input type="hidden" id="seBizId">
   <div class="form-grid">
     <div class="field"><label data-i18n="cfg_name">Nom</label><input id="seName"></div>
     <div class="field"><label data-i18n="cfg_wa">WhatsApp</label><input id="seWa"></div>
@@ -758,37 +764,37 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 <div class="modal" id="modalAuth" role="dialog" aria-modal="true"><div class="modal-card">
   <div class="auth-tabs">
     <button class="on" id="tLogin" onclick="authTab('login')" data-i18n="auth_login">Se connecter</button>
-    <button id="tReg" onclick="authTab('register')" data-i18n="auth_register">S'inscrire</button>
+    <button id="tReg" onclick="authTab('register')" data-i18n="auth_register">Registrarme</button>
   </div>
   <div id="formLogin">
-    <p style="font-size:14px;margin-bottom:14px" data-i18n="login_desc">Accédez à votre panneau d'administration.</p>
-    <div class="field"><label data-i18n="auth_email">Email</label><input id="lEmail" type="email" autocomplete="email"></div>
-    <div class="field"><label data-i18n="auth_pass">Mot de passe</label><input id="lPass" type="password" autocomplete="current-password"></div>
-    <button class="btn btn-primary" id="btnLogin" style="width:100%;justify-content:center" onclick="doLogin()" data-i18n="login_btn">Entrer</button>
+    <p style="font-size:14px;margin-bottom:14px" data-i18n="login_desc">Accede a tu panel de administración.</p>
+    <div class="field"><label data-i18n="auth_email">Correo</label><input id="lEmail" type="email" autocomplete="email"></div>
+    <div class="field"><label data-i18n="auth_pass">Contraseña</label><input id="lPass" type="password" autocomplete="current-password"></div>
+    <button class="btn btn-primary" id="btnLogin" style="width:100%;justify-content:center" onclick="doLogin()" data-i18n="login_btn">Entrar</button>
   </div>
   <div id="formRegister" hidden>
-    <p style="font-size:14px;margin-bottom:14px" data-i18n="reg_desc">Créez votre compte et votre catalogue en moins d'une minute.</p>
-    <div class="field"><label data-i18n="auth_avatar">Logo / avatar (facultatif)</label>
+    <p style="font-size:14px;margin-bottom:14px" data-i18n="reg_desc">Crea tu cuenta y tu catálogo en menos de 1 minuto.</p>
+    <div class="field"><label data-i18n="auth_avatar">Logo / avatar (opcional)</label>
       <div style="display:flex;gap:10px;align-items:center">
         <span class="av-prev" id="rAvPrev">🏪</span>
         <label class="btn btn-ghost btn-sm" style="cursor:pointer">📤 <span data-i18n="lib_upload">Subir</span><input type="file" accept="image/*" hidden onchange="previewRegAvatar(this)"></label>
         <button type="button" class="btn btn-ghost btn-sm" onclick="clearRegAvatar()">✕</button>
       </div>
     </div>
-    <div class="field"><label data-i18n="auth_name">Nom de votre activité *</label><input id="rName" oninput="validateField(this,'name')" autocomplete="organization"></div>
-    <div class="field"><label data-i18n="auth_cat">Catégorie du commerce</label><select id="rCat"></select></div>
-    <div class="field"><label data-i18n="auth_email">Email *</label><input id="rEmail" type="email" oninput="validateField(this,'email')" autocomplete="email"></div>
-    <div class="field"><label data-i18n="auth_pass">Mot de passe *</label><input id="rPass" type="password" oninput="validateField(this,'pass')" autocomplete="new-password"><div class="hint" id="hintPass"></div></div>
-    <div class="field"><label data-i18n="auth_wa">WhatsApp (indicatif + numéro) *</label><input id="rWa" oninput="validateField(this,'wa')" autocomplete="tel"></div>
-    <button class="btn btn-primary" id="btnRegister" style="width:100%;justify-content:center" onclick="doRegister()" data-i18n="reg_btn">Créer mon catalogue gratuit →</button>
+    <div class="field"><label data-i18n="auth_name">Nombre de tu negocio *</label><input id="rName" oninput="validateField(this,'name')" autocomplete="organization"></div>
+    <div class="field"><label data-i18n="auth_cat">Categoría del negocio</label><select id="rCat"></select></div>
+    <div class="field"><label data-i18n="auth_email">Correo *</label><input id="rEmail" type="email" oninput="validateField(this,'email')" autocomplete="email"></div>
+    <div class="field"><label data-i18n="auth_pass">Contraseña *</label><input id="rPass" type="password" oninput="validateField(this,'pass')" autocomplete="new-password"><div class="hint" id="hintPass"></div></div>
+    <div class="field"><label data-i18n="auth_wa">WhatsApp (código país + número) *</label><input id="rWa" oninput="validateField(this,'wa')" autocomplete="tel"></div>
+    <button class="btn btn-primary" id="btnRegister" style="width:100%;justify-content:center" onclick="doRegister()" data-i18n="reg_btn">Crear mi catálogo gratis →</button>
   </div>
-  <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;margin-top:14px" onclick="closeAll()" data-i18n="cancel">Annuler</button>
+  <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;margin-top:14px" onclick="closeAll()" data-i18n="cancel">Cancelar</button>
 </div></div>
 
 <div class="modal" id="modalPicker" role="dialog" aria-modal="true"><div class="modal-card" style="width:min(640px,100%)">
   <h3 data-i18n="lib_choose">Elegir de la biblioteca</h3>
   <div class="lib-grid" id="pickGrid"></div>
-  <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;margin-top:14px" onclick="closeAll()" data-i18n="cancel">Annuler</button>
+  <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;margin-top:14px" onclick="closeAll()" data-i18n="cancel">Cancelar</button>
 </div></div>
 
 <button class="fab" id="botFab" onclick="toggleBot()" aria-label="Asistente">💬</button>
@@ -802,12 +808,18 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 <div class="toast-stack" id="toastStack" aria-live="polite"></div>
 
 <script>
-/* 🔧 CONFIGURACIÓN EN 1 LÍNEA CADA UNA: */
-const DOMAIN = "https://TU-DOMINIO-AQUI.com";   // ← tu dominio
-const ADMIN_EMAIL = "contact@clickpubli.com";   // ← tu correo de super-admin
+/* ================================================================
+   🔧 CONFIGURACIÓN — CAMBIA SOLO ESTA LÍNEA CON TU PROJECT URL:
+   ================================================================ */
+const SUPABASE_URL = "https://TU-PROYECTO.supabase.co";   // ← pega aquí tu Project URL
+const SUPABASE_KEY = "sb_publishable_Wemk4XOYnphLh8nbnNF2Ag_Lh1P4HNS";  // ✅ tu clave ya puesta
+const DOMAIN = "https://TU-DOMINIO-AQUI.com";             // ← tu dominio (SEO)
+const ADMIN_EMAIL = "contact@clickpubli.com";
+
+const SB_READY = /^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(SUPABASE_URL);
+const sb = (SB_READY && window.supabase) ? supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
 
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-async function sha256(text){ const d = new TextEncoder().encode(text); const b = await crypto.subtle.digest("SHA-256", d); return Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2,"0")).join(""); }
 const $ = id => document.getElementById(id);
 
 const PLAT_KEY = "catwha_platform";
@@ -819,7 +831,7 @@ function applyPlat(){
   ["contactMailLink","footMailLink","catMailLink"].forEach(id => { const el = $(id); if (el){ el.href = "mailto:" + p.contactEmail; el.textContent = (id === "footMailLink" ? "✉ " : "") + p.contactEmail; } });
 }
 
-/* ====== I18N ====== */
+/* ====== I18N (fr / es / ar) ====== */
 const I18N = {
 fr: {
   nav_how:"Fonctionnement", nav_feat:"Fonctions", nav_biz:"Commerces", nav_faq:"FAQ", nav_contact:"Contact",
@@ -901,7 +913,7 @@ fr: {
   cfg_deliv:"Proposer la livraison", cfg_cost:"Coût de livraison", save_cfg:"Enregistrer paramètres",
   share_title:"Partagez votre catalogue", share_desc:"Envoyez ce lien à vos clients. Ils pourront voir vos produits, remplir leur panier et vous envoyer la commande sur WhatsApp.",
   share_link:"Votre lien public", copy:"Copier", share_wa:"Partager sur WhatsApp",
-  lib_title:"Bibliothèque d'images", lib_desc:"Uploadez vos images (compression automatique). Utilisez-les pour produits et catégories, ou supprimez-les.",
+  lib_title:"Bibliothèque d'images", lib_desc:"Uploadez vos images (compression + cloud automatiques). Utilisez-les pour produits et catégories, ou supprimez-les.",
   lib_upload:"Uploader", lib_empty:"Aucune image pour le moment.", lib_added:"✓ Image(s) ajoutée(s)", lib_deleted:"Image supprimée",
   lib_choose:"Choisir dans la bibliothèque", lib_cat_title:"Images par catégorie", lib_cat_desc:"Assignez une image de la bibliothèque à chaque catégorie.",
   lib_cat_assign:"Choisir", lib_cat_clear:"Retirer", lib_cat_none:"Sans image", confirm_delete_img:"Supprimer cette image ?",
@@ -919,9 +931,12 @@ fr: {
   toast_badlogin:"Identifiants incorrects.", toast_login_first:"Connectez-vous pour accéder au panneau.", toast_fill_cart:"Ajoutez des produits au panier d'abord.",
   toast_fill_name:"Entrez votre nom.", toast_fill_addr:"Entrez l'adresse de livraison.", toast_fill_wa:"⚙️ Configurez votre WhatsApp dans le panneau.",
   toast_order_sent:"✅ Commande enregistrée et envoyée sur WhatsApp", toast_avatar:"✓ Avatar mis à jour",
+  toast_email_confirm:"📧 Confirmez votre email puis reconnectez-vous.", toast_sb_error:"⚠️ Erreur Supabase : ",
   hint_pass_weak:"Minimum 6 caractères", hint_pass_ok:"✓ Mot de passe valide", hint_email_ok:"✓ Email valide", hint_email_bad:"Email invalide",
   hint_name_ok:"✓ Nom valide", hint_wa_ok:"✓ Numéro valide", processing:"Traitement…",
   install:"Installer l'app", install_ios:"Sur iPhone : partagez puis « Sur l'écran d'accueil »", install_manual:"Menu du navigateur → « Ajouter à l'écran d'accueil »",
+  sb_missing:"Configurez votre Project URL Supabase dans la première ligne du script.",
+  mig_btn:"⬆️ Migrer données locales (v6)", mig_done:"✓ Données locales migrées", mig_none:"Aucune donnée locale à migrer",
   bot_title:"Assistant Catalogo Wha",
   bot_hello:"Bonjour ! Je suis l'assistant de Catalogo Wha. Je vous explique tout, pas à pas.",
   bot_ask_name:"D'abord, comment vous appelez-vous ?", bot_thanks_name:"Enchanté, {name}.",
@@ -1018,7 +1033,7 @@ es: {
   cfg_deliv:"Ofrecer delivery", cfg_cost:"Costo de delivery", save_cfg:"Guardar configuración",
   share_title:"Comparte tu catálogo", share_desc:"Envía este enlace a tus clientes. Podrán ver tus productos, armar el carrito y enviarte el pedido por WhatsApp.",
   share_link:"Tu enlace público", copy:"Copiar", share_wa:"Compartir por WhatsApp",
-  lib_title:"Biblioteca de imágenes", lib_desc:"Sube tus imágenes (se comprimen solas). Úsalas en productos y categorías, o elimínalas cuando quieras.",
+  lib_title:"Biblioteca de imágenes", lib_desc:"Sube tus imágenes (se comprimen y suben a la nube). Úsalas en productos y categorías, o elimínalas.",
   lib_upload:"Subir", lib_empty:"Aún no hay imágenes.", lib_added:"✓ Imagen(es) agregada(s)", lib_deleted:"Imagen eliminada",
   lib_choose:"Elegir de la biblioteca", lib_cat_title:"Imágenes por categoría", lib_cat_desc:"Asigna una imagen de la biblioteca a cada categoría de tu catálogo.",
   lib_cat_assign:"Elegir", lib_cat_clear:"Quitar", lib_cat_none:"Sin imagen", confirm_delete_img:"¿Eliminar esta imagen?",
@@ -1036,9 +1051,12 @@ es: {
   toast_badlogin:"Credenciales incorrectas.", toast_login_first:"Inicia sesión para acceder al panel.", toast_fill_cart:"Agrega productos al carrito primero.",
   toast_fill_name:"Escribe tu nombre.", toast_fill_addr:"Escribe la dirección de entrega.", toast_fill_wa:"⚙️ Configura tu WhatsApp en el panel.",
   toast_order_sent:"✅ Pedido registrado y enviado a WhatsApp", toast_avatar:"✓ Avatar actualizado",
+  toast_email_confirm:"📧 Confirma tu correo y vuelve a entrar.", toast_sb_error:"⚠️ Error de Supabase: ",
   hint_pass_weak:"Mínimo 6 caracteres", hint_pass_ok:"✓ Contraseña válida", hint_email_ok:"✓ Correo válido", hint_email_bad:"Correo no válido",
   hint_name_ok:"✓ Nombre válido", hint_wa_ok:"✓ Número válido", processing:"Procesando…",
   install:"Instalar app", install_ios:"En iPhone: comparte y elige «Añadir a pantalla de inicio»", install_manual:"Menú del navegador → «Añadir a pantalla de inicio»",
+  sb_missing:"Configura tu Project URL de Supabase en la primera línea del script.",
+  mig_btn:"⬆️ Migrar datos locales (v6)", mig_done:"✓ Datos locales migrados", mig_none:"No hay datos locales que migrar",
   bot_title:"Asistente Catalogo Wha",
   bot_hello:"¡Hola! Soy el asistente de Catalogo Wha. Te explico cómo funciona todo, paso a paso.",
   bot_ask_name:"Primero, ¿cómo te llamas?", bot_thanks_name:"Encantado, {name}.",
@@ -1059,9 +1077,9 @@ es: {
   stat_users:"Usuarios", stat_cats:"Catálogos activos", stat_prods:"Productos publicados", stat_orders:"Pedidos totales",
   recent_orders:"Pedidos recientes", all_orders:"Todos los pedidos", no_data:"Sin datos todavía.",
   th_biz:"Negocio", th_email:"Email", th_wa:"WhatsApp", th_prods:"Prod.", th_orders2:"Pedidos", th_state:"Estado",
-  act_edit:"Editar", act_view:"Ver catálogo", act_susp:"Suspender", act_act:"Reactivar", act_del:"Eliminar",
+  act_edit:"Editar", act_view:"Ver catálogo", act_susp:"Suspender", act_act:"Reactivar", act_del:"Eliminar catálogo",
   suspended:"🔴 Suspendido", acct_suspended:"Cuenta suspendida. Contacta a soporte.",
-  super_edit_title:"Editar negocio", confirm_del_user:"¿Eliminar este usuario y todo su catálogo?",
+  super_edit_title:"Editar negocio", confirm_del_user:"¿Eliminar el catálogo completo de este negocio?",
   plat_name:"Nombre de la plataforma", plat_wa:"WhatsApp de soporte", plat_email:"Email de contacto", plat_lang:"Idioma por defecto",
   plat_dir:"Mostrar directorio público", plat_save:"Guardar ajustes",
   toast_plat_saved:"✓ Ajustes de plataforma guardados", toast_no_self:"🔒 No puedes aplicar esto al super-admin", toast_locked:"🔒 Zona exclusiva del administrador"
@@ -1145,7 +1163,7 @@ ar: {
   cfg_deliv:"تقديم التوصيل", cfg_cost:"تكلفة التوصيل", save_cfg:"حفظ الإعدادات",
   share_title:"شارك كتالوجك", share_desc:"أرسل هذا الرابط لعملائك. سيتمكنون من رؤية منتجاتك وتجهيز السلة وإرسال الطلب عبر واتساب.",
   share_link:"رابطك العام", copy:"نسخ", share_wa:"مشاركة عبر واتساب",
-  lib_title:"مكتبة الصور", lib_desc:"ارفع صورك (تُضغط تلقائيًا). استخدمها للمنتجات والفئات، أو احذفها متى شئت.",
+  lib_title:"مكتبة الصور", lib_desc:"ارفع صورك (تُضغط وتُرفع للسحابة). استخدمها للمنتجات والفئات، أو احذفها.",
   lib_upload:"رفع", lib_empty:"لا توجد صور بعد.", lib_added:"✓ تمت إضافة الصورة/الصور", lib_deleted:"تم حذف الصورة",
   lib_choose:"الاختيار من المكتبة", lib_cat_title:"صور الفئات", lib_cat_desc:"عيّن صورة من المكتبة لكل فئة في كتالوجك.",
   lib_cat_assign:"اختيار", lib_cat_clear:"إزالة", lib_cat_none:"بدون صورة", confirm_delete_img:"حذف هذه الصورة؟",
@@ -1163,9 +1181,12 @@ ar: {
   toast_badlogin:"بيانات الاعتماد غير صحيحة.", toast_login_first:"سجّل الدخول للوصول إلى اللوحة.", toast_fill_cart:"أضف منتجات إلى السلة أولًا.",
   toast_fill_name:"اكتب اسمك.", toast_fill_addr:"اكتب عنوان التسليم.", toast_fill_wa:"⚙️ اضبط واتساب في اللوحة.",
   toast_order_sent:"✅ تم تسجيل الطلب وإرساله عبر واتساب", toast_avatar:"✓ تم تحديث الصورة",
+  toast_email_confirm:"📧 أكّد بريدك ثم ادخل مجددًا.", toast_sb_error:"⚠️ خطأ في Supabase: ",
   hint_pass_weak:"6 أحرف على الأقل", hint_pass_ok:"✓ كلمة مرور صالحة", hint_email_ok:"✓ بريد صالح", hint_email_bad:"بريد غير صالح",
   hint_name_ok:"✓ اسم صالح", hint_wa_ok:"✓ رقم صالح", processing:"جاري المعالجة…",
   install:"تثبيت التطبيق", install_ios:"على آيفون: مشاركة ثم «إضافة إلى الشاشة الرئيسية»", install_manual:"قائمة المتصفح → «إضافة إلى الشاشة الرئيسية»",
+  sb_missing:"اضبط Project URL الخاص بـ Supabase في أول سطر من السكربت.",
+  mig_btn:"⬆️ ترحيل البيانات المحلية (v6)", mig_done:"✓ تم ترحيل البيانات المحلية", mig_none:"لا توجد بيانات محلية للترحيل",
   bot_title:"مساعد Catalogo Wha",
   bot_hello:"مرحبًا! أنا مساعد Catalogo Wha. أشرح لك كل شيء خطوة بخطوة.",
   bot_ask_name:"أولًا، ما اسمك؟", bot_thanks_name:"تشرفنا، {name}.",
@@ -1196,7 +1217,6 @@ const SEO = {
 };
 const OG_LOCALE = { fr:"fr_FR", es:"es_ES", ar:"ar_MA" };
 const LANG_NAMES = { fr:"Français", es:"Español", ar:"العربية" };
-/* ====== LISTA DE IDIOMAS (añade aquí English con el parche opcional) ====== */
 let LANGS = [
   { code:"es", tag:"ES", flag:"🇪🇸", name:"Español" },
   { code:"fr", tag:"FR", flag:"🇫🇷", name:"Français" },
@@ -1225,7 +1245,6 @@ function buildJsonLd(){
     { "@type":"WebApplication", "name":"Catalogo Wha", "url":DOMAIN, "applicationCategory":"BusinessApplication", "operatingSystem":"Web", "offers":{ "@type":"Offer", "price":"0", "priceCurrency":"MAD" }, "description":SEO[LANG].desc, "inLanguage":LANGS.map(l=>l.code) },
     { "@type":"FAQPage", "mainEntity": faqs } ] });
 }
-/* ====== DESPLEGABLE DE IDIOMAS ====== */
 function renderLangDD(){
   const cur = LANGS.find(l => l.code === LANG) || LANGS[0];
   $("langFlag").textContent = cur.flag; $("langCode").textContent = cur.tag;
@@ -1246,7 +1265,9 @@ function applyI18n(){
   document.querySelectorAll("[data-i18n]").forEach(el => { const k = el.getAttribute("data-i18n"); const v = t(k); if (v !== k) el.innerHTML = v; });
   applySEO(); applyPlat(); renderFAQ(); renderLangDD();
   refreshNavUser(); buildMMenu(); fillCatSelects(); fillPlatLangSelect();
-  if (S){ if (!$("v-catalogo").hidden) renderCatalog(); if (!$("v-admin").hidden) renderAdmin(); if (!$("v-super").hidden) renderSuper(); }
+  if (S){ if (!$("v-catalogo").hidden) renderCatalog(); }
+  if (!$("v-admin").hidden) renderAdmin();
+  if (!$("v-super").hidden) renderSuper();
   refreshLanding();
 }
 function renderFAQ(){ let h = ""; for (let i=1;i<=6;i++) h += `<details class="faq-item"><summary>${esc(t("faq"+i+"q"))}</summary><p>${esc(t("faq"+i+"a"))}</p></details>`; $("faqList").innerHTML = h; }
@@ -1264,61 +1285,100 @@ function fillCatSelects(){
 }
 function fillPlatLangSelect(){ const s = $("plLang"); if (s) s.innerHTML = LANGS.map(l => `<option value="${l.code}">${esc(l.name)}</option>`).join(""); }
 
-/* ====== AUTH MULTI-TENANT ====== */
-const USERS_KEY = "catwha_users_v2", SESSION_KEY = "catwha_session", BIZ_KEY = "catwha_biz_";
-function getUsers(){ try { return JSON.parse(localStorage.getItem(USERS_KEY) || "[]"); } catch { return []; } }
-function saveUsers(u){ try { localStorage.setItem(USERS_KEY, JSON.stringify(u)); } catch { toast("⚠️ Storage lleno"); } }
-function getSession(){ try { return JSON.parse(localStorage.getItem(SESSION_KEY) || "null"); } catch { return null; } }
-function setSession(s){ if (s) localStorage.setItem(SESSION_KEY, JSON.stringify(s)); else localStorage.removeItem(SESSION_KEY); }
-function makeEmptyBiz(userId){ return { userId, config:{ businessName:"", whatsapp:"", email:"", currency:"", payments:["Efectivo"], bannerEyebrow:"", bannerTitle:"", deliveryEnabled:false, deliveryCost:0, slug:"u-"+userId.slice(0,8), created:false, catImages:{}, category:"", avatar:"" }, products:[], orders:[], nextProdId:1 }; }
-function getBiz(userId){ try { const r = localStorage.getItem(BIZ_KEY+userId); if (r){ const b = JSON.parse(r); b.config.catImages = b.config.catImages || {}; b.config.category = b.config.category || ""; b.config.avatar = b.config.avatar || ""; return b; } } catch {} return makeEmptyBiz(userId); }
-function saveBiz(userId, biz){ try { localStorage.setItem(BIZ_KEY+userId, JSON.stringify(biz)); } catch { toast("⚠️ Storage lleno"); } }
-function getCurrentUser(){ const s = getSession(); if (!s) return null; return getUsers().find(u => u.id === s.userId) || null; }
-function isAdmin(){ const u = getCurrentUser(); return !!u && (u.role === "admin" || u.email === ADMIN_EMAIL); }
-/* ---- compresión de imágenes ---- */
+/* ====== SESIÓN / PERFIL / NEGOCIO (Supabase) ====== */
+let ME = null;    // fila de profiles
+let BIZ = null;   // fila de businesses del usuario
+function isAdmin(){ return !!ME && ME.role === "admin"; }
+function getCurrentUser(){ return ME ? { id:ME.id, name:ME.name, email:ME.email, avatar:ME.avatar, role:ME.role } : null; }
+async function refreshMe(uid){
+  if (!sb) return;
+  const { data: p } = await sb.from('profiles').select('*').eq('id', uid).maybeSingle();
+  ME = p || null;
+  const { data: b } = await sb.from('businesses').select('*').eq('owner_id', uid).maybeSingle();
+  BIZ = b || null;
+}
+async function loadSession(){
+  if (!sb) return;
+  const { data } = await sb.auth.getSession();
+  const u = data && data.session ? data.session.user : null;
+  if (!u){ ME = null; BIZ = null; return; }
+  await refreshMe(u.id);
+  if (ME && ME.suspended){ await sb.auth.signOut(); ME = null; BIZ = null; }
+}
+if (sb) sb.auth.onAuthStateChange((_ev, session) => {
+  if (!session){ ME = null; BIZ = null; }
+  else refreshMe(session.user.id).then(() => { refreshNavUser(); buildMMenu(); });
+});
+
+/* ====== STORAGE HELPERS ====== */
 function compressSize(file, max, q){ return new Promise((res,rej)=>{ const fr = new FileReader(); fr.onload = () => { const img = new Image(); img.onload = () => { const sc = Math.min(1, max/Math.max(img.width,img.height)); const w = Math.round(img.width*sc), h = Math.round(img.height*sc); const cv = document.createElement("canvas"); cv.width=w; cv.height=h; cv.getContext("2d").drawImage(img,0,0,w,h); res(cv.toDataURL("image/jpeg",q)); }; img.onerror = rej; img.src = fr.result; }; fr.onerror = rej; fr.readAsDataURL(file); }); }
 const compress = f => compressSize(f, 900, 0.72);
-/* ---- avatar registro ---- */
+function dataUrlToBlob(d){ const [h,b]=d.split(','); const mime=(h.match(/:(.*?);/)||[])[1]||"image/jpeg"; const bin=atob(b); const arr=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++)arr[i]=bin.charCodeAt(i); return new Blob([arr],{type:mime}); }
+async function uploadDataUrl(dataUrl, path){
+  const blob = dataUrlToBlob(dataUrl);
+  const { error } = await sb.storage.from('catalog-images').upload(path, blob, { contentType: blob.type, upsert:true });
+  if (error) throw error;
+  return sb.storage.from('catalog-images').getPublicUrl(path).data.publicUrl;
+}
+
+/* ====== AUTH ====== */
 let regAvatar = "";
 async function previewRegAvatar(input){ const f = input.files && input.files[0]; if (!f) return; regAvatar = await compressSize(f, 160, 0.8); $("rAvPrev").innerHTML = `<img src="${regAvatar}" alt="">`; }
 function clearRegAvatar(){ regAvatar = ""; $("rAvPrev").innerHTML = "🏪"; }
+async function uniqueSlug(){
+  for (let i=0;i<10;i++){
+    const s = "u-" + Math.random().toString(36).slice(2,8);
+    const { data } = await sb.from('businesses').select('id').eq('slug', s).maybeSingle();
+    if (!data) return s;
+  }
+  return "u-" + Date.now().toString(36);
+}
 async function doRegister(){
+  if (!sb) return toast(t("sb_missing"));
   const name = $("rName").value.trim(), email = $("rEmail").value.trim().toLowerCase(), pass = $("rPass").value, wa = $("rWa").value.replace(/\D/g,"");
   if (!name || !email || !pass || !wa) return toast(t("toast_fill"));
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return toast(t("toast_email"));
   if (pass.length < 6) return toast(t("toast_pass_min"));
-  const users = getUsers();
-  if (users.some(u => u.email === email)) return toast(t("toast_exists"));
   const btn = $("btnRegister"); btn.disabled = true; btn.textContent = t("processing");
   try {
-    const passHash = await sha256(pass + ":" + email);
-    const user = { id:"u_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6), name, email, passHash, avatar:regAvatar||"", createdAt:Date.now() };
-    if (email === ADMIN_EMAIL) user.role = "admin";
-    users.push(user); saveUsers(users);
-    const biz = makeEmptyBiz(user.id);
-    biz.config.businessName = name; biz.config.whatsapp = wa; biz.config.email = email;
-    biz.config.category = $("rCat").value; biz.config.avatar = regAvatar || ""; biz.config.created = true;
-    saveBiz(user.id, biz); setSession({ userId:user.id });
-    regAvatar = ""; clearRegAvatar();
-    closeAll(); toast(t("toast_created")); loadCurrentState(); go("admin");
+    const { data, error } = await sb.auth.signUp({ email, password: pass, options:{ data:{ name } } });
+    if (error) return toast(t("toast_sb_error") + error.message);
+    const uid = data.user && data.user.id;
+    if (!uid) return toast(t("toast_email_confirm"));
+    if (data.session) await refreshMe(uid);
+    else { await sb.auth.signInWithPassword({ email, password: pass }); await refreshMe(uid); }
+    if (!BIZ){
+      const slug = await uniqueSlug();
+      await sb.from('businesses').insert({ owner_id: ME.id, business_name:name, whatsapp:wa, email, category: $("rCat").value, slug, created:true });
+      await refreshMe(ME.id);
+    }
+    if (regAvatar){
+      try { const url = await uploadDataUrl(regAvatar, ME.id + "/avatar.jpg");
+        await sb.from('profiles').update({ avatar:url }).eq('id', ME.id);
+        await sb.from('businesses').update({ avatar:url }).eq('id', BIZ.id).then(()=>{});
+        ME.avatar = url;
+      } catch {}
+      regAvatar = ""; clearRegAvatar();
+    }
+    closeAll(); toast(t("toast_created")); go("admin");
   } finally { btn.disabled = false; btn.textContent = t("reg_btn"); }
 }
 async function doLogin(){
+  if (!sb) return toast(t("sb_missing"));
   const email = $("lEmail").value.trim().toLowerCase(), pass = $("lPass").value;
   if (!email || !pass) return toast(t("toast_fill"));
-  const u = getUsers().find(x => x.email === email);
-  if (!u) return toast(t("toast_badlogin"));
-  if (u.suspended) return toast(t("acct_suspended"));
   const btn = $("btnLogin"); btn.disabled = true; btn.textContent = t("processing");
   try {
-    const passHash = await sha256(pass + ":" + email);
-    if (u.passHash !== passHash) return toast(t("toast_badlogin"));
-    setSession({ userId:u.id }); closeAll(); toast("✓ " + u.name); loadCurrentState(); go("admin");
+    const { data, error } = await sb.auth.signInWithPassword({ email, password: pass });
+    if (error) return toast(t("toast_badlogin"));
+    await refreshMe(data.user.id);
+    if (ME && ME.suspended){ await sb.auth.signOut(); ME = null; BIZ = null; return toast(t("acct_suspended")); }
+    closeAll(); toast("✓ " + (ME ? ME.name : "")); go("admin");
   } finally { btn.disabled = false; btn.textContent = t("login_btn"); }
 }
-function logout(){ setSession(null); cart = {}; F = { cat:"Todos", q:"" }; mediaCacheOwner = "__none__"; loadCurrentState(); go("landing"); toast("👋"); }
+async function logout(){ await sb.auth.signOut(); ME = null; BIZ = null; cart = {}; F = { cat:"Todos", q:"" }; loadCurrentState(); go("landing"); toast("👋"); }
 function authTab(w){ $("tLogin").classList.toggle("on", w==="login"); $("tReg").classList.toggle("on", w==="register"); $("formLogin").hidden = w!=="login"; $("formRegister").hidden = w!=="register"; }
-function requireAuth(){ if (!getCurrentUser()){ openAuth("login"); toast(t("toast_login_first")); return false; } return true; }
+function requireAuth(){ if (!ME){ openAuth("login"); toast(t("toast_login_first")); return false; } return true; }
 function openAuth(tab){ authTab(tab||"login"); ["lEmail","lPass","rName","rEmail","rPass","rWa"].forEach(i => { const el=$(i); if(el){ el.value=""; el.classList.remove("valid","invalid"); } }); const h=$("hintPass"); if(h){h.textContent="";h.className="hint";} clearRegAvatar(); $("modalAuth").classList.add("on"); $("scrim").classList.add("on"); setTimeout(()=>{ const f=$("modalAuth").querySelector("input"); if(f) f.focus(); },100); }
 function validateField(input, kind){
   const v = input.value.trim(); let ok = false, msg = "";
@@ -1330,69 +1390,76 @@ function validateField(input, kind){
   if (kind==="pass"){ const h=$("hintPass"); h.textContent=msg; h.className="hint "+(ok?"ok":v?"err":""); }
 }
 
-/* ====== ESTADO ====== */
+/* ====== ESTADO CATÁLOGO VISTO ====== */
 let S = null, cart = {}, F = { cat:"Todos", q:"" };
+function bizToState(b, products){
+  return { userId: b.owner_id, bizId: b.id,
+    config: { businessName:b.business_name, whatsapp:b.whatsapp, email:b.email, currency:b.currency, payments:b.payments||[], bannerEyebrow:b.banner_eyebrow, bannerTitle:b.banner_title, deliveryEnabled:b.delivery_enabled, deliveryCost:Number(b.delivery_cost||0), slug:b.slug, created:b.created, catImages:b.cat_images||{}, category:b.category||"", avatar:b.avatar||"" },
+    products: (products||[]).map(p => ({ id:p.id, name:p.name, cat:p.category, price:Number(p.price), promo:p.promo==null?null:Number(p.promo), emoji:p.emoji, img:p.image_url, desc:p.description, active:p.active })),
+    orders: [] };
+}
 function loadCurrentState(){
-  const u = getCurrentUser();
-  S = u ? getBiz(u.id) : { userId:null, config:{ businessName:"—", whatsapp:"", email:"", currency:"", payments:["Efectivo"], bannerEyebrow:"", bannerTitle:"", deliveryEnabled:false, deliveryCost:0, created:false, catImages:{}, category:"", avatar:"" }, products:[], orders:[], nextProdId:1 };
+  S = { userId:null, bizId:null, config:{ businessName:"—", whatsapp:"", email:"", currency:"", payments:["Efectivo"], bannerEyebrow:"", bannerTitle:"", deliveryEnabled:false, deliveryCost:0, created:false, catImages:{}, category:"", avatar:"" }, products:[], orders:[] };
 }
 function money(n){ return (S.config.currency || "") + numFmt.format(Number(n)); }
 function toast(m){ const s = $("toastStack"); const el = document.createElement("div"); el.className="toast"; el.textContent=m; s.appendChild(el); requestAnimationFrame(()=>el.classList.add("on")); setTimeout(()=>{ el.classList.remove("on"); setTimeout(()=>el.remove(),300); },2600); }
 
-/* ====== BIBLIOTECA (IndexedDB) ====== */
-const IDB_NAME = "catwha_media", IDB_STORE = "images";
-function idb(){ return new Promise((res,rej)=>{ const rq = indexedDB.open(IDB_NAME,1); rq.onupgradeneeded = e => { const db = e.target.result; if (!db.objectStoreNames.contains(IDB_STORE)) db.createObjectStore(IDB_STORE,{keyPath:"id"}); }; rq.onsuccess = () => res(rq.result); rq.onerror = () => rej(rq.error); }); }
-async function libAll(owner){ const db = await idb(); return new Promise(res=>{ const rq = db.transaction(IDB_STORE,"readonly").objectStore(IDB_STORE).getAll(); rq.onsuccess = () => res((rq.result||[]).filter(x=>x.ownerId===owner)); }); }
-async function libPut(rec){ const db = await idb(); return new Promise(res=>{ const tx = db.transaction(IDB_STORE,"readwrite"); tx.objectStore(IDB_STORE).put(rec); tx.oncomplete = res; }); }
-async function libDel(id){ const db = await idb(); return new Promise(res=>{ const tx = db.transaction(IDB_STORE,"readwrite"); tx.objectStore(IDB_STORE).delete(id); tx.oncomplete = res; }); }
-let MEDIA_CACHE = {}, mediaCacheOwner = "__none__";
-async function ensureMediaCache(owner){ if (mediaCacheOwner === owner) return; MEDIA_CACHE = {}; mediaCacheOwner = owner; if (owner){ try { (await libAll(owner)).forEach(m => MEDIA_CACHE[m.id] = m.dataUrl); } catch {} } }
-function imgSrc(p){ if (!p || !p.img) return null; if (p.img.startsWith("lib:")) return MEDIA_CACHE[p.img.slice(4)] || null; return p.img; }
-async function uploadImgs(files){
-  const u = getCurrentUser(); if (!u) return;
-  for (const f of files){ if (!f.type.startsWith("image/")) continue;
-    const dataUrl = await compress(f);
-    await libPut({ id:"m_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6), ownerId:u.id, name:f.name, dataUrl, ts:Date.now() });
-  }
-  mediaCacheOwner = null; await ensureMediaCache(u.id);
-  toast(t("lib_added")); renderMedia();
+/* ====== BIBLIOTECA (Storage) ====== */
+async function libList(){
+  if (!ME) return [];
+  const { data } = await sb.storage.from('catalog-images').list(ME.id + "/lib", { sortBy:{ column:"created_at", order:"desc" } });
+  return (data||[]).map(f => ({ name:f.name, url: sb.storage.from('catalog-images').getPublicUrl(ME.id + "/lib/" + f.name).data.publicUrl }));
 }
-async function delMedia(id){ if (!confirm(t("confirm_delete_img"))) return; await libDel(id); mediaCacheOwner = null; const u = getCurrentUser(); await ensureMediaCache(u ? u.id : null); toast(t("lib_deleted")); renderMedia(); if (!$("v-catalogo").hidden) renderCatalog(); }
+async function uploadImgs(files){
+  if (!ME) return;
+  let n = 0;
+  for (const f of files){ if (!f.type.startsWith("image/")) continue;
+    const d = await compress(f);
+    await uploadDataUrl(d, ME.id + "/lib/" + Date.now().toString(36) + Math.random().toString(36).slice(2,5) + ".jpg");
+    n++;
+  }
+  if (n) toast(t("lib_added"));
+  renderMedia();
+}
+async function delMedia(name){
+  if (!confirm(t("confirm_delete_img"))) return;
+  await sb.storage.from('catalog-images').remove([ME.id + "/lib/" + name]);
+  toast(t("lib_deleted")); renderMedia();
+}
 async function renderMedia(){
-  const u = getCurrentUser(); if (!u) return;
-  await ensureMediaCache(u.id);
-  const items = (await libAll(u.id));
+  if (!ME) return;
+  const items = await libList();
   $("libGrid").innerHTML = items.length
-    ? items.map(m => `<div class="lib-item"><img src="${m.dataUrl}" alt="" loading="lazy"><button class="lib-del" onclick="delMedia('${m.id}')" aria-label="🗑️">️</button></div>`).join("")
+    ? items.map(m => `<div class="lib-item"><img src="${esc(m.url)}" alt="" loading="lazy"><button class="lib-del" onclick="delMedia('${esc(m.name)}')" aria-label="🗑️">🗑️</button></div>`).join("")
     : `<p style="grid-column:1/-1;color:var(--muted)">${esc(t("lib_empty"))}</p>`;
   const cats = [...new Set(S.products.map(p => p.cat))];
   $("catImgList").innerHTML = cats.length ? cats.map(c => {
-    const mid = (S.config.catImages||{})[c];
-    const src = mid ? MEDIA_CACHE[mid] : null;
-    return `<div class="catimg-row">${src ? `<img src="${src}" alt="">` : `<span style="font-size:24px">🏷️</span>`}<b>${esc(c)}</b>
+    const src = (S.config.catImages||{})[c];
+    return `<div class="catimg-row">${src ? `<img src="${esc(src)}" alt="">` : `<span style="font-size:24px">🏷️</span>`}<b>${esc(c)}</b>
       <button class="btn btn-ghost btn-sm" onclick="openPicker('cat:${esc(c).replace(/'/g,"\\'")}')">${esc(t("lib_cat_assign"))}</button>
-      ${mid ? `<button class="btn btn-ghost btn-sm" onclick="clearCatImg('${esc(c).replace(/'/g,"\\'")}')">${esc(t("lib_cat_clear"))}</button>` : ""}</div>`;
+      ${src ? `<button class="btn btn-ghost btn-sm" onclick="clearCatImg('${esc(c).replace(/'/g,"\\'")}')">${esc(t("lib_cat_clear"))}</button>` : ""}</div>`;
   }).join("") : `<p style="color:var(--muted)">${esc(t("lib_cat_none"))}</p>`;
 }
 let pickTarget = null;
 async function openPicker(target){
-  const u = getCurrentUser(); if (!u) return;
+  if (!ME) return;
   pickTarget = target;
-  await ensureMediaCache(u.id);
-  const items = await libAll(u.id);
+  const items = await libList();
   $("pickGrid").innerHTML = items.length
-    ? items.map(m => `<div class="lib-item pick" onclick="pickMedia('${m.id}')" role="button" tabindex="0"><img src="${m.dataUrl}" alt="" loading="lazy"></div>`).join("")
+    ? items.map(m => `<div class="lib-item pick" onclick="pickMedia('${esc(m.url).replace(/'/g,"\\'")}')" role="button" tabindex="0"><img src="${esc(m.url)}" alt="" loading="lazy"></div>`).join("")
     : `<p style="grid-column:1/-1;color:var(--muted)">${esc(t("lib_empty"))}</p>`;
   $("modalPicker").classList.add("on"); $("scrim").classList.add("on");
 }
-function pickMedia(id){
-  if (pickTarget === "prod"){ $("fImg").value = "lib:" + id; }
+function pickMedia(url){
+  if (pickTarget === "prod") $("fImg").value = url;
   else if (typeof pickTarget === "string" && pickTarget.startsWith("cat:")){
-    S.config.catImages = S.config.catImages || {}; S.config.catImages[pickTarget.slice(4)] = id; saveBiz(S.userId, S); renderMedia();
+    S.config.catImages = S.config.catImages || {}; S.config.catImages[pickTarget.slice(4)] = url;
+    sb.from('businesses').update({ cat_images: S.config.catImages }).eq('id', S.bizId);
+    renderMedia();
   }
   closeAll(); toast("✓");
 }
-function clearCatImg(cat){ delete (S.config.catImages||{})[cat]; saveBiz(S.userId, S); renderMedia(); toast("✓"); }
+function clearCatImg(cat){ delete (S.config.catImages||{})[cat]; sb.from('businesses').update({ cat_images:S.config.catImages }).eq('id', S.bizId); renderMedia(); toast("✓"); }
 
 /* ====== ROUTER ====== */
 function go(v, slug){
@@ -1410,7 +1477,7 @@ function route(){
   if (raw === "super") return go("super");
   if (raw === "registro"){ go("landing"); setTimeout(() => openAuth("register"), 150); return; }
   if (raw.startsWith("s/")) return viewPublicCatalog(raw.slice(2));
-  if (raw === "catalogo"){ const u = getCurrentUser(); if (u){ go("catalogo", getBiz(u.id).config.slug); } else { go("landing"); toast(t("toast_login_first")); openAuth("login"); } return; }
+  if (raw === "catalogo"){ if (ME && BIZ){ go("catalogo", BIZ.slug); } else { go("landing"); toast(t("toast_login_first")); openAuth("login"); } return; }
   if (raw === "") return go("landing");
   const el = document.getElementById(raw);
   if (el){ ["landing","catalogo","admin","super"].forEach(x => $("v-"+x).hidden = (x !== "landing")); refreshLanding(); refreshNavUser(); closeAll(); setTimeout(()=>el.scrollIntoView({behavior:"smooth"}),60); return; }
@@ -1419,17 +1486,14 @@ function route(){
 
 /* ====== UI ====== */
 function viewMyCatalog(){
-  const u = getCurrentUser();
-  if (!u){ openAuth("login"); toast(t("toast_login_first")); return; }
-  const b = getBiz(u.id);
-  if (!b.config.created){ go("admin"); tab("cfg"); toast(t("toast_fill_wa")); return; }
-  go("catalogo", b.config.slug);
+  if (!ME){ openAuth("login"); toast(t("toast_login_first")); return; }
+  if (!BIZ || !BIZ.created){ go("admin"); tab("cfg"); toast(t("toast_fill_wa")); return; }
+  go("catalogo", BIZ.slug);
 }
-function avHtml(src, cls){ return src ? `<img class="${cls}" src="${esc(src)}" alt="">` : ""; }
 function refreshNavUser(){
   const u = getCurrentUser();
   if (u){
-    $("userBox").innerHTML = `<span class="user-box">${u.avatar ? avHtml(u.avatar,"av") : "👤"} ${esc(u.name)}${isAdmin()?" 👑":""}</span>`;
+    $("userBox").innerHTML = `<span class="user-box">${u.avatar ? `<img class="av" src="${esc(u.avatar)}" alt="">` : "👤"} ${esc(u.name)}${isAdmin()?" 👑":""}</span>`;
     $("ctaNav").textContent = t("admin_view_cat"); $("ctaNav").onclick = () => viewMyCatalog();
     $("navViewCat").style.display = "";
   } else {
@@ -1439,7 +1503,7 @@ function refreshNavUser(){
   }
   $("ctaHero").onclick = () => openAuth("register");
   $("ctaFinal").onclick = () => openAuth("register");
-  const sb = $("superBtn"); if (sb) sb.hidden = !isAdmin();
+  const sbBtn = $("superBtn"); if (sbBtn) sbBtn.hidden = !isAdmin();
 }
 function openMenu(){ buildMMenu(); $("mmenu").classList.add("on"); $("scrim").classList.add("on"); }
 function buildMMenu(){
@@ -1448,7 +1512,7 @@ function buildMMenu(){
   let extra = "";
   if (u && isAdmin()) extra = `<button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" onclick="closeAll();go('super')">👑 ${esc(t("super_btn"))}</button>`;
   $("mmAuth").innerHTML = u
-    ? `<div class="user-box" style="justify-content:center">${u.avatar ? avHtml(u.avatar,"av") : "👤"} ${esc(u.name)}${isAdmin()?" 👑":""}</div>` + extra +
+    ? `<div class="user-box" style="justify-content:center">${u.avatar ? `<img class="av" src="${esc(u.avatar)}" alt="">` : "👤"} ${esc(u.name)}${isAdmin()?" 👑":""}</div>` + extra +
       `<button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" onclick="closeAll();go('admin')">⚙️ ${esc(t("foot_panel"))}</button>
        <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" onclick="logout()">🚪 ${esc(t("logout"))}</button>`
     : `<button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" onclick="closeAll();openAuth('login')">${esc(t("auth_login"))}</button>`;
@@ -1456,39 +1520,49 @@ function buildMMenu(){
   cta.textContent = u ? t("admin_view_cat") : t("nav_create");
   cta.onclick = () => { closeAll(); if (u) viewMyCatalog(); else openAuth("register"); };
 }
-function refreshLanding(){
+async function refreshLanding(){
   $("dirWrap").hidden = !getPlat().dirEnabled;
-  const pub = getUsers().map(u => ({ u, b:getBiz(u.id) })).filter(x => x.b.config.created && x.b.config.businessName && !x.u.suspended);
+  if (!sb){ $("dirGrid").innerHTML = `<p class="empty-state" style="grid-column:1/-1"><span class="ico-big">📭</span><br>${esc(t("dir_empty"))}</p>`; return; }
+  const { data: bizs } = await sb.from('businesses').select('*').eq('created', true);
+  const list = bizs || [];
+  const ids = [...new Set(list.map(b => b.owner_id))];
+  let pros = [];
+  if (ids.length){ const r = await sb.from('public_profiles').select('*').in('id', ids); pros = r.data || []; }
+  const pmap = {}; pros.forEach(p => pmap[p.id] = p);
+  const pub = list.filter(b => b.business_name && (!pmap[b.owner_id] || !pmap[b.owner_id].suspended));
   const grid = $("dirGrid");
-  grid.innerHTML = pub.length ? pub.map(({b}) => {
-    const n = b.products.filter(p=>p.active).length;
-    const meta = [b.config.category, (n===1?t("item_count_one"):t("item_count",{n}))].filter(Boolean).join(" · ");
-    return `<div class="biz-card" onclick="viewPublicCatalog('${esc(b.config.slug)}')"><div class="biz-avatar">${b.config.avatar ? `<img src="${esc(b.config.avatar)}" alt="">` : esc((b.config.businessName||"?")[0].toUpperCase())}</div><h4>${esc(b.config.businessName)}</h4><div class="meta">${esc(meta)}</div></div>`;
-  }).join("") : `<p class="empty-state" style="grid-column:1/-1"><span class="ico-big">📭</span><br>${esc(t("dir_empty"))}</p>`;
+  if (!pub.length){ grid.innerHTML = `<p class="empty-state" style="grid-column:1/-1"><span class="ico-big">📭</span><br>${esc(t("dir_empty"))}</p>`; return; }
+  const counts = {};
+  const { data: pcs } = await sb.from('products').select('business_id, active').eq('active', true);
+  (pcs||[]).forEach(p => counts[p.business_id] = (counts[p.business_id]||0)+1);
+  grid.innerHTML = pub.map(b => {
+    const n = counts[b.id]||0;
+    const av = (pmap[b.owner_id] && pmap[b.owner_id].avatar) || b.avatar || "";
+    const meta = [b.category, (n===1?t("item_count_one"):t("item_count",{n}))].filter(Boolean).join(" · ");
+    return `<div class="biz-card" onclick="viewPublicCatalog('${esc(b.slug)}')"><div class="biz-avatar">${av ? `<img src="${esc(av)}" alt="">` : esc((b.business_name||"?")[0].toUpperCase())}</div><h4>${esc(b.business_name)}</h4><div class="meta">${esc(meta)}</div></div>`;
+  }).join("");
 }
 
-/* ====== CATÁLOGO ====== */
+/* ====== CATÁLOGO PÚBLICO ====== */
 let curCats = [];
-function viewPublicCatalog(slug){
-  for (const u of getUsers()){
-    const b = getBiz(u.id);
-    if (b.config.slug === slug){
-      if (u.suspended) break;
-      S = b; cart = {}; F = { cat:"Todos", q:"" }; mediaCacheOwner = "__none__";
-      $("v-landing").hidden = true; $("v-admin").hidden = true; $("v-super").hidden = true; $("v-catalogo").hidden = false;
-      location.hash = "#/s/" + slug; window.scrollTo(0,0); renderCatalog(); return;
-    }
-  }
-  go("landing"); toast(t("not_found"));
+async function viewPublicCatalog(slug){
+  if (!sb) return go("landing");
+  const { data: b } = await sb.from('businesses').select('*').eq('slug', slug).maybeSingle();
+  if (!b || !b.created){ go("landing"); toast(t("not_found")); return; }
+  const { data: pro } = await sb.from('public_profiles').select('*').eq('id', b.owner_id).maybeSingle();
+  if (pro && pro.suspended){ go("landing"); toast(t("not_found")); return; }
+  const { data: ps } = await sb.from('products').select('*').eq('business_id', b.id).eq('active', true);
+  S = bizToState(b, ps); S.avatarProfile = pro || null;
+  cart = {}; F = { cat:"Todos", q:"" };
+  $("v-landing").hidden = true; $("v-admin").hidden = true; $("v-super").hidden = true; $("v-catalogo").hidden = false;
+  location.hash = "#/s/" + slug; window.scrollTo(0,0); renderCatalog();
 }
-async function renderCatalog(){
-  const isOwner = getCurrentUser() && getCurrentUser().id === S.userId;
+function renderCatalog(){
+  const isOwner = ME && ME.id === S.userId;
   $("adminBtn2").style.display = isOwner ? "" : "none";
-  await ensureMediaCache(S.userId || null);
   const c = S.config;
   $("catName").textContent = c.businessName || "—"; $("catNameFoot").textContent = c.businessName || "—";
-  const av = $("catAvatar");
-  av.innerHTML = c.avatar ? `<img src="${esc(c.avatar)}" alt="">` : "W";
+  $("catAvatar").innerHTML = c.avatar ? `<img src="${esc(c.avatar)}" alt="">` : "W";
   $("catEyebrow").textContent = c.bannerEyebrow || "—"; $("catTitle").textContent = c.bannerTitle || c.businessName || "—";
   const cc = $("catCat");
   if (c.category){ cc.hidden = false; cc.textContent = c.category; } else cc.hidden = true;
@@ -1497,18 +1571,17 @@ async function renderCatalog(){
   curCats = ["Todos", ...new Set(act.map(p => p.cat))];
   const allLabel = LANG === "ar" ? "الكل" : LANG === "fr" ? "Tous" : "Todos";
   $("chips").innerHTML = curCats.map((x,i) => {
-    const img = (x !== "Todos" && (c.catImages||{})[x]) ? MEDIA_CACHE[c.catImages[x]] : null;
-    return `<button class="chip ${F.cat===x?"on":""}" onclick="F.cat=curCats[${i}];renderCatalog()">${img?`<img src="${img}" alt="">`:""}${esc(x==="Todos"?allLabel:x)}</button>`;
+    const img = (x !== "Todos" && (c.catImages||{})[x]) ? c.catImages[x] : null;
+    return `<button class="chip ${F.cat===x?"on":""}" onclick="F.cat=curCats[${i}];renderCatalog()">${img?`<img src="${esc(img)}" alt="">`:""}${esc(x==="Todos"?allLabel:x)}</button>`;
   }).join("");
   const list = act.filter(p => (F.cat==="Todos" || p.cat===F.cat) && p.name.toLowerCase().includes(F.q));
   $("productsGrid").innerHTML = list.length ? list.map(p => {
     const pr = p.promo ? Math.round((1 - p.promo/p.price)*100) : 0;
-    const src = imgSrc(p);
     return `<div class="pcard">${p.promo?`<span class="promo">-${pr}%</span>`:""}
-      <div class="pimg">${src?`<img src="${esc(src)}" alt="${esc(p.name)}" loading="lazy">`:esc(p.emoji||"🛍️")}</div>
+      <div class="pimg">${p.img?`<img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy">`:esc(p.emoji||"🛍️")}</div>
       <div class="pname">${esc(p.name)}</div><div class="pdesc">${esc(p.desc||"")}</div>
       <div class="pprice">${esc(money(p.promo||p.price))}${p.promo?`<s>${esc(money(p.price))}</s>`:""}</div>
-      <button class="btn btn-primary btn-sm" style="justify-content:center" onclick="add(${p.id})" aria-label="🛒">🛒</button></div>`;
+      <button class="btn btn-primary btn-sm" style="justify-content:center" onclick="add(${p.id})" aria-label="🛒"></button></div>`;
   }).join("") : `<div class="empty-state"><span class="ico-big">🛍️</span><h3>${esc(t("no_prods_public"))}</h3></div>`;
   renderCart();
 }
@@ -1519,12 +1592,11 @@ function subtotal(){ return cartLines().reduce((s,l)=>s+l.q*l.unit,0); }
 function renderCart(){
   const n = Object.values(cart).reduce((a,b)=>a+b,0);
   $("cartCount").textContent = n;
-  $("cartItems").innerHTML = cartLines().length ? cartLines().map(l => {
-    const src = imgSrc(l.p);
-    return `<div class="citem"><div class="pimg">${src?`<img src="${esc(src)}" alt="">`:esc(l.p.emoji||"🛍️")}</div>
+  $("cartItems").innerHTML = cartLines().length ? cartLines().map(l => `
+    <div class="citem"><div class="pimg">${l.p.img?`<img src="${esc(l.p.img)}" alt="">`:esc(l.p.emoji||"🛍️")}</div>
       <div><b>${esc(l.p.name)}</b><br><small style="color:var(--muted)">${esc(money(l.unit))} ${esc(t("per_unit"))}</small></div>
-      <div style="text-align:right"><div class="qty"><button onclick="qty(${l.p.id},-1)" aria-label="−">−</button><b>${l.q}</b><button onclick="qty(${l.p.id},1)" aria-label="+">+</button></div><b style="color:var(--violet)">${esc(money(l.q*l.unit))}</b></div></div>`;
-  }).join("") : `<p style="text-align:center;color:var(--muted);padding:30px">${esc(t("cart_empty"))}</p>`;
+      <div style="text-align:right"><div class="qty"><button onclick="qty(${l.p.id},-1)" aria-label="−">−</button><b>${l.q}</b><button onclick="qty(${l.p.id},1)" aria-label="+">+</button></div><b style="color:var(--violet)">${esc(money(l.q*l.unit))}</b></div></div>`).join("")
+    : `<p style="text-align:center;color:var(--muted);padding:30px">${esc(t("cart_empty"))}</p>`;
   $("cartTotal").textContent = money(subtotal());
 }
 function openDrawer(){ $("drawer").classList.add("on"); $("scrim").classList.add("on"); }
@@ -1551,7 +1623,7 @@ function renderSum(){
     + `<div><span>${esc(t("check_deliv"))}</span><span>${esc(delivVal()==="delivery" ? money(S.config.deliveryCost) : t("deliv_lbl_retiro"))}</span></div>
     <div style="font-weight:750;border-top:1px solid #D9CFF0;padding-top:6px"><span>${esc(t("total"))}</span><span>${esc(money(total()))}</span></div>`;
 }
-function sendOrder(){
+async function sendOrder(){
   const c = S.config;
   if (!c.whatsapp){ toast(t("toast_fill_wa")); closeAll(); go("admin"); return; }
   const name = $("cName").value.trim(); if (!name) return toast(t("toast_fill_name"));
@@ -1565,8 +1637,9 @@ function sendOrder(){
     ...L.map(l => t("wa_product_line",{q:l.q,name:l.p.name,price:money(l.q*l.unit)})), "",
     deliv==="delivery" ? t("wa_delivery_with_addr",{mode:dl,cost:money(c.deliveryCost),addr}) : t("wa_delivery_line",{mode:dl}),
     t("wa_payment",{pay}), t("wa_total",{total:money(total())}), note ? t("wa_note",{note}) : "" ].filter(Boolean).join("\n");
-  const cur = getCurrentUser();
-  if (cur && cur.id === S.userId){ S.orders.unshift({ id, ts:Date.now(), customer:name, delivery:dl, address:addr, payment:pay, note, items:L.map(l=>({name:l.p.name,qty:l.q,unit:l.unit})), total:total(), status:"pend" }); saveBiz(cur.id, S); }
+  if (sb && S.bizId){
+    await sb.from('orders').insert({ business_id:S.bizId, code:id, customer_name:name, delivery_type:dl, address:addr, payment:pay, note, items:L.map(l=>({name:l.p.name,qty:l.q,unit:l.unit})), total:total(), status:"pend" });
+  }
   cart = {}; renderCart(); closeAll();
   window.open(`https://wa.me/${c.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank");
   toast(t("toast_order_sent"));
@@ -1575,43 +1648,45 @@ function sendOrder(){
 /* ====== ADMIN ====== */
 const STATUSES = ["pend","conf","deliv","done","cancel"];
 function tab(t2){ ["prod","orders","media","cfg","share"].forEach(x => { const p = $("p"+x[0].toUpperCase()+x.slice(1)); if (p) p.hidden = (x !== t2); const b = $("tab"+x[0].toUpperCase()+x.slice(1)); if (b) b.classList.toggle("on", x===t2); }); if (t2 === "media") renderMedia(); }
-async function setCfgAvatar(input){ const f = input.files && input.files[0]; if (!f) return; const u = getCurrentUser(); if (!u) return;
-  const dataUrl = await compressSize(f, 160, 0.8);
-  u.avatar = dataUrl; saveUsers(getUsers().map(x => x.id === u.id ? u : x));
-  S.config.avatar = dataUrl; saveBiz(S.userId, S);
-  $("cfgAvPrev").innerHTML = `<img src="${dataUrl}" alt="">`;
-  refreshNavUser(); buildMMenu(); renderCatalogSafe(); toast(t("toast_avatar"));
+async function setCfgAvatar(input){ const f = input.files && input.files[0]; if (!f || !ME) return;
+  const d = await compressSize(f, 160, 0.8);
+  const url = await uploadDataUrl(d, ME.id + "/avatar.jpg");
+  await sb.from('profiles').update({ avatar:url }).eq('id', ME.id);
+  if (BIZ) await sb.from('businesses').update({ avatar:url }).eq('id', BIZ.id);
+  ME.avatar = url; if (BIZ) BIZ.avatar = url;
+  $("cfgAvPrev").innerHTML = `<img src="${url}" alt="">`;
+  refreshNavUser(); buildMMenu(); toast(t("toast_avatar"));
 }
-function clearCfgAvatar(){ const u = getCurrentUser(); if (!u) return;
-  u.avatar = ""; saveUsers(getUsers().map(x => x.id === u.id ? u : x));
-  S.config.avatar = ""; saveBiz(S.userId, S);
-  $("cfgAvPrev").innerHTML = "🏪"; refreshNavUser(); buildMMenu(); renderCatalogSafe(); toast("✓");
+async function clearCfgAvatar(){ if (!ME) return;
+  await sb.from('profiles').update({ avatar:"" }).eq('id', ME.id);
+  if (BIZ) await sb.from('businesses').update({ avatar:"" }).eq('id', BIZ.id);
+  ME.avatar = ""; if (BIZ) BIZ.avatar = "";
+  $("cfgAvPrev").innerHTML = "🏪"; refreshNavUser(); buildMMenu(); toast("✓");
 }
-function renderCatalogSafe(){ if (!$("v-catalogo").hidden) renderCatalog(); }
 async function renderAdmin(){
   if (!requireAuth()) return;
-  const u = getCurrentUser(); S = getBiz(u.id);
-  await ensureMediaCache(u.id);
+  const { data: ps } = await sb.from('products').select('*').eq('business_id', BIZ.id).order('sort', { ascending:true });
+  const { data: os } = await sb.from('orders').select('*').eq('business_id', BIZ.id).order('created_at', { ascending:false });
+  S = bizToState(BIZ, ps); S.orders = os || [];
   const c = S.config;
-  $("adminTitle").textContent = c.businessName || u.name;
-  $("adminAvatar").innerHTML = (c.avatar || u.avatar) ? `<img src="${esc(c.avatar || u.avatar)}" alt="">` : "W";
-  const sb = $("superBtn"); if (sb) sb.hidden = !isAdmin();
-  $("prodList").innerHTML = S.products.length ? S.products.map(p => {
-    const src = imgSrc(p);
-    return `<tr><td style="font-size:22px">${src?`<img src="${esc(src)}" alt="" style="width:34px;height:34px;object-fit:cover;border-radius:8px">`:esc(p.emoji||"🛍️")}</td>
+  $("adminTitle").textContent = c.businessName || ME.name;
+  $("adminAvatar").innerHTML = (ME.avatar || c.avatar) ? `<img src="${esc(ME.avatar || c.avatar)}" alt="">` : "W";
+  $("superBtn").hidden = !isAdmin();
+  $("prodList").innerHTML = S.products.length ? S.products.map(p => `
+    <tr><td style="font-size:22px">${p.img?`<img src="${esc(p.img)}" alt="" style="width:34px;height:34px;object-fit:cover;border-radius:8px">`:esc(p.emoji||"🛍️")}</td>
       <td><b>${esc(p.name)}</b>${p.promo?` <span class="promo" style="position:static">-${Math.round((1-p.promo/p.price)*100)}%</span>`:""}</td>
       <td>${esc(p.cat)}</td><td>${esc(money(p.promo||p.price))}</td>
       <td><button class="st" onclick="toggleProd(${p.id})">${esc(p.active?t("active"):t("inactive"))}</button></td>
-      <td><button class="st" onclick="editProd(${p.id})" aria-label="✏️">✏️</button> <button class="st" onclick="delProd(${p.id})" aria-label="🗑️">🗑️</button></td></tr>`;
-  }).join("") : `<tr><td colspan="6" style="text-align:center;padding:30px;color:var(--muted)">${esc(t("empty_prods"))}</td></tr>`;
+      <td><button class="st" onclick="editProd(${p.id})" aria-label="✏️">✏️</button> <button class="st" onclick="delProd(${p.id})" aria-label="🗑️">🗑️</button></td></tr>`).join("")
+    : `<tr><td colspan="6" style="text-align:center;padding:30px;color:var(--muted)">${esc(t("empty_prods"))}</td></tr>`;
   $("ordersCount").textContent = S.orders.length ? `(${S.orders.length})` : "";
   $("ordersList").innerHTML = S.orders.length ? S.orders.map(o => `<div class="order-card">
-      <div class="head"><span>🧾 ${esc(o.id)} · ${esc(o.customer)}</span><span style="color:var(--violet)">${esc(money(o.total))}</span></div>
-      <p style="font-size:13.5px;margin:8px 0">${o.items.map(i=>`${i.qty} × ${esc(i.name)}`).join(" · ")}<br>🚚 ${esc(o.delivery)}${o.address?" — "+esc(o.address):""} · 💳 ${esc(o.payment)}${o.note?" · 📝 "+esc(o.note):""}<br><small style="color:var(--muted)">${esc(dateFmt(o.ts))}</small></p>
+      <div class="head"><span>🧾 ${esc(o.code)} · ${esc(o.customer_name)}</span><span style="color:var(--violet)">${esc(money(o.total))}</span></div>
+      <p style="font-size:13.5px;margin:8px 0">${(o.items||[]).map(i=>`${i.qty} × ${esc(i.name)}`).join(" · ")}<br>🚚 ${esc(o.delivery_type)}${o.address?" — "+esc(o.address):""} · 💳 ${esc(o.payment)}${o.note?" · 📝 "+esc(o.note):""}<br><small style="color:var(--muted)">${esc(dateFmt(new Date(o.created_at).getTime()))}</small></p>
       <select class="st" onchange="setStatus('${esc(o.id)}',this.value)">${STATUSES.map(s=>`<option value="${s}" ${o.status===s?"selected":""}>${esc(t("st_"+s))}</option>`).join("")}</select>
     </div>`).join("") : `<div class="card center"><p>${esc(t("empty_orders"))}</p></div>`;
-  $("cfgAvPrev").innerHTML = (c.avatar || u.avatar) ? `<img src="${esc(c.avatar || u.avatar)}" alt="">` : "🏪";
-  $("cfgName").value = c.businessName; $("cfgCat").value = c.category || ""; $("cfgWa").value = c.whatsapp; $("cfgEmail").value = c.email || u.email || "";
+  $("cfgAvPrev").innerHTML = (ME.avatar || c.avatar) ? `<img src="${esc(ME.avatar || c.avatar)}" alt="">` : "🏪";
+  $("cfgName").value = c.businessName; $("cfgCat").value = c.category || ""; $("cfgWa").value = c.whatsapp; $("cfgEmail").value = c.email || ME.email || "";
   $("cfgCur").value = c.currency; $("cfgPay").value = (c.payments||[]).join(", ");
   $("cfgEye").value = c.bannerEyebrow; $("cfgTitle").value = c.bannerTitle;
   $("cfgDeliv").checked = !!c.deliveryEnabled; $("cfgCost").value = c.deliveryCost;
@@ -1620,100 +1695,126 @@ async function renderAdmin(){
   $("shareWA").href = `https://wa.me/?text=${encodeURIComponent(t("wa_share_msg")+" "+pubLink)}`;
   if (!$("pMedia").hidden) renderMedia();
 }
-function saveProd(){
+async function saveProd(){
   if (!requireAuth()) return;
   const n = $("fName").value.trim(), cat = $("fCat").value.trim(), pr = parseFloat($("fPrice").value);
   if (!n || !cat || isNaN(pr)) return toast(t("toast_fill"));
-  const data = { name:n, cat, price:pr, promo: $("fPromo").value ? parseFloat($("fPromo").value) : null, emoji:$("fEmoji").value.trim(), img:$("fImg").value.trim(), desc:$("fDesc").value.trim() };
+  const row = { business_id:BIZ.id, name:n, category:cat, price:pr, promo: $("fPromo").value ? parseFloat($("fPromo").value) : null, emoji:$("fEmoji").value.trim(), image_url:$("fImg").value.trim(), description:$("fDesc").value.trim() };
   const id = $("fId").value;
-  if (id) Object.assign(S.products.find(p=>p.id==id), data);
-  else { data.id = S.nextProdId || (S.products.length+1); S.nextProdId = (S.nextProdId||1)+1; data.active = true; S.products.push(data); }
-  saveBiz(S.userId, S); clearForm(); renderAdmin(); toast(t("toast_saved"));
+  if (id) await sb.from('products').update(row).eq('id', id);
+  else await sb.from('products').insert(Object.assign({ active:true }, row));
+  clearForm(); renderAdmin(); toast(t("toast_saved"));
 }
 function editProd(id){ const p = S.products.find(x=>x.id==id); $("fId").value=p.id; $("fName").value=p.name; $("fCat").value=p.cat; $("fPrice").value=p.price; $("fPromo").value=p.promo||""; $("fEmoji").value=p.emoji||""; $("fImg").value=p.img||""; $("fDesc").value=p.desc||""; $("formTitle").textContent=t("edit_prod"); window.scrollTo(0,0); }
 function clearForm(){ $("fId").value=""; ["fName","fCat","fPrice","fPromo","fEmoji","fImg","fDesc"].forEach(i=>$(i).value=""); $("formTitle").textContent=t("add_prod"); }
-function delProd(id){ if (confirm(t("confirm_delete_prod"))){ S.products = S.products.filter(p=>p.id!=id); saveBiz(S.userId,S); renderAdmin(); toast(t("toast_deleted")); } }
-function toggleProd(id){ const p = S.products.find(x=>x.id==id); p.active = !p.active; saveBiz(S.userId,S); renderAdmin(); }
-function setStatus(id,st){ const o = S.orders.find(x=>x.id===id); o.status = st; saveBiz(S.userId,S); toast(t("toast_status")+" "+t("st_"+st)); }
-function saveCfg(){
+async function delProd(id){ if (!confirm(t("confirm_delete_prod"))) return; await sb.from('products').delete().eq('id', id); renderAdmin(); toast(t("toast_deleted")); }
+async function toggleProd(id){ const p = S.products.find(x=>x.id==id); await sb.from('products').update({ active:!p.active }).eq('id', id); renderAdmin(); }
+async function setStatus(id, st){ await sb.from('orders').update({ status:st }).eq('id', id); toast(t("toast_status")+" "+t("st_"+st)); renderAdmin(); }
+async function saveCfg(){
   if (!requireAuth()) return;
-  const c = S.config;
-  c.businessName = $("cfgName").value.trim()||""; c.category = $("cfgCat").value; c.whatsapp = $("cfgWa").value.replace(/\D/g,""); c.email = $("cfgEmail").value.trim();
-  c.currency = $("cfgCur").value; c.payments = $("cfgPay").value.split(",").map(x=>x.trim()).filter(Boolean);
-  c.bannerEyebrow = $("cfgEye").value; c.bannerTitle = $("cfgTitle").value;
-  c.deliveryEnabled = $("cfgDeliv").checked; c.deliveryCost = parseFloat($("cfgCost").value)||0; c.created = true;
-  saveBiz(S.userId, S);
-  const users = getUsers(); const u = users.find(x=>x.id===S.userId);
-  if (u){ u.name = c.businessName || u.name; saveUsers(users); }
+  const upd = {
+    business_name: $("cfgName").value.trim()||"", category: $("cfgCat").value, whatsapp: $("cfgWa").value.replace(/\D/g,""), email: $("cfgEmail").value.trim(),
+    currency: $("cfgCur").value, payments: $("cfgPay").value.split(",").map(x=>x.trim()).filter(Boolean),
+    banner_eyebrow: $("cfgEye").value, banner_title: $("cfgTitle").value,
+    delivery_enabled: $("cfgDeliv").checked, delivery_cost: parseFloat($("cfgCost").value)||0, created:true
+  };
+  await sb.from('businesses').update(upd).eq('id', BIZ.id);
+  if (upd.business_name) await sb.from('profiles').update({ name: upd.business_name }).eq('id', ME.id);
+  await refreshMe(ME.id);
   refreshNavUser(); buildMMenu(); toast(t("toast_cfg_saved"));
 }
 function copyLink(){ navigator.clipboard.writeText($("shareLink").value).then(()=>toast(t("toast_copied"))); }
+async function migrateLocal(){
+  if (!requireAuth()) return;
+  const sess = JSON.parse(localStorage.getItem("catwha_session") || "null");
+  if (!sess){ toast(t("mig_none")); return; }
+  const old = JSON.parse(localStorage.getItem("catwha_biz_" + sess.userId) || "null");
+  if (!old || !old.products || !old.products.length){ toast(t("mig_none")); return; }
+  const rows = old.products.map(p => ({ business_id:BIZ.id, name:p.name, category:p.cat, price:p.price, promo:p.promo||null, emoji:p.emoji||"", image_url:"", description:p.desc||"", active:!!p.active }));
+  await sb.from('products').insert(rows);
+  toast(t("mig_done")); renderAdmin();
+}
 
 /* ====== SUPER PANEL ====== */
 function stab(s){ ["sum","biz","ord","plat"].forEach(x => { $("sp"+x[0].toUpperCase()+x.slice(1)).hidden = (x!==s); $("stab"+x[0].toUpperCase()+x.slice(1)).classList.toggle("on", x===s); }); if (s==="plat") fillPlatForm(); }
-function superRows(){ return getUsers().map(u => ({ u, b:getBiz(u.id) })); }
+async function superData(){
+  const [pros, bizs, ords, prods] = await Promise.all([
+    sb.from('profiles').select('*'),
+    sb.from('businesses').select('*'),
+    sb.from('orders').select('*'),
+    sb.from('products').select('business_id, active')
+  ]);
+  return { pros: pros.data||[], bizs: bizs.data||[], ords: ords.data||[], prods: prods.data||[] };
+}
 function orderCardX(x){ const o = x.o; return `<div class="order-card">
-  <div class="head"><span>🧾 ${esc(o.id)} · ${esc(o.customer)} · 🏪 ${esc(x.bizName||"-")}</span><span style="color:var(--violet)">${esc(x.cur||"")}${numFmt.format(o.total)}</span></div>
-  <p style="font-size:13.5px;margin:8px 0">${o.items.map(i=>`${i.qty} × ${esc(i.name)}`).join(" · ")}<br>🚚 ${esc(o.delivery)}${o.address?" — "+esc(o.address):""} · 💳 ${esc(o.payment)}${o.note?" · 📝 "+esc(o.note):""}<br><small style="color:var(--muted)">${esc(dateFmt(o.ts))}</small></p>
-  <select class="st" onchange="superStatus('${x.bizUserId}','${esc(o.id)}',this.value)">${STATUSES.map(s=>`<option value="${s}" ${o.status===s?"selected":""}>${esc(t("st_"+s))}</option>`).join("")}</select>
+  <div class="head"><span>🧾 ${esc(o.code)} · ${esc(o.customer_name)} · 🏪 ${esc(x.bizName||"-")}</span><span style="color:var(--violet)">${esc(x.cur||"")}${numFmt.format(o.total)}</span></div>
+  <p style="font-size:13.5px;margin:8px 0">${(o.items||[]).map(i=>`${i.qty} × ${esc(i.name)}`).join(" · ")}<br>🚚 ${esc(o.delivery_type)}${o.address?" — "+esc(o.address):""} · 💳 ${esc(o.payment)}${o.note?" · 📝 "+esc(o.note):""}<br><small style="color:var(--muted)">${esc(dateFmt(new Date(o.created_at).getTime()))}</small></p>
+  <select class="st" onchange="superStatus('${esc(o.id)}',this.value)">${STATUSES.map(s=>`<option value="${s}" ${o.status===s?"selected":""}>${esc(t("st_"+s))}</option>`).join("")}</select>
 </div>`; }
-function renderSuper(){
+async function renderSuper(){
   if (!isAdmin()){ toast(t("toast_locked")); go("landing"); return; }
-  const rows = superRows();
-  const created = rows.filter(r => r.b.config.created);
-  const totProds = created.reduce((s,r)=>s+r.b.products.filter(p=>p.active).length,0);
-  const allOrders = rows.flatMap(r => r.b.orders.map(o => ({ o, bizName:r.b.config.businessName, cur:r.b.config.currency, bizUserId:r.u.id })));
-  allOrders.sort((a,b)=>b.o.ts-a.o.ts);
+  const D = await superData();
+  const bizByOwner = {}; D.bizs.forEach(b => bizByOwner[b.owner_id] = b);
+  const created = D.bizs.filter(b => b.created);
+  const totProds = D.prods.filter(p => p.active).length;
+  const allOrders = D.ords.map(o => { const b = D.bizs.find(x => x.id === o.business_id); return { o, bizName:b?b.business_name:"-", cur:b?b.currency:"" }; });
+  allOrders.sort((a,b)=>new Date(b.o.created_at)-new Date(a.o.created_at));
   $("statGrid").innerHTML = `
-    <div class="stat-card"><b>${rows.length}</b><span>${esc(t("stat_users"))}</span></div>
+    <div class="stat-card"><b>${D.pros.length}</b><span>${esc(t("stat_users"))}</span></div>
     <div class="stat-card"><b>${created.length}</b><span>${esc(t("stat_cats"))}</span></div>
     <div class="stat-card"><b>${totProds}</b><span>${esc(t("stat_prods"))}</span></div>
     <div class="stat-card"><b>${allOrders.length}</b><span>${esc(t("stat_orders"))}</span></div>`;
   $("recentOrders").innerHTML = allOrders.slice(0,8).length ? allOrders.slice(0,8).map(orderCardX).join("") : `<p style="color:var(--muted)">${esc(t("no_data"))}</p>`;
   $("allOrders").innerHTML = allOrders.length ? allOrders.map(orderCardX).join("") : `<div class="card center"><p>${esc(t("no_data"))}</p></div>`;
-  $("superBizList").innerHTML = rows.map(({u,b}) => `<tr>
-     <td style="font-size:20px">${b.config.avatar ? `<img src="${esc(b.config.avatar)}" alt="" style="width:30px;height:30px;border-radius:8px;object-fit:cover">` : "🏪"}</td>
-     <td><b>${esc(b.config.businessName||u.name)}</b>${u.role==="admin"||u.email===ADMIN_EMAIL?" 👑":""}</td>
-     <td>${esc(b.config.category||"-")}</td>
-     <td>${esc(u.email)}</td><td>${esc(b.config.whatsapp||"-")}</td>
-     <td>${b.products.length}</td><td>${b.orders.length}</td>
-     <td>${u.suspended?esc(t("suspended")):esc(t("active"))}</td>
+  const prodCount = {}, ordCount = {};
+  D.prods.forEach(p => prodCount[p.business_id] = (prodCount[p.business_id]||0)+1);
+  D.ords.forEach(o => ordCount[o.business_id] = (ordCount[o.business_id]||0)+1);
+  $("superBizList").innerHTML = D.pros.map(p => {
+    const b = bizByOwner[p.id] || {};
+    return `<tr>
+     <td style="font-size:20px">${p.avatar ? `<img src="${esc(p.avatar)}" alt="" style="width:30px;height:30px;border-radius:8px;object-fit:cover">` : "🏪"}</td>
+     <td><b>${esc(b.business_name||p.name)}</b>${p.role==="admin"?" 👑":""}</td>
+     <td>${esc(b.category||"-")}</td>
+     <td>${esc(p.email)}</td><td>${esc(b.whatsapp||"-")}</td>
+     <td>${prodCount[b.id]||0}</td><td>${ordCount[b.id]||0}</td>
+     <td>${p.suspended?esc(t("suspended")):esc(t("active"))}</td>
      <td style="white-space:nowrap">
-       <button class="st" onclick="superEdit('${u.id}')" title="${esc(t("act_edit"))}">✏️</button>
-       <button class="st" onclick="superView('${u.id}')" title="${esc(t("act_view"))}">👁️</button>
-       <button class="st" onclick="superSuspend('${u.id}')" title="${esc(u.suspended?t("act_act"):t("act_susp"))}">${u.suspended?"▶️":"⏸️"}</button>
-       <button class="st" onclick="superDelete('${u.id}')" title="${esc(t("act_del"))}">🗑️</button>
-     </td></tr>`).join("") || `<tr><td colspan="9" style="text-align:center;padding:26px;color:var(--muted)">${esc(t("no_data"))}</td></tr>`;
+       <button class="st" onclick="superEdit('${b.id||""}')" title="${esc(t("act_edit"))}">✏️</button>
+       <button class="st" onclick="superView('${b.slug||""}')" title="${esc(t("act_view"))}">👁️</button>
+       <button class="st" onclick="superSuspend('${p.id}')" title="${esc(p.suspended?t("act_act"):t("act_susp"))}">${p.suspended?"▶️":"⏸️"}</button>
+       <button class="st" onclick="superDelete('${p.id}','${b.id||""}')" title="${esc(t("act_del"))}">🗑️</button>
+     </td></tr>`;
+  }).join("") || `<tr><td colspan="9" style="text-align:center;padding:26px;color:var(--muted)">${esc(t("no_data"))}</td></tr>`;
 }
-function superStatus(bizUserId, orderId, st){ const b = getBiz(bizUserId); const o = b.orders.find(x=>x.id===orderId); if (!o) return; o.status = st; saveBiz(bizUserId, b); toast(t("toast_status")+" "+t("st_"+st)); renderSuper(); }
-function superEdit(userId){ const b = getBiz(userId); const c = b.config;
-  $("seUserId").value = userId; $("seName").value = c.businessName; $("seWa").value = c.whatsapp; $("seEmail").value = c.email;
-  $("seCur").value = c.currency; $("sePay").value = (c.payments||[]).join(", "); $("seCost").value = c.deliveryCost;
-  $("seTitle").value = c.bannerTitle; $("seDeliv").checked = !!c.deliveryEnabled;
+async function superStatus(orderId, st){ await sb.from('orders').update({ status:st }).eq('id', orderId); toast(t("toast_status")+" "+t("st_"+st)); renderSuper(); }
+async function superEdit(bizId){ if (!bizId) return;
+  const { data: b } = await sb.from('businesses').select('*').eq('id', bizId).maybeSingle(); if (!b) return;
+  $("seBizId").value = b.id; $("seName").value = b.business_name; $("seWa").value = b.whatsapp; $("seEmail").value = b.email;
+  $("seCur").value = b.currency; $("sePay").value = (b.payments||[]).join(", "); $("seCost").value = b.delivery_cost;
+  $("seTitle").value = b.banner_title; $("seDeliv").checked = !!b.delivery_enabled;
   $("modalSuperEdit").classList.add("on"); $("scrim").classList.add("on");
 }
-function saveSuperBiz(){ const id = $("seUserId").value; if (!id) return; const b = getBiz(id); const c = b.config;
-  c.businessName = $("seName").value.trim(); c.whatsapp = $("seWa").value.replace(/\D/g,""); c.email = $("seEmail").value.trim();
-  c.currency = $("seCur").value; c.payments = $("sePay").value.split(",").map(x=>x.trim()).filter(Boolean);
-  c.deliveryCost = parseFloat($("seCost").value)||0; c.bannerTitle = $("seTitle").value; c.deliveryEnabled = $("seDeliv").checked;
-  saveBiz(id, b);
-  const users = getUsers(); const u = users.find(x=>x.id===id);
-  if (u && c.businessName){ u.name = c.businessName; saveUsers(users); }
+async function saveSuperBiz(){ const id = $("seBizId").value; if (!id) return;
+  await sb.from('businesses').update({
+    business_name: $("seName").value.trim(), whatsapp: $("seWa").value.replace(/\D/g,""), email: $("seEmail").value.trim(),
+    currency: $("seCur").value, payments: $("sePay").value.split(",").map(x=>x.trim()).filter(Boolean),
+    delivery_cost: parseFloat($("seCost").value)||0, banner_title: $("seTitle").value, delivery_enabled: $("seDeliv").checked
+  }).eq('id', id);
   closeAll(); renderSuper(); refreshLanding(); toast(t("toast_cfg_saved"));
 }
-function superView(userId){ const b = getBiz(userId); viewPublicCatalog(b.config.slug); }
-function superSuspend(userId){ const users = getUsers(); const u = users.find(x=>x.id===userId); if (!u) return;
-  if (u.email === ADMIN_EMAIL) return toast(t("toast_no_self"));
-  u.suspended = !u.suspended; saveUsers(users);
-  const s = getSession(); if (s && s.userId === userId && u.suspended) setSession(null);
-  renderSuper(); refreshLanding(); toast(u.suspended ? t("suspended") : t("active"));
+function superView(slug){ if (slug) viewPublicCatalog(slug); }
+async function superSuspend(userId){
+  if (userId === ME.id) return toast(t("toast_no_self"));
+  const { data: p } = await sb.from('profiles').select('suspended').eq('id', userId).maybeSingle();
+  if (!p) return;
+  await sb.from('profiles').update({ suspended: !p.suspended }).eq('id', userId);
+  renderSuper(); refreshLanding(); toast(!p.suspended ? t("suspended") : t("active"));
 }
-function superDelete(userId){ const users = getUsers(); const u = users.find(x=>x.id===userId); if (!u) return;
-  if (u.email === ADMIN_EMAIL) return toast(t("toast_no_self"));
+async function superDelete(userId, bizId){
+  if (userId === ME.id) return toast(t("toast_no_self"));
   if (!confirm(t("confirm_del_user"))) return;
-  saveUsers(users.filter(x=>x.id!==userId));
-  localStorage.removeItem(BIZ_KEY+userId);
-  const s = getSession(); if (s && s.userId === userId) setSession(null);
+  if (bizId) await sb.from('businesses').delete().eq('id', bizId);
+  await sb.from('profiles').update({ suspended:true }).eq('id', userId);
   renderSuper(); refreshLanding(); toast(t("toast_deleted"));
 }
 function fillPlatForm(){ const p = getPlat(); $("plName").value = p.name; $("plWa").value = p.supportWa; $("plEmail").value = p.contactEmail; $("plLang").value = p.defaultLang; $("plDir").checked = !!p.dirEnabled; }
@@ -1796,10 +1897,15 @@ document.addEventListener("keydown", e => {
 });
 
 /* ====== INICIO ====== */
-loadCurrentState();
-fillCatSelects();
-applyI18n();
-route();
+(async function init(){
+  if (!SB_READY) $("sbBanner").hidden = false;
+  loadCurrentState();
+  fillCatSelects();
+  applyI18n();
+  await loadSession();
+  refreshNavUser(); buildMMenu();
+  route();
+})();
 </script>
 </body>
 </html>
