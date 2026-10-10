@@ -130,7 +130,6 @@ p{color:var(--muted)}
 .cfg-sub{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:6px}
 .cfg-sub h3{margin-bottom:4px}
 .cfg-sub .back{margin-bottom:16px}
-/* PRODUCT EDITOR */
 .prod-layout{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}
 .rte{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
 .rte-bar{display:flex;gap:6px;padding:8px;border-bottom:1px solid var(--line);background:var(--bg);flex-wrap:wrap}
@@ -157,13 +156,19 @@ p{color:var(--muted)}
 .pv-card .pv-price s{color:#B4AFC6;font-weight:500;margin-left:8px;font-size:13px}
 .pv-card .pv-desc{font-size:13px;color:var(--muted);margin-top:8px;max-height:120px;overflow:auto}
 .pv-tag{position:absolute;top:10px;left:10px;background:var(--violet);color:#fff;font-size:10px;font-weight:750;border-radius:8px;padding:3px 8px}
-@media(max-width:900px){.prod-layout{grid-template-columns:1fr}.quick-grid,.cfg-grid{grid-template-columns:1fr 1fr}.imgslots{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:600px){.quick-grid,.cfg-grid{grid-template-columns:1fr}}
+.cat-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0}
+.cat-stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+.cat-stat b{display:block;font-size:26px;color:var(--violet)}
+.cat-stat span{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:750}
+.cat-stat p{font-size:12.5px;margin-top:4px}
+.cat-stat.hl{background:var(--lav);border-color:var(--violet)}
+@media(max-width:900px){.prod-layout{grid-template-columns:1fr}.quick-grid,.cfg-grid,.cat-stats{grid-template-columns:1fr 1fr}.imgslots{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.quick-grid,.cfg-grid,.cat-stats{grid-template-columns:1fr}}
 .hero{padding:70px 0 90px;background:linear-gradient(180deg,#F3EFFC,var(--bg))}
 .hero-in{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
 .hero h1{font-size:clamp(34px,4.6vw,54px);margin:16px 0 18px}
 .hero h1 .wa{color:var(--wateal);display:inline-flex;align-items:center;gap:10px}
-.wa-ic{width:.95em;height:.95em;border-radius:50%;background:var(--wa);display:inline-grid;place-items:center}
+.wa-ic{width:.95em;height:.95em;border-radius:50%;;background:var(--wa);display:inline-grid;place-items:center}
 .wa-ic svg{width:62%;height:62%;fill:#fff}
 .hero-visual{position:relative;display:flex;justify-content:center;padding:20px 0}
 .phone{width:262px;border:9px solid #241E3B;border-radius:38px;background:#fff;overflow:hidden;box-shadow:0 30px 60px rgba(34,28,58,.25)}
@@ -416,7 +421,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
     <h1><span data-i18n="hero_title1">Votre catalogue en ligne avec panier et commande directe sur</span>
       <span class="wa">WhatsApp <span class="wa-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></span>
     </h1>
-    <p data-i18n="hero_desc">Publiez vos produits une seule fois, partagez un lien et recevez des commandes complètes : quantités, total et coordonnées du client. Sans site e-commerce, sans commission.</p>
+    <p data-i18n="hero_desc">Publiez vos produits une seule fois, partagez un lien et recevez des commandes complètes. Sans site e-commerce, sans commission.</p>
     <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:26px">
       <button class="btn btn-primary" id="ctaHero" data-i18n="hero_cta1">Créer mon catalogue gratuit</button>
       <button class="btn btn-ghost" onclick="viewMyCatalog()" data-i18n="hero_cta2">Voir un catalogue en direct</button>
@@ -437,8 +442,8 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
     <div class="wa-float" aria-hidden="true">
       <div class="wa-head"><span class="wa-ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="#25D366"/></svg></span><span>Catalogo Wha<small data-i18n="mock_wa_sub">Commande reçue</small></span></div>
       <div class="wa-body">
-        <div class="bub in" data-i18n="mock_bub1">Bonjour ! Voici ma commande :<br>2 × Article A<br>1 × Article B<br><b>Total prêt</b></div>
-        <div class="bub out" data-i18n="mock_bub2">Parfait ! Je prépare ça ✓</div>
+        <div class="bub in" data-i18n="mock_bub1">Bonjour ! Voici ma commande :<br>2 × A<br>1 × B<br><b>Total prêt</b></div>
+        <div class="bub out" data-i18n="mock_bub2">Parfait ! ✓</div>
       </div>
     </div>
   </div>
@@ -446,24 +451,24 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 
 <section><div class="container center">
   <h2 data-i18n="cmp_title">Vendre par chat, c'est bien.<br>Vendre par chat en désordre, non.</h2>
-  <p class="lead" data-i18n="cmp_lead">Chaque prix répété et chaque quantité relue est du temps perdu. Un catalogue remet de l'ordre.</p>
+  <p class="lead" data-i18n="cmp_lead">Chaque prix répété est du temps perdu. Un catalogue remet de l'ordre.</p>
   <div class="grid g2" style="margin-top:44px;text-align:left">
     <div class="cmp-card bad">
       <h3 data-i18n="cmp_bad_title">Aujourd'hui, message par message</h3>
       <div class="phone" style="width:230px" aria-hidden="true">
         <div class="chathead">← <span data-i18n="cmp_client">Client</span></div>
         <div class="chatscreen">
-          <div class="bub in" data-i18n="cmp_b1">Tu me donnes le prix de… ?</div>
+          <div class="bub in" data-i18n="cmp_b1">Tu me donnes le prix… ?</div>
           <div class="bub out" data-i18n="cmp_b2">📷 photo + prix</div>
-          <div class="bub in" data-i18n="cmp_b3">Et il y a une remise ?</div>
-          <div class="bub out" data-i18n="cmp_b4">💬 encore une explication</div>
-          <div class="bub in" data-i18n="cmp_b5">Ok, note-moi 2 et 1. Ça fait combien ?</div>
+          <div class="bub in" data-i18n="cmp_b3">Une remise ?</div>
+          <div class="bub out" data-i18n="cmp_b4">💬 explication</div>
+          <div class="bub in" data-i18n="cmp_b5">2 et 1, total ?</div>
         </div>
       </div>
       <ul class="cmp-list">
-        <li data-i18n="cmp_bad1">Vous répondez <b>aux mêmes questions</b> chaque jour.</li>
-        <li data-i18n="cmp_bad2">Vos prix vivent dans <b>d'anciens chats</b>.</li>
-        <li data-i18n="cmp_bad3">Une commande mal lue devient <b>une réclamation</b>.</li>
+        <li data-i18n="cmp_bad1">Vous répétez <b>les mêmes réponses</b>.</li>
+        <li data-i18n="cmp_bad2">Vos prix dans <b>d'anciens chats</b>.</li>
+        <li data-i18n="cmp_bad3">Commande mal lue = <b>réclamation</b>.</li>
       </ul>
     </div>
     <div class="cmp-card good">
@@ -475,12 +480,12 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
           <div class="pitem"><i>🛍️</i><b data-i18n="mock_p2">Produit</b><s>—</s></div>
         </div>
         <div class="psum"><div><span>2 × A</span><span>—</span></div><div><span>1 × B</span><span>—</span></div><b><span data-i18n="total">Total</span><span>—</span></b></div>
-        <button class="btn btn-wa btn-sm" style="margin-top:10px" data-i18n="send_wa">Envoyer la commande via WhatsApp</button>
+        <button class="btn btn-wa btn-sm" style="margin-top:10px" data-i18n="send_wa">Envoyer via WhatsApp</button>
       </div></div>
       <ul class="cmp-list ok">
-        <li data-i18n="cmp_good1">Le client <b>voit tout seul</b> : photos, prix et offres.</li>
-        <li data-i18n="cmp_good2">Le panier <b>additionne pour vous</b>.</li>
-        <li data-i18n="cmp_good3">Vous recevez un message <b>clair et complet</b>.</li>
+        <li data-i18n="cmp_good1">Le client <b>voit tout seul</b>.</li>
+        <li data-i18n="cmp_good2">Le panier <b>additionne</b>.</li>
+        <li data-i18n="cmp_good3">Message <b>clair et complet</b>.</li>
       </ul>
     </div>
   </div>
@@ -488,35 +493,35 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 
 <section id="pasos" style="background:#fff"><div class="container center">
   <h2 data-i18n="steps_title">De zéro à la vente<br>en trois mouvements</h2>
-  <p class="lead" data-i18n="steps_lead">Sans installation ni technique : votre catalogue est public dès le premier jour.</p>
+  <p class="lead" data-i18n="steps_lead">Public dès le premier jour.</p>
   <div class="grid g3" style="margin-top:44px;text-align:left">
-    <div class="card"><div class="step-ill bg-lav" aria-hidden="true">🏪</div><span class="step-n">1</span><h3 data-i18n="step1_t">Ouvrez votre compte</h3><p style="font-size:14px;margin-top:8px" data-i18n="step1_d">Nom du commerce, votre WhatsApp et un mot de passe.</p></div>
-    <div class="card"><div class="step-ill bg-sun" aria-hidden="true">🛍️</div><span class="step-n">2</span><h3 data-i18n="step2_t">Publiez votre stock</h3><p style="font-size:14px;margin-top:8px" data-i18n="step2_d">Photos ou emojis, prix, offres et catégories.</p></div>
-    <div class="card"><div class="step-ill bg-mint" aria-hidden="true">🔗</div><span class="step-n">3</span><h3 data-i18n="step3_t">Partagez votre lien</h3><p style="font-size:14px;margin-top:8px" data-i18n="step3_d">En story, réseaux ou au comptoir.</p></div>
+    <div class="card"><div class="step-ill bg-lav" aria-hidden="true">🏪</div><span class="step-n">1</span><h3 data-i18n="step1_t">Ouvrez votre compte</h3><p style="font-size:14px;margin-top:8px" data-i18n="step1_d">Nom, WhatsApp, mot de passe.</p></div>
+    <div class="card"><div class="step-ill bg-sun" aria-hidden="true">🛍️</div><span class="step-n">2</span><h3 data-i18n="step2_t">Publiez votre stock</h3><p style="font-size:14px;margin-top:8px" data-i18n="step2_d">Photos, prix, offres.</p></div>
+    <div class="card"><div class="step-ill bg-mint" aria-hidden="true">🔗</div><span class="step-n">3</span><h3 data-i18n="step3_t">Partagez votre lien</h3><p style="font-size:14px;margin-top:8px" data-i18n="step3_d">Story, réseaux, comptoir.</p></div>
   </div>
 </div></section>
 
 <section><div class="container center">
   <h2><span data-i18n="ben_title1">Un catalogue qui travaille</span> <span style="color:var(--violet)" data-i18n="ben_title2">même hors ligne</span></h2>
-  <p class="lead" data-i18n="ben_lead">Votre lien montre, additionne et prépare la commande.</p>
+  <p class="lead" data-i18n="ben_lead">Votre lien prépare la commande.</p>
   <div class="grid g3" style="margin-top:44px;text-align:left">
-    <div class="card"><div class="step-ill bg-lav" style="font-size:30px" aria-hidden="true">🛍️️</div><h3 data-i18n="ben1_t">Un lien, tout votre stock</h3><p style="font-size:14px;margin:8px 0 12px" data-i18n="ben1_d">Un lien avec photos, prix et disponibilités.</p><span class="tag lav">🔗 <span data-i18n="ben1_tag">partagez-le partout</span></span></div>
-    <div class="card center"><div class="step-ill bg-sun" style="font-size:34px" aria-hidden="true">💰</div><h3 style="font-size:44px;color:var(--violet)">0%</h3><p style="font-size:14px;margin:6px 0"><b data-i18n="ben2_b">de commission par vente</b><br><span data-i18n="ben2_d">Ce que vous vendez reste à vous.</span></p></div>
-    <div class="card"><div class="step-ill bg-mint" style="font-size:30px" aria-hidden="true">💬</div><h3 data-i18n="ben3_t">Conclusion sur WhatsApp</h3><p style="font-size:14px;margin:8px 0 12px" data-i18n="ben3_d">La commande arrive prête.</p><span class="tag">✓ <span data-i18n="ben3_tag">sans intermédiaire</span></span></div>
+    <div class="card"><div class="step-ill bg-lav" style="font-size:30px" aria-hidden="true">🛍️</div><h3 data-i18n="ben1_t">Un lien, tout votre stock</h3><p style="font-size:14px;margin:8px 0 12px" data-i18n="ben1_d">Photos, prix, disponibilités.</p><span class="tag lav">🔗 <span data-i18n="ben1_tag">partagez-le</span></span></div>
+    <div class="card center"><div class="step-ill bg-sun" style="font-size:34px" aria-hidden="true">💰</div><h3 style="font-size:44px;color:var(--violet)">0%</h3><p style="font-size:14px;margin:6px 0"><b data-i18n="ben2_b">de commission</b><br><span data-i18n="ben2_d">Vos gains restent vôtres.</span></p></div>
+    <div class="card"><div class="step-ill bg-mint" style="font-size:30px" aria-hidden="true">💬</div><h3 data-i18n="ben3_t">Conclusion sur WhatsApp</h3><p style="font-size:14px;margin:8px 0 12px" data-i18n="ben3_d">Commande prête.</p><span class="tag">✓ <span data-i18n="ben3_tag">sans intermédiaire</span></span></div>
   </div>
 </div></section>
 
 <section id="funciones" style="background:#fff"><div class="container">
-  <div class="center"><span class="eyebrow" data-i18n="feat_eye">Fonctions</span><h2 data-i18n="feat_title">Tout ce qu'il faut pour vendre,<br>rien de superflu</h2><p class="lead" data-i18n="feat_lead">Des outils pensés pour vendre par chat avec un ordre professionnel.</p></div>
+  <div class="center"><span class="eyebrow" data-i18n="feat_eye">Fonctions</span><h2 data-i18n="feat_title">Tout ce qu'il faut pour vendre</h2><p class="lead" data-i18n="feat_lead">Outils pour vendre par chat avec ordre.</p></div>
   <div class="grid g4" style="margin-top:44px">
-    <div class="card feat"><div class="ico bg-lav" aria-hidden="true">🔗</div><h3 data-i18n="f1">Lien de vente unique</h3><p data-i18n="f1d">Une adresse simple qui ouvre tout votre catalogue.</p></div>
-    <div class="card feat"><div class="ico bg-sky" aria-hidden="true">🔍</div><h3 data-i18n="f2">Recherche et catégories</h3><p data-i18n="f2d">Le client trouve en quelques secondes.</p></div>
-    <div class="card feat"><div class="ico bg-mint" aria-hidden="true">🛒</div><h3 data-i18n="f3">Panier qui compte seul</h3><p data-i18n="f3d">Quantités et total sans erreur.</p></div>
-    <div class="card feat"><div class="ico bg-sun" aria-hidden="true">🧾</div><h3 data-i18n="f4">Commande gardée avant le chat</h3><p data-i18n="f4d">Chaque commande est enregistrée.</p></div>
-    <div class="card feat"><div class="ico bg-lav" aria-hidden="true">🚚</div><h3 data-i18n="f5">Retrait ou livraison</h3><p data-i18n="f5d">Activez la livraison avec coût.</p></div>
-    <div class="card feat"><div class="ico bg-sky" aria-hidden="true">💳</div><h3 data-i18n="f6">Vos règles de paiement</h3><p data-i18n="f6d">Espèces, virement ou autre.</p></div>
-    <div class="card feat"><div class="ico bg-mint" aria-hidden="true">💵</div><h3 data-i18n="f7">Prix dans votre monnaie</h3><p data-i18n="f7d">Publiez dans votre monnaie.</p></div>
-    <div class="card feat"><div class="ico bg-sun" aria-hidden="true">🖼️</div><h3 data-i18n="f8">Bibliothèque d'images</h3><p data-i18n="f8d">Uploadez et réutilisez vos photos.</p></div>
+    <div class="card feat"><div class="ico bg-lav" aria-hidden="true">🔗</div><h3 data-i18n="f1">Lien unique</h3><p data-i18n="f1d">Ouvre tout le catalogue.</p></div>
+    <div class="card feat"><div class="ico bg-sky" aria-hidden="true">🔍</div><h3 data-i18n="f2">Recherche & catégories</h3><p data-i18n="f2d">Trouve en secondes.</p></div>
+    <div class="card feat"><div class="ico bg-mint" aria-hidden="true">🛒</div><h3 data-i18n="f3">Panier automatique</h3><p data-i18n="f3d">Total sans erreur.</p></div>
+    <div class="card feat"><div class="ico bg-sun" aria-hidden="true">🧾</div><h3 data-i18n="f4">Commande gardée</h3><p data-i18n="f4d">Avant le chat.</p></div>
+    <div class="card feat"><div class="ico bg-lav" aria-hidden="true">🚚</div><h3 data-i18n="f5">Retrait / livraison</h3><p data-i18n="f5d">À votre choix.</p></div>
+    <div class="card feat"><div class="ico bg-sky" aria-hidden="true">💳</div><h3 data-i18n="f6">Vos paiements</h3><p data-i18n="f6d">Espèces, virement…</p></div>
+    <div class="card feat"><div class="ico bg-mint" aria-hidden="true">💵</div><h3 data-i18n="f7">Votre monnaie</h3><p data-i18n="f7d">Prix locaux.</p></div>
+    <div class="card feat"><div class="ico bg-sun" aria-hidden="true">🖼️</div><h3 data-i18n="f8">Bibliothèque</h3><p data-i18n="f8d">Photos réutilisables.</p></div>
   </div>
 </div></section>
 
@@ -530,16 +535,16 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
       </div>
       <button class="pbtn" style="width:100%;margin-top:10px;padding:10px" data-i18n="view_order">🛒 Voir commande</button>
     </div></div>
-    <div class="wa-float" style="right:-10%;bottom:18%"><div class="wa-head"><span class="wa-ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="#25D366"/></svg></span><span data-i18n="order_sent">Commande envoyée</span></div><div class="wa-body"><div class="bub in" style="max-width:100%" data-i18n="order_conf">✓ Commande confirmée</div></div></div>
+    <div class="wa-float" style="right:-10%;bottom:18%"><div class="wa-head"><span class="wa-ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="#25D366"/></svg></span><span data-i18n="order_sent">Commande envoyée</span></div><div class="wa-body"><div class="bub in" style="max-width:100%" data-i18n="order_conf">✓ Confirmée</div></div></div>
   </div>
   <div>
     <span class="eyebrow" data-i18n="exp_eye">Pour votre client</span>
-    <h2 data-i18n="exp_title">Acheter prend moins de temps qu'écrire un message</h2>
+    <h2 data-i18n="exp_title">Acheter prend moins de temps qu'écrire</h2>
     <ul class="ul-check">
       <li data-i18n="exp1">Parcourt les catégories.</li><li data-i18n="exp2">Cherche par nom.</li>
-      <li data-i18n="exp3">Voit offres et prix final.</li><li data-i18n="exp4">Ajuste les quantités.</li>
-      <li data-i18n="exp5">Choisit retrait ou livraison.</li><li data-i18n="exp6">Sélectionne un paiement.</li>
-      <li data-i18n="exp7">Envoie la commande sur WhatsApp.</li>
+      <li data-i18n="exp3">Voit offres et prix.</li><li data-i18n="exp4">Ajuste quantités.</li>
+      <li data-i18n="exp5">Retrait ou livraison.</li><li data-i18n="exp6">Choisit paiement.</li>
+      <li data-i18n="exp7">Envoie sur WhatsApp.</li>
     </ul>
     <div class="tags"><span class="tag" data-i18n="exp_t1">Sans compte</span><span class="tag" data-i18n="exp_t2">Tout navigateur</span></div>
   </div>
@@ -548,13 +553,13 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 <section style="background:#fff"><div class="container split">
   <div>
     <span class="eyebrow" data-i18n="ctrl_eye">Pour vous</span>
-    <h2 data-i18n="ctrl_title">Vous décidez quoi vendre et comment</h2>
+    <h2 data-i18n="ctrl_title">Vous décidez quoi vendre</h2>
     <ul class="ul-check">
-      <li data-i18n="ctrl1">Publiez ou retirez en un clic.</li><li data-i18n="ctrl2">Changez prix sans réimprimer.</li>
-      <li data-i18n="ctrl3">Réglez livraison à votre façon.</li><li data-i18n="ctrl4">Historique des commandes.</li>
-      <li data-i18n="ctrl5">Marquez les états.</li><li data-i18n="ctrl6">Lien court et mémorable.</li>
+      <li data-i18n="ctrl1">Publiez/retirez en 1 clic.</li><li data-i18n="ctrl2">Changez prix facilement.</li>
+      <li data-i18n="ctrl3">Réglez livraison.</li><li data-i18n="ctrl4">Historique commandes.</li>
+      <li data-i18n="ctrl5">Marquez états.</li><li data-i18n="ctrl6">Lien court.</li>
     </ul>
-    <div class="tags"><span class="tag lav" data-i18n="ctrl_t1">Sans engagement</span><span class="tag lav" data-i18n="ctrl_t2">Vos données restent vôtres</span></div>
+    <div class="tags"><span class="tag lav" data-i18n="ctrl_t1">Sans engagement</span><span class="tag lav" data-i18n="ctrl_t2">Vos données vôtres</span></div>
   </div>
   <div class="panel-ill" aria-hidden="true">
     <div class="bar"><i></i><i></i><i></i></div>
@@ -571,43 +576,43 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 </div></section>
 
 <section id="negocios"><div class="container center">
-  <h2 data-i18n="types_title">Pensé pour les commerces qui vendent chaque jour</h2>
-  <p class="lead" data-i18n="types_lead">Si votre vente se termine sur WhatsApp, ce catalogue la rend plus rapide.</p>
+  <h2 data-i18n="types_title">Pour les commerces quotidiens</h2>
+  <p class="lead" data-i18n="types_lead">Si ça finit sur WhatsApp, ça accélère.</p>
   <div class="grid" style="grid-template-columns:repeat(5,1fr);margin-top:40px" id="typesGrid"></div>
   <div id="dirWrap">
-    <h2 style="margin-top:70px" data-i18n="dir_title">Commerces qui vendent déjà avec Catalogo Wha</h2>
-    <p class="lead" data-i18n="dir_lead">Catalogues publics de la communauté.</p>
+    <h2 style="margin-top:70px" data-i18n="dir_title">Ils vendent déjà avec Catalogo Wha</h2>
+    <p class="lead" data-i18n="dir_lead">Catalogues publics.</p>
     <div id="dirGrid" class="biz-grid"></div>
   </div>
 </div></section>
 
 <section class="dark"><div class="container center">
   <span class="eyebrow" data-i18n="dark_eye">La différence</span>
-  <h2 data-i18n="dark_title">Ce n'est pas une boutique en ligne :<br>c'est votre vente de toujours, en ordre</h2>
-  <p class="lead" data-i18n="dark_lead">Une boutique classique exige passerelles et maintenance. Vous n'avez besoin que de montrer, recevoir et conclure.</p>
+  <h2 data-i18n="dark_title">Pas une boutique en ligne :<br>votre vente, en ordre</h2>
+  <p class="lead" data-i18n="dark_lead">Montrez, recevez, concluez.</p>
   <div class="dark-cols">
-    <div><b>01</b><span data-i18n="dark1">Vous publiez une fois</span></div>
-    <div><b>02</b><span data-i18n="dark2">Le client commande clair</span></div>
-    <div><b>03</b><span data-i18n="dark3">Vous concluez sur WhatsApp</span></div>
+    <div><b>01</b><span data-i18n="dark1">Publiez une fois</span></div>
+    <div><b>02</b><span data-i18n="dark2">Commande claire</span></div>
+    <div><b>03</b><span data-i18n="dark3">Concluez sur WhatsApp</span></div>
   </div>
-  <p class="lead" data-i18n="dark_lead2">Moins de friction, moins d'abandon.</p>
+  <p class="lead" data-i18n="dark_lead2">Moins de friction.</p>
 </div></section>
 
 <section id="faq" style="background:#fff"><div class="container center">
-  <span class="eyebrow" data-i18n="faq_eye">Questions fréquentes</span>
-  <h2 data-i18n="faq_title">Vos réponses avant de commencer</h2>
+  <span class="eyebrow" data-i18n="faq_eye">FAQ</span>
+  <h2 data-i18n="faq_title">Vos réponses</h2>
   <div class="faq-list" id="faqList"></div>
 </div></section>
 
 <section class="center"><div class="container">
-  <h2 data-i18n="cta_title">Votre prochaine commande peut arriver en ordre dès aujourd'hui</h2>
-  <p class="lead" data-i18n="cta_lead">Créez votre catalogue et partagez le lien.</p>
+  <h2 data-i18n="cta_title">Votre prochaine commande ordonnée aujourd'hui</h2>
+  <p class="lead" data-i18n="cta_lead">Créez et partagez.</p>
   <button class="btn btn-primary" style="margin-top:24px" id="ctaFinal" data-i18n="cta_btn">Créer mon catalogue gratuit</button>
 </div></section>
 
 <section id="contacto" style="background:var(--bg)"><div class="container center">
   <span class="eyebrow" data-i18n="contact_eye">Contact</span>
-  <h2 data-i18n="contact_title">On parle de votre catalogue ?</h2>
+  <h2 data-i18n="contact_title">On parle ?</h2>
   <p class="lead" data-i18n="contact_lead">Écrivez-nous.</p>
   <div class="contact-grid">
     <div class="contact-card"><div class="ico" aria-hidden="true">🏢</div><h3 data-i18n="contact_name">Entreprise</h3><p style="font-weight:750;color:var(--violet)">Catalogo Wha</p></div>
@@ -618,9 +623,9 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 
 <footer class="site"><div class="container" style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
   <a class="logo" href="#/"><i>W</i>Catalogo Wha</a>
-  <p style="flex:1" data-i18n="foot_desc">Catalogue en ligne et commandes via WhatsApp.</p>
+  <p style="flex:1" data-i18n="foot_desc">Catalogue + commandes WhatsApp.</p>
   <a id="footMailLink" class="logo" href="mailto:contact@clickpubli.com" style="font-size:14px;color:var(--violet)">✉ contact@clickpubli.com</a>
-  <button class="btn btn-ghost btn-sm" id="footInstall" hidden onclick="installApp()">📲 <span data-i18n="install">Installer l'app</span></button>
+  <button class="btn btn-ghost btn-sm" id="footInstall" hidden onclick="installApp()">📲 <span data-i18n="install">Installer</span></button>
   <button class="btn btn-ghost btn-sm" onclick="go('admin')">⚙️ <span data-i18n="foot_panel">Panneau</span></button>
 </div></footer>
 </div>
@@ -655,6 +660,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
   <div class="tabs">
     <button class="tab on" id="tabHome" onclick="tab('home')">🏠 <span data-i18n="tab_home">Inicio</span></button>
     <button class="tab" id="tabProd" onclick="tab('prod')">📦 <span data-i18n="tab_prod">Produits</span></button>
+    <button class="tab" id="tabCats" onclick="tab('cats')">🏷️ <span data-i18n="tab_cats">Catégories</span></button>
     <button class="tab" id="tabOrders" onclick="tab('orders')">🧾 <span data-i18n="tab_orders">Commandes</span> <span id="ordersCount"></span></button>
     <button class="tab" id="tabMedia" onclick="tab('media')">🖼️ <span data-i18n="tab_media">Bibliothèque</span></button>
     <button class="tab" id="tabCfg" onclick="tab('cfg')">⚙️ <span data-i18n="tab_cfg">Paramètres</span></button>
@@ -663,12 +669,12 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 
   <div id="pHome">
     <div class="dash-hero">
-      <span class="chip">● <span data-i18n="dash_chip">Préparation du catalogue</span></span>
+      <span class="chip">● <span data-i18n="dash_chip">Préparation</span></span>
       <h2 id="dashBizName">—</h2>
-      <p id="dashBizDesc" data-i18n="dash_sub">Préparez l'essentiel et publiez quand c'est prêt.</p>
+      <p data-i18n="dash_sub">Publiez quand prêt.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
-        <button class="btn btn-primary btn-sm" onclick="tab('cfg')" data-i18n="dash_prep">Préparer la publication ↓</button>
-        <button class="btn btn-ghost btn-sm" onclick="tab('prod');$('fName').focus()" data-i18n="dash_addprod">+ Ajouter un produit</button>
+        <button class="btn btn-primary btn-sm" onclick="tab('cfg')" data-i18n="dash_prep">Préparer ↓</button>
+        <button class="btn btn-ghost btn-sm" onclick="tab('prod');$('fName').focus()" data-i18n="dash_addprod">+ Produit</button>
       </div>
     </div>
     <div class="grid g2">
@@ -678,24 +684,24 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
           <span class="tag" id="dashReqBadge">—</span>
         </div>
         <h3 id="dashReqTitle" style="font-size:22px;margin-bottom:6px">—</h3>
-        <p style="font-size:13.5px" data-i18n="dash_req_d">Complétez les éléments en attente selon les règles de publication.</p>
+        <p style="font-size:13.5px" data-i18n="dash_req_d">Complétez selon les règles.</p>
         <ul class="req-list" id="dashReqList"></ul>
         <div style="display:flex;gap:10px;margin-top:12px">
-          <button class="btn btn-primary btn-sm" onclick="tab('cfg')" data-i18n="dash_complete">Compléter la configuration</button>
-          <button class="btn btn-ghost btn-sm" onclick="tab('prod')" data-i18n="dash_manageprod">Gérer les produits</button>
+          <button class="btn btn-primary btn-sm" onclick="tab('cfg')" data-i18n="dash_complete">Compléter</button>
+          <button class="btn btn-ghost btn-sm" onclick="tab('prod')" data-i18n="dash_manageprod">Gérer</button>
         </div>
       </div>
       <div class="card">
         <span class="eyebrow" data-i18n="dash_quick_t">Vue rapide</span>
-        <h3 style="font-size:22px;margin:6px 0" data-i18n="dash_quick">Données actuelles</h3>
+        <h3 style="font-size:22px;margin:6px 0" data-i18n="dash_quick">Données</h3>
         <div class="stat-grid" style="grid-template-columns:repeat(3,1fr);margin:14px 0" id="dashStats"></div>
       </div>
     </div>
     <div class="quick-grid">
-      <button class="quick-card" onclick="tab('prod');$('fName').focus()"><div class="ico bg-lav">📦</div><h4 data-i18n="q_newprod">Nouveau produit</h4><p data-i18n="q_newprod_d">Ajoutez rapidement.</p></button>
-      <button class="quick-card" onclick="tab('orders')"><div class="ico bg-sun">🧾</div><h4 data-i18n="q_orders">Voir commandes</h4><p data-i18n="q_orders_d">Consultez et gérez.</p></button>
-      <button class="quick-card" onclick="tab('cfg')"><div class="ico bg-mint">⚙️</div><h4 data-i18n="q_cfg">Configurer</h4><p data-i18n="q_cfg_d">Marque, WhatsApp, monnaie.</p></button>
-      <button class="quick-card" onclick="tab('share')"><div class="ico bg-sky">🔗</div><h4 data-i18n="q_share">Partager</h4><p data-i18n="q_share_d">Copiez votre lien.</p></button>
+      <button class="quick-card" onclick="tab('prod');$('fName').focus()"><div class="ico bg-lav">📦</div><h4 data-i18n="q_newprod">Nouveau produit</h4><p data-i18n="q_newprod_d">Rapide.</p></button>
+      <button class="quick-card" onclick="tab('cats')"><div class="ico bg-rose">🏷️</div><h4 data-i18n="q_cats">Catégories</h4><p data-i18n="q_cats_d">Organisez.</p></button>
+      <button class="quick-card" onclick="tab('orders')"><div class="ico bg-sun">🧾</div><h4 data-i18n="q_orders">Commandes</h4><p data-i18n="q_orders_d">Gérer.</p></button>
+      <button class="quick-card" onclick="tab('share')"><div class="ico bg-sky">🔗</div><h4 data-i18n="q_share">Partager</h4><p data-i18n="q_share_d">Lien.</p></button>
     </div>
     <div class="card">
       <span class="eyebrow" data-i18n="dash_act_t">Activité</span>
@@ -704,7 +710,6 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
     </div>
   </div>
 
-  <!-- PRODUCTOS v8-F2 -->
   <div id="pProd" hidden>
     <div class="prod-layout">
       <div>
@@ -713,41 +718,41 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
           <input type="hidden" id="fId">
           <div class="field"><label data-i18n="f_name">Nom *</label><input id="fName" oninput="onNameInput()"></div>
           <div class="form-grid">
-            <div class="field"><label data-i18n="prod_slug">URL du produit</label><input id="fSlug"><div class="hint" data-i18n="prod_slug_d">Généré depuis le nom ; modifiable.</div></div>
-            <div class="field"><label data-i18n="f_cat">Catégorie *</label><input id="fCat" list="catList"><datalist id="catList"></datalist></div>
+            <div class="field"><label data-i18n="prod_slug">URL du produit</label><input id="fSlug"><div class="hint" data-i18n="prod_slug_d">Généré depuis le nom.</div></div>
+            <div class="field"><label data-i18n="f_cat">Catégorie *</label><select id="fCat"></select><div class="hint"><button type="button" class="btn btn-ghost btn-xs" onclick="tab('cats')" data-i18n="cat_goto">Gérer les catégories</button></div></div>
           </div>
           <div class="form-grid">
             <div class="field"><label><span data-i18n="f_price">Prix *</span> · <span id="curLabel">—</span></label><input id="fPrice" type="number" min="0" step="0.01" oninput="renderPreview()"></div>
-            <div class="field"><label data-i18n="f_promo">Prix promo (facultatif)</label><input id="fPromo" type="number" min="0" step="0.01" oninput="renderPreview()"></div>
+            <div class="field"><label data-i18n="f_promo">Prix promo</label><input id="fPromo" type="number" min="0" step="0.01" oninput="renderPreview()"></div>
           </div>
           <div class="form-grid">
-            <div class="field"><label data-i18n="prod_sort">Ordre de présentation</label><input id="fSort" type="number" value="0"><div class="hint" data-i18n="prod_sort_d">Les plus petits apparaissent d'abord.</div></div>
-            <div class="field"><label data-i18n="f_emoji">Emoji (si pas d'image)</label><input id="fEmoji" oninput="renderPreview()"></div>
+            <div class="field"><label data-i18n="prod_sort">Ordre</label><input id="fSort" type="number" value="0"><div class="hint" data-i18n="prod_sort_d">Menors d'abord.</div></div>
+            <div class="field"><label data-i18n="f_emoji">Emoji</label><input id="fEmoji" oninput="renderPreview()"></div>
           </div>
           <div class="field"><label data-i18n="prod_desc_rich">Description (enrichie)</label>
             <div class="rte">
               <div class="rte-bar">
-                <button type="button" onclick="rte('bold')" title="Negrita"><b data-i18n="rte_b">N</b></button>
-                <button type="button" onclick="rte('italic')" title="Cursiva"><i data-i18n="rte_i">K</i></button>
-                <button type="button" onclick="rte('insertUnorderedList')" title="Lista">• <span data-i18n="rte_ul">Lista</span></button>
-                <button type="button" onclick="rte('insertOrderedList')" title="Lista num.">1. <span data-i18n="rte_ol">Lista</span></button>
+                <button type="button" onclick="rte('bold')"><b data-i18n="rte_b">G</b></button>
+                <button type="button" onclick="rte('italic')"><i data-i18n="rte_i">I</i></button>
+                <button type="button" onclick="rte('insertUnorderedList')">• <span data-i18n="rte_ul">Liste</span></button>
+                <button type="button" onclick="rte('insertOrderedList')">1. <span data-i18n="rte_ol">Liste</span></button>
               </div>
               <div class="rte-area" id="fRich" contenteditable="true" data-ph="…" oninput="renderPreview()"></div>
             </div>
           </div>
-          <div class="field"><label><span data-i18n="prod_imgs">Images du produit</span> · <span id="imgCount">0/5</span></label>
+          <div class="field"><label><span data-i18n="prod_imgs">Images</span> · <span id="imgCount">0/5</span></label>
             <div class="imgslots" id="imgSlots"></div>
-            <div class="dropzone" id="dropZone" onclick="$('fileProd').click()" data-i18n="prod_drop">Arrastra imágenes o haz clic</div>
+            <div class="dropzone" id="dropZone" onclick="$('fileProd').click()" data-i18n="prod_drop">Glissez ou cliquez</div>
             <input type="file" id="fileProd" accept="image/*" multiple hidden onchange="addProdImages(this.files);this.value=''">
-            <div style="display:flex;gap:8px;margin-top:8px"><button type="button" class="btn btn-ghost btn-sm" onclick="openPicker('prodimg')">🖼️ <span data-i18n="lib_choose">Elegir de biblioteca</span></button></div>
-            <div class="hint" data-i18n="prod_imgs_d">Hasta 5. La primera será la principal.</div>
+            <div style="display:flex;gap:8px;margin-top:8px"><button type="button" class="btn btn-ghost btn-sm" onclick="openPicker('prodimg')">🖼️ <span data-i18n="lib_choose">Bibliothèque</span></button></div>
+            <div class="hint" data-i18n="prod_imgs_d">Jusqu'à 5. La 1ère = principale.</div>
           </div>
-          <div style="display:flex;gap:10px"><button class="btn btn-primary btn-sm" onclick="saveProd()" data-i18n="save">Enregistrer produit</button><button class="btn btn-ghost btn-sm" onclick="clearForm()" data-i18n="clear">Effacer</button></div>
+          <div style="display:flex;gap:10px"><button class="btn btn-primary btn-sm" onclick="saveProd()" data-i18n="save">Enregistrer</button><button class="btn btn-ghost btn-sm" onclick="clearForm()" data-i18n="clear">Effacer</button></div>
         </div>
       </div>
       <div>
         <div class="pv-card" style="position:relative">
-          <span class="pv-tag" data-i18n="prod_preview">Vista previa</span>
+          <span class="pv-tag" data-i18n="prod_preview">Aperçu</span>
           <div class="pv-img" id="pvImg">🛍️</div>
           <div class="pv-body">
             <div class="pv-name" id="pvName">—</div>
@@ -760,17 +765,55 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
     <div class="card tbl-wrap"><table class="tbl"><thead><tr><th></th><th data-i18n="th_prod">Produit</th><th data-i18n="th_cat">Catégorie</th><th data-i18n="th_price">Prix</th><th data-i18n="prod_sort">Ordre</th><th data-i18n="th_status">État</th><th></th></tr></thead><tbody id="prodList"></tbody></table></div>
   </div>
 
+  <!-- CATEGORÍAS (Fase 3) -->
+  <div id="pCats" hidden>
+    <div id="catsList">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <div><h2 data-i18n="cats_title">Catégories</h2><p style="font-size:13.5px" data-i18n="cats_sub">Organisez vos produits pour vos clients.</p></div>
+        <button class="btn btn-primary btn-sm" onclick="catShow()">+ <span data-i18n="cat_add">Ajouter catégorie</span></button>
+      </div>
+      <div class="cat-stats" id="catStats"></div>
+      <div class="card tbl-wrap"><table class="tbl"><thead><tr><th></th><th data-i18n="cat_name">Catégorie</th><th data-i18n="cat_prods">Produits</th><th data-i18n="prod_sort">Ordre</th><th data-i18n="cat_type">Type</th><th></th></tr></thead><tbody id="catList"></tbody></table></div>
+    </div>
+    <div id="catsForm" hidden>
+      <button class="btn btn-ghost btn-sm back" onclick="catHide()">‹ <span data-i18n="cat_back">Volver</span></button>
+      <div class="card" style="margin-top:12px">
+        <h3 id="catFormTitle" data-i18n="cat_add">Ajouter catégorie</h3>
+        <input type="hidden" id="cId">
+        <div class="form-grid">
+          <div class="field"><label data-i18n="cat_name">Nom *</label><input id="cName" oninput="onCatName()"></div>
+          <div class="field"><label data-i18n="cat_slug">Slug / URL</label><input id="cSlug"><div class="hint" data-i18n="cat_slug_d">Court, minuscules, facile à partager.</div></div>
+        </div>
+        <div class="form-grid">
+          <div class="field"><label data-i18n="prod_sort">Ordre</label><input id="cSort" type="number" value="0"><div class="hint" data-i18n="cat_sort_d">Menors d'abord.</div></div>
+          <div class="field"><label style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="cDefault" style="width:auto"> <span data-i18n="cat_set_default">Catégorie par défaut</span></label></div>
+        </div>
+        <div class="field"><label data-i18n="cat_img">Image représentative</label>
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+            <span class="av-prev" id="cImgPrev" style="width:80px;height:80px">🏷️</span>
+            <label class="btn btn-ghost btn-sm" style="cursor:pointer">📤 <span data-i18n="av_change">Choisir</span><input type="file" accept="image/*" hidden onchange="previewCatImg(this)"></label>
+            <button type="button" class="btn btn-ghost btn-sm" onclick="openPicker('catimg')">🖼️ <span data-i18n="lib_choose">Bibliothèque</span></button>
+            <button type="button" class="btn btn-ghost btn-sm" onclick="clearCatImgForm()">✕</button>
+          </div>
+          <div class="hint" data-i18n="cat_img_d">Optionnelle. Identifie la catégorie visuellement.</div>
+        </div>
+        <div class="field"><label data-i18n="cat_alt">Texte alternatif (accessibilité)</label><input id="cAlt"><div class="hint" data-i18n="cat_alt_d">Décrit l'image ; sinon on utilise le nom.</div></div>
+        <div style="display:flex;gap:10px"><button class="btn btn-primary btn-sm" onclick="saveCat()" data-i18n="save">Enregistrer</button><button class="btn btn-ghost btn-sm" onclick="catHide()" data-i18n="cancel">Annuler</button></div>
+      </div>
+    </div>
+  </div>
+
   <div id="pOrders" hidden><div id="ordersList"></div></div>
   <div id="pMedia" hidden>
     <div class="card">
-      <h3 data-i18n="lib_title">Bibliothèque d'images</h3>
-      <p style="font-size:13.5px;margin:6px 0 14px" data-i18n="lib_desc">Uploadez vos images (compression + cloud).</p>
+      <h3 data-i18n="lib_title">Bibliothèque</h3>
+      <p style="font-size:13.5px;margin:6px 0 14px" data-i18n="lib_desc">Upload compressé + cloud.</p>
       <label class="btn btn-primary btn-sm" style="cursor:pointer">📤 <span data-i18n="lib_upload">Uploader</span><input type="file" accept="image/*" multiple hidden onchange="uploadImgs(this.files);this.value=''"></label>
       <div class="lib-grid" id="libGrid"></div>
     </div>
     <div class="card" style="margin-top:22px">
       <h3 data-i18n="lib_cat_title">Images par catégorie</h3>
-      <p style="font-size:13.5px;margin:6px 0 14px" data-i18n="lib_cat_desc">Assignez une image à chaque catégorie.</p>
+      <p style="font-size:13.5px;margin:6px 0 14px" data-i18n="lib_cat_desc">Une image par catégorie.</p>
       <div id="catImgList"></div>
     </div>
   </div>
@@ -781,17 +824,17 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
       <div class="cfg-grid" id="cfgGrid"></div>
     </div>
     <div id="cfgSubWrap" hidden>
-      <button class="btn btn-ghost btn-sm back" onclick="cfgBack()">‹ <span data-i18n="cfg_back">Volver a configuración</span></button>
+      <button class="btn btn-ghost btn-sm back" onclick="cfgBack()">‹ <span data-i18n="cfg_back">Retour</span></button>
       <div id="cfgSub"></div>
     </div>
   </div>
 
   <div id="pShare" hidden>
     <div class="card">
-      <h3 data-i18n="share_title">Partagez votre catalogue</h3>
-      <p style="margin:8px 0 16px" data-i18n="share_desc">Envoyez ce lien à vos clients.</p>
-      <div class="field"><label data-i18n="share_link">Votre lien public</label><div style="display:flex;gap:10px"><input id="shareLink" readonly><button class="btn btn-ghost btn-sm" onclick="copyLink()" data-i18n="copy">Copier</button></div></div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-wa" id="shareWA" target="_blank" rel="noopener">💬 <span data-i18n="share_wa">Partager sur WhatsApp</span></a></div>
+      <h3 data-i18n="share_title">Partagez</h3>
+      <p style="margin:8px 0 16px" data-i18n="share_desc">Envoyez le lien.</p>
+      <div class="field"><label data-i18n="share_link">Lien public</label><div style="display:flex;gap:10px"><input id="shareLink" readonly><button class="btn btn-ghost btn-sm" onclick="copyLink()" data-i18n="copy">Copier</button></div></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-wa" id="shareWA" target="_blank" rel="noopener">💬 <span data-i18n="share_wa">WhatsApp</span></a></div>
     </div>
   </div>
 </div>
@@ -824,13 +867,13 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
     <div class="card">
       <h3 data-i18n="super_plat">Ajustes</h3>
       <div class="form-grid">
-        <div class="field"><label data-i18n="plat_name">Nombre de la plataforma</label><input id="plName"></div>
-        <div class="field"><label data-i18n="plat_wa">WhatsApp de soporte</label><input id="plWa"></div>
-        <div class="field"><label data-i18n="plat_email">Email de contacto</label><input id="plEmail"></div>
+        <div class="field"><label data-i18n="plat_name">Nombre plataforma</label><input id="plName"></div>
+        <div class="field"><label data-i18n="plat_wa">WhatsApp soporte</label><input id="plWa"></div>
+        <div class="field"><label data-i18n="plat_email">Email contacto</label><input id="plEmail"></div>
         <div class="field"><label data-i18n="plat_lang">Idioma por defecto</label><select id="plLang"></select></div>
       </div>
-      <div class="field"><label style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="plDir" style="width:auto"> <span data-i18n="plat_dir">Mostrar directorio público</span></label></div>
-      <button class="btn btn-primary btn-sm" onclick="savePlatForm()" data-i18n="plat_save">Guardar ajustes</button>
+      <div class="field"><label style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="plDir" style="width:auto"> <span data-i18n="plat_dir">Mostrar directorio</span></label></div>
+      <button class="btn btn-primary btn-sm" onclick="savePlatForm()" data-i18n="plat_save">Guardar</button>
     </div>
   </div>
 </div>
@@ -845,7 +888,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
     <div class="field"><label data-i18n="cfg_email">Email</label><input id="seEmail"></div>
     <div class="field"><label data-i18n="cfg_cur">Moneda</label><input id="seCur"></div>
     <div class="field"><label data-i18n="cfg_pay">Pagos</label><input id="sePay"></div>
-    <div class="field"><label data-i18n="cfg_cost">Coût livraison</label><input id="seCost" type="number" min="0" step="0.01"></div>
+    <div class="field"><label data-i18n="cfg_cost">Coût</label><input id="seCost" type="number" min="0" step="0.01"></div>
   </div>
   <div class="field"><label data-i18n="cfg_banner">Titre bannière</label><input id="seTitle"></div>
   <div class="field"><label style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="seDeliv" style="width:auto"> <span data-i18n="cfg_deliv">Livraison</span></label></div>
@@ -865,7 +908,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
     <div class="mm-sep"></div>
     <div id="mmAuth" style="display:grid;gap:10px"></div>
     <button class="btn btn-primary" style="width:100%;justify-content:center" id="mmCta">—</button>
-    <button class="btn btn-ghost" style="width:100%;justify-content:center" id="mmInstall" hidden onclick="installApp()">📲 <span data-i18n="install">Installer l'app</span></button>
+    <button class="btn btn-ghost" style="width:100%;justify-content:center" id="mmInstall" hidden onclick="installApp()">📲 <span data-i18n="install">Installer</span></button>
   </div>
 </aside>
 
@@ -874,60 +917,60 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
   <header>🛒 <span data-i18n="your_order">Votre commande</span> <span style="flex:1"></span><button class="iconbtn" onclick="closeAll()" aria-label="Fermer">✕</button></header>
   <div class="body" id="cartItems"></div>
   <footer><div class="totline"><span data-i18n="total">Total</span><span id="cartTotal">—</span></div>
-  <button class="btn btn-wa" onclick="openCheckout()" data-i18n="continue">Continuer la commande →</button></footer>
+  <button class="btn btn-wa" onclick="openCheckout()" data-i18n="continue">Continuer →</button></footer>
 </aside>
 
 <div class="modal" id="modalCheckout" role="dialog" aria-modal="true"><div class="modal-card">
-  <h3 data-i18n="check_title">Finaliser la commande</h3><p style="font-size:14px" data-i18n="check_desc">Sans inscription.</p>
+  <h3 data-i18n="check_title">Finaliser</h3><p style="font-size:14px" data-i18n="check_desc">Sans inscription.</p>
   <div class="field"><label data-i18n="check_name">Votre nom *</label><input id="cName" autocomplete="name"></div>
   <div class="field"><label data-i18n="check_deliv">Livraison</label><div class="radio-row" id="delivWrap"></div></div>
-  <div class="field" id="addrRow" hidden><label data-i18n="check_addr">Adresse de livraison *</label><input id="cAddress" autocomplete="street-address"></div>
-  <div class="field"><label data-i18n="check_pay">Moyen de paiement</label><div class="radio-row" id="payWrap"></div></div>
-  <div class="field"><label data-i18n="check_note">Note (facultatif)</label><textarea id="cNote" rows="2"></textarea></div>
+  <div class="field" id="addrRow" hidden><label data-i18n="check_addr">Adresse *</label><input id="cAddress" autocomplete="street-address"></div>
+  <div class="field"><label data-i18n="check_pay">Paiement</label><div class="radio-row" id="payWrap"></div></div>
+  <div class="field"><label data-i18n="check_note">Note</label><textarea id="cNote" rows="2"></textarea></div>
   <div class="sumbox" id="sumBox"></div>
-  <button class="btn btn-wa" onclick="sendOrder()"><span data-i18n="send_wa">Envoyer la commande via WhatsApp</span></button>
+  <button class="btn btn-wa" onclick="sendOrder()"><span data-i18n="send_wa">Envoyer via WhatsApp</span></button>
   <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;margin-top:10px" onclick="closeAll()" data-i18n="cancel">Annuler</button>
 </div></div>
 
 <div class="modal" id="modalAuth" role="dialog" aria-modal="true"><div class="modal-card">
   <div class="auth-tabs">
     <button class="on" id="tLogin" onclick="authTab('login')" data-i18n="auth_login">Se connecter</button>
-    <button id="tReg" onclick="authTab('register')" data-i18n="auth_register">Registrarme</button>
+    <button id="tReg" onclick="authTab('register')" data-i18n="auth_register">S'inscrire</button>
   </div>
   <div id="formLogin">
-    <p style="font-size:14px;margin-bottom:14px" data-i18n="login_desc">Accédez à votre panneau.</p>
+    <p style="font-size:14px;margin-bottom:14px" data-i18n="login_desc">Accédez au panneau.</p>
     <div class="field"><label data-i18n="auth_email">Email</label><input id="lEmail" type="email" autocomplete="email"></div>
     <div class="field"><label data-i18n="auth_pass">Mot de passe</label><input id="lPass" type="password" autocomplete="current-password"></div>
     <button class="btn btn-primary" id="btnLogin" style="width:100%;justify-content:center" onclick="doLogin()" data-i18n="login_btn">Entrer</button>
   </div>
   <div id="formRegister" hidden>
-    <p style="font-size:14px;margin-bottom:14px" data-i18n="reg_desc">Créez votre compte en moins d'une minute.</p>
-    <div class="field"><label data-i18n="auth_avatar">Logo / avatar (facultatif)</label>
+    <p style="font-size:14px;margin-bottom:14px" data-i18n="reg_desc">Compte en 1 minute.</p>
+    <div class="field"><label data-i18n="auth_avatar">Logo (facultatif)</label>
       <div style="display:flex;gap:10px;align-items:center">
         <span class="av-prev" id="rAvPrev">🏪</span>
         <label class="btn btn-ghost btn-sm" style="cursor:pointer">📤 <span data-i18n="lib_upload">Subir</span><input type="file" accept="image/*" hidden onchange="previewRegAvatar(this)"></label>
         <button type="button" class="btn btn-ghost btn-sm" onclick="clearRegAvatar()">✕</button>
       </div>
     </div>
-    <div class="field"><label data-i18n="auth_name">Nom de votre activité *</label><input id="rName" oninput="validateField(this,'name')" autocomplete="organization"></div>
-    <div class="field"><label data-i18n="auth_cat">Catégorie du commerce</label><select id="rCat"></select></div>
+    <div class="field"><label data-i18n="auth_name">Nom activité *</label><input id="rName" oninput="validateField(this,'name')" autocomplete="organization"></div>
+    <div class="field"><label data-i18n="auth_cat">Catégorie</label><select id="rCat"></select></div>
     <div class="field"><label data-i18n="auth_email">Email *</label><input id="rEmail" type="email" oninput="validateField(this,'email')" autocomplete="email"></div>
     <div class="field"><label data-i18n="auth_pass">Mot de passe *</label><input id="rPass" type="password" oninput="validateField(this,'pass')" autocomplete="new-password"><div class="hint" id="hintPass"></div></div>
-    <div class="field"><label data-i18n="auth_wa">WhatsApp (indicatif + numéro) *</label><input id="rWa" oninput="validateField(this,'wa')" autocomplete="tel"></div>
-    <button class="btn btn-primary" id="btnRegister" style="width:100%;justify-content:center" onclick="doRegister()" data-i18n="reg_btn">Créer mon catalogue gratuit →</button>
+    <div class="field"><label data-i18n="auth_wa">WhatsApp *</label><input id="rWa" oninput="validateField(this,'wa')" autocomplete="tel"></div>
+    <button class="btn btn-primary" id="btnRegister" style="width:100%;justify-content:center" onclick="doRegister()" data-i18n="reg_btn">Créer mon catalogue →</button>
   </div>
   <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;margin-top:14px" onclick="closeAll()" data-i18n="cancel">Annuler</button>
 </div></div>
 
 <div class="modal" id="modalPicker" role="dialog" aria-modal="true"><div class="modal-card" style="width:min(640px,100%)">
-  <h3 data-i18n="lib_choose">Elegir de la biblioteca</h3>
+  <h3 data-i18n="lib_choose">Bibliothèque</h3>
   <div class="lib-grid" id="pickGrid"></div>
   <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;margin-top:14px" onclick="closeAll()" data-i18n="cancel">Annuler</button>
 </div></div>
 
 <button class="fab" id="botFab" onclick="toggleBot()" aria-label="Asistente">💬</button>
 <div class="bot-panel" id="botPanel" hidden role="dialog" aria-label="Asistente">
-  <header>💬 <b data-i18n="bot_title">Asistente Catalogo Wha</b> <span style="flex:1"></span><button class="iconbtn" style="background:rgba(255,255,255,.2);color:#fff" onclick="toggleBot()" aria-label="Cerrar">✕</button></header>
+  <header>💬 <b data-i18n="bot_title">Asistente</b> <span style="flex:1"></span><button class="iconbtn" style="background:rgba(255,255,255,.2);color:#fff" onclick="toggleBot()" aria-label="Cerrar">✕</button></header>
   <div class="bot-msgs" id="botMsgs"></div>
   <div class="bot-chips" id="botChips"></div>
   <div class="bot-input"><input id="botInput" placeholder="…" onkeydown="if(event.key==='Enter')botSend()"><button onclick="botSend()" aria-label="Enviar">➤</button></div>
@@ -953,203 +996,218 @@ const I18N = {
 fr: {
   nav_how:"Fonctionnement", nav_feat:"Fonctions", nav_biz:"Commerces", nav_faq:"FAQ", nav_contact:"Contact", nav_view:"Voir catalogue", nav_create:"Créer mon catalogue", menu:"Menu",
   hero_eyebrow:"Vendez plus sur WhatsApp", hero_title1:"Votre catalogue en ligne avec panier et commande directe sur",
-  hero_desc:"Publiez vos produits une seule fois, partagez un lien et recevez des commandes complètes. Sans site e-commerce, sans commission.",
-  hero_cta1:"Créer mon catalogue gratuit", hero_cta2:"Voir un catalogue en direct", hero_chk1:"Prêt en quelques minutes", hero_chk2:"0% de commission par vente",
+  hero_desc:"Publiez une fois, partagez un lien, recevez des commandes complètes. Sans site, sans commission.",
+  hero_cta1:"Créer mon catalogue gratuit", hero_cta2:"Voir un catalogue", hero_chk1:"Prêt en minutes", hero_chk2:"0% commission",
   mock_biz:"Votre commerce", mock_banner:"Tout votre stock<br>à un geste", mock_explore:"Voir les produits", mock_all:"🏷️ Tous", mock_cats:"📦 Catégories", mock_p1:"Produit", mock_p2:"Produit", mock_wa_sub:"Commande reçue",
-  mock_bub1:"Bonjour ! Voici ma commande :<br>2 × A<br>1 × B<br><b>Total prêt</b>", mock_bub2:"Parfait ! ✓",
-  cmp_title:"Vendre par chat, c'est bien.<br>Vendre par chat en désordre, non.", cmp_lead:"Chaque prix répété est du temps perdu.",
-  cmp_bad_title:"Aujourd'hui, message par message", cmp_client:"Client", cmp_b1:"Tu me donnes le prix… ?", cmp_b2:"📷 photo + prix", cmp_b3:"Une remise ?", cmp_b4:"💬 explication", cmp_b5:"2 et 1, total ?",
-  cmp_bad1:"Vous répétez <b>les mêmes réponses</b>.", cmp_bad2:"Vos prix dans <b>d'anciens chats</b>.", cmp_bad3:"Une commande mal lue = <b>réclamation</b>.",
-  cmp_good_title:"Avec votre lien Catalogo Wha", cmp_good1:"Le client <b>voit tout seul</b>.", cmp_good2:"Le panier <b>additionne</b>.", cmp_good3:"Message <b>clair et complet</b>.",
-  send_wa:"Envoyer la commande via WhatsApp", total:"Total",
-  steps_title:"De zéro à la vente<br>en trois mouvements", steps_lead:"Public dès le premier jour.",
-  step1_t:"Ouvrez votre compte", step1_d:"Nom, WhatsApp, mot de passe.", step2_t:"Publiez votre stock", step2_d:"Photos, prix, offres.", step3_t:"Partagez votre lien", step3_d:"Story, réseaux, comptoir.",
-  ben_title1:"Un catalogue qui travaille", ben_title2:"même hors ligne", ben_lead:"Votre lien prépare la commande.",
-  ben1_t:"Un lien, tout votre stock", ben1_d:"Photos, prix, disponibilités.", ben1_tag:"partagez-le", ben2_b:"de commission", ben2_d:"Vos gains restent vôtres.",
-  ben3_t:"Conclusion sur WhatsApp", ben3_d:"Commande prête.", ben3_tag:"sans intermédiaire",
-  feat_eye:"Fonctions", feat_title:"Tout ce qu'il faut pour vendre", feat_lead:"Outils pour vendre par chat avec ordre.",
-  f1:"Lien unique", f1d:"Ouvre tout le catalogue.", f2:"Recherche & catégories", f2d:"Trouve en secondes.", f3:"Panier automatique", f3d:"Total sans erreur.", f4:"Commande gardée", f4d:"Enregistrée avant le chat.", f5:"Retrait / livraison", f5d:"À votre choix.", f6:"Vos paiements", f6d:"Espèces, virement…", f7:"Votre monnaie", f7d:"Prix locaux.", f8:"Bibliothèque", f8d:"Photos réutilisables.",
-  view_order:"🛒 Voir commande", order_sent:"Commande envoyée", order_conf:"✓ Confirmée",
-  exp_eye:"Pour votre client", exp_title:"Acheter prend moins de temps qu'écrire",
-  exp1:"Parcourt les catégories.", exp2:"Cherche par nom.", exp3:"Voit offres et prix.", exp4:"Ajuste quantités.", exp5:"Retrait ou livraison.", exp6:"Choisit paiement.", exp7:"Envoie sur WhatsApp.",
+  mock_bub1:"Bonjour ! Ma commande :<br>2 × A<br>1 × B<br><b>Total prêt</b>", mock_bub2:"Parfait ! ✓",
+  cmp_title:"Vendre par chat, c'est bien.<br>En désordre, non.", cmp_lead:"Chaque prix répété est du temps perdu.",
+  cmp_bad_title:"Message par message", cmp_client:"Client", cmp_b1:"Le prix… ?", cmp_b2:"📷", cmp_b3:"Remise ?", cmp_b4:"💬", cmp_b5:"Total ?",
+  cmp_bad1:"Vous répétez <b>les mêmes réponses</b>.", cmp_bad2:"Prix dans <b>anciens chats</b>.", cmp_bad3:"Mal lu = <b>réclamation</b>.",
+  cmp_good_title:"Avec votre lien", cmp_good1:"Client <b>voit tout</b>.", cmp_good2:"Panier <b>additionne</b>.", cmp_good3:"Message <b>clair</b>.",
+  send_wa:"Envoyer via WhatsApp", total:"Total",
+  steps_title:"Trois mouvements", steps_lead:"Public dès le jour 1.",
+  step1_t:"Compte", step1_d:"Nom, WhatsApp, mdp.", step2_t:"Stock", step2_d:"Photos, prix.", step3_t:"Lien", step3_d:"Partagez.",
+  ben_title1:"Catalogue qui travaille", ben_title2:"hors ligne", ben_lead:"Votre lien prépare la commande.",
+  ben1_t:"Un lien", ben1_d:"Photos, prix.", ben1_tag:"partagez", ben2_b:"commission", ben2_d:"Vos gains vôtres.",
+  ben3_t:"WhatsApp", ben3_d:"Commande prête.", ben3_tag:"sans intermédiaire",
+  feat_eye:"Fonctions", feat_title:"Tout pour vendre", feat_lead:"Ordre professionnel.",
+  f1:"Lien unique", f1d:"Tout le catalogue.", f2:"Recherche", f2d:"Secondes.", f3:"Panier", f3d:"Sans erreur.", f4:"Commande gardée", f4d:"Avant chat.", f5:"Retrait/livraison", f5d:"Choix.", f6:"Paiements", f6d:"Vos règles.", f7:"Monnaie", f7d:"Locale.", f8:"Bibliothèque", f8d:"Photos.",
+  view_order:"🛒 Voir", order_sent:"Envoyée", order_conf:"✓ Confirmée",
+  exp_eye:"Client", exp_title:"Acheter < écrire",
+  exp1:"Catégories.", exp2:"Nom.", exp3:"Offres.", exp4:"Quantités.", exp5:"Livraison.", exp6:"Paiement.", exp7:"WhatsApp.",
   exp_t1:"Sans compte", exp_t2:"Tout navigateur",
-  ctrl_eye:"Pour vous", ctrl_title:"Vous décidez quoi vendre",
-  ctrl1:"Publiez/retirez en 1 clic.", ctrl2:"Changez prix facilement.", ctrl3:"Réglez livraison.", ctrl4:"Historique commandes.", ctrl5:"Marquez états.", ctrl6:"Lien court.",
-  ctrl_t1:"Sans engagement", ctrl_t2:"Vos données vôtres",
-  types_title:"Pour les commerces quotidiens", types_lead:"Si ça finit sur WhatsApp, ça accélère.",
-  dir_title:"Ils vendent déjà avec Catalogo Wha", dir_lead:"Catalogues publics.", dir_empty:"Aucun catalogue. Soyez premier !",
-  dark_eye:"La différence", dark_title:"Pas une boutique en ligne :<br>votre vente, en ordre", dark_lead:"Montrez, recevez, concluez.",
-  dark1:"Publiez une fois", dark2:"Commande claire", dark3:"Concluez sur WhatsApp", dark_lead2:"Moins de friction.",
-  faq_eye:"FAQ", faq_title:"Vos réponses",
-  faq1q:"Savoir programmer ?", faq1a:"Non.", faq2q:"Coût ?", faq2a:"Gratuit, sans commission.", faq3q:"App client ?", faq3a:"Non, navigateur.", faq4q:"Changer prix ?", faq4a:"Oui, instantané.", faq5q:"Mon pays ?", faq5a:"Oui.", faq6q:"Reçu client ?", faq6a:"Détail sur WhatsApp.",
-  cta_title:"Votre prochaine commande ordonnée aujourd'hui", cta_lead:"Créez et partagez.", cta_btn:"Créer mon catalogue gratuit",
-  contact_eye:"Contact", contact_title:"On parle ?", contact_lead:"Écrivez-nous.", contact_name:"Entreprise", contact_wa:"WhatsApp", contact_email:"Email",
-  foot_desc:"Catalogue + commandes WhatsApp.", foot_panel:"Panneau",
-  your_order:"Votre commande", continue:"Continuer →",
-  check_title:"Finaliser", check_desc:"Sans inscription.", check_name:"Votre nom *", check_deliv:"Livraison", check_addr:"Adresse *", check_pay:"Paiement", check_note:"Note", cancel:"Annuler",
-  auth_login:"Se connecter", auth_register:"S'inscrire", login_desc:"Accédez au panneau.", reg_desc:"Compte en 1 minute.",
-  auth_email:"Email", auth_pass:"Mot de passe", auth_name:"Nom activité *", auth_wa:"WhatsApp *",
-  auth_avatar:"Logo (facultatif)", auth_cat:"Catégorie", select_cat:"Choisissez…",
+  ctrl_eye:"Vous", ctrl_title:"Vous décidez",
+  ctrl1:"1 clic.", ctrl2:"Prix.", ctrl3:"Livraison.", ctrl4:"Historique.", ctrl5:"États.", ctrl6:"Lien court.",
+  ctrl_t1:"Sans engagement", ctrl_t2:"Données vôtres",
+  types_title:"Commerces quotidiens", types_lead:"Accélère WhatsApp.",
+  dir_title:"Ils vendent déjà", dir_lead:"Catalogues publics.", dir_empty:"Soyez premier !",
+  dark_eye:"Différence", dark_title:"Pas une boutique :<br>votre vente", dark_lead:"Montrez, recevez, concluez.",
+  dark1:"Publiez", dark2:"Commande", dark3:"Concluez", dark_lead2:"Moins de friction.",
+  faq_eye:"FAQ", faq_title:"Réponses",
+  faq1q:"Programmer ?", faq1a:"Non.", faq2q:"Coût ?", faq2a:"Gratuit.", faq3q:"App ?", faq3a:"Non.", faq4q:"Prix ?", faq4a:"Oui.", faq5q:"Pays ?", faq5a:"Oui.", faq6q:"Reçu ?", faq6a:"WhatsApp.",
+  cta_title:"Commande ordonnée aujourd'hui", cta_lead:"Créez et partagez.", cta_btn:"Créer gratuit",
+  contact_eye:"Contact", contact_title:"On parle ?", contact_lead:"Écrivez.", contact_name:"Entreprise", contact_wa:"WhatsApp", contact_email:"Email",
+  foot_desc:"Catalogue + WhatsApp.", foot_panel:"Panneau",
+  your_order:"Commande", continue:"Continuer →",
+  check_title:"Finaliser", check_desc:"Sans inscription.", check_name:"Nom *", check_deliv:"Livraison", check_addr:"Adresse *", check_pay:"Paiement", check_note:"Note", cancel:"Annuler",
+  auth_login:"Connexion", auth_register:"Inscription", login_desc:"Panneau.", reg_desc:"1 minute.",
+  auth_email:"Email", auth_pass:"Mdp", auth_name:"Nom activité *", auth_wa:"WhatsApp *",
+  auth_avatar:"Logo", auth_cat:"Catégorie", select_cat:"Choisissez…",
   cfg_cat:"Catégorie", th_catg:"Catégorie", av_change:"Changer", av_remove:"Retirer",
-  login_btn:"Entrer", reg_btn:"Créer mon catalogue →", logout:"Déconnexion", admin_view_cat:"Voir mon catalogue",
-  tab_home:"Accueil", tab_prod:"Produits", tab_orders:"Commandes", tab_cfg:"Paramètres", tab_share:"Partager", tab_media:"Bibliothèque",
-  add_prod:"Ajouter produit", edit_prod:"Modifier produit", f_name:"Nom *", f_cat:"Catégorie *", f_price:"Prix *", f_promo:"Prix promo", f_emoji:"Emoji", f_img:"Image", f_desc:"Description", save:"Enregistrer", clear:"Effacer",
+  login_btn:"Entrer", reg_btn:"Créer →", logout:"Déconnexion", admin_view_cat:"Mon catalogue",
+  tab_home:"Accueil", tab_prod:"Produits", tab_cats:"Catégories", tab_orders:"Commandes", tab_cfg:"Paramètres", tab_share:"Partager", tab_media:"Bibliothèque",
+  add_prod:"Ajouter produit", edit_prod:"Modifier", f_name:"Nom *", f_cat:"Catégorie *", f_price:"Prix *", f_promo:"Promo", f_emoji:"Emoji", f_img:"Image", f_desc:"Description", save:"Enregistrer", clear:"Effacer",
   th_prod:"Produit", th_cat:"Catégorie", th_price:"Prix", th_status:"État",
-  prod_slug:"URL du produit", prod_slug_d:"Généré depuis le nom ; modifiable.", prod_sort:"Ordre", prod_sort_d:"Les plus petits d'abord.",
-  prod_imgs:"Images du produit", prod_imgs_d:"Jusqu'à 5. La 1ère = principale.", prod_drop:"Glissez des images ou cliquez", prod_preview:"Aperçu",
-  prod_desc_rich:"Description (enrichie)", rte_b:"G", rte_i:"I", rte_ul:"Liste", rte_ol:"1. Liste", prod_addimg:"Ajouter images",
+  prod_slug:"URL produit", prod_slug_d:"Généré du nom.", prod_sort:"Ordre", prod_sort_d:"Menors d'abord.",
+  prod_imgs:"Images", prod_imgs_d:"Jusqu'à 5.", prod_drop:"Glissez ou cliquez", prod_preview:"Aperçu",
+  prod_desc_rich:"Description", rte_b:"G", rte_i:"I", rte_ul:"Liste", rte_ol:"1.",
+  cats_title:"Catégories", cats_sub:"Organisez vos produits.", cat_add:"Ajouter catégorie", cat_back:"Retour",
+  cat_name:"Catégorie", cat_slug:"Slug / URL", cat_slug_d:"Court, minuscules.", cat_img:"Image représentative", cat_img_d:"Optionnelle.", cat_alt:"Texte alternatif", cat_alt_d:"Décrit l'image.",
+  cat_stats_total:"Catégories", cat_stats_org:"Produits organisés", cat_stats_default:"Par défaut",
+  cat_prods:"Produits", cat_type:"Type", cat_type_def:"Par défaut", cat_type_custom:"Personnalisée", cat_edit:"Modifier", cat_del:"Supprimer", cat_empty:"Aucune catégorie.", cat_set_default:"Catégorie par défaut", cat_goto:"Gérer catégories",
+  toast_cat_saved:"✓ Catégorie enregistrée", confirm_del_cat:"Supprimer cette catégorie ?",
   cfg_biz:"Données", cfg_name:"Nom", cfg_wa:"WhatsApp", cfg_email:"Email", cfg_cur:"Monnaie", cfg_pay:"Paiements", cfg_eye:"Texte bannière", cfg_banner:"Titre bannière", cfg_deliv:"Livraison", cfg_cost:"Coût", save_cfg:"Enregistrer",
-  share_title:"Partagez", share_desc:"Envoyez le lien.", share_link:"Lien public", copy:"Copier", share_wa:"Partager WhatsApp",
-  lib_title:"Bibliothèque", lib_desc:"Upload compressé + cloud.", lib_upload:"Uploader", lib_empty:"Vide.", lib_added:"✓ Ajouté", lib_deleted:"Supprimé",
-  lib_choose:"Choisir (bibliothèque)", lib_cat_title:"Images catégories", lib_cat_desc:"Une image par catégorie.", lib_cat_assign:"Choisir", lib_cat_clear:"Retirer", lib_cat_none:"Sans image", confirm_delete_img:"Supprimer ?",
+  share_title:"Partagez", share_desc:"Envoyez le lien.", share_link:"Lien public", copy:"Copier", share_wa:"WhatsApp",
+  lib_title:"Bibliothèque", lib_desc:"Upload + cloud.", lib_upload:"Uploader", lib_empty:"Vide.", lib_added:"✓ Ajouté", lib_deleted:"Supprimé",
+  lib_choose:"Bibliothèque", lib_cat_title:"Images catégories", lib_cat_desc:"Une par catégorie.", lib_cat_assign:"Choisir", lib_cat_clear:"Retirer", lib_cat_none:"Sans image", confirm_delete_img:"Supprimer ?",
   empty_prods:"Aucun produit.", empty_orders:"Aucune commande.", cart_empty:"Panier vide.", no_prods_public:"Aucun produit.",
   active:"🟢 Actif", inactive:"⚪ Inactif", deliv_lbl_retiro:"Retrait", deliv_lbl_delivery:"Livraison", per_unit:"l'unité",
   item_count:"{n} produits", item_count_one:"1 produit", confirm_delete_prod:"Supprimer ?", not_found:"Introuvable",
-  st_pend:"En attente", st_conf:"Confirmé", st_deliv:"En livraison", st_done:"Livré", st_cancel:"Annulé",
-  wa_new_order:"🧾 *Commande {id}*", wa_customer:"👤 {name}", wa_business:"🏪 {biz}", wa_products:"📦 *Produits :*", wa_product_line:"• {q} × {name} — {price}", wa_delivery_line:"🚚 {mode}", wa_delivery_with_addr:"🚚 {mode} ({cost}) — {addr}", wa_payment:"💳 {pay}", wa_total:"🧮 *Total : {total}*", wa_note:"📝 {note}", wa_share_msg:"Mon catalogue !",
-  toast_added:"✓ Au panier", toast_saved:"✓ Enregistré", toast_deleted:"Supprimé", toast_cfg_saved:"✓ Enregistré", toast_status:"État :", toast_copied:"🔗 Copié", toast_created:"🎉 Prêt", toast_fill:"Champs requis.", toast_email:"Email invalide.", toast_pass_min:"6 car. min.", toast_exists:"Déjà existant.", toast_badlogin:"Incorrect.", toast_login_first:"Connectez-vous.", toast_fill_cart:"Ajoutez produits.", toast_fill_name:"Votre nom.", toast_fill_addr:"Adresse.", toast_fill_wa:"⚙️ WhatsApp.", toast_order_sent:"✅ Envoyé", toast_avatar:"✓ Avatar", toast_email_confirm:"📧 Confirmez.", toast_sb_error:"⚠️ ",
-  hint_pass_weak:"6 car.", hint_pass_ok:"✓", hint_email_ok:"✓", hint_email_bad:"✗", hint_name_ok:"✓", hint_wa_ok:"✓", processing:"…",
-  install:"Installer", install_ios:"iPhone : écran accueil", install_manual:"Menu : écran accueil",
-  sb_missing:"Configurez SUPABASE_URL.", mig_btn:"⬆️ Migrer v6", mig_done:"✓ Migré", mig_none:"Rien à migrer",
+  st_pend:"Attente", st_conf:"Confirmé", st_deliv:"Livraison", st_done:"Livré", st_cancel:"Annulé",
+  wa_new_order:"🧾 *Commande {id}*", wa_customer:"👤 {name}", wa_business:"🏪 {biz}", wa_products:"📦 *:*", wa_product_line:"• {q} × {name} — {price}", wa_delivery_line:"🚚 {mode}", wa_delivery_with_addr:"🚚 {mode} ({cost}) — {addr}", wa_payment:"💳 {pay}", wa_total:"🧮 *{total}*", wa_note:"📝 {note}", wa_share_msg:"Mon catalogue !",
+  toast_added:"✓ Panier", toast_saved:"✓ Enregistré", toast_deleted:"Supprimé", toast_cfg_saved:"✓ Enregistré", toast_status:"État :", toast_copied:"🔗 Copié", toast_created:"🎉 Prêt", toast_fill:"Champs requis.", toast_email:"Email.", toast_pass_min:"6 car.", toast_exists:"Existant.", toast_badlogin:"Incorrect.", toast_login_first:"Connectez-vous.", toast_fill_cart:"Produits.", toast_fill_name:"Nom.", toast_fill_addr:"Adresse.", toast_fill_wa:"⚙️ WhatsApp.", toast_order_sent:"✅ Envoyé", toast_avatar:"✓ Avatar", toast_email_confirm:"📧 Confirmez.", toast_sb_error:"⚠️ ",
+  hint_pass_weak:"6", hint_pass_ok:"✓", hint_email_ok:"✓", hint_email_bad:"✗", hint_name_ok:"✓", hint_wa_ok:"✓", processing:"…",
+  install:"Installer", install_ios:"iPhone", install_manual:"Menu",
+  sb_missing:"Configurez SUPABASE_URL.", mig_btn:"⬆️ v6", mig_done:"✓", mig_none:"Rien",
   dash_chip:"Préparation", dash_sub:"Publiez quand prêt.", dash_prep:"Préparer ↓", dash_addprod:"+ Produit",
-  dash_req_t:"Votre catalogue", dash_req_d:"Complétez selon les règles.", dash_complete:"Compléter", dash_manageprod:"Gérer",
-  dash_quick_t:"Vue rapide", dash_quick:"Données", q_newprod:"Nouveau produit", q_newprod_d:"Rapide.", q_orders:"Commandes", q_orders_d:"Gérer.", q_cfg:"Configurer", q_cfg_d:"Marque, WA, monnaie.", q_share:"Partager", q_share_d:"Lien.",
-  dash_act_t:"Activité", dash_act:"Derniers événements", dash_noact:"Rien.",
+  dash_req_t:"Catalogue", dash_req_d:"Complétez.", dash_complete:"Compléter", dash_manageprod:"Gérer",
+  dash_quick_t:"Vue rapide", dash_quick:"Données", q_newprod:"Produit", q_newprod_d:"Rapide.", q_cats:"Catégories", q_cats_d:"Organisez.", q_orders:"Commandes", q_orders_d:"Gérer.", q_share:"Partager", q_share_d:"Lien.",
+  dash_act_t:"Activité", dash_act:"Événements", dash_noact:"Rien.",
   req_wa:"WhatsApp valide", req_prod:"1 produit actif", req_cur:"Monnaie", req_pay:"1 paiement",
-  req_ok:"Prêt à publier", req_left:"{n} à compléter", req_pending:"En attente", req_ready:"Prête",
+  req_ok:"Prêt", req_left:"{n} à compléter", req_pending:"Attente", req_ready:"Prête",
   cfg_hub_title:"Configuration", cfg_hub_sub:"Par blocs.", cfg_back:"Retour", cfg_open:"Configurer",
   cfg_f_all:"Tout", cfg_f_gen:"Général", cfg_f_cat:"Catalogue", cfg_f_pub:"Publication", cfg_f_sales:"Ventes",
-  st_ok:"Configuré", st_pend:"En attente", st_miss:"À configurer", st_opt:"Facultatif",
-  c_info:"Informations", c_info_d:"Nom, description, lieu.", c_wa:"WhatsApp", c_wa_d:"Numéro de réception.", c_brand:"Marque", c_brand_d:"Logo/avatar.", c_cur:"Monnaie", c_cur_d:"Monnaie des prix.", c_link:"Lien", c_link_d:"Adresse publique.", c_deliv:"Livraison", c_deliv_d:"Retrait/livraison.", c_pay:"Paiements", c_pay_d:"Options client.",
-  bot_title:"Assistant", bot_hello:"Bonjour !", bot_ask_name:"Votre nom ?", bot_thanks_name:"Enchanté, {name}.", bot_ask_type:"Type de commerce ?", bot_type1:"Boutique", bot_type2:"Resto", bot_type3:"Services", bot_type4:"Autre", bot_menu_intro:"Choisissez :",
-  bot_q_create:"Créer", bot_a_create:"Inscrivez-vous.", bot_q_products:"Produits", bot_a_products:"Panneau → Produits.", bot_q_share:"Partager", bot_a_share:"Panneau → Partager.", bot_q_client:"Commande", bot_a_client:"Le client commande.", bot_q_pay:"Paiements", bot_a_pay:"Paramètres.", bot_q_install:"App", bot_a_install:"Menu → Installer.", bot_q_human:"Humain", bot_a_human:"Résumé WhatsApp.", bot_fallback:"?", bot_summary:"Résumé WhatsApp", bot_sent:"Ouvert.", bot_input_ph:"…"
+  st_ok:"Configuré", st_pend:"Attente", st_miss:"À configurer", st_opt:"Facultatif",
+  c_info:"Informations", c_info_d:"Nom, lieu.", c_wa:"WhatsApp", c_wa_d:"Réception.", c_brand:"Marque", c_brand_d:"Logo.", c_cur:"Monnaie", c_cur_d:"Prix.", c_link:"Lien", c_link_d:"Publique.", c_deliv:"Livraison", c_deliv_d:"Modes.", c_pay:"Paiements", c_pay_d:"Options.",
+  bot_title:"Assistant", bot_hello:"Bonjour !", bot_ask_name:"Nom ?", bot_thanks_name:"Enchanté, {name}.", bot_ask_type:"Type ?", bot_type1:"Boutique", bot_type2:"Resto", bot_type3:"Services", bot_type4:"Autre", bot_menu_intro:"Choisissez :",
+  bot_q_create:"Créer", bot_a_create:"Inscrivez-vous.", bot_q_products:"Produits", bot_a_products:"Panneau.", bot_q_share:"Partager", bot_a_share:"Panneau.", bot_q_client:"Commande", bot_a_client:"Client.", bot_q_pay:"Paiements", bot_a_pay:"Paramètres.", bot_q_install:"App", bot_a_install:"Menu.", bot_q_human:"Humain", bot_a_human:"Résumé.", bot_fallback:"?", bot_summary:"Résumé WhatsApp", bot_sent:"Ouvert.", bot_input_ph:"…"
 },
 es: {
   nav_how:"Cómo funciona", nav_feat:"Funciones", nav_biz:"Negocios", nav_faq:"FAQ", nav_contact:"Contacto", nav_view:"Ver catálogo", nav_create:"Crear mi catálogo", menu:"Menú",
   hero_eyebrow:"Vende más por WhatsApp", hero_title1:"Tu catálogo online con carrito y pedido directo a",
-  hero_desc:"Publica una sola vez, comparte un enlace y recibe pedidos completos. Sin tienda ni comisiones.",
-  hero_cta1:"Crear mi catálogo gratis", hero_cta2:"Ver catálogo en vivo", hero_chk1:"Listo en minutos", hero_chk2:"0% comisión",
+  hero_desc:"Publica una vez, comparte un enlace y recibe pedidos completos. Sin tienda ni comisiones.",
+  hero_cta1:"Crear mi catálogo gratis", hero_cta2:"Ver catálogo", hero_chk1:"Listo en minutos", hero_chk2:"0% comisión",
   mock_biz:"Tu negocio", mock_banner:"Todo tu inventario<br>a un tap", mock_explore:"Ver productos", mock_all:"🏷️ Todos", mock_cats:"📦 Categorías", mock_p1:"Producto", mock_p2:"Producto", mock_wa_sub:"Pedido recibido",
   mock_bub1:"¡Hola! Mi pedido:<br>2 × A<br>1 × B<br><b>Total listo</b>", mock_bub2:"¡Perfecto! ✓",
   cmp_title:"Vender por chat está bien.<br>Desordenado, no.", cmp_lead:"Cada precio repetido es tiempo perdido.",
-  cmp_bad_title:"Hoy, mensaje por mensaje", cmp_client:"Cliente", cmp_b1:"¿Precio de…?", cmp_b2:"📷 foto + precio", cmp_b3:"¿Descuento?", cmp_b4:"💬 explicación", cmp_b5:"2 y 1, ¿total?",
-  cmp_bad1:"Repites <b>las mismas respuestas</b>.", cmp_bad2:"Precios en <b>chats antiguos</b>.", cmp_bad3:"Pedido mal leído = <b>reclamo</b>.",
-  cmp_good_title:"Con tu enlace Catalogo Wha", cmp_good1:"El cliente <b>ve todo solo</b>.", cmp_good2:"El carrito <b>suma</b>.", cmp_good3:"Mensaje <b>claro y completo</b>.",
-  send_wa:"Enviar pedido por WhatsApp", total:"Total",
-  steps_title:"De cero a vendiendo<br>en tres movimientos", steps_lead:"Público desde el primer día.",
-  step1_t:"Abre tu cuenta", step1_d:"Nombre, WhatsApp, contraseña.", step2_t:"Sube tu inventario", step2_d:"Fotos, precios, ofertas.", step3_t:"Comparte tu enlace", step3_d:"Estados, redes, mostrador.",
-  ben_title1:"Un catálogo que trabaja", ben_title2:"aunque no estés en línea", ben_lead:"Tu enlace prepara el pedido.",
-  ben1_t:"Un enlace, todo tu stock", ben1_d:"Fotos, precios, stock.", ben1_tag:"compártelo", ben2_b:"de comisión", ben2_d:"Lo tuyo es tuyo.",
-  ben3_t:"Cierre por WhatsApp", ben3_d:"Pedido armado.", ben3_tag:"sin intermediarios",
-  feat_eye:"Funciones", feat_title:"Todo lo que tu venta necesita", feat_lead:"Orden profesional por chat.",
-  f1:"Enlace único", f1d:"Abre tu catálogo.", f2:"Buscador y categorías", f2d:"Encuentra en segundos.", f3:"Carrito automático", f3d:"Total sin errores.", f4:"Pedido guardado", f4d:"Registrado antes del chat.", f5:"Retiro o delivery", f5d:"Tú decides.", f6:"Tus pagos", f6d:"Efectivo, transferencia…", f7:"Tu moneda", f7d:"Precios locales.", f8:"Biblioteca", f8d:"Fotos reutilizables.",
-  view_order:"🛒 Ver pedido", order_sent:"Pedido enviado", order_conf:"✓ Confirmado",
-  exp_eye:"Para tu cliente", exp_title:"Comprar toma menos que escribir",
-  exp1:"Navega categorías.", exp2:"Busca por nombre.", exp3:"Ve ofertas y precio.", exp4:"Ajusta cantidades.", exp5:"Retiro o delivery.", exp6:"Elige pago.", exp7:"Envía a tu WhatsApp.",
-  exp_t1:"Sin cuentas", exp_t2:"Cualquier navegador",
-  ctrl_eye:"Para ti", ctrl_title:"Tú decides qué se vende",
-  ctrl1:"Publica/retira en 1 clic.", ctrl2:"Cambia precios fácil.", ctrl3:"Configura entrega.", ctrl4:"Historial pedidos.", ctrl5:"Marca estados.", ctrl6:"Enlace corto.",
-  ctrl_t1:"Sin permanencia", ctrl_t2:"Tus datos tuyos",
-  types_title:"Para negocios diarios", types_lead:"Si termina en WhatsApp, acelera.",
-  dir_title:"Ya venden con Catalogo Wha", dir_lead:"Catálogos públicos.", dir_empty:"¡Estrena el tuyo!",
-  dark_eye:"La diferencia", dark_title:"No es tienda online:<br>tu venta, con orden", dark_lead:"Muestra, recibe, cierra.",
-  dark1:"Publicas una vez", dark2:"Pedido claro", dark3:"Cierras por WhatsApp", dark_lead2:"Menos fricción.",
-  faq_eye:"FAQ", faq_title:"Tus respuestas",
-  faq1q:"¿Saber programar?", faq1a:"No.", faq2q:"¿Costo?", faq2a:"Gratis, sin comisión.", faq3q:"¿App cliente?", faq3a:"No, navegador.", faq4q:"¿Cambiar precios?", faq4a:"Sí, al instante.", faq5q:"¿Mi país?", faq5a:"Sí.", faq6q:"¿Recibo cliente?", faq6a:"Detalle en WhatsApp.",
-  cta_title:"Tu próximo pedido ordenado hoy", cta_lead:"Crea y comparte.", cta_btn:"Crear mi catálogo gratis",
+  cmp_bad_title:"Mensaje por mensaje", cmp_client:"Cliente", cmp_b1:"¿Precio?", cmp_b2:"📷", cmp_b3:"¿Descuento?", cmp_b4:"💬", cmp_b5:"¿Total?",
+  cmp_bad1:"Repites <b>respuestas</b>.", cmp_bad2:"Precios <b>antiguos</b>.", cmp_bad3:"Mal leído = <b>reclamo</b>.",
+  cmp_good_title:"Con tu enlace", cmp_good1:"Cliente <b>ve todo</b>.", cmp_good2:"Carrito <b>suma</b>.", cmp_good3:"Mensaje <b>claro</b>.",
+  send_wa:"Enviar por WhatsApp", total:"Total",
+  steps_title:"Tres movimientos", steps_lead:"Público desde el día 1.",
+  step1_t:"Cuenta", step1_d:"Nombre, WhatsApp, clave.", step2_t:"Stock", step2_d:"Fotos, precios.", step3_t:"Enlace", step3_d:"Comparte.",
+  ben_title1:"Catálogo que trabaja", ben_title2:"sin ti", ben_lead:"Tu enlace prepara el pedido.",
+  ben1_t:"Un enlace", ben1_d:"Fotos, precios.", ben1_tag:"compártelo", ben2_b:"comisión", ben2_d:"Lo tuyo es tuyo.",
+  ben3_t:"WhatsApp", ben3_d:"Pedido armado.", ben3_tag:"sin intermediarios",
+  feat_eye:"Funciones", feat_title:"Todo para vender", feat_lead:"Orden profesional.",
+  f1:"Enlace único", f1d:"Todo el catálogo.", f2:"Búsqueda", f2d:"Segundos.", f3:"Carrito", f3d:"Sin errores.", f4:"Pedido guardado", f4d:"Antes del chat.", f5:"Retiro/delivery", f5d:"Eliges.", f6:"Pagos", f6d:"Tus reglas.", f7:"Moneda", f7d:"Local.", f8:"Biblioteca", f8d:"Fotos.",
+  view_order:"🛒 Ver", order_sent:"Enviado", order_conf:"✓ Confirmado",
+  exp_eye:"Cliente", exp_title:"Comprar < escribir",
+  exp1:"Categorías.", exp2:"Nombre.", exp3:"Ofertas.", exp4:"Cantidades.", exp5:"Entrega.", exp6:"Pago.", exp7:"WhatsApp.",
+  exp_t1:"Sin cuenta", exp_t2:"Cualquier navegador",
+  ctrl_eye:"Tú", ctrl_title:"Tú decides",
+  ctrl1:"1 clic.", ctrl2:"Precios.", ctrl3:"Entrega.", ctrl4:"Historial.", ctrl5:"Estados.", ctrl6:"Enlace corto.",
+  ctrl_t1:"Sin permanencia", ctrl_t2:"Tus datos",
+  types_title:"Negocios diarios", types_lead:"Acelera WhatsApp.",
+  dir_title:"Ya venden", dir_lead:"Catálogos públicos.", dir_empty:"¡Estrena el tuyo!",
+  dark_eye:"Diferencia", dark_title:"No es tienda:<br>tu venta", dark_lead:"Muestra, recibe, cierra.",
+  dark1:"Publicas", dark2:"Pedido", dark3:"Cierras", dark_lead2:"Menos fricción.",
+  faq_eye:"FAQ", faq_title:"Respuestas",
+  faq1q:"¿Programar?", faq1a:"No.", faq2q:"¿Costo?", faq2a:"Gratis.", faq3q:"¿App?", faq3a:"No.", faq4q:"¿Precios?", faq4a:"Sí.", faq5q:"¿País?", faq5a:"Sí.", faq6q:"¿Recibo?", faq6a:"WhatsApp.",
+  cta_title:"Pedido ordenado hoy", cta_lead:"Crea y comparte.", cta_btn:"Crear gratis",
   contact_eye:"Contacto", contact_title:"¿Hablamos?", contact_lead:"Escríbenos.", contact_name:"Empresa", contact_wa:"WhatsApp", contact_email:"Correo",
-  foot_desc:"Catálogo + pedidos WhatsApp.", foot_panel:"Panel",
-  your_order:"Tu pedido", continue:"Continuar →",
-  check_title:"Completar", check_desc:"Sin registro.", check_name:"Tu nombre *", check_deliv:"Entrega", check_addr:"Dirección *", check_pay:"Pago", check_note:"Nota", cancel:"Cancelar",
-  auth_login:"Iniciar sesión", auth_register:"Registrarme", login_desc:"Accede a tu panel.", reg_desc:"Cuenta en 1 minuto.",
+  foot_desc:"Catálogo + WhatsApp.", foot_panel:"Panel",
+  your_order:"Pedido", continue:"Continuar →",
+  check_title:"Completar", check_desc:"Sin registro.", check_name:"Nombre *", check_deliv:"Entrega", check_addr:"Dirección *", check_pay:"Pago", check_note:"Nota", cancel:"Cancelar",
+  auth_login:"Iniciar sesión", auth_register:"Registrarme", login_desc:"Tu panel.", reg_desc:"1 minuto.",
   auth_email:"Correo", auth_pass:"Contraseña", auth_name:"Nombre negocio *", auth_wa:"WhatsApp *",
-  auth_avatar:"Logo (opcional)", auth_cat:"Categoría", select_cat:"Elige…",
+  auth_avatar:"Logo", auth_cat:"Categoría", select_cat:"Elige…",
   cfg_cat:"Categoría", th_catg:"Categoría", av_change:"Cambiar", av_remove:"Quitar",
-  login_btn:"Entrar", reg_btn:"Crear mi catálogo →", logout:"Salir", admin_view_cat:"Ver mi catálogo",
-  tab_home:"Inicio", tab_prod:"Productos", tab_orders:"Pedidos", tab_cfg:"Configuración", tab_share:"Compartir", tab_media:"Biblioteca",
-  add_prod:"Agregar producto", edit_prod:"Editar producto", f_name:"Nombre *", f_cat:"Categoría *", f_price:"Precio *", f_promo:"Precio promo", f_emoji:"Emoji", f_img:"Imagen", f_desc:"Descripción", save:"Guardar", clear:"Limpiar",
+  login_btn:"Entrar", reg_btn:"Crear →", logout:"Salir", admin_view_cat:"Mi catálogo",
+  tab_home:"Inicio", tab_prod:"Productos", tab_cats:"Categorías", tab_orders:"Pedidos", tab_cfg:"Configuración", tab_share:"Compartir", tab_media:"Biblioteca",
+  add_prod:"Agregar producto", edit_prod:"Editar", f_name:"Nombre *", f_cat:"Categoría *", f_price:"Precio *", f_promo:"Promo", f_emoji:"Emoji", f_img:"Imagen", f_desc:"Descripción", save:"Guardar", clear:"Limpiar",
   th_prod:"Producto", th_cat:"Categoría", th_price:"Precio", th_status:"Estado",
-  prod_slug:"URL del producto", prod_slug_d:"Generado del nombre; editable.", prod_sort:"Orden", prod_sort_d:"Menores primero.",
-  prod_imgs:"Imágenes del producto", prod_imgs_d:"Hasta 5. La 1ª = principal.", prod_drop:"Arrastra imágenes o haz clic", prod_preview:"Vista previa",
-  prod_desc_rich:"Descripción (enriquecida)", rte_b:"N", rte_i:"K", rte_ul:"Lista", rte_ol:"1. Lista", prod_addimg:"Agregar imágenes",
+  prod_slug:"URL producto", prod_slug_d:"Generado del nombre.", prod_sort:"Orden", prod_sort_d:"Menores primero.",
+  prod_imgs:"Imágenes", prod_imgs_d:"Hasta 5.", prod_drop:"Arrastra o haz clic", prod_preview:"Vista previa",
+  prod_desc_rich:"Descripción", rte_b:"N", rte_i:"K", rte_ul:"Lista", rte_ol:"1.",
+  cats_title:"Categorías", cats_sub:"Organiza tus productos para tus clientes.", cat_add:"Agregar categoría", cat_back:"Volver",
+  cat_name:"Categoría", cat_slug:"Slug / URL", cat_slug_d:"Corto, minúsculas, fácil de compartir.", cat_img:"Imagen representativa", cat_img_d:"Opcional. Identifica la categoría.", cat_alt:"Texto alternativo", cat_alt_d:"Describe la imagen; si no, se usa el nombre.",
+  cat_stats_total:"Categorías", cat_stats_org:"Productos organizados", cat_stats_default:"Predeterminada",
+  cat_prods:"Productos", cat_type:"Tipo", cat_type_def:"Predeterminada", cat_type_custom:"Personalizada", cat_edit:"Editar", cat_del:"Eliminar", cat_empty:"Aún no hay categorías.", cat_set_default:"Categoría predeterminada", cat_goto:"Gestionar categorías",
+  toast_cat_saved:"✓ Categoría guardada", confirm_del_cat:"¿Eliminar esta categoría?",
   cfg_biz:"Datos", cfg_name:"Nombre", cfg_wa:"WhatsApp", cfg_email:"Correo", cfg_cur:"Moneda", cfg_pay:"Pagos", cfg_eye:"Texto banner", cfg_banner:"Título banner", cfg_deliv:"Delivery", cfg_cost:"Costo", save_cfg:"Guardar",
-  share_title:"Comparte", share_desc:"Envía el enlace.", share_link:"Enlace público", copy:"Copiar", share_wa:"Compartir WhatsApp",
-  lib_title:"Biblioteca", lib_desc:"Subida comprimida + nube.", lib_upload:"Subir", lib_empty:"Vacía.", lib_added:"✓ Agregado", lib_deleted:"Eliminado",
-  lib_choose:"Elegir de biblioteca", lib_cat_title:"Imágenes categorías", lib_cat_desc:"Una imagen por categoría.", lib_cat_assign:"Elegir", lib_cat_clear:"Quitar", lib_cat_none:"Sin imagen", confirm_delete_img:"¿Eliminar?",
+  share_title:"Comparte", share_desc:"Envía el enlace.", share_link:"Enlace público", copy:"Copiar", share_wa:"WhatsApp",
+  lib_title:"Biblioteca", lib_desc:"Subida + nube.", lib_upload:"Subir", lib_empty:"Vacía.", lib_added:"✓ Agregado", lib_deleted:"Eliminado",
+  lib_choose:"Biblioteca", lib_cat_title:"Imágenes categorías", lib_cat_desc:"Una por categoría.", lib_cat_assign:"Elegir", lib_cat_clear:"Quitar", lib_cat_none:"Sin imagen", confirm_delete_img:"¿Eliminar?",
   empty_prods:"Sin productos.", empty_orders:"Sin pedidos.", cart_empty:"Carrito vacío.", no_prods_public:"Sin productos.",
   active:"🟢 Activo", inactive:"⚪ Inactivo", deliv_lbl_retiro:"Retiro", deliv_lbl_delivery:"Delivery", per_unit:"c/u",
   item_count:"{n} productos", item_count_one:"1 producto", confirm_delete_prod:"¿Eliminar?", not_found:"No encontrado",
   st_pend:"Pendiente", st_conf:"Confirmado", st_deliv:"En entrega", st_done:"Entregado", st_cancel:"Cancelado",
-  wa_new_order:"🧾 *Pedido {id}*", wa_customer:"👤 {name}", wa_business:"🏪 {biz}", wa_products:"📦 *Productos:*", wa_product_line:"• {q} × {name} — {price}", wa_delivery_line:"🚚 {mode}", wa_delivery_with_addr:"🚚 {mode} ({cost}) — {addr}", wa_payment:"💳 {pay}", wa_total:"🧮 *Total: {total}*", wa_note:"📝 {note}", wa_share_msg:"¡Mi catálogo!",
-  toast_added:"✓ Al carrito", toast_saved:"✓ Guardado", toast_deleted:"Eliminado", toast_cfg_saved:"✓ Guardado", toast_status:"Estado:", toast_copied:"🔗 Copiado", toast_created:"🎉 Listo", toast_fill:"Campos requeridos.", toast_email:"Correo inválido.", toast_pass_min:"6 caract.", toast_exists:"Ya existe.", toast_badlogin:"Incorrecto.", toast_login_first:"Inicia sesión.", toast_fill_cart:"Agrega productos.", toast_fill_name:"Tu nombre.", toast_fill_addr:"Dirección.", toast_fill_wa:"⚙️ WhatsApp.", toast_order_sent:"✅ Enviado", toast_avatar:"✓ Avatar", toast_email_confirm:"📧 Confirma.", toast_sb_error:"⚠️ ",
-  hint_pass_weak:"6 caract.", hint_pass_ok:"✓", hint_email_ok:"✓", hint_email_bad:"✗", hint_name_ok:"✓", hint_wa_ok:"✓", processing:"…",
-  install:"Instalar", install_ios:"iPhone: pantalla inicio", install_manual:"Menú: pantalla inicio",
-  sb_missing:"Configura SUPABASE_URL.", mig_btn:"⬆️ Migrar v6", mig_done:"✓ Migrado", mig_none:"Nada que migrar",
+  wa_new_order:"🧾 *Pedido {id}*", wa_customer:"👤 {name}", wa_business:"🏪 {biz}", wa_products:"📦 *:*", wa_product_line:"• {q} × {name} — {price}", wa_delivery_line:"🚚 {mode}", wa_delivery_with_addr:"🚚 {mode} ({cost}) — {addr}", wa_payment:"💳 {pay}", wa_total:"🧮 *{total}*", wa_note:"📝 {note}", wa_share_msg:"¡Mi catálogo!",
+  toast_added:"✓ Carrito", toast_saved:"✓ Guardado", toast_deleted:"Eliminado", toast_cfg_saved:"✓ Guardado", toast_status:"Estado:", toast_copied:"🔗 Copiado", toast_created:"🎉 Listo", toast_fill:"Campos requeridos.", toast_email:"Correo.", toast_pass_min:"6 caract.", toast_exists:"Ya existe.", toast_badlogin:"Incorrecto.", toast_login_first:"Inicia sesión.", toast_fill_cart:"Productos.", toast_fill_name:"Nombre.", toast_fill_addr:"Dirección.", toast_fill_wa:"⚙️ WhatsApp.", toast_order_sent:"✅ Enviado", toast_avatar:"✓ Avatar", toast_email_confirm:"📧 Confirma.", toast_sb_error:"⚠️ ",
+  hint_pass_weak:"6", hint_pass_ok:"✓", hint_email_ok:"✓", hint_email_bad:"✗", hint_name_ok:"✓", hint_wa_ok:"✓", processing:"…",
+  install:"Instalar", install_ios:"iPhone", install_manual:"Menú",
+  sb_missing:"Configura SUPABASE_URL.", mig_btn:"⬆️ v6", mig_done:"✓", mig_none:"Nada",
   dash_chip:"Preparando", dash_sub:"Publica cuando esté listo.", dash_prep:"Preparar ↓", dash_addprod:"+ Producto",
-  dash_req_t:"Tu catálogo", dash_req_d:"Completa según las reglas.", dash_complete:"Completar", dash_manageprod:"Gestionar",
-  dash_quick_t:"Vista rápida", dash_quick:"Datos", q_newprod:"Nuevo producto", q_newprod_d:"Rápido.", q_orders:"Pedidos", q_orders_d:"Gestionar.", q_cfg:"Configurar", q_cfg_d:"Marca, WA, moneda.", q_share:"Compartir", q_share_d:"Tu enlace.",
+  dash_req_t:"Tu catálogo", dash_req_d:"Completa las reglas.", dash_complete:"Completar", dash_manageprod:"Gestionar",
+  dash_quick_t:"Vista rápida", dash_quick:"Datos", q_newprod:"Producto", q_newprod_d:"Rápido.", q_cats:"Categorías", q_cats_d:"Organiza.", q_orders:"Pedidos", q_orders_d:"Gestionar.", q_share:"Compartir", q_share_d:"Tu enlace.",
   dash_act_t:"Actividad", dash_act:"Últimos eventos", dash_noact:"Sin actividad.",
   req_wa:"WhatsApp válido", req_prod:"1 producto activo", req_cur:"Moneda", req_pay:"1 forma de pago",
   req_ok:"Listo para publicar", req_left:"Faltan {n}", req_pending:"Pendiente", req_ready:"Lista",
   cfg_hub_title:"Configuración", cfg_hub_sub:"Por bloques.", cfg_back:"Volver", cfg_open:"Configurar",
   cfg_f_all:"Todo", cfg_f_gen:"General", cfg_f_cat:"Catálogo", cfg_f_pub:"Publicación", cfg_f_sales:"Ventas",
   st_ok:"Configurado", st_pend:"Pendiente", st_miss:"Falta", st_opt:"Opcional",
-  c_info:"Información", c_info_d:"Nombre, descripción, lugar.", c_wa:"WhatsApp", c_wa_d:"Número de recepción.", c_brand:"Marca", c_brand_d:"Logo/avatar.", c_cur:"Moneda", c_cur_d:"Moneda de precios.", c_link:"Enlace", c_link_d:"Dirección pública.", c_deliv:"Entrega", c_deliv_d:"Retiro/delivery.", c_pay:"Pagos", c_pay_d:"Opciones cliente.",
-  bot_title:"Asistente", bot_hello:"¡Hola!", bot_ask_name:"¿Tu nombre?", bot_thanks_name:"Encantado, {name}.", bot_ask_type:"¿Tipo de negocio?", bot_type1:"Tienda", bot_type2:"Comida", bot_type3:"Servicios", bot_type4:"Otro", bot_menu_intro:"Elige:",
-  bot_q_create:"Crear", bot_a_create:"Regístrate.", bot_q_products:"Productos", bot_a_products:"Panel → Productos.", bot_q_share:"Compartir", bot_a_share:"Panel → Compartir.", bot_q_client:"Pedido", bot_a_client:"El cliente pide.", bot_q_pay:"Pagos", bot_a_pay:"Configuración.", bot_q_install:"App", bot_a_install:"Menú → Instalar.", bot_q_human:"Humano", bot_a_human:"Resumen WhatsApp.", bot_fallback:"?", bot_summary:"Resumen WhatsApp", bot_sent:"Abierto.", bot_input_ph:"…"
+  c_info:"Información", c_info_d:"Nombre, lugar.", c_wa:"WhatsApp", c_wa_d:"Recepción.", c_brand:"Marca", c_brand_d:"Logo.", c_cur:"Moneda", c_cur_d:"Precios.", c_link:"Enlace", c_link_d:"Público.", c_deliv:"Entrega", c_deliv_d:"Modos.", c_pay:"Pagos", c_pay_d:"Opciones.",
+  bot_title:"Asistente", bot_hello:"¡Hola!", bot_ask_name:"¿Nombre?", bot_thanks_name:"Encantado, {name}.", bot_ask_type:"¿Tipo?", bot_type1:"Tienda", bot_type2:"Comida", bot_type3:"Servicios", bot_type4:"Otro", bot_menu_intro:"Elige:",
+  bot_q_create:"Crear", bot_a_create:"Regístrate.", bot_q_products:"Productos", bot_a_products:"Panel.", bot_q_share:"Compartir", bot_a_share:"Panel.", bot_q_client:"Pedido", bot_a_client:"Cliente.", bot_q_pay:"Pagos", bot_a_pay:"Configuración.", bot_q_install:"App", bot_a_install:"Menú.", bot_q_human:"Humano", bot_a_human:"Resumen.", bot_fallback:"?", bot_summary:"Resumen WhatsApp", bot_sent:"Abierto.", bot_input_ph:"…"
 },
 ar: {
-  nav_how:"كيف يعمل", nav_feat:"المميزات", nav_biz:"المتاجر", nav_faq:"أسئلة", nav_contact:"اتصل", nav_view:"عرض", nav_create:"أنشئ كتالوجي", menu:"القائمة",
-  hero_eyebrow:"بِع أكثر عبر واتساب", hero_title1:"كتالوجك مع سلة وطلب مباشر إلى",
-  hero_desc:"انشر مرة واحدة وشارك رابطًا واستقبل طلبات كاملة. بدون متجر ولا عمولات.",
-  hero_cta1:"أنشئ مجانًا", hero_cta2:"شاهد مباشر", hero_chk1:"جاهز سريعًا", hero_chk2:"0% عمولة",
-  mock_biz:"نشاطك", mock_banner:"كل مخزونك<br>بلمسة", mock_explore:"عرض", mock_all:"🏷️ الكل", mock_cats:"📦 فئات", mock_p1:"منتج", mock_p2:"منتج", mock_wa_sub:"تم الاستلام",
+  nav_how:"كيف يعمل", nav_feat:"مميزات", nav_biz:"متاجر", nav_faq:"أسئلة", nav_contact:"اتصل", nav_view:"عرض", nav_create:"أنشئ كتالوجي", menu:"القائمة",
+  hero_eyebrow:"بِع أكثر", hero_title1:"كتالوجك مع سلة وطلب مباشر إلى",
+  hero_desc:"انشر مرة وشارك رابطًا واستقبل طلبات كاملة. بدون متجر ولا عمولات.",
+  hero_cta1:"أنشئ مجانًا", hero_cta2:"شاهد", hero_chk1:"سريع", hero_chk2:"0% عمولة",
+  mock_biz:"نشاطك", mock_banner:"مخزونك<br>بلمسة", mock_explore:"عرض", mock_all:"🏷️ الكل", mock_cats:"📦 فئات", mock_p1:"منتج", mock_p2:"منتج", mock_wa_sub:"تم الاستلام",
   mock_bub1:"طلبي:<br>2 × أ<br>1 × ب<br><b>الإجمالي</b>", mock_bub2:"ممتاز ✓",
   cmp_title:"الدردشة جيدة.<br>الفوضوية لا.", cmp_lead:"التكرار وقت ضائع.",
   cmp_bad_title:"اليوم", cmp_client:"عميل", cmp_b1:"السعر؟", cmp_b2:"📷", cmp_b3:"خصم؟", cmp_b4:"💬", cmp_b5:"الإجمالي؟",
-  cmp_bad1:"تكرر <b>الإجابات</b>.", cmp_bad2:"أسعار قديمة.", cmp_bad3:"طلب خاطئ = <b>شكوى</b>.",
-  cmp_good_title:"مع رابطك", cmp_good1:"يرى <b>وحده</b>.", cmp_good2:"السلة <b>تجمع</b>.", cmp_good3:"رسالة <b>واضحة</b>.",
-  send_wa:"إرسال عبر واتساب", total:"الإجمالي",
-  steps_title:"ثلاث خطوات", steps_lead:"عام من اليوم الأول.",
-  step1_t:"حسابك", step1_d:"اسم، واتساب، سر.", step2_t:"مخزونك", step2_d:"صور وأسعار.", step3_t:"رابطك", step3_d:"شاركه.",
-  ben_title1:"كتالوج يعمل", ben_title2:"وأنت غير متصل", ben_lead:"رابطك يجهّز الطلب.",
-  ben1_t:"رابط واحد", ben1_d:"صور وأسعار.", ben1_tag:"شاركه", ben2_b:"عمولة", ben2_d:"أرباحك لك.",
-  ben3_t:"إتمام واتساب", ben3_d:"طلب جاهز.", ben3_tag:"بدون وسطاء",
-  feat_eye:"مميزات", feat_title:"كل ما تحتاج", feat_lead:"ترتيب احترافي.",
-  f1:"رابط واحد", f1d:"يفتح الكل.", f2:"بحث وفئات", f2d:"ثوانٍ.", f3:"سلة", f3d:"بدون خطأ.", f4:"طلب محفوظ", f4d:"قبل الدردشة.", f5:"استلام/توصيل", f5d:"اختيارك.", f6:"دفعك", f6d:"طرقك.", f7:"عملتك", f7d:"محليًا.", f8:"مكتبة", f8d:"صور معادة.",
+  cmp_bad1:"تكرر <b>الإجابات</b>.", cmp_bad2:"أسعار قديمة.", cmp_bad3:"خطأ = <b>شكوى</b>.",
+  cmp_good_title:"مع رابطك", cmp_good1:"يرى <b>الكل</b>.", cmp_good2:"السلة <b>تجمع</b>.", cmp_good3:"رسالة <b>واضحة</b>.",
+  send_wa:"إرسال واتساب", total:"الإجمالي",
+  steps_title:"ثلاث خطوات", steps_lead:"عام من اليوم.",
+  step1_t:"حساب", step1_d:"اسم، واتساب، سر.", step2_t:"مخزون", step2_d:"صور وأسعار.", step3_t:"رابط", step3_d:"شارك.",
+  ben_title1:"كتالوج يعمل", ben_title2:"بدونك", ben_lead:"رابطك يجهّز.",
+  ben1_t:"رابط", ben1_d:"صور وأسعار.", ben1_tag:"شارك", ben2_b:"عمولة", ben2_d:"أرباحك لك.",
+  ben3_t:"واتساب", ben3_d:"طلب جاهز.", ben3_tag:"بدون وسطاء",
+  feat_eye:"مميزات", feat_title:"كل ما تحتاج", feat_lead:"ترتيب.",
+  f1:"رابط", f1d:"الكل.", f2:"بحث", f2d:"ثوانٍ.", f3:"سلة", f3d:"بدون خطأ.", f4:"طلب", f4d:"محفوظ.", f5:"تسليم", f5d:"اختيار.", f6:"دفع", f6d:"قواعدك.", f7:"عملة", f7d:"محلية.", f8:"مكتبة", f8d:"صور.",
   view_order:"🛒 عرض", order_sent:"أُرسل", order_conf:"✓ مؤكد",
-  exp_eye:"لعميلك", exp_title:"الشراء أسهل",
-  exp1:"فئات.", exp2:"بحث.", exp3:"عروض.", exp4:"كميات.", exp5:"تسليم.", exp6:"دفع.", exp7:"إرسال.",
+  exp_eye:"عميل", exp_title:"الشراء أسهل",
+  exp1:"فئات.", exp2:"اسم.", exp3:"عروض.", exp4:"كميات.", exp5:"تسليم.", exp6:"دفع.", exp7:"واتساب.",
   exp_t1:"بدون حساب", exp_t2:"أي متصفح",
   ctrl_eye:"لك", ctrl_title:"أنت تقرر",
   ctrl1:"نقرة.", ctrl2:"أسعار.", ctrl3:"تسليم.", ctrl4:"سجل.", ctrl5:"حالات.", ctrl6:"رابط.",
   ctrl_t1:"بدون التزام", ctrl_t2:"بياناتك",
-  types_title:"يوميًا", types_lead:"يسرّع واتساب.",
-  dir_title:"يبيعون بالفعل", dir_lead:"كتالوجات.", dir_empty:"كن الأول!",
-  dark_eye:"الفرق", dark_title:"ليس متجرًا:<br>بيعك بترتيب", dark_lead:"اعرض، استلم، أَتمّ.",
+  types_title:"يوميًا", types_lead:"يسرّع.",
+  dir_title:"يبيعون", dir_lead:"كتالوجات.", dir_empty:"كن الأول!",
+  dark_eye:"الفرق", dark_title:"ليس متجرًا:<br>بيعك", dark_lead:"اعرض، استلم، أَتمّ.",
   dark1:"انشر", dark2:"طلب", dark3:"أتمّ", dark_lead2:"أقل احتكاكًا.",
   faq_eye:"أسئلة", faq_title:"إجابات",
-  faq1q:"برمجة؟", faq1a:"لا.", faq2q:"كلفة؟", faq2a:"مجاني.", faq3q:"تطبيق؟", faq3a:"لا.", faq4q:"أسعار؟", faq4a:"نعم.", faq5q:"بلدي؟", faq5a:"نعم.", faq6q:"الاستلام؟", faq6a:"تفاصيل واتساب.",
+  faq1q:"برمجة؟", faq1a:"لا.", faq2q:"كلفة؟", faq2a:"مجاني.", faq3q:"تطبيق؟", faq3a:"لا.", faq4q:"أسعار؟", faq4a:"نعم.", faq5q:"بلدي؟", faq5a:"نعم.", faq6q:"الاستلام؟", faq6a:"واتساب.",
   cta_title:"طلبك مرتّب اليوم", cta_lead:"أنشئ وشارك.", cta_btn:"أنشئ مجانًا",
   contact_eye:"اتصل", contact_title:"نتحدث؟", contact_lead:"راسلنا.", contact_name:"شركة", contact_wa:"واتساب", contact_email:"بريد",
   foot_desc:"كتالوج + واتساب.", foot_panel:"لوحة",
   your_order:"طلبك", continue:"متابعة →",
-  check_title:"إتمام", check_desc:"بدون تسجيل.", check_name:"اسمك *", check_deliv:"تسليم", check_addr:"عنوان *", check_pay:"دفع", check_note:"ملاحظة", cancel:"إلغاء",
+  check_title:"إتمام", check_desc:"بدون تسجيل.", check_name:"اسم *", check_deliv:"تسليم", check_addr:"عنوان *", check_pay:"دفع", check_note:"ملاحظة", cancel:"إلغاء",
   auth_login:"دخول", auth_register:"حساب", login_desc:"لوحتك.", reg_desc:"دقيقة.",
   auth_email:"بريد", auth_pass:"سر", auth_name:"اسم النشاط *", auth_wa:"واتساب *",
   auth_avatar:"شعار", auth_cat:"فئة", select_cat:"اختر…",
   cfg_cat:"فئة", th_catg:"فئة", av_change:"تغيير", av_remove:"إزالة",
   login_btn:"دخول", reg_btn:"أنشئ →", logout:"خروج", admin_view_cat:"كتالوجي",
-  tab_home:"الرئيسية", tab_prod:"منتجات", tab_orders:"طلبات", tab_cfg:"إعدادات", tab_share:"مشاركة", tab_media:"مكتبة",
-  add_prod:"إضافة", edit_prod:"تعديل", f_name:"اسم *", f_cat:"فئة *", f_price:"سعر *", f_promo:"عرض", f_emoji:"رمز", f_img:"صورة", f_desc:"وصف", save:"حفظ", clear:"مسح",
+  tab_home:"الرئيسية", tab_prod:"منتجات", tab_cats:"فئات", tab_orders:"طلبات", tab_cfg:"إعدادات", tab_share:"مشاركة", tab_media:"مكتبة",
+  add_prod:"إضافة منتج", edit_prod:"تعديل", f_name:"اسم *", f_cat:"فئة *", f_price:"سعر *", f_promo:"عرض", f_emoji:"رمز", f_img:"صورة", f_desc:"وصف", save:"حفظ", clear:"مسح",
   th_prod:"منتج", th_cat:"فئة", th_price:"سعر", th_status:"حالة",
-  prod_slug:"رابط المنتج", prod_slug_d:"من الاسم؛ قابل للتعديل.", prod_sort:"ترتيب", prod_sort_d:"الأصغر أولًا.",
-  prod_imgs:"صور المنتج", prod_imgs_d:"حتى 5. الأولى رئيسية.", prod_drop:"اسحب الصور أو انقر", prod_preview:"معاينة",
-  prod_desc_rich:"وصف (منسّق)", rte_b:"غ", rte_i:"م", rte_ul:"قائمة", rte_ol:"1. قائمة", prod_addimg:"إضافة صور",
+  prod_slug:"رابط", prod_slug_d:"من الاسم.", prod_sort:"ترتيب", prod_sort_d:"الأصغر أولًا.",
+  prod_imgs:"صور", prod_imgs_d:"حتى 5.", prod_drop:"اسحب أو انقر", prod_preview:"معاينة",
+  prod_desc_rich:"وصف", rte_b:"غ", rte_i:"م", rte_ul:"قائمة", rte_ol:"1.",
+  cats_title:"الفئات", cats_sub:"نظّم منتجاتك.", cat_add:"إضافة فئة", cat_back:"رجوع",
+  cat_name:"فئة", cat_slug:"Slug", cat_slug_d:"قصير وصغير.", cat_img:"صورة ممثلة", cat_img_d:"اختيارية.", cat_alt:"نص بديل", cat_alt_d:"يصف الصورة.",
+  cat_stats_total:"فئات", cat_stats_org:"منتجات منظمة", cat_stats_default:"افتراضية",
+  cat_prods:"منتجات", cat_type:"نوع", cat_type_def:"افتراضية", cat_type_custom:"مخصصة", cat_edit:"تعديل", cat_del:"حذف", cat_empty:"لا فئات.", cat_set_default:"فئة افتراضية", cat_goto:"إدارة الفئات",
+  toast_cat_saved:"✓ تم حفظ الفئة", confirm_del_cat:"حذف الفئة؟",
   cfg_biz:"بيانات", cfg_name:"اسم", cfg_wa:"واتساب", cfg_email:"بريد", cfg_cur:"عملة", cfg_pay:"دفع", cfg_eye:"نص", cfg_banner:"عنوان", cfg_deliv:"توصيل", cfg_cost:"كلفة", save_cfg:"حفظ",
   share_title:"مشاركة", share_desc:"أرسل الرابط.", share_link:"رابطك", copy:"نسخ", share_wa:"واتساب",
-  lib_title:"مكتبة", lib_desc:"ضغط + سحابة.", lib_upload:"رفع", lib_empty:"فارغة.", lib_added:"✓", lib_deleted:"حذف",
-  lib_choose:"من المكتبة", lib_cat_title:"صور الفئات", lib_cat_desc:"صورة لكل فئة.", lib_cat_assign:"اختيار", lib_cat_clear:"إزالة", lib_cat_none:"بدون", confirm_delete_img:"حذف؟",
+  lib_title:"مكتبة", lib_desc:"رفع + سحابة.", lib_upload:"رفع", lib_empty:"فارغة.", lib_added:"✓", lib_deleted:"حذف",
+  lib_choose:"مكتبة", lib_cat_title:"صور الفئات", lib_cat_desc:"صورة لكل فئة.", lib_cat_assign:"اختيار", lib_cat_clear:"إزالة", lib_cat_none:"بدون", confirm_delete_img:"حذف؟",
   empty_prods:"لا منتجات.", empty_orders:"لا طلبات.", cart_empty:"فارغة.", no_prods_public:"لا منتجات.",
   active:"🟢", inactive:"⚪", deliv_lbl_retiro:"استلام", deliv_lbl_delivery:"توصيل", per_unit:"/وحدة",
   item_count:"{n} منتجات", item_count_one:"منتج", confirm_delete_prod:"حذف؟", not_found:"غير موجود",
@@ -1160,15 +1218,15 @@ ar: {
   install:"تثبيت", install_ios:"آيفون", install_manual:"القائمة",
   sb_missing:"اضبط URL.", mig_btn:"⬆️", mig_done:"✓", mig_none:"لا",
   dash_chip:"تحضير", dash_sub:"انشر عند الجاهزية.", dash_prep:"تحضير ↓", dash_addprod:"+ منتج",
-  dash_req_t:"كتالوجك", dash_req_d:"أكمل القواعد.", dash_complete:"إكمال", dash_manageprod:"إدارة",
-  dash_quick_t:"نظرة", dash_quick:"بيانات", q_newprod:"منتج", q_newprod_d:"سريع.", q_orders:"طلبات", q_orders_d:"إدارة.", q_cfg:"إعداد", q_cfg_d:"علامة، واتساب.", q_share:"مشاركة", q_share_d:"رابط.",
+  dash_req_t:"كتالوجك", dash_req_d:"أكمل.", dash_complete:"إكمال", dash_manageprod:"إدارة",
+  dash_quick_t:"نظرة", dash_quick:"بيانات", q_newprod:"منتج", q_newprod_d:"سريع.", q_cats:"فئات", q_cats_d:"نظّم.", q_orders:"طلبات", q_orders_d:"إدارة.", q_share:"مشاركة", q_share_d:"رابط.",
   dash_act_t:"نشاط", dash_act:"أحداث", dash_noact:"لا.",
   req_wa:"واتساب صالح", req_prod:"منتج نشط", req_cur:"عملة", req_pay:"دفع",
   req_ok:"جاهز", req_left:"ينقص {n}", req_pending:"معلق", req_ready:"جاهز",
   cfg_hub_title:"إعدادات", cfg_hub_sub:"بلوكات.", cfg_back:"رجوع", cfg_open:"إعداد",
   cfg_f_all:"الكل", cfg_f_gen:"عام", cfg_f_cat:"كتالوج", cfg_f_pub:"نشر", cfg_f_sales:"مبيعات",
   st_ok:"مُعد", st_pend:"معلق", st_miss:"ناقص", st_opt:"اختياري",
-  c_info:"معلومات", c_info_d:"اسم، وصف.", c_wa:"واتساب", c_wa_d:"الرقم.", c_brand:"علامة", c_brand_d:"شعار.", c_cur:"عملة", c_cur_d:"الأسعار.", c_link:"رابط", c_link_d:"عام.", c_deliv:"تسليم", c_deliv_d:"استلام/توصيل.", c_pay:"دفع", c_pay_d:"خيارات.",
+  c_info:"معلومات", c_info_d:"اسم، موقع.", c_wa:"واتساب", c_wa_d:"استلام.", c_brand:"علامة", c_brand_d:"شعار.", c_cur:"عملة", c_cur_d:"أسعار.", c_link:"رابط", c_link_d:"عام.", c_deliv:"تسليم", c_deliv_d:"أنماط.", c_pay:"دفع", c_pay_d:"خيارات.",
   bot_title:"مساعد", bot_hello:"مرحبًا!", bot_ask_name:"اسمك؟", bot_thanks_name:"أهلًا {name}.", bot_ask_type:"النوع؟", bot_type1:"متجر", bot_type2:"طعام", bot_type3:"خدمات", bot_type4:"آخر", bot_menu_intro:"اختر:",
   bot_q_create:"إنشاء", bot_a_create:"سجّل.", bot_q_products:"منتجات", bot_a_products:"اللوحة.", bot_q_share:"مشاركة", bot_a_share:"اللوحة.", bot_q_client:"طلب", bot_a_client:"العميل.", bot_q_pay:"دفع", bot_a_pay:"إعدادات.", bot_q_install:"تطبيق", bot_a_install:"القائمة.", bot_q_human:"شخص", bot_a_human:"ملخص.", bot_fallback:"؟", bot_summary:"ملخص واتساب", bot_sent:"فُتح.", bot_input_ph:"…"
 }};
@@ -1198,10 +1256,10 @@ const dateFmt = ts => new Date(ts).toLocaleString(LANG === "ar" ? "ar-MA" : LANG
 const TYPES = [["🔧","Ferreterías","bg-sun"],["👕","Ropa","bg-lav"],["👟","Calzado","bg-sky"],["🛒","Abarrotes","bg-mint"],["🧴","Limpieza","bg-sky"],["💄","Belleza","bg-rose"],["💻","Tecnología","bg-sun"],["⚡","Electricidad","bg-lav"],["🧸","Juguetes","bg-sky"],["📚","Librerías","bg-mint"],["🐾","Mascotas","bg-sky"],["⚽","Deportes","bg-rose"],["🏺","Artesanías","bg-sun"],["🎁","Regalos","bg-lav"],["🚚","Distribuidoras","bg-sky"]];
 const BIZ_CATS = TYPES.map(x => x[1]).concat(["Otro"]);
 $("typesGrid").innerHTML = TYPES.map(x => `<div class="type"><div class="ico ${x[2]}">${x[0]}</div>${esc(x[1])}</div>`).join("");
-function fillCatSelects(){ const opts = `<option value="">${esc(t("select_cat"))}</option>` + BIZ_CATS.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join(""); if ($("rCat")) $("rCat").innerHTML = opts; if ($("catList")) $("catList").innerHTML = BIZ_CATS.map(c => `<option value="${esc(c)}">`).join(""); }
+function fillCatSelects(){ const opts = `<option value="">${esc(t("select_cat"))}</option>` + BIZ_CATS.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join(""); if ($("rCat")) $("rCat").innerHTML = opts; }
 function fillPlatLangSelect(){ const s = $("plLang"); if (s) s.innerHTML = LANGS.map(l => `<option value="${l.code}">${esc(l.name)}</option>`).join(""); }
 
-let ME = null, BIZ = null;
+let ME = null, BIZ = null, CATS = [];
 function isAdmin(){ return !!ME && ME.role === "admin"; }
 function getCurrentUser(){ return ME ? { id:ME.id, name:ME.name, email:ME.email, avatar:ME.avatar, role:ME.role } : null; }
 async function refreshMe(uid){ if (!sb) return; const { data: p } = await sb.from('profiles').select('*').eq('id', uid).maybeSingle(); ME = p || null; const { data: b } = await sb.from('businesses').select('*').eq('owner_id', uid).maybeSingle(); BIZ = b || null; }
@@ -1217,9 +1275,9 @@ let regAvatar = "";
 async function previewRegAvatar(input){ const f = input.files && input.files[0]; if (!f) return; regAvatar = await compressSize(f, 160, 0.8); $("rAvPrev").innerHTML = `<img src="${regAvatar}" alt="">`; }
 function clearRegAvatar(){ regAvatar = ""; $("rAvPrev").innerHTML = "🏪"; }
 async function uniqueSlug(){ for (let i=0;i<10;i++){ const s = "u-" + Math.random().toString(36).slice(2,8); const { data } = await sb.from('businesses').select('id').eq('slug', s).maybeSingle(); if (!data) return s; } return "u-" + Date.now().toString(36); }
-async function doRegister(){ if (!sb) return toast(t("sb_missing")); const name = $("rName").value.trim(), email = $("rEmail").value.trim().toLowerCase(), pass = $("rPass").value, wa = $("rWa").value.replace(/\D/g,""); if (!name || !email || !pass || !wa) return toast(t("toast_fill")); if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return toast(t("toast_email")); if (pass.length < 6) return toast(t("toast_pass_min")); const btn = $("btnRegister"); btn.disabled = true; btn.textContent = t("processing"); try { const { data, error } = await sb.auth.signUp({ email, password: pass, options:{ data:{ name } } }); if (error) return toast(t("toast_sb_error") + error.message); const uid = data.user && data.user.id; if (!uid) return toast(t("toast_email_confirm")); if (data.session) await refreshMe(uid); else { await sb.auth.signInWithPassword({ email, password: pass }); await refreshMe(uid); } if (!BIZ){ const slug = await uniqueSlug(); await sb.from('businesses').insert({ owner_id: ME.id, business_name:name, whatsapp:wa, email, category: $("rCat").value, slug, created:true }); await refreshMe(ME.id); } if (regAvatar){ try { const url = await uploadDataUrl(regAvatar, ME.id + "/avatar.jpg"); await sb.from('profiles').update({ avatar:url }).eq('id', ME.id); ME.avatar = url; } catch {} regAvatar = ""; clearRegAvatar(); } closeAll(); toast(t("toast_created")); go("admin"); } finally { btn.disabled = false; btn.textContent = t("reg_btn"); } }
+async function doRegister(){ if (!sb) return toast(t("sb_missing")); const name = $("rName").value.trim(), email = $("rEmail").value.trim().toLowerCase(), pass = $("rPass").value, wa = $("rWa").value.replace(/\D/g,""); if (!name || !email || !pass || !wa) return toast(t("toast_fill")); if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return toast(t("toast_email")); if (pass.length < 6) return toast(t("toast_pass_min")); const btn = $("btnRegister"); btn.disabled = true; btn.textContent = t("processing"); try { const { data, error } = await sb.auth.signUp({ email, password: pass, options:{ data:{ name } } }); if (error) return toast(t("toast_sb_error") + error.message); const uid = data.user && data.user.id; if (!uid) return toast(t("toast_email_confirm")); if (data.session) await refreshMe(uid); else { await sb.auth.signInWithPassword({ email, password: pass }); await refreshMe(uid); } if (!BIZ){ const slug = await uniqueSlug(); await sb.from('businesses').insert({ owner_id: ME.id, business_name:name, whatsapp:wa, email, category: $("rCat").value, slug, created:true }); await refreshMe(ME.id); await ensureDefaultCat(); } if (regAvatar){ try { const url = await uploadDataUrl(regAvatar, ME.id + "/avatar.jpg"); await sb.from('profiles').update({ avatar:url }).eq('id', ME.id); ME.avatar = url; } catch {} regAvatar = ""; clearRegAvatar(); } closeAll(); toast(t("toast_created")); go("admin"); } finally { btn.disabled = false; btn.textContent = t("reg_btn"); } }
 async function doLogin(){ if (!sb) return toast(t("sb_missing")); const email = $("lEmail").value.trim().toLowerCase(), pass = $("lPass").value; if (!email || !pass) return toast(t("toast_fill")); const btn = $("btnLogin"); btn.disabled = true; btn.textContent = t("processing"); try { const { data, error } = await sb.auth.signInWithPassword({ email, password: pass }); if (error) return toast(t("toast_badlogin")); await refreshMe(data.user.id); if (ME && ME.suspended){ await sb.auth.signOut(); ME = null; BIZ = null; return toast("🔴"); } closeAll(); toast("✓ " + (ME ? ME.name : "")); go("admin"); } finally { btn.disabled = false; btn.textContent = t("login_btn"); } }
-async function logout(){ await sb.auth.signOut(); ME = null; BIZ = null; cart = {}; F = { cat:"Todos", q:"" }; loadCurrentState(); go("landing"); toast("👋"); }
+async function logout(){ await sb.auth.signOut(); ME = null; BIZ = null; CATS = []; cart = {}; F = { cat:"Todos", q:"" }; loadCurrentState(); go("landing"); toast("👋"); }
 function authTab(w){ $("tLogin").classList.toggle("on", w==="login"); $("tReg").classList.toggle("on", w==="register"); $("formLogin").hidden = w!=="login"; $("formRegister").hidden = w!=="register"; }
 function requireAuth(){ if (!ME){ openAuth("login"); toast(t("toast_login_first")); return false; } return true; }
 function openAuth(tab){ authTab(tab||"login"); ["lEmail","lPass","rName","rEmail","rPass","rWa"].forEach(i => { const el=$(i); if(el){ el.value=""; el.classList.remove("valid","invalid"); } }); const h=$("hintPass"); if(h){h.textContent="";h.className="hint";} clearRegAvatar(); $("modalAuth").classList.add("on"); $("scrim").classList.add("on"); }
@@ -1234,11 +1292,26 @@ function toast(m){ const s = $("toastStack"); const el = document.createElement(
 async function libList(){ if (!ME) return []; const { data } = await sb.storage.from('catalog-images').list(ME.id + "/lib", { sortBy:{ column:"created_at", order:"desc" } }); return (data||[]).map(f => ({ name:f.name, url: sb.storage.from('catalog-images').getPublicUrl(ME.id + "/lib/" + f.name).data.publicUrl })); }
 async function uploadImgs(files){ if (!ME) return; let n = 0; for (const f of files){ if (!f.type.startsWith("image/")) continue; const d = await compress(f); await uploadDataUrl(d, ME.id + "/lib/" + Date.now().toString(36) + ".jpg"); n++; } if (n) toast(t("lib_added")); renderMedia(); }
 async function delMedia(name){ if (!confirm(t("confirm_delete_img"))) return; await sb.storage.from('catalog-images').remove([ME.id + "/lib/" + name]); toast(t("lib_deleted")); renderMedia(); }
-async function renderMedia(){ if (!ME) return; const items = await libList(); $("libGrid").innerHTML = items.length ? items.map(m => `<div class="lib-item"><img src="${esc(m.url)}" alt="" loading="lazy"><button class="lib-del" onclick="delMedia('${esc(m.name)}')">🗑️</button></div>`).join("") : `<p style="grid-column:1/-1;color:var(--muted)">${esc(t("lib_empty"))}</p>`; const cats = [...new Set(S.products.map(p => p.cat))]; $("catImgList").innerHTML = cats.length ? cats.map(c => { const src = (S.config.catImages||{})[c]; return `<div class="catimg-row">${src ? `<img src="${esc(src)}" alt="">` : `<span style="font-size:24px">🏷️</span>`}<b>${esc(c)}</b><button class="btn btn-ghost btn-sm" onclick="openPicker('cat:${esc(c).replace(/'/g,"\\'")}')">${esc(t("lib_cat_assign"))}</button>${src ? `<button class="btn btn-ghost btn-sm" onclick="clearCatImg('${esc(c).replace(/'/g,"\\'")}')">${esc(t("lib_cat_clear"))}</button>` : ""}</div>`; }).join("") : `<p style="color:var(--muted)">${esc(t("lib_cat_none"))}</p>`; }
+async function renderMedia(){ if (!ME) return; const items = await libList(); $("libGrid").innerHTML = items.length ? items.map(m => `<div class="lib-item"><img src="${esc(m.url)}" alt="" loading="lazy"><button class="lib-del" onclick="delMedia('${esc(m.name)}')">🗑️</button></div>`).join("") : `<p style="grid-column:1/-1;color:var(--muted)">${esc(t("lib_empty"))}</p>`; const cats = CATS.length ? CATS.map(c=>c.name) : [...new Set(S.products.map(p => p.cat))]; $("catImgList").innerHTML = cats.length ? cats.map(cn => { const src = (S.config.catImages||{})[cn]; return `<div class="catimg-row">${src ? `<img src="${esc(src)}" alt="">` : `<span style="font-size:24px">🏷️</span>`}<b>${esc(cn)}</b><button class="btn btn-ghost btn-sm" onclick="openPicker('cat:${esc(cn).replace(/'/g,"\\'")}')">${esc(t("lib_cat_assign"))}</button>${src ? `<button class="btn btn-ghost btn-sm" onclick="clearCatImg('${esc(cn).replace(/'/g,"\\'")}')">${esc(t("lib_cat_clear"))}</button>` : ""}</div>`; }).join("") : `<p style="color:var(--muted)">${esc(t("lib_cat_none"))}</p>`; }
 let pickTarget = null;
 async function openPicker(target){ if (!ME) return; pickTarget = target; const items = await libList(); $("pickGrid").innerHTML = items.length ? items.map(m => `<div class="lib-item pick" onclick="pickMedia('${esc(m.url).replace(/'/g,"\\'")}')" role="button" tabindex="0"><img src="${esc(m.url)}" alt="" loading="lazy"></div>`).join("") : `<p style="grid-column:1/-1;color:var(--muted)">${esc(t("lib_empty"))}</p>`; $("modalPicker").classList.add("on"); $("scrim").classList.add("on"); }
-function pickMedia(url){ if (pickTarget === "prodimg"){ if (prodImgs.length < 5){ prodImgs.push(url); renderImgSlots(); renderPreview(); } } else if (pickTarget === "prod"){ /* legacy */ } else if (typeof pickTarget === "string" && pickTarget.startsWith("cat:")){ S.config.catImages = S.config.catImages || {}; S.config.catImages[pickTarget.slice(4)] = url; sb.from('businesses').update({ cat_images: S.config.catImages }).eq('id', S.bizId); renderMedia(); } closeAll(); toast("✓"); }
-function clearCatImg(cat){ delete (S.config.catImages||{})[cat]; sb.from('businesses').update({ cat_images:S.config.catImages }).eq('id', S.bizId); renderMedia(); toast("✓"); }
+function pickMedia(url){ if (pickTarget === "prodimg"){ if (prodImgs.length < 5){ prodImgs.push(url); renderImgSlots(); renderPreview(); } } else if (pickTarget === "catimg"){ catImgTemp = url; $("cImgPrev").innerHTML = `<img src="${url}">`; } else if (typeof pickTarget === "string" && pickTarget.startsWith("cat:")){ S.config.catImages = S.config.catImages || {}; S.config.catImages[pickTarget.slice(4)] = url; sb.from('businesses').update({ cat_images: S.config.catImages }).eq('id', S.bizId); renderMedia(); } closeAll(); toast("✓"); }
+function clearCatImg(cn){ delete (S.config.catImages||{})[cn]; sb.from('businesses').update({ cat_images:S.config.catImages }).eq('id', S.bizId); renderMedia(); toast("✓"); }
+
+/* ===== CATEGORÍAS (Fase 3) ===== */
+async function loadCategories(){ if (!ME || !BIZ){ CATS = []; return; } const { data } = await sb.from('categories').select('*').eq('business_id', BIZ.id).order('sort', { ascending:true }); CATS = data || []; }
+async function ensureDefaultCat(){ if (!BIZ) return; const { data } = await sb.from('categories').select('id').eq('business_id', BIZ.id).limit(1); if (!data || !data.length){ await sb.from('categories').insert({ business_id:BIZ.id, name:"Otros", slug:"otros", sort:999, is_default:true }); } }
+function fillProdCatSelect(current){ const sel = $("fCat"); if (!sel) return; const names = CATS.map(c => c.name); if (current && !names.includes(current)) names.unshift(current); sel.innerHTML = names.length ? names.map(n => `<option value="${esc(n)}" ${n===current?"selected":""}>${esc(n)}</option>`).join("") : `<option value="">${esc(t("cat_empty"))}</option>`; }
+function renderCats(){ if (!BIZ) return; const prodCount = {}; S.products.forEach(p => { prodCount[p.cat] = (prodCount[p.cat]||0)+1; }); const organized = CATS.reduce((s,c)=> s + (prodCount[c.name]||0), 0); const def = CATS.find(c => c.is_default); $("catStats").innerHTML = `<div class="cat-stat"><span>${esc(t("cat_stats_total"))}</span><b>${CATS.length}</b><p>${esc(t("cats_sub"))}</p></div><div class="cat-stat"><span>${esc(t("cat_stats_org"))}</span><b>${organized}</b><p>${S.products.length - organized > 0 ? (S.products.length - organized) + " sin categoría" : "Todos organizados"}</p></div><div class="cat-stat hl"><span>${esc(t("cat_stats_default"))}</span><b style="font-size:18px">${esc(def ? def.name : "—")}</b><p>${esc(t("cat_type_def"))}</p></div>`; $("catList").innerHTML = CATS.length ? CATS.map(c => `<tr><td style="font-size:22px">${c.image_url?`<img src="${esc(c.image_url)}" alt="" style="width:34px;height:34px;object-fit:cover;border-radius:8px">`:"🏷️"}</td><td><b>${esc(c.name)}</b><br><small style="color:var(--muted)">/${esc(c.slug)}</small></td><td>${prodCount[c.name]||0}</td><td>${c.sort}</td><td>${c.is_default?`<span class="tag lav">${esc(t("cat_type_def"))}</span>`:`<span class="tag">${esc(t("cat_type_custom"))}</span>`}</td><td><button class="st" onclick="editCat(${c.id})">✏️</button> <button class="st" onclick="delCat(${c.id})">🗑️</button></td></tr>`).join("") : `<tr><td colspan="6" style="text-align:center;padding:30px;color:var(--muted)">${esc(t("cat_empty"))}</td></tr>`; }
+function catShow(){ $("catsList").hidden = true; $("catsForm").hidden = false; $("catFormTitle").textContent = t("cat_add"); $("cId").value = ""; $("cName").value = ""; $("cSlug").value = ""; $("cSort").value = "0"; $("cDefault").checked = false; $("cAlt").value = ""; catImgTemp = ""; $("cImgPrev").innerHTML = "🏷️"; }
+function catHide(){ $("catsForm").hidden = true; $("catsList").hidden = false; renderCats(); }
+function onCatName(){ if (!$("cId").value) $("cSlug").value = slugify($("cName").value); }
+let catImgTemp = "";
+async function previewCatImg(input){ const f = input.files && input.files[0]; if (!f) return; catImgTemp = await compressSize(f, 400, 0.8); $("cImgPrev").innerHTML = `<img src="${catImgTemp}">`; }
+function clearCatImgForm(){ catImgTemp = ""; $("cImgPrev").innerHTML = "🏷️"; }
+async function saveCat(){ if (!requireAuth()) return; const name = $("cName").value.trim(); if (!name) return toast(t("toast_fill")); let slug = $("cSlug").value.trim() || slugify(name); const id = $("cId").value; let imgUrl = catImgTemp; if (imgUrl && imgUrl.startsWith("data:")){ imgUrl = await uploadDataUrl(imgUrl, ME.id + "/cat/" + Date.now().toString(36) + ".jpg"); } else if (!imgUrl && id){ const old = CATS.find(c=>c.id==id); imgUrl = old ? old.image_url : ""; } const row = { business_id:BIZ.id, name, slug, sort: parseInt($("cSort").value)||0, is_default: $("cDefault").checked, image_url: imgUrl || "", image_alt: $("cAlt").value.trim() }; if (id) await sb.from('categories').update(row).eq('id', id); else await sb.from('categories').insert(row); if (row.is_default){ await sb.from('categories').update({ is_default:false }).eq('business_id', BIZ.id).neq('id', id||0); } if (imgUrl){ S.config.catImages = S.config.catImages || {}; S.config.catImages[name] = imgUrl; await sb.from('businesses').update({ cat_images:S.config.catImages }).eq('id', BIZ.id); } await loadCategories(); fillProdCatSelect(); catHide(); toast(t("toast_cat_saved")); }
+async function editCat(id){ const c = CATS.find(x=>x.id==id); if (!c) return; catShow(); $("catFormTitle").textContent = t("cat_edit"); $("cId").value = c.id; $("cName").value = c.name; $("cSlug").value = c.slug; $("cSort").value = c.sort; $("cDefault").checked = !!c.is_default; $("cAlt").value = c.image_alt || ""; catImgTemp = c.image_url || ""; $("cImgPrev").innerHTML = c.image_url ? `<img src="${esc(c.image_url)}">` : "🏷️"; }
+async function delCat(id){ if (!confirm(t("confirm_del_cat"))) return; await sb.from('categories').delete().eq('id', id); await loadCategories(); fillProdCatSelect(); renderCats(); toast(t("toast_deleted")); }
 
 function go(v, slug){ ["landing","catalogo","admin","super"].forEach(x => $("v-"+x).hidden = (x !== v)); if (v === "landing"){ location.hash = "#/"; window.scrollTo(0,0); refreshLanding(); refreshNavUser(); } else if (v === "catalogo"){ location.hash = slug ? "#/s/"+slug : "#/catalogo"; window.scrollTo(0,0); renderCatalog(); } else if (v === "admin"){ if (!requireAuth()){ location.hash = "#/"; return; } location.hash = "#/admin"; window.scrollTo(0,0); tab("home"); renderAdmin(); } else if (v === "super"){ if (!isAdmin()){ go("landing"); return; } location.hash = "#/super"; window.scrollTo(0,0); stab("sum"); renderSuper(); } closeAll(); }
 window.addEventListener("hashchange", route);
@@ -1251,8 +1324,8 @@ function buildMMenu(){ $("mmLang").innerHTML = LANGS.map(l => `<button class="la
 async function refreshLanding(){ $("dirWrap").hidden = !getPlat().dirEnabled; if (!sb){ $("dirGrid").innerHTML = `<p class="empty-state" style="grid-column:1/-1"><span class="ico-big">📭</span><br>${esc(t("dir_empty"))}</p>`; return; } const { data: bizs } = await sb.from('businesses').select('*').eq('created', true); const list = bizs || []; const ids = [...new Set(list.map(b => b.owner_id))]; let pros = []; if (ids.length){ const r = await sb.from('public_profiles').select('*').in('id', ids); pros = r.data || []; } const pmap = {}; pros.forEach(p => pmap[p.id] = p); const pub = list.filter(b => b.business_name && (!pmap[b.owner_id] || !pmap[b.owner_id].suspended)); const grid = $("dirGrid"); if (!pub.length){ grid.innerHTML = `<p class="empty-state" style="grid-column:1/-1"><span class="ico-big">📭</span><br>${esc(t("dir_empty"))}</p>`; return; } const counts = {}; const { data: pcs } = await sb.from('products').select('business_id, active').eq('active', true); (pcs||[]).forEach(p => counts[p.business_id] = (counts[p.business_id]||0)+1); grid.innerHTML = pub.map(b => { const n = counts[b.id]||0; const av = (pmap[b.owner_id] && pmap[b.owner_id].avatar) || b.avatar || ""; const meta = [b.category, (n===1?t("item_count_one"):t("item_count",{n}))].filter(Boolean).join(" · "); return `<div class="biz-card" onclick="viewPublicCatalog('${esc(b.slug)}')"><div class="biz-avatar">${av ? `<img src="${esc(av)}" alt="">` : esc((b.business_name||"?")[0].toUpperCase())}</div><h4>${esc(b.business_name)}</h4><div class="meta">${esc(meta)}</div></div>`; }).join(""); }
 
 let curCats = [];
-async function viewPublicCatalog(slug){ if (!sb) return go("landing"); const { data: b } = await sb.from('businesses').select('*').eq('slug', slug).maybeSingle(); if (!b || !b.created){ go("landing"); toast(t("not_found")); return; } const { data: pro } = await sb.from('public_profiles').select('*').eq('id', b.owner_id).maybeSingle(); if (pro && pro.suspended){ go("landing"); toast(t("not_found")); return; } const { data: ps } = await sb.from('products').select('*').eq('business_id', b.id).eq('active', true).order('sort',{ascending:true}); S = bizToState(b, ps); cart = {}; F = { cat:"Todos", q:"" }; $("v-landing").hidden = true; $("v-admin").hidden = true; $("v-super").hidden = true; $("v-catalogo").hidden = false; location.hash = "#/s/" + slug; window.scrollTo(0,0); renderCatalog(); }
-function renderCatalog(){ const isOwner = ME && ME.id === S.userId; $("adminBtn2").style.display = isOwner ? "" : "none"; const c = S.config; $("catName").textContent = c.businessName || "—"; $("catNameFoot").textContent = c.businessName || "—"; $("catAvatar").innerHTML = c.avatar ? `<img src="${esc(c.avatar)}" alt="">` : "W"; $("catEyebrow").textContent = c.bannerEyebrow || "—"; $("catTitle").textContent = c.bannerTitle || c.businessName || "—"; const cc = $("catCat"); if (c.category){ cc.hidden = false; cc.textContent = c.category; } else cc.hidden = true; $("searchInput").placeholder = LANG === "ar" ? "بحث…" : LANG === "fr" ? "Rechercher…" : "Buscar…"; const act = S.products.filter(p => p.active); curCats = ["Todos", ...new Set(act.map(p => p.cat))]; const allLabel = LANG === "ar" ? "الكل" : LANG === "fr" ? "Tous" : "Todos"; $("chips").innerHTML = curCats.map((x,i) => { const img = (x !== "Todos" && (c.catImages||{})[x]) ? c.catImages[x] : null; return `<button class="chip ${F.cat===x?"on":""}" onclick="F.cat=curCats[${i}];renderCatalog()">${img?`<img src="${esc(img)}" alt="">`:""}${esc(x==="Todos"?allLabel:x)}</button>`; }).join(""); const list = act.filter(p => (F.cat==="Todos" || p.cat===F.cat) && p.name.toLowerCase().includes(F.q)); $("productsGrid").innerHTML = list.length ? list.map(p => { const pr = p.promo ? Math.round((1 - p.promo/p.price)*100) : 0; const gal = (p.images && p.images.length) ? p.images : (p.img?[p.img]:[]); return `<div class="pcard">${p.promo?`<span class="promo">-${pr}%</span>`:""}<div class="pimg">${gal[0]?`<img src="${esc(gal[0])}" alt="${esc(p.name)}" loading="lazy">`:esc(p.emoji||"🛍️")}</div><div class="pname">${esc(p.name)}</div><div class="pdesc">${esc(p.desc||"")}</div><div class="pprice">${esc(money(p.promo||p.price))}${p.promo?`<s>${esc(money(p.price))}</s>`:""}</div><button class="btn btn-primary btn-sm" style="justify-content:center" onclick="add(${p.id})">🛒</button></div>`; }).join("") : `<div class="empty-state"><span class="ico-big">🛍️</span><h3>${esc(t("no_prods_public"))}</h3></div>`; renderCart(); }
+async function viewPublicCatalog(slug){ if (!sb) return go("landing"); const { data: b } = await sb.from('businesses').select('*').eq('slug', slug).maybeSingle(); if (!b || !b.created){ go("landing"); toast(t("not_found")); return; } const { data: pro } = await sb.from('public_profiles').select('*').eq('id', b.owner_id).maybeSingle(); if (pro && pro.suspended){ go("landing"); toast(t("not_found")); return; } const { data: ps } = await sb.from('products').select('*').eq('business_id', b.id).eq('active', true).order('sort',{ascending:true}); const { data: cs } = await sb.from('categories').select('*').eq('business_id', b.id).order('sort',{ascending:true}); S = bizToState(b, ps); S.cats = cs || []; (S.cats||[]).forEach(c => { if (c.image_url){ S.config.catImages = S.config.catImages || {}; S.config.catImages[c.name] = c.image_url; } }); cart = {}; F = { cat:"Todos", q:"" }; $("v-landing").hidden = true; $("v-admin").hidden = true; $("v-super").hidden = true; $("v-catalogo").hidden = false; location.hash = "#/s/" + slug; window.scrollTo(0,0); renderCatalog(); }
+function renderCatalog(){ const isOwner = ME && ME.id === S.userId; $("adminBtn2").style.display = isOwner ? "" : "none"; const c = S.config; $("catName").textContent = c.businessName || "—"; $("catNameFoot").textContent = c.businessName || "—"; $("catAvatar").innerHTML = c.avatar ? `<img src="${esc(c.avatar)}" alt="">` : "W"; $("catEyebrow").textContent = c.bannerEyebrow || "—"; $("catTitle").textContent = c.bannerTitle || c.businessName || "—"; const cc = $("catCat"); if (c.category){ cc.hidden = false; cc.textContent = c.category; } else cc.hidden = true; $("searchInput").placeholder = LANG === "ar" ? "بحث…" : LANG === "fr" ? "Rechercher…" : "Buscar…"; const act = S.products.filter(p => p.active); const orderedCats = (S.cats && S.cats.length) ? S.cats.map(x=>x.name) : [...new Set(act.map(p => p.cat))]; curCats = ["Todos", ...orderedCats.filter((v,i,a)=>a.indexOf(v)===i), ...[...new Set(act.map(p=>p.cat))].filter(x=>!orderedCats.includes(x))]; const allLabel = LANG === "ar" ? "الكل" : LANG === "fr" ? "Tous" : "Todos"; $("chips").innerHTML = curCats.map((x,i) => { const img = (x !== "Todos" && (c.catImages||{})[x]) ? c.catImages[x] : null; return `<button class="chip ${F.cat===x?"on":""}" onclick="F.cat=curCats[${i}];renderCatalog()">${img?`<img src="${esc(img)}" alt="">`:""}${esc(x==="Todos"?allLabel:x)}</button>`; }).join(""); const list = act.filter(p => (F.cat==="Todos" || p.cat===F.cat) && p.name.toLowerCase().includes(F.q)); $("productsGrid").innerHTML = list.length ? list.map(p => { const pr = p.promo ? Math.round((1 - p.promo/p.price)*100) : 0; const gal = (p.images && p.images.length) ? p.images : (p.img?[p.img]:[]); return `<div class="pcard">${p.promo?`<span class="promo">-${pr}%</span>`:""}<div class="pimg">${gal[0]?`<img src="${esc(gal[0])}" alt="${esc(p.name)}" loading="lazy">`:esc(p.emoji||"🛍️")}</div><div class="pname">${esc(p.name)}</div><div class="pdesc">${esc(p.desc||"")}</div><div class="pprice">${esc(money(p.promo||p.price))}${p.promo?`<s>${esc(money(p.price))}</s>`:""}</div><button class="btn btn-primary btn-sm" style="justify-content:center" onclick="add(${p.id})">🛒</button></div>`; }).join("") : `<div class="empty-state"><span class="ico-big">🛍️</span><h3>${esc(t("no_prods_public"))}</h3></div>`; renderCart(); }
 function add(id){ cart[id] = (cart[id]||0)+1; renderCart(); toast(t("toast_added")); }
 function qty(id,d){ cart[id] = (cart[id]||0)+d; if (cart[id]<=0) delete cart[id]; renderCart(); }
 function cartLines(){ return Object.entries(cart).map(([id,q]) => { const p = S.products.find(x => x.id == id); return p ? { p, q, unit:p.promo||p.price } : null; }).filter(Boolean); }
@@ -1269,10 +1342,10 @@ function renderSum(){ $("sumBox").innerHTML = cartLines().map(l => `<div><span>$
 async function sendOrder(){ const c = S.config; if (!c.whatsapp){ toast(t("toast_fill_wa")); closeAll(); go("admin"); return; } const name = $("cName").value.trim(); if (!name) return toast(t("toast_fill_name")); const deliv = delivVal(), addr = $("cAddress").value.trim(); if (deliv === "delivery" && !addr) return toast(t("toast_fill_addr")); const pay = (document.querySelector('input[name="pay"]:checked')||{}).value || (c.payments||["—"])[0]; const note = $("cNote").value.trim(); const L = cartLines(), id = "P-" + Date.now().toString().slice(-6); const dl = deliv === "delivery" ? t("deliv_lbl_delivery") : t("deliv_lbl_retiro"); const msg = [ t("wa_new_order",{id}), t("wa_customer",{name}), t("wa_business",{biz:c.businessName}), "", t("wa_products"), ...L.map(l => t("wa_product_line",{q:l.q,name:l.p.name,price:money(l.q*l.unit)})), "", deliv==="delivery" ? t("wa_delivery_with_addr",{mode:dl,cost:money(c.deliveryCost),addr}) : t("wa_delivery_line",{mode:dl}), t("wa_payment",{pay}), t("wa_total",{total:money(total())}), note ? t("wa_note",{note}) : "" ].filter(Boolean).join("\n"); if (sb && S.bizId){ await sb.from('orders').insert({ business_id:S.bizId, code:id, customer_name:name, delivery_type:dl, address:addr, payment:pay, note, items:L.map(l=>({name:l.p.name,qty:l.q,unit:l.unit})), total:total(), status:"pend" }); } cart = {}; renderCart(); closeAll(); window.open(`https://wa.me/${c.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank"); toast(t("toast_order_sent")); }
 
 const STATUSES = ["pend","conf","deliv","done","cancel"];
-function tab(t2){ ["home","prod","orders","media","cfg","share"].forEach(x => { const p = $("p"+x[0].toUpperCase()+x.slice(1)); if (p) p.hidden = (x !== t2); const b = $("tab"+x[0].toUpperCase()+x.slice(1)); if (b) b.classList.toggle("on", x===t2); }); if (t2 === "media") renderMedia(); if (t2 === "cfg") renderCfgHub(); if (t2 === "home") renderDashboard(); if (t2 === "prod"){ renderImgSlots(); renderPreview(); } }
+function tab(t2){ ["home","prod","cats","orders","media","cfg","share"].forEach(x => { const p = $("p"+x[0].toUpperCase()+x.slice(1)); if (p) p.hidden = (x !== t2); const b = $("tab"+x[0].toUpperCase()+x.slice(1)); if (b) b.classList.toggle("on", x===t2); }); if (t2 === "media") renderMedia(); if (t2 === "cfg") renderCfgHub(); if (t2 === "home") renderDashboard(); if (t2 === "cats"){ renderCats(); catHide(); } if (t2 === "prod"){ renderImgSlots(); renderPreview(); } }
 
 function reqChecks(){ const c = S.config; return [ { ok: !!c.whatsapp && c.whatsapp.replace(/\D/g,"").length >= 8, label: t("req_wa") }, { ok: S.products.some(p => p.active), label: t("req_prod") }, { ok: !!c.currency, label: t("req_cur") }, { ok: (c.payments||[]).length > 0, label: t("req_pay") } ]; }
-function renderDashboard(){ if (!BIZ) return; const c = S.config; $("dashBizName").textContent = c.businessName || ME.name; const reqs = reqChecks(); const missing = reqs.filter(r => !r.ok).length; $("dashReqBadge").textContent = missing ? t("req_pending") : t("req_ready"); $("dashReqBadge").className = "tag " + (missing ? "" : "lav"); $("dashReqTitle").textContent = missing ? t("req_left",{n:missing}) : t("req_ok"); $("dashReqList").innerHTML = reqs.map(r => `<li class="${r.ok?"ok":"bad"}"><span class="dot"></span>${esc(r.label)}</li>`).join(""); const cats = [...new Set(S.products.map(p=>p.cat))]; $("dashStats").innerHTML = `<div class="stat-card"><b>${S.products.filter(p=>p.active).length}</b><span>${esc(t("tab_prod"))}</span></div><div class="stat-card"><b>${cats.length}</b><span>${esc(t("th_catg"))}</span></div><div class="stat-card"><b>${S.orders.length}</b><span>${esc(t("tab_orders"))}</span></div>`; const acts = S.orders.slice(0,5); $("dashActivity").innerHTML = acts.length ? acts.map(o => `<li><span class="ico bg-sun">🧾</span><div><b>${esc(o.code)} · ${esc(o.customer_name)}</b><small>${esc(money(o.total))} · ${esc(t("st_"+o.status))} · ${esc(dateFmt(new Date(o.created_at).getTime()))}</small></div></li>`).join("") : `<li style="border:0;background:none;color:var(--muted)">${esc(t("dash_noact"))}</li>`; }
+function renderDashboard(){ if (!BIZ) return; const c = S.config; $("dashBizName").textContent = c.businessName || ME.name; const reqs = reqChecks(); const missing = reqs.filter(r => !r.ok).length; $("dashReqBadge").textContent = missing ? t("req_pending") : t("req_ready"); $("dashReqBadge").className = "tag " + (missing ? "" : "lav"); $("dashReqTitle").textContent = missing ? t("req_left",{n:missing}) : t("req_ok"); $("dashReqList").innerHTML = reqs.map(r => `<li class="${r.ok?"ok":"bad"}"><span class="dot"></span>${esc(r.label)}</li>`).join(""); const catsN = CATS.length || [...new Set(S.products.map(p=>p.cat))].length; $("dashStats").innerHTML = `<div class="stat-card"><b>${S.products.filter(p=>p.active).length}</b><span>${esc(t("tab_prod"))}</span></div><div class="stat-card"><b>${catsN}</b><span>${esc(t("tab_cats"))}</span></div><div class="stat-card"><b>${S.orders.length}</b><span>${esc(t("tab_orders"))}</span></div>`; const acts = S.orders.slice(0,5); $("dashActivity").innerHTML = acts.length ? acts.map(o => `<li><span class="ico bg-sun">🧾</span><div><b>${esc(o.code)} · ${esc(o.customer_name)}</b><small>${esc(money(o.total))} · ${esc(t("st_"+o.status))} · ${esc(dateFmt(new Date(o.created_at).getTime()))}</small></div></li>`).join("") : `<li style="border:0;background:none;color:var(--muted)">${esc(t("dash_noact"))}</li>`; }
 
 const CFG_SECTIONS = [
   { key:"info", group:"gen", icon:"📋", bg:"bg-lav", title:"c_info", desc:"c_info_d" },
@@ -1306,7 +1379,6 @@ async function cfgSavePay(){ await sb.from('businesses').update({ payments:$("s_
 async function setCfgAvatar(input){ const f = input.files && input.files[0]; if (!f || !ME) return; const d = await compressSize(f, 160, 0.8); const url = await uploadDataUrl(d, ME.id + "/avatar.jpg"); await sb.from('profiles').update({ avatar:url }).eq('id', ME.id); if (BIZ) await sb.from('businesses').update({ avatar:url }).eq('id', BIZ.id); ME.avatar = url; const pv = $("cfgAvPrev"); if (pv) pv.innerHTML = `<img src="${url}">`; refreshNavUser(); buildMMenu(); toast(t("toast_avatar")); }
 async function clearCfgAvatar(){ if (!ME) return; await sb.from('profiles').update({ avatar:"" }).eq('id', ME.id); if (BIZ) await sb.from('businesses').update({ avatar:"" }).eq('id', BIZ.id); ME.avatar = ""; const pv = $("cfgAvPrev"); if (pv) pv.innerHTML = "🏪"; refreshNavUser(); buildMMenu(); toast("✓"); }
 
-/* ===== PRODUCT EDITOR (Fase 2) ===== */
 let prodImgs = [];
 function slugify(s){ return (s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,60); }
 function onNameInput(){ if (!$("fId").value) $("fSlug").value = slugify($("fName").value); renderPreview(); }
@@ -1317,14 +1389,14 @@ async function addProdImages(files){ if (!ME) return; for (const f of files){ if
 (function initDrop(){ const dz = $("dropZone"); if (!dz) return; ["dragenter","dragover"].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.classList.add("drag"); })); ["dragleave","drop"].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.classList.remove("drag"); })); dz.addEventListener("drop", e => { if (e.dataTransfer.files && e.dataTransfer.files.length) addProdImages(e.dataTransfer.files); }); })();
 function renderPreview(){ const name = $("fName").value || "—"; const price = parseFloat($("fPrice").value) || 0; const promo = parseFloat($("fPromo").value) || null; const emoji = $("fEmoji").value; const img = prodImgs[0]; $("pvName").textContent = name; $("curLabel").textContent = S.config.currency || "—"; $("pvPrice").innerHTML = esc(money(promo||price)) + (promo ? ` <s>${esc(money(price))}</s>` : ""); $("pvImg").innerHTML = img ? `<img src="${esc(img)}" alt="">` : esc(emoji || "🛍️"); $("pvDesc").innerHTML = $("fRich").innerHTML; }
 async function saveProd(){ if (!requireAuth()) return; const n = $("fName").value.trim(), cat = $("fCat").value.trim(), pr = parseFloat($("fPrice").value); if (!n || !cat || isNaN(pr)) return toast(t("toast_fill")); const slug = $("fSlug").value.trim() || slugify(n); const rich = $("fRich").innerHTML; const row = { business_id:BIZ.id, name:n, category:cat, price:pr, promo: $("fPromo").value ? parseFloat($("fPromo").value) : null, emoji:$("fEmoji").value.trim(), image_url: prodImgs[0] || "", images: prodImgs, description_rich: rich, description: $("fRich").textContent.trim(), slug, sort: parseInt($("fSort").value)||0 }; const id = $("fId").value; if (id) await sb.from('products').update(row).eq('id', id); else await sb.from('products').insert(Object.assign({ active:true }, row)); clearForm(); renderAdmin(); toast(t("toast_saved")); }
-function editProd(id){ const p = S.products.find(x=>x.id==id); $("fId").value=p.id; $("fName").value=p.name; $("fSlug").value=p.slug||slugify(p.name); $("fCat").value=p.cat; $("fPrice").value=p.price; $("fPromo").value=p.promo||""; $("fEmoji").value=p.emoji||""; $("fSort").value=p.sort||0; $("fRich").innerHTML=p.rich||esc(p.desc||""); prodImgs = (p.images && p.images.length) ? [...p.images] : (p.img?[p.img]:[]); renderImgSlots(); renderPreview(); $("formTitle").textContent=t("edit_prod"); window.scrollTo(0,0); }
-function clearForm(){ $("fId").value=""; ["fName","fSlug","fCat","fPrice","fPromo","fEmoji","fDesc"].forEach(i=>{const e=$(i); if(e) e.value="";}); $("fSort").value="0"; $("fRich").innerHTML=""; prodImgs = []; renderImgSlots(); renderPreview(); $("formTitle").textContent=t("add_prod"); }
+function editProd(id){ const p = S.products.find(x=>x.id==id); $("fId").value=p.id; $("fName").value=p.name; $("fSlug").value=p.slug||slugify(p.name); fillProdCatSelect(p.cat); $("fPrice").value=p.price; $("fPromo").value=p.promo||""; $("fEmoji").value=p.emoji||""; $("fSort").value=p.sort||0; $("fRich").innerHTML=p.rich||esc(p.desc||""); prodImgs = (p.images && p.images.length) ? [...p.images] : (p.img?[p.img]:[]); renderImgSlots(); renderPreview(); $("formTitle").textContent=t("edit_prod"); window.scrollTo(0,0); }
+function clearForm(){ $("fId").value=""; ["fName","fSlug","fPrice","fPromo","fEmoji"].forEach(i=>{const e=$(i); if(e) e.value="";}); $("fSort").value="0"; $("fRich").innerHTML=""; prodImgs = []; fillProdCatSelect(); renderImgSlots(); renderPreview(); $("formTitle").textContent=t("add_prod"); }
 async function delProd(id){ if (!confirm(t("confirm_delete_prod"))) return; await sb.from('products').delete().eq('id', id); renderAdmin(); toast(t("toast_deleted")); }
 async function toggleProd(id){ const p = S.products.find(x=>x.id==id); await sb.from('products').update({ active:!p.active }).eq('id', id); renderAdmin(); }
 async function setStatus(id, st){ await sb.from('orders').update({ status:st }).eq('id', id); toast(t("toast_status")+" "+t("st_"+st)); renderAdmin(); }
 function copyLink(){ navigator.clipboard.writeText($("shareLink").value).then(()=>toast(t("toast_copied"))); }
 
-async function renderAdmin(){ if (!requireAuth()) return; const { data: ps } = await sb.from('products').select('*').eq('business_id', BIZ.id).order('sort', { ascending:true }); const { data: os } = await sb.from('orders').select('*').eq('business_id', BIZ.id).order('created_at', { ascending:false }); S = bizToState(BIZ, ps); S.orders = os || []; const c = S.config; $("adminTitle").textContent = c.businessName || ME.name; $("adminAvatar").innerHTML = (ME.avatar || c.avatar) ? `<img src="${esc(ME.avatar || c.avatar)}" alt="">` : "W"; $("superBtn").hidden = !isAdmin(); $("curLabel").textContent = c.currency || "—"; $("prodList").innerHTML = S.products.length ? S.products.map(p => { const gal = (p.images && p.images.length) ? p.images : (p.img?[p.img]:[]); return `<tr><td style="font-size:22px">${gal[0]?`<img src="${esc(gal[0])}" alt="" style="width:34px;height:34px;object-fit:cover;border-radius:8px">`:esc(p.emoji||"🛍️")}${gal.length>1?` <small style="color:var(--muted)">+${gal.length-1}</small>`:""}</td><td><b>${esc(p.name)}</b>${p.promo?` <span class="promo" style="position:static">-${Math.round((1-p.promo/p.price)*100)}%</span>`:""}</td><td>${esc(p.cat)}</td><td>${esc(money(p.promo||p.price))}</td><td>${p.sort||0}</td><td><button class="st" onclick="toggleProd(${p.id})">${esc(p.active?t("active"):t("inactive"))}</button></td><td><button class="st" onclick="editProd(${p.id})">✏️</button> <button class="st" onclick="delProd(${p.id})">🗑️</button></td></tr>`; }).join("") : `<tr><td colspan="7" style="text-align:center;padding:30px;color:var(--muted)">${esc(t("empty_prods"))}</td></tr>`; $("ordersCount").textContent = S.orders.length ? `(${S.orders.length})` : ""; $("ordersList").innerHTML = S.orders.length ? S.orders.map(o => `<div class="order-card"><div class="head"><span>🧾 ${esc(o.code)} · ${esc(o.customer_name)}</span><span style="color:var(--violet)">${esc(money(o.total))}</span></div><p style="font-size:13.5px;margin:8px 0">${(o.items||[]).map(i=>`${i.qty} × ${esc(i.name)}`).join(" · ")}<br>🚚 ${esc(o.delivery_type)}${o.address?" — "+esc(o.address):""} · 💳 ${esc(o.payment)}<br><small style="color:var(--muted)">${esc(dateFmt(new Date(o.created_at).getTime()))}</small></p><select class="st" onchange="setStatus('${esc(o.id)}',this.value)">${STATUSES.map(s=>`<option value="${s}" ${o.status===s?"selected":""}>${esc(t("st_"+s))}</option>`).join("")}</select></div>`).join("") : `<div class="card center"><p>${esc(t("empty_orders"))}</p></div>`; const pubLink = location.origin + location.pathname + "#/s/" + c.slug; $("shareLink").value = pubLink; $("shareWA").href = `https://wa.me/?text=${encodeURIComponent(t("wa_share_msg")+" "+pubLink)}`; renderDashboard(); renderCfgHub(); renderImgSlots(); renderPreview(); if (!$("pMedia").hidden) renderMedia(); }
+async function renderAdmin(){ if (!requireAuth()) return; const { data: ps } = await sb.from('products').select('*').eq('business_id', BIZ.id).order('sort', { ascending:true }); const { data: os } = await sb.from('orders').select('*').eq('business_id', BIZ.id).order('created_at', { ascending:false }); await loadCategories(); await ensureDefaultCat(); await loadCategories(); S = bizToState(BIZ, ps); S.orders = os || []; S.cats = CATS; const c = S.config; $("adminTitle").textContent = c.businessName || ME.name; $("adminAvatar").innerHTML = (ME.avatar || c.avatar) ? `<img src="${esc(ME.avatar || c.avatar)}" alt="">` : "W"; $("superBtn").hidden = !isAdmin(); $("curLabel").textContent = c.currency || "—"; fillProdCatSelect(); $("prodList").innerHTML = S.products.length ? S.products.map(p => { const gal = (p.images && p.images.length) ? p.images : (p.img?[p.img]:[]); return `<tr><td style="font-size:22px">${gal[0]?`<img src="${esc(gal[0])}" alt="" style="width:34px;height:34px;object-fit:cover;border-radius:8px">`:esc(p.emoji||"🛍️")}${gal.length>1?` <small style="color:var(--muted)">+${gal.length-1}</small>`:""}</td><td><b>${esc(p.name)}</b>${p.promo?` <span class="promo" style="position:static">-${Math.round((1-p.promo/p.price)*100)}%</span>`:""}</td><td>${esc(p.cat)}</td><td>${esc(money(p.promo||p.price))}</td><td>${p.sort||0}</td><td><button class="st" onclick="toggleProd(${p.id})">${esc(p.active?t("active"):t("inactive"))}</button></td><td><button class="st" onclick="editProd(${p.id})">✏️</button> <button class="st" onclick="delProd(${p.id})">🗑️</button></td></tr>`; }).join("") : `<tr><td colspan="7" style="text-align:center;padding:30px;color:var(--muted)">${esc(t("empty_prods"))}</td></tr>`; $("ordersCount").textContent = S.orders.length ? `(${S.orders.length})` : ""; $("ordersList").innerHTML = S.orders.length ? S.orders.map(o => `<div class="order-card"><div class="head"><span>🧾 ${esc(o.code)} · ${esc(o.customer_name)}</span><span style="color:var(--violet)">${esc(money(o.total))}</span></div><p style="font-size:13.5px;margin:8px 0">${(o.items||[]).map(i=>`${i.qty} × ${esc(i.name)}`).join(" · ")}<br>🚚 ${esc(o.delivery_type)}${o.address?" — "+esc(o.address):""} · 💳 ${esc(o.payment)}<br><small style="color:var(--muted)">${esc(dateFmt(new Date(o.created_at).getTime()))}</small></p><select class="st" onchange="setStatus('${esc(o.id)}',this.value)">${STATUSES.map(s=>`<option value="${s}" ${o.status===s?"selected":""}>${esc(t("st_"+s))}</option>`).join("")}</select></div>`).join("") : `<div class="card center"><p>${esc(t("empty_orders"))}</p></div>`; const pubLink = location.origin + location.pathname + "#/s/" + c.slug; $("shareLink").value = pubLink; $("shareWA").href = `https://wa.me/?text=${encodeURIComponent(t("wa_share_msg")+" "+pubLink)}`; renderDashboard(); renderCfgHub(); renderCats(); renderImgSlots(); renderPreview(); if (!$("pMedia").hidden) renderMedia(); }
 
 function stab(s){ ["sum","biz","ord","plat"].forEach(x => { $("sp"+x[0].toUpperCase()+x.slice(1)).hidden = (x!==s); $("stab"+x[0].toUpperCase()+x.slice(1)).classList.toggle("on", x===s); }); if (s==="plat") fillPlatForm(); }
 async function superData(){ const [pros, bizs, ords, prods] = await Promise.all([ sb.from('profiles').select('*'), sb.from('businesses').select('*'), sb.from('orders').select('*'), sb.from('products').select('business_id, active') ]); return { pros: pros.data||[], bizs: bizs.data||[], ords: ords.data||[], prods: prods.data||[] }; }
