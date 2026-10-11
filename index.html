@@ -1354,7 +1354,6 @@ async function previewCatImg(input){ const f = input.files && input.files[0]; if
 function clearCatImgForm(){ catImgTemp = ""; $("cImgPrev").innerHTML = "🏷️"; }
 async function saveCat(){
   if (!requireAuth()) return;
-  await refreshMe(ME.id);
   if (!BIZ){ toast(t("toast_sb_error") + " (sin negocio activo)"); return; }
   const name = $("cName").value.trim();
   if (!name) return toast(t("toast_fill"));
