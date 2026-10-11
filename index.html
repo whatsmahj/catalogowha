@@ -1338,7 +1338,39 @@ function onCatName(){ if (!$("cId").value) $("cSlug").value = slugify($("cName")
 let catImgTemp = "";
 async function previewCatImg(input){ const f = input.files && input.files[0]; if (!f) return; catImgTemp = await compressSize(f, 400, 0.8); $("cImgPrev").innerHTML = `<img src="${catImgTemp}">`; }
 function clearCatImgForm(){ catImgTemp = ""; $("cImgPrev").innerHTML = "🏷️"; }
-async function saveCat(){ if (!requireAuth()) return; const name = $("cName").value.trim(); if (!name) return toast(t("toast_fill")); let slug = $("cSlug").value.trim() || slugify(name); const id = $("cId").value; let imgUrl = catImgTemp; if (imgUrl && imgUrl.startsWith("data:")){ imgUrl = await uploadDataUrl(imgUrl, ME.id + "/cat/" + Date.now().toString(36) + ".jpg"); } else if (!imgUrl && id){ const old = CATS.find(c=>c.id==id); imgUrl = old ? old.image_url : ""; } const row = { business_id:BIZ.id, name, slug, sort: parseInt($("cSort").value)||0, is_default: $("cDefault").checked, image_url: imgUrl || "", image_alt: $("cAlt").value.trim() }; if (id) await sb.from('categories').update(row).eq('id', id); else await sb.from('categories').insert(row); if (row.is_default){ await sb.from('categories').update({ is_default:false }).eq('business_id', BIZ.id).neq('id', Number(id)||0); } if (imgUrl){ S.config.catImages = S.config.catImages || {}; S.config.catImages[name] = imgUrl; await sb.from('businesses').update({ cat_images:S.config.catImages }).eq('id', BIZ.id); } await loadCategories(); fillProdCatSelect(); catHide(); toast(t("toast_cat_saved")); }
+async function saveCat(){
+  if (!requireAuth()) return;
+  const name = $("cName").value.trim();
+  if (!name) return toast(t("toast_fill"));
+  let slug = $("cSlug").value.trim() || slugify(name);
+  const editingId = $("cId").value;
+  let base = slug, n = 2;
+  while (CATS.some(c => c.slug === slug && String(c.id) !== String(editingId))) { slug = base + "-" + n; n++; }
+  let imgUrl = catImgTemp;
+  try {
+    if (imgUrl && imgUrl.startsWith("data:")){
+      imgUrl = await uploadDataUrl(imgUrl, ME.id + "/cat/" + Date.now().toString(36) + Math.random().toString(36).slice(2,6) + ".jpg");
+    } else if (!imgUrl && editingId){
+      const old = CATS.find(c => String(c.id) === String(editingId));
+      imgUrl = old ? old.image_url : "";
+    }
+    const row = { business_id:BIZ.id, name, slug, sort: parseInt($("cSort").value)||0, is_default: $("cDefault").checked, image_url: imgUrl || "", image_alt: $("cAlt").value.trim() };
+    let savedId = editingId;
+    if (editingId){
+      const { error } = await sb.from('categories').update(row).eq('id', editingId);
+      if (error) throw error;
+    } else {
+      const { data, error } = await sb.from('categories').insert(row).select().single();
+      if (error) throw error;
+      savedId = data.id;
+    }
+    if (row.is_default && savedId){
+      await sb.from('categories').update({ is_default:false }).eq('business_id', BIZ.id).neq('id', savedId);
+    }
+    if (imgUrl){ S.config.catImages = S.config.catImages || {}; S.config.catImages[name] = imgUrl; await sb.from('businesses').update({ cat_images:S.config.catImages }).eq('id', BIZ.id); }
+    await loadCategories(); fillProdCatSelect(); catHide(); toast(t("toast_cat_saved"));
+  } catch(err){ toast(t("toast_sb_error") + (err && err.message ? err.message : err)); }
+}
 async function editCat(id){ const c = CATS.find(x=>x.id==id); if (!c) return; catShow(); $("catFormTitle").textContent = t("cat_edit"); $("cId").value = c.id; $("cName").value = c.name; $("cSlug").value = c.slug; $("cSort").value = c.sort; $("cDefault").checked = !!c.is_default; $("cAlt").value = c.image_alt || ""; catImgTemp = c.image_url || ""; $("cImgPrev").innerHTML = c.image_url ? `<img src="${esc(c.image_url)}">` : "🏷️"; }
 async function delCat(id){ if (!confirm(t("confirm_del_cat"))) return; await sb.from('categories').delete().eq('id', id); await loadCategories(); fillProdCatSelect(); renderCats(); toast(t("toast_deleted")); }
 
