@@ -1562,7 +1562,27 @@ function menuChips(){ return ["create","products","share","client","pay","instal
 function botChip(k){ if (k === "summary") return botSummary(); botSay(esc(t("bot_q_"+k)), "out"); botSay(t("bot_a_"+k)); if (!BOT.asked.includes(k)) BOT.asked.push(k); setBotChips(menuChips()); }
 function botSend(){ const inp = $("botInput"); const txt = inp.value.trim(); if (!txt) return; inp.value = ""; if (BOT.step === "name"){ BOT.name = txt; botSay(esc(txt), "out"); botSay(t("bot_thanks_name",{name:esc(txt)})); botSay(t("bot_ask_type")); BOT.step = "type"; setBotChips([1,2,3,4].map(i => ({ k:"type"+i, label:t("bot_type"+i) }))); return; } if (BOT.step === "type"){ const m = txt.match(/^type(\d)$/); BOT.type = m ? t("bot_type"+m[1]) : txt; botSay(esc(BOT.type), "out"); botSay(t("bot_menu_intro")); BOT.step = "menu"; setBotChips(menuChips()); return; } botSay(esc(txt), "out"); const low = txt.toLowerCase(); let hit = null; for (const k of Object.keys(BOT_KW)){ if (BOT_KW[k].some(w => low.includes(w))){ hit = k; break; } } if (hit){ botSay(t("bot_a_"+hit)); if (!BOT.asked.includes(hit)) BOT.asked.push(hit); } else botSay(t("bot_fallback")); setBotChips(menuChips()); }
 function botSummary(){ const p = getPlat(); const topics = BOT.asked.map(k => "• " + t("bot_q_"+k)).join("\n"); const msg = [ "*Consulta desde Catalogo Wha*", "*Nombre:* " + (BOT.name || "-"), "*Tipo:* " + (BOT.type || "-"), "*Idioma:* " + LANG_NAMES[LANG], "*Temas:*", topics || "-", "*Desde:* " + DOMAIN ].join("\n"); window.open(`https://wa.me/${p.supportWa}?text=${encodeURIComponent(msg)}`, "_blank"); botSay(t("bot_sent")); }
-
+/* ===== PLANTILLAS v9 ===== */
+const pick = o => (o && (o[LANG] || o.es)) || "";
+const PRODUCT_TPL = [
+ { id:"blank", emoji:"✨", name:{es:"Sin plantilla",fr:"Sans modèle",ar:"بدون قالب"}, cat:"", desc:{es:"",fr:"",ar:""} },
+ { id:"clothing", emoji:"👕", name:{es:"Ropa / Moda",fr:"Vêtements / Mode",ar:"ملابس / موضة"}, cat:"Ropa", desc:{es:"<b>Material:</b> <br><b>Tallas:</b> S, M, L<br><b>Cuidados:</b> Lavar en frío",fr:"<b>Matière :</b> <br><b>Tailles :</b> S, M, L<br><b>Entretien :</b> Lavage à froid",ar:"<b>الخامة:</b> <br><b>المقاسات:</b> S, M, L<br><b>العناية:</b> غسل بارد"} },
+ { id:"food", emoji:"🍽️", name:{es:"Comida / Restaurante",fr:"Restauration",ar:"مطاعم / طعام"}, cat:"", desc:{es:"<b>Ingredientes:</b> <br><b>Porción:</b> individual<br><b>Presentación:</b> para llevar",fr:"<b>Ingrédients :</b> <br><b>Portion :</b> individuelle<br><b>Présentation :</b> à emporter",ar:"<b>المكونات:</b> <br><b>الحصة:</b> فردية<br><b>التقديم:</b> للسفر"} },
+ { id:"service", emoji:"🛠️", name:{es:"Servicio",fr:"Service",ar:"خدمة"}, cat:"", desc:{es:"<b>Incluye:</b> <br><b>Duración:</b> <br><b>Condiciones:</b> ",fr:"<b>Inclus :</b> <br><b>Durée :</b> <br><b>Conditions :</b> ",ar:"<b>يشمل:</b> <br><b>المدة:</b> <br><b>الشروط:</b> "} },
+ { id:"tech", emoji:"💻", name:{es:"Tecnología",fr:"Technologie",ar:"تكنولوجيا"}, cat:"", desc:{es:"<b>Especificaciones:</b> <br><b>Garantía:</b> 12 meses<br><b>Compatibilidad:</b> ",fr:"<b>Specs :</b> <br><b>Garantie :</b> 12 mois<br><b>Compatibilité :</b> ",ar:"<b>المواصفات:</b> <br><b>الضمان:</b> 12 شهرًا<br><b>التوافق:</b> "} }
+];
+const CARD_STYLES = [
+ { id:"classic", name:{es:"Clásica",fr:"Classique",ar:"كلاسيكية"} },
+ { id:"minimal", name:{es:"Minimalista",fr:"Minimaliste",ar:"بسيطة"} },
+ { id:"offer", name:{es:"Oferta destacada",fr:"Offre en avant",ar:"عرض بارز"} },
+ { id:"category", name:{es:"Con categoría",fr:"Avec catégorie",ar:"مع الفئة"} }
+];
+let cardStyleSel = "classic";
+function renderTplRow(){ const el = $("tplRow"); if (!el) return; const lb = $("tplLabel"); if (lb) lb.textContent = LANG==="ar"?"قوالب المنتج":LANG==="fr"?"Modèles de produit":"Plantillas de producto"; el.innerHTML = PRODUCT_TPL.map(x=>`<button type="button" class="tpl-chip" onclick="applyTemplate('${x.id}', this)">${x.emoji} ${esc(pick(x.name))}</button>`).join(""); }
+function applyTemplate(id, btn){ const tpl = PRODUCT_TPL.find(x=>x.id===id); if (!tpl) return; if (id==="blank"){ $("fRich").innerHTML=""; $("fEmoji").value=""; } else { $("fEmoji").value = tpl.emoji; $("fRich").innerHTML = pick(tpl.desc); if (tpl.cat){ const sel=$("fCat"); if (sel && [...sel.options].some(o=>o.value===tpl.cat)) sel.value = tpl.cat; } } document.querySelectorAll("#tplRow .tpl-chip").forEach(b=>b.classList.remove("on")); if (btn) btn.classList.add("on"); renderPreview(); toast("✓"); }
+function renderStyleRow(){ const el = $("styleRow"); if (!el) return; const lb = $("styleLabel"); if (lb) lb.textContent = LANG==="ar"?"نمط البطاقات":LANG==="fr"?"Style des cartes":"Estilo de tarjetas"; cardStyleSel = (S && S.config && S.config.cardStyle) ? S.config.cardStyle : cardStyleSel; el.innerHTML = CARD_STYLES.map(s=>`<button type="button" class="style-opt ${cardStyleSel===s.id?"on":""}" onclick="setCardStyle('${s.id}')">${esc(pick(s.name))}</button>`).join(""); }
+function setCardStyle(id){ cardStyleSel = id; renderStyleRow(); }
+let deferredPrompt = null;
 let deferredPrompt = null;
 window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); deferredPrompt = e; showInstall(true); });
 const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
