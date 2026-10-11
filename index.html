@@ -1354,6 +1354,8 @@ async function previewCatImg(input){ const f = input.files && input.files[0]; if
 function clearCatImgForm(){ catImgTemp = ""; $("cImgPrev").innerHTML = "🏷️"; }
 async function saveCat(){
   if (!requireAuth()) return;
+  await refreshMe(ME.id);
+  if (!BIZ){ toast(t("toast_sb_error") + " (sin negocio activo)"); return; }
   const name = $("cName").value.trim();
   if (!name) return toast(t("toast_fill"));
   let slug = $("cSlug").value.trim() || slugify(name);
@@ -1378,12 +1380,10 @@ async function saveCat(){
       if (error) throw error;
       savedId = data.id;
     }
-    if (row.is_default && savedId){
-      await sb.from('categories').update({ is_default:false }).eq('business_id', BIZ.id).neq('id', savedId);
-    }
+    if (row.is_default && savedId){ await sb.from('categories').update({ is_default:false }).eq('business_id', BIZ.id).neq('id', savedId); }
     if (imgUrl){ S.config.catImages = S.config.catImages || {}; S.config.catImages[name] = imgUrl; await sb.from('businesses').update({ cat_images:S.config.catImages }).eq('id', BIZ.id); }
     await loadCategories(); fillProdCatSelect(); catHide(); toast(t("toast_cat_saved"));
-  } catch(err){ toast(t("toast_sb_error") + (err && err.message ? err.message : err)); }
+  } catch(err){ console.error("saveCat", err); toast(t("toast_sb_error") + (err && err.message ? err.message : err)); }
 }
 async function editCat(id){ const c = CATS.find(x=>x.id==id); if (!c) return; catShow(); $("catFormTitle").textContent = t("cat_edit"); $("cId").value = c.id; $("cName").value = c.name; $("cSlug").value = c.slug; $("cSort").value = c.sort; $("cDefault").checked = !!c.is_default; $("cAlt").value = c.image_alt || ""; catImgTemp = c.image_url || ""; $("cImgPrev").innerHTML = c.image_url ? `<img src="${esc(c.image_url)}">` : "🏷️"; }
 async function delCat(id){ if (!confirm(t("confirm_del_cat"))) return; await sb.from('categories').delete().eq('id', id); await loadCategories(); fillProdCatSelect(); renderCats(); toast(t("toast_deleted")); }
