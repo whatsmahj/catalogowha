@@ -1502,7 +1502,21 @@ async function addProdImages(files){
 }
   (function initDrop(){ const dz = $("dropZone"); if (!dz) return; ["dragenter","dragover"].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.classList.add("drag"); })); ["dragleave","drop"].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.classList.remove("drag"); })); dz.addEventListener("drop", e => { if (e.dataTransfer.files && e.dataTransfer.files.length) addProdImages(e.dataTransfer.files); }); })();
 function renderPreview(){ const name = $("fName").value || "—"; const price = parseFloat($("fPrice").value) || 0; const promo = parseFloat($("fPromo").value) || null; const emoji = $("fEmoji").value; const img = prodImgs[0]; $("pvName").textContent = name; $("curLabel").textContent = S.config.currency || "—"; $("pvPrice").innerHTML = esc(money(promo||price)) + (promo ? ` <s>${esc(money(price))}</s>` : ""); $("pvImg").innerHTML = img ? `<img src="${esc(img)}" alt="">` : esc(emoji || "🛍️"); $("pvDesc").innerHTML = $("fRich").innerHTML; }
-async function saveProd(){ if (!requireAuth()) return; await refreshMe(ME.id); if (!BIZ){ toast(t("toast_sb_error") + " (sin negocio activo)"); return; } const n = $("fName").value.trim(), cat = $("fCat").value.trim(), pr = parseFloat($("fPrice").value); if (!n || !cat || isNaN(pr)) return toast(t("toast_fill")); const slug = $("fSlug").value.trim() || slugify(n); const rich = $("fRich").innerHTML; const row = { business_id:BIZ.id, name:n, category:cat, price:pr, promo: $("fPromo").value ? parseFloat($("fPromo").value) : null, emoji:$("fEmoji").value.trim(), image_url: prodImgs[0] || "", images: prodImgs, description_rich: rich, description: $("fRich").textContent.trim(), slug, sort: parseInt($("fSort").value)||0 }; const id = $("fId").value; if (id) await sb.from('products').update(row).eq('id', id); else await sb.from('products').insert(Object.assign({ active:true }, row)); clearForm(); renderAdmin(); toast(t("toast_saved")); }
+async function saveProd(){
+  if (!requireAuth()) return;
+  if (!BIZ){ toast(t("toast_sb_error") + " (sin negocio activo)"); return; }
+  const n = $("fName").value.trim(), cat = $("fCat").value.trim(), pr = parseFloat($("fPrice").value);
+  if (!n || !cat || isNaN(pr)) return toast(t("toast_fill"));
+  const slug = $("fSlug").value.trim() || slugify(n);
+  const rich = $("fRich").innerHTML;
+  const row = { business_id:BIZ.id, name:n, category:cat, price:pr, promo: $("fPromo").value ? parseFloat($("fPromo").value) : null, emoji:$("fEmoji").value.trim(), image_url: prodImgs[0] || "", images: prodImgs, description_rich: rich, description: $("fRich").textContent.trim(), slug, sort: parseInt($("fSort").value)||0 };
+  const id = $("fId").value;
+  try {
+    if (id){ const { error } = await sb.from('products').update(row).eq('id', id); if (error) throw error; }
+    else { const { error } = await sb.from('products').insert(Object.assign({ active:true }, row)); if (error) throw error; }
+    clearForm(); renderAdmin(); toast(t("toast_saved"));
+  } catch(err){ console.error("saveProd", err); toast(t("toast_sb_error") + (err && err.message ? err.message : err)); }
+}
 function editProd(id){ const p = S.products.find(x=>x.id==id); $("fId").value=p.id; $("fName").value=p.name; $("fSlug").value=p.slug||slugify(p.name); fillProdCatSelect(p.cat); $("fPrice").value=p.price; $("fPromo").value=p.promo||""; $("fEmoji").value=p.emoji||""; $("fSort").value=p.sort||0; $("fRich").innerHTML=p.rich||esc(p.desc||""); prodImgs = (p.images && p.images.length) ? [...p.images] : (p.img?[p.img]:[]); renderImgSlots(); renderPreview(); $("formTitle").textContent=t("edit_prod"); window.scrollTo(0,0); }
 function clearForm(){ $("fId").value=""; ["fName","fSlug","fPrice","fPromo","fEmoji"].forEach(i=>{const e=$(i); if(e) e.value="";}); $("fSort").value="0"; $("fRich").innerHTML=""; prodImgs = []; fillProdCatSelect(); renderImgSlots(); renderPreview(); $("formTitle").textContent=t("add_prod"); }
 async function delProd(id){ if (!confirm(t("confirm_delete_prod"))) return; await sb.from('products').delete().eq('id', id); renderAdmin(); toast(t("toast_deleted")); }
