@@ -1019,7 +1019,7 @@ function getPlat(){ const d = { name:"Catalogo Wha", supportWa:"212690157092", c
 function savePlat(p){ localStorage.setItem(PLAT_KEY, JSON.stringify(p)); }
 function applyPlat(){ const p = getPlat(); const wa = $("contactWaLink"); if (wa){ wa.href = "https://wa.me/" + p.supportWa; wa.textContent = "+" + p.supportWa; } ["contactMailLink","footMailLink","catMailLink"].forEach(id => { const el = $(id); if (el){ el.href = "mailto:" + p.contactEmail; el.textContent = (id === "footMailLink" ? "✉ " : "") + p.contactEmail; } }); }
 
-const COUNTRIES = [ ["212","🇲🇦","Marruecos / Maroc"], ["34","🇪🇸","España"], ["33","🇫🇷","France"], ["1","🇺🇸","USA / Canadá"], ["52","🇲","México"], ["57","🇨","Colombia"], ["51","🇵🇪","Perú"], ["54","🇦🇷","Argentina"], ["56","🇨","Chile"], ["593","🇪🇨","Ecuador"], ["58","🇻🇪","Venezuela"], ["591","🇧🇴","Bolivia"] ];
+const COUNTRIES = [ ["212","🇲🇦","Marruecos / Maroc"], ["34","🇪🇸","España"], ["33","🇫🇷","France"], ["1","🇺🇸","USA / Canadá"], ["52","🇲🇽","México"], ["57","🇨🇴","Colombia"], ["51","🇵🇪","Perú"], ["54","🇦🇷","Argentina"], ["56","🇨🇱","Chile"], ["593","🇪🇨","Ecuador"], ["58","🇻","Venezuela"], ["591","🇧🇴","Bolivia"] ];
 const CURRENCIES = [ ["MAD","Dirham marroquí"], ["EUR","Euro"], ["USD","Dólar estadounidense"], ["MXN","Peso mexicano"], ["COP","Peso colombiano"], ["PEN","Sol peruano"], ["ARS","Peso argentino"], ["CLP","Peso chileno"], ["VES","Bolívar"], ["BOB","Boliviano"] ];
 const TIMEZONES = ["Africa/Casablanca","Europe/Madrid","Europe/Paris","America/Mexico_City","America/Bogota","America/Lima","America/Santiago","America/Argentina/Buenos_Aires","UTC"];
 
