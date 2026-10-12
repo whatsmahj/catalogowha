@@ -823,7 +823,12 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 <div class="card">
 <h3 data-i18n="lib_title">Bibliothèque</h3>
 <p style="font-size:13.5px;margin:6px 0 14px" data-i18n="lib_desc">Upload + cloud.</p>
+<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px">
+<select id="libCatFilter" onchange="renderMedia()" style="flex:1;min-width:180px;border:1px solid var(--line);border-radius:10px;padding:9px 12px;font:inherit;background:var(--bg)"></select>
 <label class="btn btn-primary btn-sm" style="cursor:pointer">📤 <span data-i18n="lib_upload">Uploader</span><input type="file" accept="image/*" multiple hidden onchange="uploadImgs(this.files);this.value=''"></label>
+</div>
+<div class="dropzone" id="libDropZone" style="margin-top:0">📤 <span data-i18n="prod_drop">Glissez ou cliquez</span></div>
+<input type="file" id="fileLib" accept="image/*" multiple hidden onchange="uploadImgs(this.files);this.value=''">
 <div class="lib-grid" id="libGrid"></div>
 </div>
 <div class="card" style="margin-top:22px">
