@@ -1310,13 +1310,79 @@ function bizToState(b, products){ return { userId: b.owner_id, bizId: b.id, conf
 function loadCurrentState(){ S = { userId:null, bizId:null, config:{ businessName:"—", whatsapp:"", email:"", currency:"", payments:["Efectivo"], bannerEyebrow:"", bannerTitle:"", deliveryEnabled:false, deliveryCost:0, created:false, catImages:{}, category:"", avatar:"", deliveryMode:"whatsapp", deliveryModes:[], cardStyle:"classic" }, products:[], orders:[] }; }
 function money(n){ return (S.config.currency || "") + numFmt.format(Number(n)); }
 function toast(m){ const s = $("toastStack"); const el = document.createElement("div"); el.className="toast"; el.textContent=m; s.appendChild(el); requestAnimationFrame(()=>el.classList.add("on")); setTimeout(()=>{ el.classList.remove("on"); setTimeout(()=>el.remove(),300); },2600); }
-async function libList(){ if (!ME) return []; const { data } = await sb.storage.from('catalog-images').list(ME.id + "/lib", { sortBy:{ column:"created_at", order:"desc" } }); return (data||[]).map(f => ({ name:f.name, url: sb.storage.from('catalog-images').getPublicUrl(ME.id + "/lib/" + f.name).data.publicUrl })); }
-async function uploadImgs(files){ if (!ME) return; let n = 0; for (const f of files){ if (!f.type.startsWith("image/")) continue; try { const d = await compress(f); const path = ME.id + "/lib/" + Date.now().toString(36) + "-" + n + "-" + Math.random().toString(36).slice(2,6) + ".jpg"; await uploadDataUrl(d, path); n++; } catch(e){} } if (n) toast(t("lib_added") + " (" + n + ")"); renderMedia(); }
-async function delMedia(name){ if (!confirm(t("confirm_delete_img"))) return; await sb.storage.from('catalog-images').remove([ME.id + "/lib/" + name]); toast(t("lib_deleted")); renderMedia(); }
-async function renderMedia(){ if (!ME) return; const items = await libList(); $("libGrid").innerHTML = items.length ? items.map(m => `<div class="lib-item"><img src="${esc(m.url)}" alt="" loading="lazy"><button class="lib-del" onclick="delMedia('${esc(m.name)}')">🗑️</button></div>`).join("") : `<p style="grid-column:1/-1;color:var(--muted)">${esc(t("lib_empty"))}</p>`; const cats = CATS.length ? CATS.map(c=>c.name) : [...new Set(S.products.map(p => p.cat))]; $("catImgList").innerHTML = cats.length ? cats.map(cn => { const src = (S.config.catImages||{})[cn]; return `<div class="catimg-row">${src ? `<img src="${esc(src)}" alt="">` : `<span style="font-size:24px">🏷️</span>`}<b>${esc(cn)}</b><button class="btn btn-ghost btn-sm" onclick="openPicker('cat:${esc(cn).replace(/'/g,"\\'")}')">${esc(t("lib_cat_assign"))}</button>${src ? `<button class="btn btn-ghost btn-sm" onclick="clearCatImg('${esc(cn).replace(/'/g,"\\'")}')">${esc(t("lib_cat_clear"))}</button>` : ""}</div>`; }).join("") : `<p style="color:var(--muted)">${esc(t("lib_cat_none"))}</p>`; }
-let pickTarget = null;
-async function openPicker(target){ if (!ME) return; pickTarget = target; const items = await libList(); $("pickGrid").innerHTML = items.length ? items.map(m => `<div class="lib-item pick" onclick="pickMedia('${esc(m.url).replace(/'/g,"\\'")}')" role="button" tabindex="0"><img src="${esc(m.url)}" alt="" loading="lazy"></div>`).join("") : `<p style="grid-column:1/-1;color:var(--muted)">${esc(t("lib_empty"))}</p>`; $("modalPicker").classList.add("on"); $("scrim").classList.add("on"); }
-function pickMedia(url){ if (pickTarget === "prodimg"){ if (prodImgs.length < 5){ prodImgs.push(url); renderImgSlots(); renderPreview(); } } else if (pickTarget === "catimg"){ catImgTemp = url; $("cImgPrev").innerHTML = `<img src="${url}">`; } else if (pickTarget === "headerimg"){ headerImgTemp = url; const pv = $("hImgPrev"); if (pv) pv.innerHTML = `<img src="${url}" style="width:100%;height:100%;object-fit:cover">`; } else if (pickTarget === "seoimg"){ seoImgTemp = url; const pv = $("seoImgPrev"); if (pv) pv.innerHTML = `<img src="${url}" style="width:100%;height:100%;object-fit:cover">`; renderSeoPrev(); } else if (typeof pickTarget === "string" && pickTarget.startsWith("cat:")){ S.config.catImages = S.config.catImages || {}; S.config.catImages[pickTarget.slice(4)] = url; sb.from('businesses').update({ cat_images: S.config.catImages }).eq('id', S.bizId); renderMedia(); } closeAll(); toast("✓"); }
+let pickCategory = null;
+async function libList(category){
+  if (!ME) return [];
+  const all = [];
+  const folders = category ? [ME.id + "/lib/" + encodeURIComponent(category)] : [ME.id + "/lib/general"];
+  for (const folder of folders){
+    try {
+      const { data } = await sb.storage.from('catalog-images').list(folder, { sortBy:{ column:"created_at", order:"desc" } });
+      if (data) data.forEach(f => all.push({ name:f.name, url: sb.storage.from('catalog-images').getPublicUrl(folder + "/" + f.name).data.publicUrl, category: category || "general" }));
+    } catch(e){}
+  }
+  if (!category){
+    try {
+      const { data } = await sb.storage.from('catalog-images').list(ME.id + "/lib/", { sortBy:{ column:"created_at", order:"desc" } });
+      if (data) data.forEach(f => { if (!f.name.includes("/")) all.push({ name:f.name, url: sb.storage.from('catalog-images').getPublicUrl(ME.id + "/lib/" + f.name).data.publicUrl, category: "legacy" }); });
+    } catch(e){}
+  }
+  return all;
+}
+async function uploadImgs(files){
+  if (!ME) return;
+  const cat = $("libCatFilter") ? $("libCatFilter").value : "";
+  const folder = cat ? ME.id + "/lib/" + encodeURIComponent(cat) : ME.id + "/lib/general";
+  let n = 0;
+  for (const f of files){
+    if (!f.type.startsWith("image/")) continue;
+    try {
+      const d = await compress(f);
+      const path = folder + "/" + Date.now().toString(36) + "-" + n + "-" + Math.random().toString(36).slice(2,6) + ".jpg";
+      await uploadDataUrl(d, path);
+      n++;
+    } catch(e){}
+  }
+  if (n) toast(t("lib_added") + " (" + n + ")");
+  renderMedia();
+}
+async function delMedia(name, category){
+  if (!confirm(t("confirm_delete_img"))) return;
+  const cat = category || ($("libCatFilter") ? $("libCatFilter").value : "") || "general";
+  const folder = cat === "legacy" ? ME.id + "/lib/" : (cat ? ME.id + "/lib/" + encodeURIComponent(cat) : ME.id + "/lib/general");
+  await sb.storage.from('catalog-images').remove([folder + "/" + name]);
+  toast(t("lib_deleted")); renderMedia();
+}
+async function renderMedia(){
+  if (!ME) return;
+  const sel = $("libCatFilter");
+  if (sel){
+    const cats = CATS.length ? CATS.map(c=>c.name) : [...new Set(S.products.map(p => p.cat))];
+    sel.innerHTML = `<option value="">${esc(LANG==="ar"?"الكل":LANG==="fr"?"Tous":"Todos")} / General</option>` + cats.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join("");
+  }
+  const cat = sel ? sel.value : "";
+  const items = await libList(cat || null);
+  $("libGrid").innerHTML = items.length ? items.map(m => `<div class="lib-item"><img src="${esc(m.url)}" alt="" loading="lazy"><button class="lib-del" onclick="delMedia('${esc(m.name)}','${esc(m.category||"general")}')">🗑️</button></div>`).join("") : `<p style="grid-column:1/-1;color:var(--muted)">${esc(t("lib_empty"))}</p>`;
+  const catsForImg = CATS.length ? CATS.map(c=>c.name) : [...new Set(S.products.map(p => p.cat))];
+  $("catImgList").innerHTML = catsForImg.length ? catsForImg.map(cn => { const src = (S.config.catImages||{})[cn]; return `<div class="catimg-row">${src ? `<img src="${esc(src)}" alt="">` : `<span style="font-size:24px">🏷️</span>`}<b>${esc(cn)}</b><button class="btn btn-ghost btn-sm" onclick="openPicker('cat:${esc(cn).replace(/'/g,"\\'")}')">${esc(t("lib_cat_assign"))}</button>${src ? `<button class="btn btn-ghost btn-sm" onclick="clearCatImg('${esc(cn).replace(/'/g,"\\'")}')">${esc(t("lib_cat_clear"))}</button>` : ""}</div>`; }).join("") : `<p style="color:var(--muted)">${esc(t("lib_cat_none"))}</p>`;
+}
+async function openPicker(target, category){
+  if (!ME) return;
+  pickTarget = target;
+  pickCategory = category || null;
+  const items = await libList(pickCategory);
+  $("pickGrid").innerHTML = items.length ? items.map(m => `<div class="lib-item pick" onclick="pickMedia('${esc(m.url).replace(/'/g,"\\'")}')" role="button" tabindex="0"><img src="${esc(m.url)}" alt="" loading="lazy"></div>`).join("") : `<p style="grid-column:1/-1;color:var(--muted)">${esc(t("lib_empty"))}</p>`;
+  $("modalPicker").classList.add("on"); $("scrim").classList.add("on");
+}
+function pickMedia(url){
+  if (pickTarget === "prodimg"){ if (prodImgs.length < 5){ prodImgs.push(url); renderImgSlots(); renderPreview(); } }
+  else if (pickTarget === "catimg"){ catImgTemp = url; $("cImgPrev").innerHTML = `<img src="${url}">`; }
+  else if (pickTarget === "headerimg"){ headerImgTemp = url; const pv = $("hImgPrev"); if (pv) pv.innerHTML = `<img src="${url}" style="width:100%;height:100%;object-fit:cover">`; }
+  else if (pickTarget === "seoimg"){ seoImgTemp = url; const pv = $("seoImgPrev"); if (pv) pv.innerHTML = `<img src="${url}" style="width:100%;height:100%;object-fit:cover">`; renderSeoPrev(); }
+  else if (typeof pickTarget === "string" && pickTarget.startsWith("cat:")){ S.config.catImages = S.config.catImages || {}; S.config.catImages[pickTarget.slice(4)] = url; sb.from('businesses').update({ cat_images: S.config.catImages }).eq('id', S.bizId); renderMedia(); }
+  closeAll(); toast("✓");
+}
+function clearCatImg(cn){ delete (S.config.catImages||{})[cn]; sb.from('businesses').update({ cat_images:S.config.catImages }).eq('id', S.bizId); renderMedia(); toast("✓"); }
 function clearCatImg(cn){ delete (S.config.catImages||{})[cn]; sb.from('businesses').update({ cat_images:S.config.catImages }).eq('id', S.bizId); renderMedia(); toast("✓"); }
 async function loadCategories(){ if (!ME || !BIZ){ CATS = []; return; } const { data } = await sb.from('categories').select('*').eq('business_id', BIZ.id).order('sort', { ascending:true }); CATS = data || []; }
 async function ensureDefaultCat(){ if (!BIZ) return; const { data } = await sb.from('categories').select('id').eq('business_id', BIZ.id).limit(1); if (!data || !data.length){ await sb.from('categories').insert({ business_id:BIZ.id, name:"Otros", slug:"otros", sort:999, is_default:true }); } }
