@@ -763,7 +763,7 @@ footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0;font
 <div class="imgslots" id="imgSlots"></div>
 <div class="dropzone" id="dropZone" onclick="$('fileProd').click()" data-i18n="prod_drop">Glissez ou cliquez</div>
 <input type="file" id="fileProd" accept="image/*" multiple hidden onchange="addProdImages(this.files);this.value=''">
-<div style="display:flex;gap:8px;margin-top:8px"><button type="button" class="btn btn-ghost btn-sm" onclick="openPicker('prodimg')">🖼️ <span data-i18n="lib_choose">Bibliothèque</span></button></div>
+<div style="display:flex;gap:8px;margin-top:8px"><button type="button" class="btn btn-ghost btn-sm" onclick="openPicker('prodimg', $('fCat').value)">🖼️ <span data-i18n="lib_choose">Bibliothèque</span></button></div>
 <div class="hint" data-i18n="prod_imgs_d">Jusqu'à 5. La 1ère = principale.</div>
 </div>
 <div style="display:flex;gap:10px"><button class="btn btn-primary btn-sm" onclick="saveProd()" data-i18n="save">Enregistrer</button><button class="btn btn-ghost btn-sm" onclick="clearForm()" data-i18n="clear">Effacer</button></div>
